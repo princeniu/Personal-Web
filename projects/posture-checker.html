@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posture Checker - Project Details</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/animations.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Zhuo (Prince) Niu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#portfolio">Portfolio</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Details Section -->
+    <section class="project-details-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="project-header text-center">
+                        <h1>Posture Checker</h1>
+                        <div class="project-meta">
+                            <span class="project-category">Mobile APP Development</span>
+                            <span class="project-duration">2023</span>
+                        </div>
+                    </div>
+
+                    <div class="project-hero-image" data-aos="fade-up">
+                        <img src="../images/portfolio/postureChecker.webp" alt="Posture Checker App" class="img-fluid">
+                    </div>
+
+                    <div class="project-content" data-aos="fade-up">
+                        <h2>Project Overview</h2>
+                        <p>Posture Checker is a mobile application designed to help users maintain proper posture during daily activities. Using advanced computer vision and machine learning techniques, the app provides real-time posture analysis and feedback.</p>
+
+                        <h2>Key Features</h2>
+                        <ul>
+                            <li>Real-time posture detection using device camera</li>
+                            <li>TensorFlow Lite integration for efficient on-device processing</li>
+                            <li>Customizable posture alerts and notifications</li>
+                            <li>Progress tracking and analytics</li>
+                            <li>Cross-platform compatibility (iOS & Android)</li>
+                        </ul>
+
+                        <h2>Technical Implementation</h2>
+                        <div class="tools-used">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">TensorFlow Lite</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+
+                        <h2>Development Process</h2>
+                        <ul>
+                            <li>Research and planning phase for optimal posture detection algorithms</li>
+                            <li>UI/UX design in Figma with focus on user experience</li>
+                            <li>Implementation of core features using React Native</li>
+                            <li>Integration of TensorFlow Lite for posture analysis</li>
+                            <li>Extensive testing and optimization</li>
+                        </ul>
+
+                        <h2>Challenges & Solutions</h2>
+                        <p>One of the main challenges was optimizing the machine learning model for mobile devices while maintaining accuracy. This was solved by:</p>
+                        <ul>
+                            <li>Model quantization to reduce size and improve performance</li>
+                            <li>Implementing efficient frame processing</li>
+                            <li>Optimizing camera feed handling</li>
+                        </ul>
+
+                        <h2>Results</h2>
+                        <p>The app successfully achieves real-time posture detection with high accuracy while maintaining smooth performance on both iOS and Android devices.</p>
+
+                        <div class="project-links mt-4">
+                            <a href="https://github.com/princeniu/Posture-Checker" target="_blank" class="btn btn-primary">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-navigation" data-aos="fade-up">
+                        <a href="../index.html#portfolio" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 

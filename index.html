@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhuo Niu - Computer Engineer & UX Designer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-i18n="name">Zhuo (Prince) Niu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav-home"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav-about"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio" data-i18n="nav-portfolio"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="nav-skills"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates" data-i18n="nav-certificates"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav-contact"></a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
+                            <span class="lang-text">中文</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero fade-in">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-lg-9 d-flex flex-column justify-content-center" data-aos="fade-right">
+                    <div class="hero-content text-center">
+                        <h1 data-i18n="name"></h1>
+                        <h2 data-i18n="hero-title"></h2>
+                        <p data-i18n="hero-description"></p>
+                        <a href="#portfolio" class="btn btn-primary" data-i18n="hero-cta"></a>
+                    </div>
+                </div>
+                <div class="col-lg-3" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="images/image.JPG" alt="Zhuo Niu" class="img-fluid floating-animation">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title" data-i18n="about-title"></h2>
+                    <p class="lead" data-i18n="about-lead"></p>
+                    <div class="about-content">
+                        <p data-i18n="about-description-1"></p>
+                        <p data-i18n="about-description-2"></p>
+                        
+                        <!-- 添加相关课程部分 -->
+                        <div class="relevant-courses mt-4">
+                            <h3 data-i18n="about-courses-title"></h3>
+                            <div class="courses-grid">
+                                <span class="course-tag" data-i18n="course-advanced-c">Advanced C Programming</span>
+                                <span class="course-tag" data-i18n="course-data-structures">Data Structures</span>
+                                <span class="course-tag" data-i18n="course-os">Operating Systems Engineering</span>
+                                <span class="course-tag" data-i18n="course-data-science">Data Science</span>
+                                <span class="course-tag" data-i18n="course-digital-system">Digital System Design</span>
+                                <span class="course-tag" data-i18n="course-microprocessor">Microprocessor Systems</span>
+                                <span class="course-tag" data-i18n="course-signals">Signals and Systems</span>
+                                <span class="course-tag" data-i18n="course-graphics">Computer Graphics</span>
+                                <span class="course-tag" data-i18n="course-security">Computer Security</span>
+                                <span class="course-tag" data-i18n="course-data-mining">Data Mining</span>
+                                <span class="course-tag" data-i18n="course-ai">AI</span>
+                            </div>
+                        </div>
+
+                        <div class="personal-interests mt-4">
+                            <h3 data-i18n="about-interests-title"></h3>
+                            <ul>
+                                <li data-i18n="about-interest-1"></li>
+                                <li data-i18n="about-interest-2"></li>
+                                <li data-i18n="about-interest-3"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-image-carousel">
+                        <div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="images/about/about-1.jpg" class="d-block w-100" alt="About Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/about/about-2.jpg" class="d-block w-100" alt="About Image 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/about/about-3.jpg" class="d-block w-100" alt="About Image 3">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-i18n="portfolio-title"></h2>
+            
+            <div class="row g-4" id="portfolio-grid">
+                <!-- Porsche UX Project -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/portfolio/porsche.jpg" alt="Porsche UX Design">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category" data-i18n="project-category-ux"></div>
+                            <h3 class="project-title" data-i18n="project-title-porsche"></h3>
+                            <p class="project-description" data-i18n="project-desc-porsche"></p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag" data-i18n="tag-prototyping"></span>
+                                <span class="tech-tag" data-i18n="tag-user-research"></span>
+                            </div>
+                            <div class="project-links">
+                                <a href="projects/porsche.html" class="project-link primary" data-i18n="view-details"></a>
+                                <a href="https://www.figma.com/proto/TChj1vQtMbdkn6XSOUwibF/%E4%BF%9D%E6%97%B6%E6%8D%B7%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92%E9%AB%98%E4%BF%9D%E7%9C%9F%E9%A1%B5%E9%9D%A2?page-id=0%3A1&node-id=32-919&node-type=canvas&viewport=356%2C563%2C0.46&t=SwgizqjvNyK4VwEa-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=32%3A919" target="_blank" class="project-link secondary" data-i18n="live-demo"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posture Checker Project -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/portfolio/postureChecker.webp" alt="Posture Checker Project">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category" data-i18n="project-category-mobile">Mobile APP Development</div>
+                            <h3 class="project-title" data-i18n="project-title-posture"></h3>
+                            <p class="project-description" data-i18n="project-desc-posture"></p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">iOS</span>
+                                <span class="tech-tag" data-i18n="tag-android"></span>
+                            </div>
+                            <div class="project-links">
+                                <a href="projects/posture-checker.html" class="project-link primary" data-i18n="view-details"></a>
+                                <a href="https://github.com/princeniu/Posture-Checker" target="_blank" class="project-link secondary" data-i18n="github"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Little Lemon Project -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/portfolio/little-lemon-logo.png" alt="Little Lemon Project">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category" data-i18n="project-category-lemon">UI&UX Design</div>
+                            <h3 class="project-title" data-i18n="project-title-lemon"></h3>
+                            <p class="project-description" data-i18n="project-desc-lemon"></p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag" data-i18n="tag-prototyping"></span>
+                                <span class="tech-tag" data-i18n="tag-user-research"></span>
+                            </div>
+                            <div class="project-links">
+                                <a href="projects/little-lemon.html" class="project-link primary" data-i18n="view-details"></a>
+                                <a href="https://www.figma.com/proto/4vpvHbwFyihF9EXhcYDxS1/Little-Lemon-Prototype?page-id=0%3A1&node-id=310-153&node-type=frame&viewport=-180%2C571%2C0.67&t=WH4mCG3lvDbYbGxZ-1&scaling=min-zoom&content-scaling=fixed" target="_blank" class="project-link secondary" data-i18n="live-demo"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-i18n="skills-title"></h2>
+            <div class="row">
+                <!-- Programming Languages -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-category" data-aos="fade-right">
+                        <h3 data-i18n="programming-languages"></h3>
+                        <div class="skill-item">
+                            <div class="skill-name">C/C++</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">React Native</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Swift</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design & Other Tools -->
+                <div class="col-md-6 mb-4">
+                    <div class="skill-category" data-aos="fade-left">
+                        <h3 data-i18n="design-tools"></h3>
+                        <div class="skill-item">
+                            <div class="skill-name">Figma</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Blender</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Git/GitHub</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">MS Office</div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar" style="--skill-percentage: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-i18n="certificates-title"></h2>
+            
+            <!-- Meta iOS Developer Certificates -->
+            <div class="certificate-group mb-5">
+                <h3 class="group-title" data-i18n="meta-cert-title"></h3>
+                <div class="row g-4">
+                    <!-- Introduction to iOS Mobile Application Development -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-meta-ios"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Meta</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag">iOS</span>
+                                    <span class="skill-tag">Swift</span>
+                                    <span class="skill-tag">Xcode</span>
+                                </div>
+                                <a href="https://coursera.org/verify/AS6YVC96TD9U" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Version Control -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-meta-vc"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Meta</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag">Git</span>
+                                    <span class="skill-tag">GitHub</span>
+                                    <span class="skill-tag" data-i18n="tag-version-control"></span>
+                                </div>
+                                <a href="https://coursera.org/verify/W2ZXP5MDVQAY" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Programming Fundamentals in Swift -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-meta-swift"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Meta</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag">Swift</span>
+                                    <span class="skill-tag" data-i18n="tag-ios-dev"></span>
+                                </div>
+                                <a href="https://coursera.org/verify/5K3UX5KHW5CQ" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Principles of UX/UI Design -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-meta-ux"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Meta</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag" data-i18n="tag-ui-design"></span>
+                                    <span class="skill-tag" data-i18n="tag-ux-design"></span>
+                                    <span class="skill-tag">Figma</span>
+                                </div>
+                                <a href="https://coursera.org/verify/LT6E6X5NUBJP" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- React Native -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-meta-react"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Meta</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag">React Native</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag" data-i18n="tag-mobile-dev"></span>
+                                </div>
+                                <a href="https://coursera.org/verify/L3V16WKKP0M0" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google UX Design Certificates -->
+            <div class="certificate-group">
+                <h3 class="group-title" data-i18n="google-cert-title"></h3>
+                <div class="row g-4">
+                    <!-- Foundations of UX -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-google-foundations"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Google</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag" data-i18n="tag-ux-fundamentals"></span>
+                                    <span class="skill-tag" data-i18n="tag-design-thinking"></span>
+                                </div>
+                                <a href="https://coursera.org/verify/VTSKVB3PP3RV" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UX Design Process -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-google-process"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Google</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag" data-i18n="tag-user-research"></span>
+                                    <span class="skill-tag" data-i18n="tag-design-process"></span>
+                                    <span class="skill-tag" data-i18n="tag-ideation"></span>
+                                </div>
+                                <a href="https://coursera.org/verify/VXK8NXLDP8LE" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Build Wireframes -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="certificate-card">
+                            <div class="certificate-content">
+                                <h3 data-i18n="cert-google-wireframes"></h3>
+                                <p class="certificate-issuer"><span data-i18n="issued-by"></span> Google</p>
+                                <p class="certificate-date">2023</p>
+                                <div class="certificate-skills">
+                                    <span class="skill-tag" data-i18n="tag-wireframing"></span>
+                                    <span class="skill-tag" data-i18n="tag-prototyping"></span>
+                                    <span class="skill-tag">Figma</span>
+                                </div>
+                                <a href="https://coursera.org/verify/24JT8Y6V5RX8" target="_blank" class="certificate-link">
+                                    <span data-i18n="view-certificate"></span> <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="contact-title"></h2>
+                    <p class="lead mb-4" data-i18n="contact-description"></p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:niu56@purdue.edu">niu56@purdue.edu</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/zhuoniu110/" target="_blank" data-i18n="linkedin-text"></a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/princeniu" target="_blank" data-i18n="github-text"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html> 
