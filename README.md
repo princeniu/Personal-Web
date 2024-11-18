@@ -4,7 +4,7 @@ A modern, responsive personal portfolio website showcasing my work as a Computer
 
 ## Overview
 
-This portfolio website is built with modern web technologies and features a clean, professional design with smooth animations and interactive elements. It's fully responsive and includes both light and dark themes.
+This portfolio website is built with modern web technologies and features a clean, professional design with smooth animations and interactive elements. It's fully responsive and includes both light and dark themes, as well as bilingual support (English/Chinese).
 
 ## Features
 
@@ -12,6 +12,7 @@ This portfolio website is built with modern web technologies and features a clea
 
 - Responsive layout optimized for all devices
 - Light/Dark theme toggle
+- Bilingual support (English/Chinese)
 - Smooth scrolling and animations
 - Interactive UI elements with hover effects
 - AOS (Animate On Scroll) integration
@@ -23,6 +24,7 @@ This portfolio website is built with modern web technologies and features a clea
 - Fixed navigation bar with smooth scrolling
 - Responsive mobile menu
 - Theme toggle button
+- Language switch button
 - Automatic active section highlighting
 
 #### Hero Section
@@ -93,6 +95,7 @@ This portfolio website is built with modern web technologies and features a clea
 - Responsive images with lazy loading
 - Smooth scrolling
 - Interactive UI elements
+- i18n (Internationalization) support
 
 ## File Structure
 
@@ -104,6 +107,7 @@ portfolio/
 │   └── animations.css
 ├── js/
 │   ├── main.js
+│   ├── translations.js
 │   └── animations.js
 ├── images/
 │   ├── profile/
@@ -124,6 +128,7 @@ portfolio/
 - AOS Library
 - Font Awesome
 - Google Fonts
+- i18n for multilingual support
 
 ## Performance Optimizations
 
@@ -133,6 +138,7 @@ portfolio/
 - Efficient DOM manipulation
 - Responsive image sizing
 - CSS performance best practices
+- Language switch without page reload
 
 ## Browser Support
 
@@ -154,13 +160,19 @@ portfolio/
 - Content can be updated in index.html
 - Images can be replaced in the images directory
 - Animations can be adjusted in css/animations.css
+- Translations can be modified in js/translations.js
+
+## Language Support
+
+The website supports two languages:
+
+- English (Default)
+- Chinese (中文)
+
+Language switching is handled dynamically without page reload, using JavaScript to update content based on selected language. All text content is stored in translations.js and can be easily modified or extended to support additional languages.
 
 ## Contact
 
 - Email: niu56@purdue.edu
 - LinkedIn: [Zhuo Niu](https://www.linkedin.com/in/zhuoniu110/)
 - GitHub: [princeniu](https://github.com/princeniu)
-
-```
-
-```
