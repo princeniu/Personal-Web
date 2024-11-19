@@ -828,58 +828,140 @@ section + section {
     background-size: 200% 200%;
 } 
 
-/* Hero Section 样式更新 */
-.hero {
+/* Hero Section 样式优化 */
+.project-hero {
     min-height: 100vh;
-    padding: 0;
-    background: 
-        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%),
-        url('data:image/svg+xml,<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="30" fill="none"/><circle cx="15" cy="15" r="1" fill="%232B4C7E" opacity="0.2"/></svg>');
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 160px 0 80px;
     display: flex;
     align-items: center;
 }
 
-.hero-image {
-    position: relative;
-    padding: 2rem;
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-content .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.hero-content .row {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
     text-align: center;
-    width: 120%;
-    margin-left: -20%;
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content .lead {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 800px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-item i {
+    font-size: 2rem;
+    color: var(--primary-blue);
+}
+
+.highlight-item span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-    transform: scale(1.2);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-/* 悬浮效果 */
-.hero-image img:hover {
-    transform: scale(1.25);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+/* 深色模式调整 */
+[data-theme="dark"] .project-hero {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.9) 100%);
+}
+
+[data-theme="dark"] .highlight-item {
+    background: rgba(45, 45, 45, 0.9);
 }
 
 /* 响应式调整 */
 @media (max-width: 991px) {
-    .hero-image {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 3rem;
+    .hero-content h1 {
+        font-size: 2.8rem;
     }
-    
-    .hero-image img {
-        transform: scale(1.1);
+
+    .hero-content .lead {
+        font-size: 1.3rem;
     }
-    
-    .hero-image img:hover {
-        transform: scale(1.15);
+
+    .project-highlights {
+        grid-template-columns: 1fr;
+        max-width: 500px;
     }
 }
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-content .lead {
+        font-size: 1.1rem;
+    }
+} 
 
 /* 添加浮动动画 */
 .floating-animation {
@@ -1079,13 +1161,6 @@ section + section {
 } 
 
 /* Hero Section 内容居中样式 */
-.hero-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0;
-    margin-left: -5%;
-}
-
 .hero .col-lg-9 {
     min-height: 100vh;
     display: flex;
@@ -1311,7 +1386,7 @@ section + section {
     padding-bottom: 4rem;
 }
 
-/* 确保内容区域有足够的空间 */
+/* 确保内容区域有足够的空 */
 .skills-section .container {
     position: relative;
     z-index: 2;
@@ -1376,7 +1451,7 @@ section + section {
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     height: 100%;
-    min-height: 320px; /* 设置最小高度 */
+    min-height: 320px; /* 设最小高度 */
     display: flex;
     flex-direction: column;
 }
@@ -1509,3 +1584,810 @@ section + section {
         font-size: 1.4rem;
     }
 } 
+
+/* Project Details Page Styles */
+.project-details-section {
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+.content-section {
+    margin-bottom: 6rem;
+}
+
+/* Project Header */
+.project-header {
+    margin-bottom: 4rem;
+}
+
+.project-meta {
+    margin-top: 1.5rem;
+}
+
+/* Project Hero Image */
+.project-hero-image {
+    margin: 4rem 0;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Process Timeline */
+.process-timeline {
+    position: relative;
+    padding: 3rem 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Results Grid */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.result-item {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Project Links */
+.project-links {
+    margin-top: 4rem;
+}
+
+/* Project Navigation */
+.project-navigation {
+    position: fixed;
+    top: 100px;
+    left: 40px;
+    z-index: 1000;
+    margin-top: 4rem;
+}
+
+.project-navigation .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.project-navigation .btn:hover {
+    transform: translateX(-5px);
+    background: var(--primary-blue);
+    color: white;
+}
+
+.project-navigation .btn i {
+    font-size: 1.1rem;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .project-navigation .btn {
+    background: rgba(45, 45, 45, 0.9);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .project-navigation .btn:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project-navigation {
+        position: static;
+        margin-top: 4rem;
+        text-align: center;
+    }
+
+    .project-navigation .btn {
+        display: inline-flex;
+    }
+
+    .project-navigation .btn:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Typography Adjustments */
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .project-navigation {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project-details-section {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .content-section {
+        margin-bottom: 4rem;
+    }
+
+    .feature-grid,
+    .results-grid {
+        gap: 2rem;
+    }
+
+    .feature-item,
+    .result-item {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+} 
+
+/* Porsche Project Specific Styles */
+.project-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+}
+
+.project-nav .project-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 2rem;
+}
+
+.project-nav .nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.project-nav .nav-link {
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.project-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.project-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 120px 0 80px;
+    display: flex;
+    align-items: center;
+}
+
+.project-highlights {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-item i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+/* Split Section */
+.split-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+.process-step {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateX(10px);
+}
+
+.process-step h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+/* Voice Flow Diagram */
+.voice-flow-diagram {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.flow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.flow-step {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+/* Error Handling Section 样式调整 */
+.error-handling {
+    margin-top: 6rem; /* 增加上方间距 */
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.error-handling h3 {
+    margin-bottom: 3rem; /* 增加标题下方间距 */
+    color: var(--primary-blue);
+    text-align: center;
+}
+
+.error-scenarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem; /* 增加卡片之间的间距 */
+    margin-top: 2rem;
+}
+
+.scenario {
+    padding: 2.5rem; /* 增加内部间距 */
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .error-handling {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+[data-theme="dark"] .scenario {
+    background: rgba(35, 35, 35, 0.95);
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 100px 0 160px;
+    position: relative;
+    background: var(--bg-secondary);
+    transition: background-color 0.3s ease;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(45, 45, 45, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] {
+    .project-nav {
+        background: rgba(26, 26, 26, 0.95);
+    }
+
+    .process-step,
+    .voice-flow-diagram,
+    .flow-step,
+    .scenario {
+        background: rgba(45, 45, 45, 0.95);
+    }
+
+    .highlight-item {
+        background: rgba(45, 45, 45, 0.8);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .project-nav .project-title {
+        display: none;
+    }
+
+    .project-nav .nav-links {
+        gap: 1rem;
+    }
+
+    .process-step:hover {
+        transform: none;
+    }
+
+    .flow-steps {
+        grid-template-columns: 1fr;
+    }
+} 
+
+/* Porsche Project Hero Image Styles */
+.project-hero .hero-image {
+    width: 140%; 
+    height: auto;
+    margin-left: 10%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.project-hero .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1); /* 放大图片 */
+    transition: transform 0.5s ease;
+}
+
+/* 悬浮效果 */
+.project-hero .hero-image:hover img {
+    transform: scale(1.15);
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .project-hero .hero-image {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+    
+    .project-hero .hero-image img {
+        transform: scale(1.05);
+    }
+    
+    .project-hero .hero-image:hover img {
+        transform: scale(1.1);
+    }
+} 
+
+/* Design Showcase Carousel Styles */
+.design-showcase {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    margin: 2rem 0;
+    width: 160%; /* 设置基础宽度 */
+}
+
+.design-showcase .carousel {
+    border-radius: 20px;
+    width: 100%;
+    height: auto; /* 高度自动 */
+}
+
+.design-showcase .carousel-item img {
+    width: 150%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.design-showcase .carousel-caption {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    text-align: left;
+    transform: translateY(100%); /* 初始状态隐藏 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+    
+}
+
+.design-showcase .carousel-item {
+    position: relative;
+    width: 100%;
+    height: auto; /* 高度自动适应 */
+    object-fit: contain; /* 确保图片完整显示 */
+}
+
+/* 悬浮时显示标题和描述 */
+.design-showcase .carousel-item:hover .carousel-caption {
+    transform: translateY(0); /* 显示标题和描述 */
+}
+
+/* 优化标题和描述样式 */
+.design-showcase .carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0; /* 初始状态隐藏 */
+    transform: translateY(20px);
+    transition: all 0.3s ease 0.1s; /* 添加延迟效果 */
+}
+
+.design-showcase .carousel-caption p {
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease 0.2s; /* 添加更长的延迟 */
+}
+
+/* 悬浮时显示文字 */
+.design-showcase .carousel-item:hover .carousel-caption h5,
+.design-showcase .carousel-item:hover .carousel-caption p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .design-showcase .carousel-caption {
+        padding: 1.5rem;
+    }
+    
+    .design-showcase .carousel-caption h5 {
+        font-size: 1.2rem;
+    }
+    
+    .design-showcase .carousel-caption p {
+        font-size: 0.9rem;
+    }
+}
+
+/* 轮播控制按钮样式 */
+.design-showcase .carousel-control-prev,
+.design-showcase .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-secondary) ;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.design-showcase .carousel-control-prev {
+    left: 20px;
+}
+
+.design-showcase .carousel-control-next {
+    right: 20px;
+}
+
+.design-showcase .carousel-control-prev-icon,
+.design-showcase .carousel-control-next-icon {
+    filter: invert(1) grayscale(100);
+}
+
+/* 指示器样式 */
+.design-showcase .carousel-indicators {
+    bottom: 20px;
+    margin-bottom: 0;
+}
+
+.design-showcase .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--bg-secondary);
+    transition: all 0.3s ease;
+}
+
+.design-showcase .carousel-indicators button.active {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: scale(1.2);
+}
+
+/* 悬浮效果 */
+.design-showcase:hover .carousel-control-prev,
+.design-showcase:hover .carousel-control-next {
+    opacity: 1;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .design-showcase {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .design-showcase .carousel-item {
+        height: 350px;
+    }
+    
+    .design-showcase .carousel-caption {
+        padding: 1.5rem;
+    }
+    
+    .design-showcase .carousel-caption h5 {
+        font-size: 1.2rem;
+    }
+} 
+
+/* 图片放大模态框样式 */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.image-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+}
+
+/* 添加图片点击提示 */
+.design-showcase .carousel-item {
+    cursor: zoom-in;
+}
+
+/* Theme toggle and language toggle styles */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem; /* 增加左边距 */
+}
+
+#theme-toggle, #lang-toggle {
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle {
+    width: 40px; /* 固定宽度 */
+    height: 40px; /* 固定高度 */
+    border-radius: 50%; /* 圆形按钮 */
+    background: rgba(86, 126, 187, 0.1); /* 添加背景色 */
+}
+
+#theme-toggle:hover {
+    background: rgba(86, 126, 187, 0.2);
+    transform: rotate(15deg);
+}
+
+#theme-toggle i {
+    font-size: 1.2rem;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] #theme-toggle {
+    background: rgba(86, 126, 187, 0.2);
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+    background: rgba(86, 126, 187, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .theme-toggle {
+        margin-left: 1rem;
+    }
+}
+
+/* Voice Interaction Section */
+.card-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+/* Voice Flow Diagram */
+.voice-flow-diagram {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Error Handling Section */
+.error-handling {
+    margin-top: 6rem;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] {
+    .card-section {
+        background: #1a1a1a;
+    }
+
+    .feature-card,
+    .voice-flow-diagram,
+    .error-handling {
+        background: rgba(45, 45, 45, 0.95);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .flow-step,
+    .scenario {
+        background: rgba(35, 35, 35, 0.95);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}

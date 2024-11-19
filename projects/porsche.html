@@ -19,95 +19,315 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <!-- Fixed Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top project-nav">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Zhuo (Prince) Niu</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#portfolio">Portfolio</a></li>
-                    <li class="nav-item">
-                        <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
-                </ul>
+            <a class="navbar-brand" href="../index.html" data-i18n="name"></a>
+            <div class="project-title">Porsche Digital Interface (UI & UX Design Internship)</div>
+            <div class="nav-links">
+                <a href="#introduction" class="nav-link">Introduction</a>
+                <a href="#central-control" class="nav-link">Central Control</a>
+                <a href="#voice-interaction" class="nav-link">Voice Interaction</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
+                    <span class="lang-text">中文</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Project Details Section -->
-    <section class="project-details-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10" data-aos="fade-up">
-                    <div class="project-header text-center">
+    <!-- Introduction Section -->
+    <section id="introduction" class="project-hero">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
                         <h1>Porsche Digital Interface</h1>
-                        <div class="project-meta">
-                            <span class="project-category">UI&UX Design Internship</span>
-                            <span class="project-duration">Summer 2023</span>
+                        <p class="lead">Redesigning the in-car digital experience for Porsche Taycan, focusing on navigation system and voice interaction.</p>
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Central Control Interaction</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-microphone-alt"></i>
+                                <span>Voice Interaction System</span>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="project-hero-image" data-aos="fade-up">
-                        <img src="../images/portfolio/porsche-hero.jpg" alt="Porsche Digital Interface" class="img-fluid">
-                    </div>
-
-                    <div class="project-content" data-aos="fade-up">
-                        <h2>Project Overview</h2>
-                        <p>During my internship at Porsche, I was tasked with redesigning the in-car digital interface for next-generation vehicles. The project focused on enhancing user experience while maintaining driver safety.</p>
-
-                        <h2>Challenge</h2>
-                        <p>The main challenge was to create an intuitive interface that would minimize driver distraction while providing essential information and controls.</p>
-
-                        <h2>Process</h2>
-                        <ul>
-                            <li>Conducted user research with current Porsche owners</li>
-                            <li>Created user personas and journey maps</li>
-                            <li>Developed wireframes and prototypes</li>
-                            <li>Conducted usability testing</li>
-                            <li>Refined designs based on feedback</li>
-                        </ul>
-
-                        <h2>Tools Used</h2>
-                        <div class="tools-used">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">Prototyping</span>
-                            <span class="tech-tag">User Research</span>
-                        </div>
-
-                        <h2>Key Features</h2>
-                        <ul>
-                            <li>Customizable dashboard display</li>
-                            <li>Voice-controlled navigation</li>
-                            <li>Adaptive interface based on driving mode</li>
-                            <li>Integrated safety alerts</li>
-                        </ul>
-
-                        <h2>Results</h2>
-                        <p>The new interface design received positive feedback from both the Porsche design team and test users, with a 40% improvement in task completion time and a 30% reduction in reported driver distraction.</p>
-                    </div>
-
-                    <div class="project-navigation" data-aos="fade-up">
-                        <a href="../index.html#portfolio" class="btn btn-primary">
-                            <i class="fas fa-arrow-left"></i> Back to Portfolio
-                        </a>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="../images/portfolio/Porsche/porsche-hero.jpg" alt="Porsche Taycan Interior" class="hero-image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Central Control Section -->
+    <section id="central-control" class="split-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Central Control Interaction</h2>
+                <p class="subtitle">Innovative navigation interface design optimizing user experience while maintaining brand identity</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="design-process">
+                        <div class="process-step">
+                            <h3>01. Design Objective</h3>
+                            <p>Create an intuitive navigation interface that enhances user experience while maintaining Porsche's premium brand aesthetics.</p>
+                        </div>
+                        <div class="process-step">
+                            <h3>02. Research & Planning</h3>
+                            <ul>
+                                <li>User research with current Porsche owners</li>
+                                <li>Competitive analysis of luxury car interfaces</li>
+                                <li>Navigation flow optimization</li>
+                            </ul>
+                        </div>
+                        <div class="process-step">
+                            <h3>03. Design Process</h3>
+                            <ul>
+                                <li>Initial wireframes and user flow diagrams</li>
+                                <li>Low-fidelity prototypes and user testing</li>
+                                <li>High-fidelity UI design with brand elements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="design-showcase">
+                        <div id="designProcessCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#designProcessCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#designProcessCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#designProcessCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../images/portfolio/Porsche/中控/Taycan Central Control Interaction Flowchart.png" class="d-block w-100" alt="Initial Wireframes">
+                                    <div class="carousel-caption">
+                                        <h5>Flowchart</h5>
+                                        <p>Early stage navigation flow design</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../images/portfolio/Porsche/中控/AI语音助手低保真页面.png" class="d-block w-100" alt="Low-fidelity Prototype">
+                                    <div class="carousel-caption">
+                                        <h5>Low-fidelity Prototype</h5>
+                                        <p>User testing and iteration phase</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../images/portfolio/Porsche/中控/保时捷中控导航高保真页面.png" class="d-block w-100" alt="UI Design">
+                                    <div class="carousel-caption">
+                                        <h5>High-fidelity UI Design</h5>
+                                        <p>Final interface with brand elements</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#designProcessCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#designProcessCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Interaction Section -->
+    <section id="voice-interaction" class="card-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Voice Interaction</h2>
+                <p class="subtitle">Enhanced voice control system with natural language processing</p>
+            </div>
+            
+            <!-- Voice Interaction Features -->
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="feature-card">
+                        <div class="card-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Natural Language Processing</h3>
+                        <p>Advanced voice recognition system understanding natural speech patterns and contextual commands.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
+                        <h3>Multi-language Support</h3>
+                        <p>Seamless voice interaction in multiple languages with dialect recognition capabilities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="card-icon"><i class="fas fa-magic"></i></div>
+                        <h3>Contextual Awareness</h3>
+                        <p>Smart system that understands context and provides relevant responses based on driving conditions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Flow Diagram -->
+            <div class="voice-flow-diagram" data-aos="fade-up">
+                <h3>Voice Interaction Flow</h3>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4>Voice Input</h4>
+                            <p>User initiates voice command</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4>Processing</h4>
+                            <p>Natural language processing and intent recognition</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4>Context Analysis</h4>
+                            <p>Evaluating driving context and user preferences</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h4>Response</h4>
+                            <p>Visual and audio feedback to user</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Handling -->
+            <div class="error-handling" data-aos="fade-up">
+                <h3>Error Handling & Feedback</h3>
+                <div class="error-scenarios">
+                    <div class="scenario">
+                        <h4>Voice Recognition Failure</h4>
+                        <p>Gentle audio prompt for command repetition with visual guidance</p>
+                    </div>
+                    <div class="scenario">
+                        <h4>Ambiguous Commands</h4>
+                        <p>Display multiple options for user selection</p>
+                    </div>
+                    <div class="scenario">
+                        <h4>Background Noise</h4>
+                        <p>Adaptive noise cancellation with visual status indicator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Design Gallery</h2>
+                <p class="subtitle">Visual journey through the design process <i class="fas fa-search-plus"></i></p>
+            </div>
+            
+            <div class="gallery-grid" data-aos="fade-up">
+                <!-- Gallery items will be added here -->
+                <div class="gallery-item">
+                    <img src="../images/portfolio/Porsche/语音/Simplified Voice Interaction Flow.png" alt="Initial Wireframe" onclick="enlargeImage(this)">
+                    <div class="gallery-caption">Simplified Voice Interaction Flow</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/portfolio/Porsche/语音/AI语音助手低保真页面.png" alt="Wireframe Iteration" onclick="enlargeImage(this)">
+                    <div class="gallery-caption">Wireframe Iteration</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/portfolio/Porsche/语音/语音助手高保真页面.png" alt="Final Design" onclick="enlargeImage(this)">
+                    <div class="gallery-caption">High-fidelity UI Design</div>
+                </div>
+            </div>
+            <script>
+                function enlargeImage(imgElement) {
+                    const modal = document.getElementById('imageModal');
+                    const modalImg = document.getElementById('modalImage');
+                    modalImg.src = imgElement.src;
+                    modal.classList.add('show');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            </script>
+    </section>
+
+    <!-- Navigation -->
+    <div class="project-navigation" data-aos="fade-up">
+        <a href="../index.html#portfolio" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="nav-portfolio"></span>
+        </a>
+    </div>
+
     <!-- Scripts -->
+    <script src="../js/translations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
+
+    <!-- 在body末尾添加模态框 -->
+    <div class="image-modal" id="imageModal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- 在其他脚本之后添加图片点击处理脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+        const carouselImages = document.querySelectorAll('.carousel-item img');
+
+        // 点击图片打开���态框
+        carouselImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modalImg.src = this.src;
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
+            });
+        });
+
+        // 点击关闭按钮或模态框外部关闭
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+    });
+    </script>
 </body>
 </html> 
