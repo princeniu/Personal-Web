@@ -1,0 +1,385 @@
+/* Little Lemon Project Specific Styles */
+
+/* 主题颜色 */
+:root {
+    --lemon-yellow: #F4CE14;
+    --lemon-green: #495E57;
+    --lemon-orange: #EE9972;
+    --lemon-peach: #FBDABB;
+    --lemon-white: #EDEFEE;
+    --lemon-black: #333333;
+}
+
+/* 导航栏样式优化 */
+.lemon-nav {
+    background: rgba(73, 94, 87, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+}
+
+.lemon-nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lemon-nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 2rem;
+}
+
+.lemon-nav .nav-link {
+    color: var(--lemon-white) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.lemon-nav .nav-link:hover {
+    color: var(--lemon-yellow) !important;
+    transform: translateY(-2px);
+}
+
+.lemon-nav .project-title {
+    color: var(--lemon-white);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 2rem;
+    white-space: nowrap;
+}
+
+/* 主题切换和语言切换按钮样式 */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .lemon-nav .project-title {
+        display: none;
+    }
+    
+    .lemon-nav .nav-links {
+        gap: 1rem;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .lemon-nav .nav-links {
+        display: none;
+    }
+    
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(73, 94, 87, 0.95);
+        padding: 1rem;
+    }
+    
+    .navbar-collapse.show .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+/* Hero Section 样式 */
+.lemon-hero {
+    background: linear-gradient(135deg, var(--lemon-green) 0%, #2D3A35 100%);
+    padding: 160px 0 80px;
+    color: var(--lemon-white);
+    min-height: 100vh;
+    padding: 160px 0 80px;
+    display: flex;
+    align-items: center;
+}
+
+.lemon-hero h1 {
+    color: var(--lemon-yellow);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.lemon-hero .lead {
+    color: var(--lemon-white);
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.lemon-hero-image {
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    margin-left: 20%;
+}
+
+.lemon-hero-image img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    transform: scale(1.2);
+}
+
+.lemon-hero-image img:hover {
+    transform: scale(1.25);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .lemon-hero-image {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .lemon-hero-image img {
+        transform: scale(1.1);
+    }
+    .lemon-hero-image img:hover {
+        transform: scale(1.15);
+    }
+}
+
+/* 项目亮点样式 */
+.project-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.highlight-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: rgba(244, 206, 20, 0.1);
+    transform: translateY(-5px);
+}
+
+.highlight-item i {
+    color: var(--lemon-yellow);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* 研究部分样式 */
+.lemon-section {
+    padding: 100px 0;
+    background: var(--lemon-white);
+}
+
+.research-content {
+    margin-top: 4rem;
+}
+
+.persona-card, .journey-map {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.persona-card:hover, .journey-map:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.persona-details, .journey-details {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* 设计过程样式 */
+.design-stages {
+    margin-top: 4rem;
+}
+
+.design-stage {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stage-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.stage-text {
+    text-align: center;
+}
+
+.stage-text ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.stage-text li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.stage-text li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--lemon-green);
+}
+
+/* 结果部分样式 */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.result-card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+}
+
+.result-icon {
+    font-size: 2.5rem;
+    color: var(--lemon-green);
+    margin-bottom: 1.5rem;
+}
+
+.result-card h3 {
+    font-size: 2.5rem;
+    color: var(--lemon-yellow);
+    margin-bottom: 1rem;
+}
+
+.prototype-link {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.prototype-link .btn-primary {
+    background-color: var(--lemon-green);
+    border-color: var(--lemon-green);
+    padding: 1rem 2rem;
+}
+
+.prototype-link .btn-primary:hover {
+    background-color: var(--lemon-yellow);
+    border-color: var(--lemon-yellow);
+    color: var(--lemon-black);
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] {
+    .lemon-section {
+        background: #1a1a1a;
+    }
+
+    .persona-card, .journey-map, .design-stage, .result-card {
+        background: #2d2d2d;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .stage-text li:before {
+        color: var(--lemon-yellow);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .project-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .lemon-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .project-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .design-stage {
+        padding: 2rem;
+    }
+}
+
+/* 标题样式 */
+.lemon-title {
+    color: var(--lemon-yellow);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Section Header 样式 */
+.section-header h2 {
+    color: var(--lemon-yellow);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* 其他标题样式 */
+.stage-header h3,
+.persona-details h3,
+.journey-details h3 {
+    color: var(--lemon-yellow);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .lemon-title,
+[data-theme="dark"] .section-header h2,
+[data-theme="dark"] .stage-header h3,
+[data-theme="dark"] .persona-details h3,
+[data-theme="dark"] .journey-details h3 {
+    color: var(--lemon-yellow);
+} 
