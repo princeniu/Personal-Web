@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posture Checker - Project Details</title>
+    <title>The Posture Checker - Mobile App Development</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,179 +19,268 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top project-nav">
         <div class="container">
             <a class="navbar-brand" href="../index.html" data-i18n="name"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html#home" data-i18n="nav-home"></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#portfolio" data-i18n="nav-portfolio"></a></li>
-                    <li class="nav-item">
-                        <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
-                    <li class="nav-item">
-                        <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
-                            <span class="lang-text">中文</span>
-                        </button>
-                    </li>
-                </ul>
+            <div class="project-title">The Posture Checker - Mobile App Development</div>
+            <div class="nav-links">
+                <a href="#introduction" class="nav-link">Introduction</a>
+                <a href="#app-logic" class="nav-link">App Logic</a>
+                <a href="#app-design" class="nav-link">App Design</a>
+                <a href="#app-development" class="nav-link">Development</a>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
+                    <span class="lang-text">中文</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Project Details Section -->
-    <section class="project-details-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10" data-aos="fade-up">
-                    <!-- Project Header -->
-                    <div class="project-header text-center">
-                        <h1 data-i18n="project-title-posture">Posture Checker</h1>
-                        <div class="project-meta">
-                            <span class="project-category" data-i18n="project-category-mobile"></span>
-                            <span class="project-duration">2023</span>
+    <!-- Hero Section -->
+    <section id="introduction" class="project-hero">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1>The Posture Checker</h1>
+                        <p class="lead">A wearable tech system combined with a mobile app to monitor posture, provide alerts, and visualize progress.</p>
+                        <div class="posture-project-highlights">
+                            <div class="posture-highlight-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Cross-platform Development</span>
+                            </div>
+                            <div class="posture-highlight-item">
+                                <i class="fas fa-bluetooth"></i>
+                                <span>Bluetooth Integration</span>
+                            </div>
+                            <div class="posture-highlight-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Data Visualization</span>
+                            </div>
+                            <div class="posture-highlight-item">
+                                <i class="fas fa-database"></i>
+                                <span>Data Storage</span>
+                            </div>
                         </div>
+                        <a href="#app-logic" class="btn btn-primary mt-4">Learn More</a>
                     </div>
-
-                    <!-- Project Hero Image -->
-                    <div class="project-hero-image" data-aos="fade-up">
-                        <img src="../images/portfolio/postureChecker.webp" alt="Posture Checker App" class="img-fluid">
-                    </div>
-
-                    <!-- Project Content -->
-                    <div class="project-content" data-aos="fade-up">
-                        <!-- Overview Section -->
-                        <div class="content-section">
-                            <h2>Project Overview</h2>
-                            <p data-i18n="project-desc-posture"></p>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="posture-hero-image">
+                            <img src="../images/portfolio/posturechecker/device-frame-4.png" alt="Posture Checker App" class="img-fluid">
                         </div>
-
-                        <!-- Key Features Section -->
-                        <div class="content-section">
-                            <h2>Key Features</h2>
-                            <div class="feature-grid">
-                                <div class="feature-item">
-                                    <i class="fas fa-camera"></i>
-                                    <h3>Real-time Detection</h3>
-                                    <p>Real-time posture detection using device camera</p>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    <h3>Cross-platform</h3>
-                                    <p>Compatible with both iOS and Android devices</p>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-bell"></i>
-                                    <h3>Smart Alerts</h3>
-                                    <p>Customizable posture alerts and notifications</p>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-chart-line"></i>
-                                    <h3>Analytics</h3>
-                                    <p>Progress tracking and detailed analytics</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Technical Implementation -->
-                        <div class="content-section">
-                            <h2>Technical Implementation</h2>
-                            <div class="tools-used">
-                                <span class="tech-tag">React Native</span>
-                                <span class="tech-tag">TensorFlow Lite</span>
-                                <span class="tech-tag">Computer Vision</span>
-                                <span class="tech-tag">Machine Learning</span>
-                            </div>
-                        </div>
-
-                        <!-- Development Process -->
-                        <div class="content-section">
-                            <h2>Development Process</h2>
-                            <div class="process-timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-content">
-                                        <h3>Research & Planning</h3>
-                                        <p>Research and planning phase for optimal posture detection algorithms</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-content">
-                                        <h3>Design</h3>
-                                        <p>UI/UX design in Figma with focus on user experience</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-content">
-                                        <h3>Implementation</h3>
-                                        <p>Implementation of core features using React Native</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-content">
-                                        <h3>Integration</h3>
-                                        <p>Integration of TensorFlow Lite for posture analysis</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-content">
-                                        <h3>Testing</h3>
-                                        <p>Extensive testing and optimization</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Results Section -->
-                        <div class="content-section">
-                            <h2>Results</h2>
-                            <div class="results-grid">
-                                <div class="result-item">
-                                    <div class="result-number">95%</div>
-                                    <div class="result-label">Detection Accuracy</div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="result-number">30ms</div>
-                                    <div class="result-label">Processing Time</div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="result-number">4.8</div>
-                                    <div class="result-label">User Rating</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project Links -->
-                        <div class="project-links mt-4">
-                            <a href="https://github.com/princeniu/Posture-Checker" target="_blank" class="btn btn-primary">
-                                <i class="fab fa-github"></i> <span data-i18n="github"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Navigation -->
-                    <div class="project-navigation" data-aos="fade-up">
-                        <a href="../index.html#portfolio" class="btn btn-primary">
-                            <i class="fas fa-arrow-left"></i> <span data-i18n="nav-portfolio"></span>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- App Logic Section -->
+    <section id="app-logic" class="split-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Mobile App Logic</h2>
+                <p class="subtitle">Core architecture and data flow implementation</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="logic-diagrams">
+                        <div class="diagram-item">
+                            <img src="../images/portfolio/posturechecker/App Block Diagram.png" alt="App Block Diagram" class="img-fluid tech-diagram" onclick="enlargeImage(this)">
+                            <div class="diagram-caption">System Architecture Diagram</div>
+                        </div>
+                        <div class="diagram-item">
+                            <img src="../images/portfolio/posturechecker/App Activity Diagram.png" alt="App Activity Diagram" class="img-fluid tech-diagram" onclick="enlargeImage(this)">
+                            <div class="diagram-caption">User Activity Flow</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="tech-details">
+                        <div class="tech-item">
+                            <h3>React Native Architecture</h3>
+                            <p>Cross-platform development with shared codebase for iOS and Android</p>
+                            <ul>
+                                <li>BLE Module for real-time data transmission</li>
+                                <li>SQLite for structured data storage</li>
+                                <li>Chart Kit for data visualization</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h3>Activity Flow</h3>
+                            <p>User interaction process from device connection to data visualization</p>
+                            <div class="flow-steps">
+                                <div class="flow-step">Bluetooth Connection</div>
+                                <div class="flow-step">Posture Monitoring</div>
+                                <div class="flow-step">Data Processing</div>
+                                <div class="flow-step">Visual Feedback</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Design Section -->
+    <section id="app-design" class="design-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Mobile App Design</h2>
+                <p class="subtitle">From wireframes to high-fidelity prototypes</p>
+            </div>
+            
+            <!-- Design Process -->
+            <div class="design-process" data-aos="fade-up">
+                <!-- Wireframe Stage -->
+                <div class="design-stage">
+                    <div class="stage-header">
+                        <h3>Wireframe</h3>
+                        <p>Initial layout focusing on core functionality and user flow</p>
+                    </div>
+                    <div class="stage-content">
+                        <img src="../images/portfolio/posturechecker/Wireframe.png" alt="Wireframe" class="img-fluid">
+                    </div>
+                </div>
+
+                <!-- Final Design Stage -->
+                <div class="design-stage">
+                    <div class="stage-header">
+                        <h3>Final Design</h3>
+                        <p>Refined UI with emphasis on visual feedback and data presentation</p>
+                    </div>
+                    <div class="stage-content">
+                        <img src="../images/portfolio/posturechecker/Prototype.png" alt="Final Design" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Development Section -->
+    <section id="app-development" class="development-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Development & Implementation</h2>
+                <p class="subtitle">Technical implementation and key features</p>
+            </div>
+            
+            <!-- Tech Stack Cards -->
+            <div class="tech-stack" data-aos="fade-up">
+                <div class="tech-card">
+                    <i class="fab fa-react"></i>
+                    <h3>React Native</h3>
+                    <p>Cross-platform mobile development</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-bluetooth"></i>
+                    <h3>BLE Integration</h3>
+                    <p>Real-time data transmission</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-database"></i>
+                    <h3>SQLite & Storage</h3>
+                    <p>Efficient data management</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data Visualization</h3>
+                    <p>Interactive charts and graphs</p>
+                </div>
+            </div>
+
+            <!-- Implementation Screenshots -->
+            <div class="implementation-showcase" data-aos="fade-up">
+                <div class="implementation-grid">
+                    <div class="implementation-item">
+                        <img src="../images/portfolio/posturechecker/device-frame.png" alt="Implementation Screenshot 1">
+                        <div class="implementation-caption">Home Screen</div>
+                    </div>
+                    <div class="implementation-item">
+                        <img src="../images/portfolio/posturechecker/device-frame-5.png" alt="Implementation Screenshot 2">
+                        <div class="implementation-caption">Bluetooth Connection</div>
+                    </div>
+                    <div class="implementation-item">
+                        <img src="../images/portfolio/posturechecker/device-frame-4.png" alt="Implementation Screenshot 3">
+                        <div class="implementation-caption">Real-time Monitoring</div>
+                    </div>
+                    <div class="implementation-item">
+                        <img src="../images/portfolio/posturechecker/device-frame-3.png" alt="Implementation Screenshot 4">
+                        <div class="implementation-caption">Progress Tracking</div>
+                    </div>
+                    <div class="implementation-item">
+                        <img src="../images/portfolio/posturechecker/device-frame-2.png" alt="Implementation Screenshot 5">
+                        <div class="implementation-caption">Notification System</div>
+                    </div>
+                    <div class="implementation-item">
+                        <img src="../images/portfolio/posturechecker/device-frame-1.png" alt="Implementation Screenshot 6">
+                        <div class="implementation-caption">Settings Interface</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="project-navigation" data-aos="fade-up">
+        <a href="../index.html#portfolio" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> <span data-i18n="nav-portfolio"></span>
+        </a>
+    </div>
+
     <!-- Scripts -->
     <script src="../js/translations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
+
+    <!-- 在body末尾添加模态框 -->
+    <div class="image-modal" id="imageModal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- 在其他脚本之后添加图片点击处理脚本 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // 图片点击放大函数
+        window.enlargeImage = function(imgElement) {
+            modalImg.src = imgElement.src;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
+
+        // 点击关闭按钮或模态框外部关闭
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+    });
+    </script>
 </body>
 </html> 

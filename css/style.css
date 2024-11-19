@@ -1465,7 +1465,7 @@ section + section {
 }
 
 .certificate-content h3 {
-    font-size: 1.2rem; /* 减小标题字体 */
+    font-size: 1.2rem; /* 减小标字体 */
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 1rem;
@@ -2389,5 +2389,414 @@ p {
     .scenario {
         background: rgba(35, 35, 35, 0.95);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Posture Checker Project Specific Styles */
+.tech-details {
+    padding: 2rem;
+}
+
+.tech-item {
+    margin-bottom: 9.3rem;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.tech-item:hover {
+    transform: translateY(-5px);
+}
+.tech-item h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.tech-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tech-item li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.tech-item li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--text-accent);
+}
+
+/* Flow Steps */
+.flow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.flow-step {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.flow-step:hover {
+    transform: translateY(-5px);
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tech-card {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+}
+
+.tech-card i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.tech-card h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] {
+    .tech-item,
+    .flow-step,
+    .stage,
+    .tech-item li:before {
+        color: var(--text-accent);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .design-stages {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-item {
+        padding: 1.5rem;
+    }
+
+    .tech-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Posture Checker Hero Image Specific Styles */
+.posture-hero-image img {
+    width: 80%; 
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    transition: transform 0.3s ease;
+}
+
+.posture-hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Design Section Styles */
+.design-section {
+    padding: 100px 0;
+    background: var(--bg-primary);
+}
+
+.design-process {
+    margin-top: 4rem;
+}
+
+.design-stage {
+    margin-bottom: 6rem;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.design-stage:last-child {
+    margin-bottom: 0;
+}
+
+.stage-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.stage-header h3 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.stage-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stage-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.stage-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.stage-content img:hover {
+    transform: scale(1.02);
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .design-stage {
+    background: rgba(45, 45, 45, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .design-stage {
+        padding: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .stage-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .stage-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Development Section Styles */
+.development-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);  
+    position: relative;
+}
+
+/* Implementation Showcase Styles */
+.implementation-showcase {
+    margin-top: 4rem;
+    margin-bottom: 10rem;
+    background: var(--bg-secondary); 
+}
+
+.implementation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background: transparent;  /* 移除原有背景色 */
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .implementation-showcase {
+    background: rgba(35, 35, 35, 0.95);  /* 深色模式下的背景色 */
+}
+
+.implementation-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.implementation-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.implementation-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.implementation-item:hover {
+    transform: translateY(-5px);
+}
+
+.implementation-item:hover img {
+    transform: scale(1.05);
+}
+
+.implementation-item:hover .implementation-caption {
+    transform: translateY(0);
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .implementation-item {
+    background: rgba(45, 45, 45, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .implementation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .implementation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Logic Diagrams Styles */
+.logic-diagrams {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.diagram-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+}
+
+.diagram-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.diagram-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.diagram-item:hover img {
+    transform: scale(1.02);
+}
+
+.diagram-caption {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 深色模式调整 */
+[data-theme="dark"] .diagram-item {
+    background: rgba(45, 45, 45, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .logic-diagrams {
+        gap: 2rem;
+    }
+    
+    .diagram-item {
+        padding: 1rem;
+    }
+    
+    .diagram-caption {
+        font-size: 1rem;
+    }
+}
+
+/* Posture Checker Highlight Styles */
+.posture-project-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    margin-left: -1rem; 
+}
+
+.posture-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.posture-highlight-item:hover {
+    transform: translateY(-5px);
+}
+
+.posture-highlight-item i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.posture-highlight-item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] .posture-highlight-item {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .posture-project-highlights {
+        margin-left: 0; 
+        justify-content: center;
     }
 }
