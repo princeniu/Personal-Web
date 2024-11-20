@@ -44,6 +44,12 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    width: 100%;
+    position: relative;
+}
+
+html, body {
+    max-width: 100%;
 }
 
 /* Navigation */
@@ -63,6 +69,15 @@ body {
     color: var(--text-secondary);
 }
 
+/* 移动端适配 */
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 0.9rem;    /* 稍微减小字体大小 */
+        padding: 0.25rem 0;   /* 调整内边距 */
+        margin-right: 1rem;   /* 调整右边距 */
+    }
+}
+
 .nav-link {
     color: var(--text-primary);
     font-weight: 500;
@@ -71,6 +86,18 @@ body {
 
 .nav-link:hover {
     color: var(--text-accent);
+}
+
+@media (max-width: 991px) {
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* 深色模式下的样式 */
+[data-theme='dark'] .navbar-toggler-icon {
+    /* 深色模式下的图标样式 */
+    filter: invert(1);          /* 反转颜色 */
 }
 
 /* Hero Section */
@@ -105,6 +132,12 @@ body {
     color: var(--heading-color);
     margin-bottom: 1.5rem;
     letter-spacing: -1px;
+}
+
+@media (max-width: 991px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
 }
 
 .hero h2 {
@@ -203,7 +236,7 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     margin: 1rem 0 0 auto;
-    width: 120%;
+    width: 110%;
     max-width: 800px;
     transform: translateX(10%);
 }
@@ -684,7 +717,7 @@ body {
 }
 
 /* 标题样式优化 */
-h1, h2, h3 {
+h2, h3 {
     background: linear-gradient(135deg, #FFC107, #FF8C5A, #6CA8EF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -692,7 +725,7 @@ h1, h2, h3 {
 } 
 
 /* 深色模式下的标题样式 */
-[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 {
+[data-theme="dark"] h2, [data-theme="dark"] h3 {
     background: linear-gradient(90deg, #E6B800, #D46A50, #5B92D9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -865,6 +898,13 @@ section + section {
     margin-left: -20%;
 }
 
+@media (max-width: 991px) {
+    .main-hero-content {
+        margin-left: 20%;
+        margin-top: 20%;
+    }
+}
+
 .hero-content .container {
     display: flex;
     align-items: center;
@@ -876,6 +916,16 @@ section + section {
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.hero-content .row-left {
+    margin-left: -20%;
+}
+
+@media (max-width: 991px) {
+    .hero-content .row-left {
+        margin-left: 0;
+    }
 }
 
 .hero-content h1 {
@@ -951,7 +1001,7 @@ section + section {
 }
 
 .main-hero-image img{
-    max-width: 250%;
+    max-width: 220%;
     height: auto;
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -968,7 +1018,7 @@ section + section {
 /* 响应式调整 */
 @media (max-width: 991px) {
     .main-hero-image {
-        width: 100%;
+        width: 55%;
         margin-left: 0;
         margin-top: 3rem;
     }
@@ -977,6 +1027,12 @@ section + section {
     }
     .main-hero-image img:hover {
         transform: scale(1.15);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-hero-image img {
+        transform: scale(1.05);
     }
 }
 
@@ -1504,13 +1560,13 @@ section + section {
     }
     
     .carousel-item {
-        height: 450px;
+        height: 500px;
     }
 }
 
 @media (max-width: 576px) {
     .carousel-item {
-        height: 350px;
+        height: 500px;
     }
 } 
 
@@ -1937,6 +1993,13 @@ p {
     background: var(--bg-secondary);
     border-radius: 20px;
     transition: transform 0.3s ease;
+    width: 70%;
+}
+
+@media (max-width: 991px) {
+    .process-step {
+        width: 100%;
+    }
 }
 
 .process-step:hover {
@@ -2107,6 +2170,18 @@ p {
 } 
 
 /* Porsche Project Hero Image Styles */
+.hero-6 {
+    width: 60%;
+    margin-left: -10%;
+}
+
+@media (max-width: 991px) {
+    .hero-6 {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
 .project-hero .hero-image {
     width: 140%; 
     height: auto;
@@ -2147,14 +2222,31 @@ p {
     }
 } 
 
+@media (max-width: 768px) {
+    .project-hero .hero-image {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .project-hero .hero-image img {
+        transform: scale(1.05);
+    }
+
+    .project-hero .hero-image:hover img {
+        transform: scale(1.1);
+    }
+}
+
 /* Design Showcase Carousel Styles */
 .design-showcase {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    margin: 4rem 0;
-    width: 160%; /* 设置基础宽度 */
+    width: 140%;
+    margin-left: -20%;
+    margin-top: 10%;
 }
 
 .design-showcase .carousel {
@@ -2216,6 +2308,13 @@ p {
 .design-showcase .carousel-item:hover .carousel-caption p {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+    .design-showcase {
+        width: 200%;
+        margin-left: -10%;
+    }
 }
 
 /* 响应式调整 */
@@ -2596,6 +2695,13 @@ p {
     transform: scale(1.05);
 }
 
+@media (max-width: 991px) {
+    .posture-hero-image img {
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+}
+
 /* Design Section Styles */
 .design-section {
     padding: 100px 0;
@@ -2834,7 +2940,8 @@ p {
     flex-wrap: wrap;
     gap: 1.5rem;
     margin: 2rem 0;
-    margin-left: -1rem; 
+    margin-left: -1rem;
+    justify-content: center;
 }
 
 .posture-highlight-item {
@@ -2872,5 +2979,142 @@ p {
     .posture-project-highlights {
         margin-left: 0; 
         justify-content: center;
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .project-highlights {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .tech-stack {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .design-showcase {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content .lead {
+        font-size: 1.3rem;
+    }
+
+    .project-highlights {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .project-hero .hero-image {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        padding: 60px 15px;
+    }
+
+    .hero .col-lg-9 {
+        padding-right: 15px;
+        min-height: auto;
+    }
+
+    .project-nav .project-title {
+        display: none;
+    }
+
+    .project-nav .nav-links {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-content .lead {
+        font-size: 1.1rem;
+    }
+
+    .project-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .design-stage {
+        padding: 2rem;
+    }
+
+    .tech-stack {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .implementation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logic-diagrams {
+        gap: 2rem;
+    }
+
+    .diagram-item {
+        padding: 1rem;
+    }
+
+    .diagram-caption {
+        font-size: 1rem;
+    }
+
+    .flow-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .process-step:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content .lead {
+        font-size: 1rem;
+    }
+
+    .implementation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-card {
+        padding: 1.5rem;
+    }
+
+    .project-highlights {
+        gap: 1rem;
+    }
+
+    .highlight-item {
+        padding: 1rem;
+    }
+
+    .highlight-item i {
+        font-size: 1.5rem;
+    }
+
+    .highlight-item span {
+        font-size: 0.9rem;
     }
 }

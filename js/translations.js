@@ -119,7 +119,8 @@ const translations = {
     "nav-gallery": "Gallery",
 
     // Project Title
-    "project-title": "Porsche Digital Interface - UI & UX Design Internship",
+    "porsche-project-title":
+      "Porsche Digital Interface - UI & UX Design Internship",
 
     // Hero Section
     "porsche-hero-title": "Porsche Digital Interface",
@@ -444,7 +445,7 @@ const translations = {
     "nav-gallery": "设计展示",
 
     // 项目标题
-    "project-title": "保时捷数字界面 - UI & UX 设计实习",
+    "porsche-project-title": "保时捷数字界面 - UI & UX 设计实习",
 
     // Hero 部分
     "porsche-hero-title": "保时捷数字界面",
@@ -530,8 +531,8 @@ const translations = {
     "nav-app-development": "开发实现",
 
     // Hero 部分
-    "hero-title": "姿态检测器",
-    "hero-description":
+    "posture-hero-title": "姿态检测器",
+    "posture-hero-description":
       "结合可穿戴技术和移动应用的姿态监测系统，提供实时提醒和数据可视化。",
     "hero-highlight-1": "跨平台开发",
     "hero-highlight-2": "实时数据传输",

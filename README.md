@@ -130,17 +130,19 @@ portfolio/
 - Google Fonts
 - i18n for multilingual support
 
-## Performance Optimizations
+### Performance Optimizations
 
 - Lazy loading for images
 - Debounced scroll events
-- Optimized animations
+- Optimized animations with GPU acceleration
 - Efficient DOM manipulation
 - Responsive image sizing
 - CSS performance best practices
 - Language switch without page reload
 
 ## Browser Support
+
+### Browser Support
 
 - Chrome (latest)
 - Firefox (latest)

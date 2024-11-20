@@ -25,21 +25,27 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top project-nav">
         <div class="container">
-            <a class="navbar-brand" href="../index.html" data-i18n="name"></a>
-            <div class="project-title" data-i18n-posture-checker="project-title">The Posture Checker - Mobile App Development</div>
-            <div class="nav-links">
-                <a href="#introduction" class="nav-link" data-i18n-posture-checker="nav-introduction">Introduction</a>
-                <a href="#app-logic" class="nav-link" data-i18n-posture-checker="nav-app-logic">App Logic</a>
-                <a href="#app-design" class="nav-link" data-i18n-posture-checker="nav-app-design">App Design</a>
-                <a href="#app-development" class="nav-link" data-i18n-posture-checker="nav-app-development">Development</a>
-            </div>
-            <div class="theme-toggle">
-                <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
-                    <span class="lang-text">中文</span>
-                </button>
+            <a class="navbar-brand" data-i18n-posture-checker="project-title">The Posture Checker - Mobile App Development</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#projectNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="projectNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="#introduction" class="nav-link" data-i18n-posture-checker="nav-introduction">Introduction</a></li>
+                    <li class="nav-item"><a href="#app-logic" class="nav-link" data-i18n-posture-checker="nav-app-logic">App Logic</a></li>
+                    <li class="nav-item"><a href="#app-design" class="nav-link" data-i18n-posture-checker="nav-app-design">App Design</a></li>
+                    <li class="nav-item"><a href="#app-development" class="nav-link" data-i18n-posture-checker="nav-app-development">Development</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
+                            <span class="lang-text">中文</span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -49,7 +55,7 @@
         <div class="hero-content">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6" data-aos="fade-right">
+                    <div class="col-lg-6 hero-6" data-aos="fade-right">
                         <h1 data-i18n-posture-checker="posture-hero-title">The Posture Checker</h1>
                         <p class="lead" data-i18n-posture-checker="posture-hero-description">A wearable tech system combined with a mobile app to monitor posture, provide alerts, and visualize progress.</p>
                         <div class="posture-project-highlights">
@@ -70,7 +76,6 @@
                                 <span data-i18n-posture-checker="hero-highlight-4"></span>
                             </div>
                         </div>
-                        <a href="#app-logic" class="btn btn-primary mt-4" data-i18n-posture-checker="hero-cta">Learn More</a>
                     </div>
                     <div class="col-lg-6" data-aos="fade-left">
                         <div class="posture-hero-image">

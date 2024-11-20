@@ -26,21 +26,27 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top lemon-nav">
         <div class="container">
-            <a class="navbar-brand" href="../index.html" data-i18n="name"></a>
-            <div class="project-title" data-i18n-little-lemon="lemon-project-title">Little Lemon Restaurant - UI & UX Design</div>
-            <div class="nav-links">
-                <a href="#introduction" class="nav-link" data-i18n-little-lemon="lemon-nav-introduction">Introduction</a>
-                <a href="#user-research" class="nav-link" data-i18n-little-lemon="lemon-nav-user-research">User Research</a>
-                <a href="#design-process" class="nav-link" data-i18n-little-lemon="lemon-nav-design-process">Design Process</a>
-                <a href="#results" class="nav-link" data-i18n-little-lemon="lemon-nav-results">Results</a>
-            </div>
-            <div class="theme-toggle">
-                <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
-                    <span class="lang-text">中文</span>
-                </button>
+            <a class="navbar-brand lemon-brand" data-i18n-little-lemon="lemon-project-title">Little Lemon Restaurant - UI & UX Design</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#projectNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="projectNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="#introduction" class="nav-link" data-i18n-little-lemon="lemon-nav-introduction">Introduction</a></li>
+                    <li class="nav-item"><a href="#user-research" class="nav-link" data-i18n-little-lemon="lemon-nav-user-research">User Research</a></li>
+                    <li class="nav-item"><a href="#design-process" class="nav-link" data-i18n-little-lemon="lemon-nav-design-process">Design Process</a></li>
+                    <li class="nav-item"><a href="#results" class="nav-link" data-i18n-little-lemon="lemon-nav-results">Results</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="lang-toggle" class="btn btn-link nav-link" aria-label="Toggle language">
+                            <span class="lang-text">中文</span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
