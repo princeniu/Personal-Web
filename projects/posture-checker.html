@@ -26,12 +26,12 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top project-nav">
         <div class="container">
             <a class="navbar-brand" href="../index.html" data-i18n="name"></a>
-            <div class="project-title">The Posture Checker - Mobile App Development</div>
+            <div class="project-title" data-i18n-posture-checker="project-title">The Posture Checker - Mobile App Development</div>
             <div class="nav-links">
-                <a href="#introduction" class="nav-link">Introduction</a>
-                <a href="#app-logic" class="nav-link">App Logic</a>
-                <a href="#app-design" class="nav-link">App Design</a>
-                <a href="#app-development" class="nav-link">Development</a>
+                <a href="#introduction" class="nav-link" data-i18n-posture-checker="nav-introduction">Introduction</a>
+                <a href="#app-logic" class="nav-link" data-i18n-posture-checker="nav-app-logic">App Logic</a>
+                <a href="#app-design" class="nav-link" data-i18n-posture-checker="nav-app-design">App Design</a>
+                <a href="#app-development" class="nav-link" data-i18n-posture-checker="nav-app-development">Development</a>
             </div>
             <div class="theme-toggle">
                 <button id="theme-toggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
@@ -50,27 +50,27 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6" data-aos="fade-right">
-                        <h1>The Posture Checker</h1>
-                        <p class="lead">A wearable tech system combined with a mobile app to monitor posture, provide alerts, and visualize progress.</p>
+                        <h1 data-i18n-posture-checker="posture-hero-title">The Posture Checker</h1>
+                        <p class="lead" data-i18n-posture-checker="posture-hero-description">A wearable tech system combined with a mobile app to monitor posture, provide alerts, and visualize progress.</p>
                         <div class="posture-project-highlights">
                             <div class="posture-highlight-item">
                                 <i class="fas fa-mobile-alt"></i>
-                                <span>Cross-platform Development</span>
+                                <span data-i18n-posture-checker="hero-highlight-1"></span>
                             </div>
                             <div class="posture-highlight-item">
                                 <i class="fas fa-bluetooth"></i>
-                                <span>Bluetooth Integration</span>
+                                <span data-i18n-posture-checker="hero-highlight-2"></span>
                             </div>
                             <div class="posture-highlight-item">
                                 <i class="fas fa-chart-line"></i>
-                                <span>Data Visualization</span>
+                                <span data-i18n-posture-checker="hero-highlight-3"></span>
                             </div>
                             <div class="posture-highlight-item">
                                 <i class="fas fa-database"></i>
-                                <span>Data Storage</span>
+                                <span data-i18n-posture-checker="hero-highlight-4"></span>
                             </div>
                         </div>
-                        <a href="#app-logic" class="btn btn-primary mt-4">Learn More</a>
+                        <a href="#app-logic" class="btn btn-primary mt-4" data-i18n-posture-checker="hero-cta">Learn More</a>
                     </div>
                     <div class="col-lg-6" data-aos="fade-left">
                         <div class="posture-hero-image">
@@ -86,41 +86,41 @@
     <section id="app-logic" class="split-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Mobile App Logic</h2>
-                <p class="subtitle">Core architecture and data flow implementation</p>
+                <h2 data-i18n-posture-checker="app-logic-title">Mobile App Logic</h2>
+                <p class="subtitle" data-i18n-posture-checker="app-logic-subtitle">Core architecture and data flow implementation</p>
             </div>
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="logic-diagrams">
                         <div class="diagram-item">
                             <img src="../images/portfolio/posturechecker/App Block Diagram.png" alt="App Block Diagram" class="img-fluid tech-diagram" onclick="enlargeImage(this)">
-                            <div class="diagram-caption">System Architecture Diagram</div>
+                            <div class="diagram-caption" data-i18n-posture-checker="app-logic-diagram-1-caption">System Architecture Diagram</div>
                         </div>
                         <div class="diagram-item">
                             <img src="../images/portfolio/posturechecker/App Activity Diagram.png" alt="App Activity Diagram" class="img-fluid tech-diagram" onclick="enlargeImage(this)">
-                            <div class="diagram-caption">User Activity Flow</div>
+                            <div class="diagram-caption" data-i18n-posture-checker="app-logic-diagram-2-caption">User Activity Flow</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="tech-details">
                         <div class="tech-item">
-                            <h3>React Native Architecture</h3>
-                            <p>Cross-platform development with shared codebase for iOS and Android</p>
+                            <h3 data-i18n-posture-checker="app-logic-tech-1-title">React Native Architecture</h3>
+                            <p data-i18n-posture-checker="app-logic-tech-1-desc">Cross-platform development with shared codebase for iOS and Android</p>
                             <ul>
-                                <li>BLE Module for real-time data transmission</li>
-                                <li>SQLite for structured data storage</li>
-                                <li>Chart Kit for data visualization</li>
+                                <li data-i18n-posture-checker="app-logic-tech-1-list-1">BLE Module for real-time data transmission</li>
+                                <li data-i18n-posture-checker="app-logic-tech-1-list-2">SQLite for structured data storage</li>
+                                <li data-i18n-posture-checker="app-logic-tech-1-list-3">Chart Kit for data visualization</li>
                             </ul>
                         </div>
                         <div class="tech-item">
-                            <h3>Activity Flow</h3>
-                            <p>User interaction process from device connection to data visualization</p>
+                            <h3 data-i18n-posture-checker="app-logic-tech-2-title">Activity Flow</h3>
+                            <p data-i18n-posture-checker="app-logic-tech-2-desc">User interaction process from device connection to data visualization</p>
                             <div class="flow-steps">
-                                <div class="flow-step">Bluetooth Connection</div>
-                                <div class="flow-step">Posture Monitoring</div>
-                                <div class="flow-step">Data Processing</div>
-                                <div class="flow-step">Visual Feedback</div>
+                                <div class="flow-step" data-i18n-posture-checker="app-logic-tech-2-list-1">Bluetooth Connection</div>
+                                <div class="flow-step" data-i18n-posture-checker="app-logic-tech-2-list-2">Posture Monitoring</div>
+                                <div class="flow-step" data-i18n-posture-checker="app-logic-tech-2-list-3">Data Processing</div>
+                                <div class="flow-step" data-i18n-posture-checker="app-logic-tech-2-list-4">Visual Feedback</div>
                             </div>
                         </div>
                     </div>
@@ -133,8 +133,8 @@
     <section id="app-design" class="design-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Mobile App Design</h2>
-                <p class="subtitle">From wireframes to high-fidelity prototypes</p>
+                <h2 data-i18n-posture-checker="app-design-title">Mobile App Design</h2>
+                <p class="subtitle" data-i18n-posture-checker="app-design-subtitle">From wireframes to high-fidelity prototypes</p>
             </div>
             
             <!-- Design Process -->
@@ -142,8 +142,8 @@
                 <!-- Wireframe Stage -->
                 <div class="design-stage">
                     <div class="stage-header">
-                        <h3>Wireframe</h3>
-                        <p>Initial layout focusing on core functionality and user flow</p>
+                        <h3 data-i18n-posture-checker="app-design-wireframe-title">Wireframe</h3>
+                        <p data-i18n-posture-checker="app-design-wireframe-desc">Initial layout focusing on core functionality and user flow</p>
                     </div>
                     <div class="stage-content">
                         <img src="../images/portfolio/posturechecker/Wireframe.png" alt="Wireframe" class="img-fluid">
@@ -153,8 +153,8 @@
                 <!-- Final Design Stage -->
                 <div class="design-stage">
                     <div class="stage-header">
-                        <h3>Final Design</h3>
-                        <p>Refined UI with emphasis on visual feedback and data presentation</p>
+                        <h3 data-i18n-posture-checker="app-design-final-title">Final Design</h3>
+                        <p data-i18n-posture-checker="app-design-final-desc">Refined UI with emphasis on visual feedback and data presentation</p>
                     </div>
                     <div class="stage-content">
                         <img src="../images/portfolio/posturechecker/Prototype.png" alt="Final Design" class="img-fluid">
@@ -168,31 +168,31 @@
     <section id="app-development" class="development-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Development & Implementation</h2>
-                <p class="subtitle">Technical implementation and key features</p>
+                <h2 data-i18n-posture-checker="app-development-title">Development & Implementation</h2>
+                <p class="subtitle" data-i18n-posture-checker="app-development-subtitle">Technical implementation and key features</p>
             </div>
             
             <!-- Tech Stack Cards -->
             <div class="tech-stack" data-aos="fade-up">
                 <div class="tech-card">
                     <i class="fab fa-react"></i>
-                    <h3>React Native</h3>
-                    <p>Cross-platform mobile development</p>
+                    <h3 data-i18n-posture-checker="app-development-tech-1-title">React Native</h3>
+                    <p data-i18n-posture-checker="app-development-tech-1-desc">Cross-platform mobile development</p>
                 </div>
                 <div class="tech-card">
                     <i class="fas fa-bluetooth"></i>
-                    <h3>BLE Integration</h3>
-                    <p>Real-time data transmission</p>
+                    <h3 data-i18n-posture-checker="app-development-tech-2-title">BLE Integration</h3>
+                    <p data-i18n-posture-checker="app-development-tech-2-desc">Real-time data transmission</p>
                 </div>
                 <div class="tech-card">
                     <i class="fas fa-database"></i>
-                    <h3>SQLite & Storage</h3>
-                    <p>Efficient data management</p>
+                    <h3 data-i18n-posture-checker="app-development-tech-3-title">SQLite & Storage</h3>
+                    <p data-i18n-posture-checker="app-development-tech-3-desc">Efficient data management</p>
                 </div>
                 <div class="tech-card">
                     <i class="fas fa-chart-bar"></i>
-                    <h3>Data Visualization</h3>
-                    <p>Interactive charts and graphs</p>
+                    <h3 data-i18n-posture-checker="app-development-tech-4-title">Data Visualization</h3>
+                    <p data-i18n-posture-checker="app-development-tech-4-desc">Interactive charts and graphs</p>
                 </div>
             </div>
 
@@ -231,7 +231,7 @@
     <!-- Navigation -->
     <div class="project-navigation" data-aos="fade-up">
         <a href="../index.html#portfolio" class="btn btn-primary">
-            <i class="fas fa-arrow-left"></i> <span data-i18n="nav-portfolio"></span>
+            <i class="fas fa-arrow-left"></i> <span data-i18n-posture-checker="nav-portfolio"></span>
         </a>
     </div>
 
@@ -280,6 +280,7 @@
                 closeModal();
             }
         });
+        initPostureCheckerLanguageToggle();
     });
     </script>
 </body>

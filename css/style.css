@@ -163,7 +163,7 @@ body {
     background: linear-gradient(135deg, #edf1f7 0%, #dde5f1 100%);
     clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
     margin: -3rem 0;
-    padding: 8rem 0 14rem 0;
+    padding: 12rem 0 14rem 0;
     position: relative;
 }
 
@@ -202,7 +202,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    margin: 6rem 0 0 auto;
+    margin: 1rem 0 0 auto;
     width: 120%;
     max-width: 800px;
     transform: translateX(10%);
@@ -219,7 +219,7 @@ body {
 }
 
 .carousel-item {
-    height: 600px;
+    height: 900px;
     position: relative;
     transition: transform .6s ease-in-out;
 }
@@ -432,7 +432,7 @@ body {
 
 .project-link.secondary {
     border: 2px solid var(--primary-blue);
-    color: var(--primary-blue);
+    color: var(--secondary-blue);
 }
 
 /* Hover Effects */
@@ -685,11 +685,18 @@ body {
 
 /* 标题样式优化 */
 h1, h2, h3 {
-    background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+    background: linear-gradient(135deg, #FFC107, #FF8C5A, #6CA8EF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
 } 
+
+/* 深色模式下的标题样式 */
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 {
+    background: linear-gradient(90deg, #E6B800, #D46A50, #5B92D9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 /* 调整项目卡片的上边距 */
 #portfolio-grid {
@@ -728,7 +735,14 @@ h1, h2, h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: var(--heading-color);
-    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+    background: linear-gradient(45deg, var(--primary-blue), #4F94CD, var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 深色模式下的标题样式 */
+[data-theme="dark"] .skill-category h3 {
+    background: linear-gradient(45deg, #88A9E5, #7BA3E8, #5E9FFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -844,6 +858,13 @@ section + section {
     padding: 0 2rem;
 }
 
+.main-hero-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    margin-left: -20%;
+}
+
 .hero-content .container {
     display: flex;
     align-items: center;
@@ -862,7 +883,14 @@ section + section {
     font-weight: 700;
     margin-bottom: 2rem;
     text-align: center;
-    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+    background: linear-gradient(45deg, var(--primary-blue), #4F94CD, var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 深色模式下的标题样式 */
+[data-theme="dark"] .hero-content h1 {
+    background: linear-gradient(45deg, #88A9E5, #7BA3E8, #5E9FFF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -919,11 +947,11 @@ section + section {
     padding: 2rem;
     text-align: center;
     width: 120%;
-    margin-left: -20%;
+    margin-left: -40%;
 }
 
 .main-hero-image img{
-    max-width: 100%;
+    max-width: 250%;
     height: auto;
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -1206,7 +1234,7 @@ section + section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 2rem;
+    margin-left: -20%;
 }
 
 /* 整右侧图片置 */
@@ -1445,7 +1473,7 @@ section + section {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
     margin: -3rem 0;
-    padding: 8rem 0 14rem 0;
+    padding: 12rem 0 14rem 0;
     position: relative;
 }
 
@@ -1453,16 +1481,19 @@ section + section {
 .about-section .container {
     position: relative;
     z-index: 2;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
     .about-section {
-        padding: 6rem 0 12rem 0;
-        clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+        padding: 10rem 0 12rem 0; /* 移动端稍微减少间距 */
     }
-} 
+    
+    .about-section .container {
+        padding-top: 3rem;
+    }
+}
 
 /* 响应式调整 */
 @media (max-width: 991px) {
@@ -1600,7 +1631,7 @@ section + section {
     line-height: 1.4;
     margin-bottom: 2rem;
     color: var(--text-secondary); /* 使用强调色 */
-    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+    background: linear-gradient(45deg, var(--primary-blue), #4F94CD, var(--secondary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 0.5rem 0;
@@ -1610,6 +1641,9 @@ section + section {
 /* 深色模式调整 */
 [data-theme="dark"] .about-section .lead {
     border-bottom-color: rgba(86, 126, 187, 0.2);
+    background: linear-gradient(45deg, #88A9E5, #7BA3E8, #5E9FFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* 响应式调整 */
@@ -2119,14 +2153,14 @@ p {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    margin: 2rem 0;
+    margin: 4rem 0;
     width: 160%; /* 设置基础宽度 */
 }
 
 .design-showcase .carousel {
     border-radius: 20px;
     width: 100%;
-    height: auto; /* 高度自动 */
+    height: auto;
 }
 
 .design-showcase .carousel-item img {

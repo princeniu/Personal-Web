@@ -418,3 +418,102 @@ function updateLanguage(lang) {
     }
   });
 }
+
+// 保时捷项目语言切换
+function initPorscheLanguageToggle() {
+  const langToggle = document.getElementById("lang-toggle");
+  const currentLang = localStorage.getItem("language") || "en";
+
+  // 设置初始语言
+  document.documentElement.setAttribute("lang", currentLang);
+  updatePorscheLanguage(currentLang);
+  updateLangButtonText(currentLang);
+
+  // 语言切换点击处理
+  langToggle.addEventListener("click", () => {
+    const currentLang = document.documentElement.getAttribute("lang");
+    const newLang = currentLang === "en" ? "zh" : "en";
+
+    document.documentElement.setAttribute("lang", newLang);
+    localStorage.setItem("language", newLang);
+    updatePorscheLanguage(newLang);
+    updateLangButtonText(newLang);
+  });
+}
+
+// 更新保时捷项目文本
+function updatePorscheLanguage(lang) {
+  const elements = document.querySelectorAll("[data-i18n-porsche]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-i18n-porsche");
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+}
+
+// 姿势检查器项目语言切换
+function initPostureCheckerLanguageToggle() {
+  const langToggle = document.getElementById("lang-toggle");
+  const currentLang = localStorage.getItem("language") || "en";
+
+  // 设置初始语言
+  document.documentElement.setAttribute("lang", currentLang);
+  updatePostureCheckerLanguage(currentLang);
+  updateLangButtonText(currentLang);
+
+  // 语言切换点击处理
+  langToggle.addEventListener("click", () => {
+    const currentLang = document.documentElement.getAttribute("lang");
+    const newLang = currentLang === "en" ? "zh" : "en";
+
+    document.documentElement.setAttribute("lang", newLang);
+    localStorage.setItem("language", newLang);
+    updatePostureCheckerLanguage(newLang);
+    updateLangButtonText(newLang);
+  });
+}
+
+// 更新姿势检查器项目文本
+function updatePostureCheckerLanguage(lang) {
+  const elements = document.querySelectorAll("[data-i18n-posture-checker]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-i18n-posture-checker");
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+}
+
+// little lemon项目语言切换
+function initLittleLemonLanguageToggle() {
+  const langToggle = document.getElementById("lang-toggle");
+  const currentLang = localStorage.getItem("language") || "en";
+
+  // 设置初始语言
+  document.documentElement.setAttribute("lang", currentLang);
+  updateLittleLemonLanguage(currentLang);
+  updateLangButtonText(currentLang);
+
+  // 语言切换点击处理
+  langToggle.addEventListener("click", () => {
+    const currentLang = document.documentElement.getAttribute("lang");
+    const newLang = currentLang === "en" ? "zh" : "en";
+
+    document.documentElement.setAttribute("lang", newLang);
+    localStorage.setItem("language", newLang);
+    updateLittleLemonLanguage(newLang);
+    updateLangButtonText(newLang);
+  });
+}
+
+// 更新little lemon项目文本
+function updateLittleLemonLanguage(lang) {
+  const elements = document.querySelectorAll("[data-i18n-little-lemon]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-i18n-little-lemon");
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+}
