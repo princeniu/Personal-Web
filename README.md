@@ -58,7 +58,7 @@ This portfolio website is built with modern web technologies and features a clea
   - Links to live demos and source code
 - Individual project detail pages
 
-## Project Showcases
+### Project Showcases
 
 1. Porsche Digital Interface
 
