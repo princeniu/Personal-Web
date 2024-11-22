@@ -10,7 +10,7 @@ This portfolio website is built with modern web technologies and features a clea
 
 ## Features
 
-### 1. Modern Design & Interaction
+### Modern Design & Interaction
 
 - Responsive layout with Bootstrap 5 grid system
 - Dynamic theme switching (Light/Dark mode)
@@ -19,7 +19,7 @@ This portfolio website is built with modern web technologies and features a clea
 - Interactive UI elements with hover effects
 - AOS (Animate On Scroll) integration
 
-### 2. Key Sections
+### Key Sections
 
 #### Navigation
 
@@ -58,7 +58,7 @@ This portfolio website is built with modern web technologies and features a clea
   - Links to live demos and source code
 - Individual project detail pages
 
-Project Showcases:
+## Project Showcases
 
 1. Porsche Digital Interface
 
@@ -113,7 +113,7 @@ Project Showcases:
 - GitHub profile link
 - Professional network connections
 
-### 3. Technical Features
+## Technical Features
 
 - HTML5 & CSS3
 - JavaScript (ES6+)
@@ -160,7 +160,7 @@ portfolio/
 - Google Fonts
 - i18n for multilingual support
 
-### Performance Optimizations
+## Performance Optimizations
 
 - Lazy loading for images
 - Debounced scroll events
@@ -170,14 +170,14 @@ portfolio/
 - CSS performance best practices
 - Language switch without page reload
 
-#### Internationalization
+## Internationalization
 
 - Dynamic content switching
 - Locale-specific formatting
 - Seamless language transitions
 - Maintained layout integrity
 
-### Browser Support
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
