@@ -2,6 +2,8 @@
 
 A modern, responsive personal portfolio website showcasing my work as a Computer Engineer and UX Designer.
 
+🌐 **Live Website**: [www.zhuoniuprince.site](https://www.zhuoniuprince.site)
+
 ## Overview
 
 This portfolio website is built with modern web technologies and features a clean, professional design with smooth animations and interactive elements. It's fully responsive and includes both light and dark themes, as well as bilingual support (English/Chinese).
@@ -10,10 +12,10 @@ This portfolio website is built with modern web technologies and features a clea
 
 ### 1. Modern Design & Interaction
 
-- Responsive layout optimized for all devices
-- Light/Dark theme toggle
-- Bilingual support (English/Chinese)
-- Smooth scrolling and animations
+- Responsive layout with Bootstrap 5 grid system
+- Dynamic theme switching (Light/Dark mode)
+- Bilingual support (English/Chinese) with seamless switching
+- GPU-accelerated animations and transitions
 - Interactive UI elements with hover effects
 - AOS (Animate On Scroll) integration
 
@@ -55,6 +57,33 @@ This portfolio website is built with modern web technologies and features a clea
   - Technology tags
   - Links to live demos and source code
 - Individual project detail pages
+
+Project Showcases:
+
+1. Porsche Digital Interface
+
+- UX/UI Design internship project
+- High-fidelity prototypes
+- Navigation system redesign
+- Voice control interface
+- AI feature integration
+
+2. Posture Checker Mobile App
+
+- Cross-platform development (iOS/Android)
+- Real-time data monitoring
+- Bluetooth integration
+- SQLite data storage
+- Interactive data visualization
+- Custom notification system
+
+3. Little Lemon Restaurant
+
+- Complete UX/UI design process
+- User research and personas
+- Wireframing and prototyping
+- Usability testing
+- Responsive design implementation
 
 #### Technical Skills
 
@@ -101,22 +130,23 @@ This portfolio website is built with modern web technologies and features a clea
 
 ```
 portfolio/
-├── index.html
+├── index.html # Main entry point
 ├── css/
-│   ├── style.css
-│   └── animations.css
+│ ├── style.css # Global styles
+│ ├── animations.css # Animation definitions
+│ └── little-lemon.css # Project-specific styles
 ├── js/
-│   ├── main.js
-│   ├── translations.js
-│   └── animations.js
+│ ├── main.js # Core functionality
+│ ├── translations.js # Language support
+│ └── animations.js # Animation controls
 ├── images/
-│   ├── profile/
-│   ├── about/
-│   └── portfolio/
-└── projects/
-    ├── porsche.html
-    ├── posture-checker.html
-    └── little-lemon.html
+│ ├── profile/ # Personal images
+│ ├── portfolio/ # Project images
+│ └── about/ # Additional content
+└── projects/ # Individual project pages
+├── porsche.html
+├── posture-checker.html
+└── little-lemon.html
 ```
 
 ## Technologies Used
@@ -140,7 +170,12 @@ portfolio/
 - CSS performance best practices
 - Language switch without page reload
 
-## Browser Support
+#### Internationalization
+
+- Dynamic content switching
+- Locale-specific formatting
+- Seamless language transitions
+- Maintained layout integrity
 
 ### Browser Support
 
@@ -149,12 +184,6 @@ portfolio/
 - Safari (latest)
 - Edge (latest)
 - Opera (latest)
-
-## Setup and Installation
-
-1. Clone the repository
-2. No build process required - static HTML site
-3. Open index.html in a browser
 
 ## Customization
 
