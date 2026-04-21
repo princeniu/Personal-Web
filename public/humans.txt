@@ -1,0 +1,38 @@
+__  __  __
+\ \ \ \ \/
+ \ \/\ \
+  \/  \/
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+DESIGNER & DEVELOPER
+
+Zhuo (Prince) Niu
+Product design, mobile development, and frontend engineering
+
+Design tools:
+Figma
+Xmind
+Miro
+
+github.com/princeniu
+
+_______________________________________________________________________________
+
+TECHNOLOGY
+
+React
+Remix
+Three.js
+Framer Motion
+
+_______________________________________________________________________________
+
+FONTS
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8

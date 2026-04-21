@@ -1,209 +1,59 @@
-# Personal Portfolio Website - Zhuo (Prince) Niu
+<p align="center">
+  <img src="/public/favicon.svg" width="50" alt="Logo" />
+</p>
+<h1 align="center">Zhuo (Prince) Niu Portfolio</h1>
 
-A modern, responsive personal portfolio website showcasing my work as a Computer Engineer and UX Designer.
+Personal portfolio for product design, mobile development, and frontend engineering work. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/).
 
-🌐 **Live Website**: [www.zhuoniuprince.site](https://www.zhuoniuprince.site)
+## Project Structure
 
-## Overview
+Portfolio content is data-driven:
 
-This portfolio website is built with modern web technologies and features a clean, professional design with smooth animations and interactive elements. It's fully responsive and includes both light and dark themes, as well as bilingual support (English/Chinese).
+- `app/data/project-content.js` contains project copy, slugs, roles, summaries, and section structure.
+- `app/data/projects.js` binds that content to imported assets.
+- `app/routes/projects.$slug/route.jsx` renders every project route from the shared data.
+- `app/routes/projects/project-case.jsx` maps project section types to the existing visual layout components.
 
-## Features
+To add a new project:
 
-### Modern Design & Interaction
+1. Add assets to `app/assets/`.
+2. Add the project entry to `portfolioProjects` in `app/data/project-content.js`.
+3. Bind its images and homepage preview textures in `app/data/projects.js`.
+4. Add the slug to `featuredProjectSlugs` only if it should appear on the homepage.
+5. Run `npm test` and `npm run build`.
 
-- Responsive layout with Bootstrap 5 grid system
-- Dynamic theme switching (Light/Dark mode)
-- Bilingual support (English/Chinese) with seamless switching
-- GPU-accelerated animations and transitions
-- Interactive UI elements with hover effects
-- AOS (Animate On Scroll) integration
+## Install & Run
 
-### Key Sections
+Use the Node version declared in `.node-version`, then install dependencies:
 
-#### Navigation
-
-- Fixed navigation bar with smooth scrolling
-- Responsive mobile menu
-- Theme toggle button
-- Language switch button
-- Automatic active section highlighting
-
-#### Hero Section
-
-- Professional introduction
-- Animated profile image
-- Call-to-action button
-- Responsive layout
-
-#### About
-
-- Professional summary
-- Educational background
-- Relevant coursework display
-- Personal interests
-- Image carousel with:
-  - Auto-play functionality
-  - Touch/swipe support
-  - Keyboard navigation
-  - Custom controls
-
-#### Portfolio
-
-- Featured projects showcase
-- Project cards with:
-  - Project images/logos
-  - Project descriptions
-  - Technology tags
-  - Links to live demos and source code
-- Individual project detail pages
-
-### Project Showcases
-
-1. Porsche Digital Interface
-
-- UX/UI Design internship project
-- High-fidelity prototypes
-- Navigation system redesign
-- Voice control interface
-- AI feature integration
-
-2. Posture Checker Mobile App
-
-- Cross-platform development (iOS/Android)
-- Real-time data monitoring
-- Bluetooth integration
-- SQLite data storage
-- Interactive data visualization
-- Custom notification system
-
-3. Little Lemon Restaurant
-
-- Complete UX/UI design process
-- User research and personas
-- Wireframing and prototyping
-- Usability testing
-- Responsive design implementation
-
-#### Technical Skills
-
-- Skill categories:
-  - Programming Languages
-  - Design & Development Tools
-- Animated skill bars
-- Visual progress indicators
-
-#### Certificates
-
-- Meta iOS Developer Professional Certificate
-  - Introduction to iOS Mobile Application Development
-  - Version Control
-  - Programming Fundamentals in Swift
-  - Principles of UX/UI Design
-  - React Native
-- Google UX Design Professional Certificate
-  - Foundations of User Experience (UX) Design
-  - UX Design Process
-  - Build Wireframes and Low-Fidelity Prototypes
-
-#### Contact
-
-- Direct email link
-- LinkedIn profile link
-- GitHub profile link
-- Professional network connections
-
-## Technical Features
-
-- HTML5 & CSS3
-- JavaScript (ES6+)
-- Bootstrap 5
-- AOS Library
-- Font Awesome icons
-- Google Fonts
-- Responsive images with lazy loading
-- Smooth scrolling
-- Interactive UI elements
-- i18n (Internationalization) support
-
-## File Structure
-
-```
-portfolio/
-├── index.html # Main entry point
-├── css/
-│ ├── style.css # Global styles
-│ ├── animations.css # Animation definitions
-│ └── little-lemon.css # Project-specific styles
-├── js/
-│ ├── main.js # Core functionality
-│ ├── translations.js # Language support
-│ └── animations.js # Animation controls
-├── images/
-│ ├── profile/ # Personal images
-│ ├── portfolio/ # Project images
-│ └── about/ # Additional content
-└── projects/ # Individual project pages
-├── porsche.html
-├── posture-checker.html
-└── little-lemon.html
+```bash
+npm install
 ```
 
-## Technologies Used
+Start the local development server:
 
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap 5
-- AOS Library
-- Font Awesome
-- Google Fonts
-- i18n for multilingual support
+```bash
+npm run dev
+```
 
-## Performance Optimizations
+Run the data contract tests:
 
-- Lazy loading for images
-- Debounced scroll events
-- Optimized animations with GPU acceleration
-- Efficient DOM manipulation
-- Responsive image sizing
-- CSS performance best practices
-- Language switch without page reload
+```bash
+npm test
+```
 
-## Internationalization
+Build for production:
 
-- Dynamic content switching
-- Locale-specific formatting
-- Seamless language transitions
-- Maintained layout integrity
+```bash
+npm run build
+```
 
-## Browser Support
+## Deployment
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
+The project is configured for Cloudflare Pages:
 
-## Customization
+```bash
+npm run deploy
+```
 
-- Colors can be modified in css/style.css (root variables)
-- Content can be updated in index.html
-- Images can be replaced in the images directory
-- Animations can be adjusted in css/animations.css
-- Translations can be modified in js/translations.js
-
-## Language Support
-
-The website supports two languages:
-
-- English (Default)
-- Chinese (中文)
-
-Language switching is handled dynamically without page reload, using JavaScript to update content based on selected language. All text content is stored in translations.js and can be easily modified or extended to support additional languages.
-
-## Contact
-
-- Email: niu56@purdue.edu
-- LinkedIn: [Zhuo Niu](https://www.linkedin.com/in/zhuoniu110/)
-- GitHub: [princeniu](https://github.com/princeniu)
+The contact form uses AWS SES through Cloudflare environment variables. Copy `.dev.vars.example` to `.dev.vars` for local development and configure the same variables in Cloudflare Pages for production.

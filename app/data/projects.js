@@ -1,0 +1,300 @@
+import {
+  featuredProjectSlugs,
+  getProjectPath,
+  portfolioProjects,
+} from './project-content';
+
+import porscheBackgroundLarge from '~/assets/spr-background-large.jpg';
+import porscheBackgroundPlaceholder from '~/assets/spr-background-placeholder.jpg';
+import porscheBackground from '~/assets/spr-background.jpg';
+import porscheFlowchartLarge from '~/assets/flowchart-large.jpg';
+import porscheFlowchartPlaceholder from '~/assets/flowchart-placeholder.jpg';
+import porscheFlowchart from '~/assets/flowchart.jpg';
+import porscheHomeLarge from '~/assets/interface-home-large.jpg';
+import porscheHomePlaceholder from '~/assets/interface-home-placeholder.jpg';
+import porscheHome from '~/assets/interface-home.jpg';
+import porscheOutcomeLarge from '~/assets/porsche-background-large.jpg';
+import porscheOutcomePlaceholder from '~/assets/porsche-background-placeholder.jpg';
+import porscheOutcome from '~/assets/porsche-background.jpg';
+import porschePrototypeLarge from '~/assets/interface-prototype2-large.jpg';
+import porschePrototypePlaceholder from '~/assets/interface-prototype2-placeholder.jpg';
+import porschePrototype from '~/assets/interface-prototype2.jpg';
+import porscheWireframeMainLarge from '~/assets/interface-wireframe-large.jpg';
+import porscheWireframeMainPlaceholder from '~/assets/interface-wireframe-placeholder.jpg';
+import porscheWireframeMain from '~/assets/interface-wireframe.jpg';
+import porscheWireframeNavigationLarge from '~/assets/interface-wireframe2-large.jpg';
+import porscheWireframeNavigationPlaceholder from '~/assets/interface-wireframe2-placeholder.jpg';
+import porscheWireframeNavigation from '~/assets/interface-wireframe2.jpg';
+
+import postureActivityLarge from '~/assets/activity-diagram-large.jpg';
+import postureActivityPlaceholder from '~/assets/activity-diagram-placeholder.jpg';
+import postureActivity from '~/assets/activity-diagram.jpg';
+import postureAppLarge from '~/assets/posture-checker-app-large.png';
+import postureAppPlaceholder from '~/assets/posture-checker-app-placeholder.png';
+import postureApp from '~/assets/posture-checker-app.png';
+import postureArchitectureLarge from '~/assets/block-diagram-large.jpg';
+import postureArchitecturePlaceholder from '~/assets/block-diagram-placeholder.jpg';
+import postureArchitecture from '~/assets/block-diagram.jpg';
+import postureBackgroundLarge from '~/assets/background-large.jpg';
+import postureBackgroundPlaceholder from '~/assets/background-placeholder.jpg';
+import postureBackground from '~/assets/background.jpg';
+import postureFinalAppLarge from '~/assets/final-app-large.png';
+import postureFinalAppPlaceholder from '~/assets/final-app-placeholder.png';
+import postureFinalApp from '~/assets/final-app.png';
+import postureListLarge from '~/assets/gamestack-list-large.jpg';
+import postureListPlaceholder from '~/assets/gamestack-list-placeholder.jpg';
+import postureList from '~/assets/gamestack-list.jpg';
+import postureLoginLarge from '~/assets/gamestack-login-large.jpg';
+import postureLoginPlaceholder from '~/assets/gamestack-login-placeholder.jpg';
+import postureLogin from '~/assets/gamestack-login.jpg';
+import postureProgressLarge from '~/assets/gamestack-list3-large.jpg';
+import postureProgressPlaceholder from '~/assets/gamestack-list3-placeholder.jpg';
+import postureProgress from '~/assets/gamestack-list3.jpg';
+import posturePrototypeLarge from '~/assets/prototype-large.jpg';
+import posturePrototypePlaceholder from '~/assets/prototype-placeholder.jpg';
+import posturePrototype from '~/assets/prototype.jpg';
+import postureTeamPlaceholder from '~/assets/team-placeholder.jpg';
+import postureTeam from '~/assets/team.jpg';
+import postureWireframeLarge from '~/assets/wireframe-large.jpg';
+import postureWireframePlaceholder from '~/assets/wireframe-placeholder.jpg';
+import postureWireframe from '~/assets/wireframe.jpg';
+
+import littleLemonHeroLarge from '~/assets/little-lemon-1-large.jpg';
+import littleLemonHeroPlaceholder from '~/assets/little-lemon-1-placeholder.jpg';
+import littleLemonHero from '~/assets/little-lemon-1.jpg';
+import littleLemonMenuLarge from '~/assets/little-lemon-2-large.jpg';
+import littleLemonMenuPlaceholder from '~/assets/little-lemon-2-placeholder.jpg';
+import littleLemonMenu from '~/assets/little-lemon-2.jpg';
+
+import sayitBrand from '~/assets/sayit-brand.png';
+import sayitPopoverIdle from '~/assets/sayit-popover-idle.png';
+import sayitPopoverRecording from '~/assets/sayit-popover-recording.png';
+import sayitIphoneMic from '~/assets/sayit-iphone-mic.jpg';
+
+const imageAssets = {
+  littleLemonHero: {
+    src: littleLemonHero,
+    srcSet: `${littleLemonHero} 800w, ${littleLemonHeroLarge} 1600w`,
+    placeholder: littleLemonHeroPlaceholder,
+    width: 800,
+    height: 500,
+  },
+  littleLemonMenu: {
+    src: littleLemonMenu,
+    srcSet: `${littleLemonMenu} 800w, ${littleLemonMenuLarge} 1600w`,
+    placeholder: littleLemonMenuPlaceholder,
+    width: 800,
+    height: 500,
+  },
+  littleLemonReservation: {
+    src: littleLemonHero,
+    srcSet: `${littleLemonHero} 800w, ${littleLemonHeroLarge} 1600w`,
+    placeholder: littleLemonHeroPlaceholder,
+    width: 800,
+    height: 500,
+  },
+  porscheFlowchart: {
+    src: porscheFlowchart,
+    srcSet: `${porscheFlowchart} 1024w, ${porscheFlowchartLarge} 2048w`,
+    placeholder: porscheFlowchartPlaceholder,
+    width: 1024,
+    height: 800,
+  },
+  porscheHome: {
+    src: porscheHome,
+    srcSet: `${porscheHome} 1280w, ${porscheHomeLarge} 2560w`,
+    placeholder: porscheHomePlaceholder,
+    width: 1280,
+    height: 800,
+  },
+  porscheOutcome: {
+    src: porscheOutcome,
+    srcSet: `${porscheOutcome} 1280w, ${porscheOutcomeLarge} 2560w`,
+    placeholder: porscheOutcomePlaceholder,
+    width: 1280,
+    height: 900,
+  },
+  porschePrototype: {
+    src: porschePrototype,
+    srcSet: `${porschePrototype} 1280w, ${porschePrototypeLarge} 2560w`,
+    placeholder: porschePrototypePlaceholder,
+    width: 1280,
+    height: 800,
+  },
+  porscheWireframeMain: {
+    src: porscheWireframeMain,
+    srcSet: `${porscheWireframeMain} 1280w, ${porscheWireframeMainLarge} 2560w`,
+    placeholder: porscheWireframeMainPlaceholder,
+    width: 1280,
+    height: 800,
+  },
+  porscheWireframeNavigation: {
+    src: porscheWireframeNavigation,
+    srcSet: `${porscheWireframeNavigation} 1280w, ${porscheWireframeNavigationLarge} 2560w`,
+    placeholder: porscheWireframeNavigationPlaceholder,
+    width: 1280,
+    height: 800,
+  },
+  postureActivity: {
+    src: postureActivity,
+    srcSet: `${postureActivity} 440w, ${postureActivityLarge} 880w`,
+    placeholder: postureActivityPlaceholder,
+    width: 440,
+    height: 790,
+  },
+  postureApp: {
+    src: postureApp,
+    srcSet: `${postureApp} 800w, ${postureAppLarge} 1920w`,
+    placeholder: postureAppPlaceholder,
+    width: 800,
+    height: 500,
+  },
+  postureArchitecture: {
+    src: postureArchitecture,
+    srcSet: `${postureArchitecture} 440w, ${postureArchitectureLarge} 880w`,
+    placeholder: postureArchitecturePlaceholder,
+    width: 440,
+    height: 790,
+  },
+  postureFinalApp: {
+    src: postureFinalApp,
+    srcSet: `${postureFinalApp} 350w, ${postureFinalAppLarge} 700w`,
+    placeholder: postureFinalAppPlaceholder,
+    width: 350,
+    height: 750,
+  },
+  posturePrototype: {
+    src: posturePrototype,
+    srcSet: `${posturePrototype} 800w, ${posturePrototypeLarge} 1920w`,
+    placeholder: posturePrototypePlaceholder,
+    width: 800,
+    height: 500,
+  },
+  postureTeam: {
+    src: postureTeam,
+    placeholder: postureTeamPlaceholder,
+    width: 940,
+    height: 500,
+  },
+  postureWireframe: {
+    src: postureWireframe,
+    srcSet: `${postureWireframe} 800w, ${postureWireframeLarge} 1920w`,
+    placeholder: postureWireframePlaceholder,
+    width: 800,
+    height: 500,
+  },
+  sayitBrand: {
+    src: sayitBrand,
+    width: 1600,
+    height: 900,
+  },
+  sayitPopoverIdle: {
+    src: sayitPopoverIdle,
+    width: 1124,
+    height: 916,
+  },
+  sayitPopoverRecording: {
+    src: sayitPopoverRecording,
+    width: 1128,
+    height: 914,
+  },
+  sayitIphoneMic: {
+    src: sayitIphoneMic,
+    width: 1179,
+    height: 2556,
+  },
+};
+
+const backgrounds = {
+  'little-lemon': {
+    src: littleLemonHero,
+    srcSet: `${littleLemonHero} 800w, ${littleLemonHeroLarge} 1600w`,
+    placeholder: littleLemonHeroPlaceholder,
+    width: 800,
+    height: 500,
+    opacity: 0.76,
+  },
+  sayit: {
+    src: sayitBrand,
+    width: 1600,
+    height: 900,
+    opacity: 0.35,
+  },
+  'porsche-digital-interface': {
+    src: porscheBackground,
+    srcSet: `${porscheBackground} 1080w, ${porscheBackgroundLarge} 2160w`,
+    placeholder: porscheBackgroundPlaceholder,
+    opacity: 0.5,
+  },
+  'posture-checker': {
+    src: postureBackground,
+    srcSet: `${postureBackground} 1280w, ${postureBackgroundLarge} 2560w`,
+    placeholder: postureBackgroundPlaceholder,
+    width: 1280,
+    height: 800,
+    opacity: 0.8,
+  },
+};
+
+const summaryTextures = {
+  'little-lemon': [
+    {
+      srcSet: `${littleLemonMenu} 375w, ${littleLemonMenuLarge} 750w`,
+      placeholder: littleLemonMenuPlaceholder,
+    },
+    {
+      srcSet: `${littleLemonHero} 375w, ${littleLemonHeroLarge} 750w`,
+      placeholder: littleLemonHeroPlaceholder,
+    },
+  ],
+  'porsche-digital-interface': [
+    {
+      srcSet: `${porscheHome} 1280w, ${porscheHomeLarge} 2560w`,
+      placeholder: porscheHomePlaceholder,
+    },
+  ],
+  'posture-checker': [
+    {
+      srcSet: `${postureLogin} 375w, ${postureLoginLarge} 750w`,
+      placeholder: postureLoginPlaceholder,
+    },
+    {
+      srcSet: `${postureList} 375w, ${postureListLarge} 750w`,
+      placeholder: postureListPlaceholder,
+    },
+    {
+      srcSet: `${postureProgress} 375w, ${postureProgressLarge} 750w`,
+      placeholder: postureProgressPlaceholder,
+    },
+  ],
+  sayit: [
+    {
+      srcSet: `${sayitPopoverIdle} 375w, ${sayitPopoverIdle} 1124w`,
+    },
+  ],
+};
+
+const withAssets = project => ({
+  ...project,
+  background: backgrounds[project.slug],
+  path: getProjectPath(project.slug),
+  summary: {
+    ...project.summary,
+    textures: summaryTextures[project.slug] || [],
+  },
+  sections: project.sections.map(section => ({
+    ...section,
+    image: typeof section.image === 'string' ? imageAssets[section.image] : section.image,
+    images: section.images?.map(image => imageAssets[image]),
+  })),
+});
+
+export const projects = portfolioProjects.map(withAssets);
+
+export const featuredProjects = featuredProjectSlugs.map(slug =>
+  projects.find(project => project.slug === slug)
+);
+
+export const getProjectBySlug = slug => projects.find(project => project.slug === slug);
+
+export { getProjectPath };

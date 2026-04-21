@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+Icon?
+
+/.cache
+/build
+.env
+
+.wrangler
+.dev.vars
+
+public/draco
+storybook-static
