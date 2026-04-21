@@ -42,6 +42,11 @@ export function ProjectSummary({
   const indexText = index < 10 ? `0${index}` : index;
   const phoneSizes = `(max-width: ${media.tablet}px) 30vw, 20vw`;
   const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
+  const phonePositions = [
+    { x: 0.3, y: 1.1, z: 0 },
+    { x: 1.4, y: -0.5, z: 0.3 },
+    { x: -1.4, y: 0.3, z: 0.6 },
+  ];
 
   function handleModelLoad() {
     setModelLoaded(true);
@@ -146,24 +151,14 @@ export function ProjectSummary({
                     showDelay={300}
                     onLoad={handleModelLoad}
                     show={visible}
-                    models={[
-                      {
-                        ...deviceModels.phone,
-                        position: { x: -0.6, y: 1.1, z: 0 },
-                        texture: {
-                          ...model.textures[0],
-                          sizes: phoneSizes,
-                        },
+                    models={model.textures.map((texture, index) => ({
+                      ...deviceModels.phone,
+                      position: phonePositions[index],
+                      texture: {
+                        ...texture,
+                        sizes: phoneSizes,
                       },
-                      {
-                        ...deviceModels.phone,
-                        position: { x: 0.6, y: -0.5, z: 0.3 },
-                        texture: {
-                          ...model.textures[1],
-                          sizes: phoneSizes,
-                        },
-                      },
-                    ]}
+                    }))}
                   />
                 </Suspense>
               )}

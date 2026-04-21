@@ -41,10 +41,15 @@ void main() {
 
 	#include <clipping_planes_fragment>
 
-  vec3 color = vec3(vUv * (0.2 - 2.0 * noise), 1.0);
-  vec3 finalColors = vec3(color.b * 1.5, color.r, color.r);
-  vec4 diffuseColor = vec4(cos(finalColors * noise * 3.0), 1.0);
+  // 计算颜色，基于纹理坐标和噪声，结果为一种深色调
+  vec3 color = vec3(vUv * (0.2 - 2.0 * noise), 0.0);
+  // 调整颜色分量，生成最终颜色，主要是红色和橙色调
+  vec3 finalColors = vec3(color.r * 2.2, color.r * 1.2, 0.0);
+  // 计算漫反射颜色，使用余弦函数和噪声，结果为一种动态变化的色调
+  vec4 diffuseColor = vec4(cos(finalColors * noise * 3.0), 0.0);
+  // 初始化反射光，初始为黑色
   ReflectedLight reflectedLight = ReflectedLight(vec3(0.0), vec3(0.0), vec3(0.0), vec3(0.0));
+  // 设置总的自发光辐射，使用传入的自发光颜色
   vec3 totalEmissiveRadiance = emissive;
 
 	#include <logdepthbuf_fragment>

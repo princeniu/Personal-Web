@@ -2,7 +2,7 @@ import { useTheme } from '~/components/theme-provider';
 import { Transition } from '~/components/transition';
 import { useReducedMotion, useSpring } from 'framer-motion';
 import { useInViewport, useWindowSize } from '~/hooks';
-import { startTransition, useEffect, useRef } from 'react';
+import { startTransition, useEffect, useRef, useState } from 'react';
 import {
   AmbientLight,
   DirectionalLight,
@@ -31,6 +31,8 @@ const springConfig = {
 
 export const DisplacementSphere = props => {
   const { theme } = useTheme();
+  const [webglReady, setWebglReady] = useState(false);
+  const [webglFailed, setWebglFailed] = useState(false);
   const start = useRef(Date.now());
   const canvasRef = useRef();
   const mouse = useRef();
@@ -51,13 +53,20 @@ export const DisplacementSphere = props => {
   useEffect(() => {
     const { innerWidth, innerHeight } = window;
     mouse.current = new Vector2(0.8, 0.5);
-    renderer.current = new WebGLRenderer({
-      canvas: canvasRef.current,
-      antialias: false,
-      alpha: true,
-      powerPreference: 'high-performance',
-      failIfMajorPerformanceCaveat: true,
-    });
+
+    try {
+      renderer.current = new WebGLRenderer({
+        canvas: canvasRef.current,
+        antialias: false,
+        alpha: true,
+        powerPreference: 'high-performance',
+        failIfMajorPerformanceCaveat: true,
+      });
+    } catch {
+      setWebglFailed(true);
+      return undefined;
+    }
+
     renderer.current.setSize(innerWidth, innerHeight);
     renderer.current.setPixelRatio(1);
     renderer.current.outputColorSpace = LinearSRGBColorSpace;
@@ -87,6 +96,8 @@ export const DisplacementSphere = props => {
       scene.current.add(sphere.current);
     });
 
+    setWebglReady(true);
+
     return () => {
       cleanScene(scene.current);
       cleanRenderer(renderer.current);
@@ -94,8 +105,10 @@ export const DisplacementSphere = props => {
   }, []);
 
   useEffect(() => {
-    const dirLight = new DirectionalLight(0xffffff, theme === 'light' ? 1.8 : 2.0);
-    const ambientLight = new AmbientLight(0xffffff, theme === 'light' ? 2.7 : 0.4);
+    if (!webglReady) return undefined;
+
+    const dirLight = new DirectionalLight(0xff9933, theme === 'light' ? 2.2 : 2.4);
+    const ambientLight = new AmbientLight(0xff9933, theme === 'light' ? 3.0 : 0.6);
 
     dirLight.position.z = 200;
     dirLight.position.x = 100;
@@ -107,9 +120,11 @@ export const DisplacementSphere = props => {
     return () => {
       removeLights(lights.current);
     };
-  }, [theme]);
+  }, [theme, webglReady]);
 
   useEffect(() => {
+    if (!webglReady || !sphere.current) return;
+
     const { width, height } = windowSize;
 
     const adjustedHeight = height + height * 0.3;
@@ -132,9 +147,11 @@ export const DisplacementSphere = props => {
       sphere.current.position.x = 22;
       sphere.current.position.y = 16;
     }
-  }, [reduceMotion, windowSize]);
+  }, [reduceMotion, webglReady, windowSize]);
 
   useEffect(() => {
+    if (!webglReady) return undefined;
+
     const onMouseMove = throttle(event => {
       const position = {
         x: event.clientX / window.innerWidth,
@@ -152,9 +169,11 @@ export const DisplacementSphere = props => {
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
     };
-  }, [isInViewport, reduceMotion, rotationX, rotationY]);
+  }, [isInViewport, reduceMotion, rotationX, rotationY, webglReady]);
 
   useEffect(() => {
+    if (!webglReady || !sphere.current) return undefined;
+
     let animation;
 
     const animate = () => {
@@ -180,7 +199,9 @@ export const DisplacementSphere = props => {
     return () => {
       cancelAnimationFrame(animation);
     };
-  }, [isInViewport, reduceMotion, rotationX, rotationY]);
+  }, [isInViewport, reduceMotion, rotationX, rotationY, webglReady]);
+
+  if (webglFailed) return null;
 
   return (
     <Transition in timeout={3000} nodeRef={canvasRef}>

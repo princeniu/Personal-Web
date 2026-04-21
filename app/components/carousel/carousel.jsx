@@ -35,6 +35,8 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [textures, setTextures] = useState();
   const [canvasRect, setCanvasRect] = useState();
+  const [webglReady, setWebglReady] = useState(false);
+  const [webglFailed, setWebglFailed] = useState(false);
   const canvas = useRef();
   const imagePlane = useRef();
   const geometry = useRef();
@@ -67,13 +69,21 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
 
   useEffect(() => {
     const cameraOptions = [width / -2, width / 2, height / 2, height / -2, 1, 1000];
-    renderer.current = new WebGLRenderer({
-      canvas: canvas.current,
-      antialias: false,
-      alpha: true,
-      powerPreference: 'high-performance',
-      failIfMajorPerformanceCaveat: true,
-    });
+
+    try {
+      renderer.current = new WebGLRenderer({
+        canvas: canvas.current,
+        antialias: false,
+        alpha: true,
+        powerPreference: 'high-performance',
+        failIfMajorPerformanceCaveat: true,
+      });
+    } catch {
+      setLoaded(true);
+      setWebglFailed(true);
+      return undefined;
+    }
+
     camera.current = new OrthographicCamera(...cameraOptions);
     scene.current = new Scene();
     renderer.current.setPixelRatio(2);
@@ -83,6 +93,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
     renderer.current.domElement.style.height = 'auto';
     scene.current.background = new Color(0x111111);
     camera.current.position.z = 1;
+    setWebglReady(true);
 
     return () => {
       animating.current = false;
@@ -92,6 +103,8 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
   }, [height, width]);
 
   useEffect(() => {
+    if (!webglReady || webglFailed) return undefined;
+
     let mounted = true;
 
     const loadImages = async () => {
@@ -148,10 +161,15 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
     return () => {
       mounted = false;
     };
-  }, [height, images, inViewport, loaded, reduceMotion, width]);
+  }, [height, images, inViewport, loaded, reduceMotion, webglFailed, webglReady, width]);
 
   const goToIndex = useCallback(
     ({ index, direction = 1 }) => {
+      if (webglFailed) {
+        setImageIndex(index);
+        return;
+      }
+
       if (!textures) return;
       setImageIndex(index);
       const { uniforms } = material.current;
@@ -180,12 +198,18 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         });
       }
     },
-    [textures]
+    [textures, webglFailed]
   );
 
   const navigate = useCallback(
     ({ direction, index = null, ...rest }) => {
       if (!loaded) return;
+
+      if (webglFailed) {
+        const finalIndex = determineIndex(imageIndex, index, images, direction);
+        goToIndex({ index: finalIndex, direction, ...rest });
+        return;
+      }
 
       if (animating.current) {
         cancelAnimationFrame(scheduledAnimationFrame.current);
@@ -198,7 +222,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
       const finalIndex = determineIndex(imageIndex, index, textures, direction);
       goToIndex({ index: finalIndex, direction: direction, ...rest });
     },
-    [goToIndex, imageIndex, loaded, textures]
+    [goToIndex, imageIndex, images, loaded, textures, webglFailed]
   );
 
   const onNavClick = useCallback(
@@ -211,6 +235,8 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
   );
 
   useEffect(() => {
+    if (webglFailed) return undefined;
+
     const handleResize = () => {
       const rect = canvas.current.getBoundingClientRect();
       setCanvasRect(rect);
@@ -222,9 +248,11 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [webglFailed]);
 
   useEffect(() => {
+    if (!webglReady || webglFailed) return undefined;
+
     let animation;
 
     const animate = () => {
@@ -239,7 +267,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
     return () => {
       cancelAnimationFrame(animation);
     };
-  }, []);
+  }, [webglFailed, webglReady]);
 
   useEffect(() => {
     if (placeholder) {
@@ -260,7 +288,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
 
   const onSwipeMove = useCallback(
     x => {
-      if (animating.current || !material.current || !textures) return;
+      if (webglFailed || animating.current || !material.current || !textures) return;
       lastSwipePosition.current = x;
       const absoluteX = Math.abs(x);
       const containerWidth = canvasRect.width;
@@ -280,10 +308,11 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         renderer.current.render(scene.current, camera.current);
       });
     },
-    [canvasRect, imageIndex, images, textures]
+    [canvasRect, imageIndex, images, textures, webglFailed]
   );
 
   const onSwipeEnd = useCallback(() => {
+    if (webglFailed) return;
     if (!material.current) return;
     const uniforms = material.current.uniforms;
     const duration = (1 - uniforms.dispFactor.value) * 1000;
@@ -309,7 +338,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         index: imageIndex,
       });
     }
-  }, [canvasRect, imageIndex, navigate]);
+  }, [canvasRect, imageIndex, navigate, webglFailed]);
 
   const handlePointerMove = useCallback(
     event => {
@@ -328,13 +357,15 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
 
   const handlePointerDown = useCallback(
     event => {
+      if (webglFailed) return;
+
       initSwipeX.current = event.clientX;
       setDragging(true);
 
       document.addEventListener('pointermove', handlePointerMove);
       document.addEventListener('pointerup', handlePointerUp);
     },
-    [handlePointerMove, handlePointerUp]
+    [handlePointerMove, handlePointerUp, webglFailed]
   );
 
   const handleKeyDown = event => {
@@ -365,9 +396,20 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
             aria-label={currentImageAlt}
             role="img"
           >
-            <canvas aria-hidden className={styles.canvas} ref={canvas} />
+            {webglFailed ? (
+              <img
+                className={styles.fallbackImage}
+                src={placeholder}
+                srcSet={images[imageIndex].srcSet}
+                sizes={images[imageIndex].sizes}
+                alt=""
+                role="presentation"
+              />
+            ) : (
+              <canvas aria-hidden className={styles.canvas} ref={canvas} />
+            )}
           </div>
-          {showPlaceholder && placeholder && (
+          {!webglFailed && showPlaceholder && placeholder && (
             <img
               aria-hidden
               className={styles.placeholder}

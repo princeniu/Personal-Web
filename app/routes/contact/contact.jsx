@@ -1,6 +1,7 @@
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
+import { contactContent } from '~/data/site-content';
 import { Footer } from '~/components/footer';
 import { Heading } from '~/components/heading';
 import { Icon } from '~/components/icon';
@@ -21,8 +22,7 @@ import styles from './contact.module.css';
 export const meta = () => {
   return baseMeta({
     title: 'Contact',
-    description:
-      'Send me a message if you’re interested in discussing a project or if you just want to say hi',
+    description: contactContent.metaDescription,
   });
 };
 
@@ -31,14 +31,7 @@ const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
 export async function action({ context, request }) {
-  const ses = new SESClient({
-    region: 'us-east-1',
-    credentials: {
-      accessKeyId: context.cloudflare.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: context.cloudflare.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
-
+  const env = context.cloudflare?.env || {};
   const formData = await request.formData();
   const isBot = String(formData.get('name'));
   const email = String(formData.get('email'));
@@ -69,26 +62,62 @@ export async function action({ context, request }) {
     return json({ errors });
   }
 
-  // Send email via Amazon SES
-  await ses.send(
-    new SendEmailCommand({
-      Destination: {
-        ToAddresses: [context.cloudflare.env.EMAIL],
+  const requiredEnvVars = [
+    env.AWS_ACCESS_KEY_ID,
+    env.AWS_SECRET_ACCESS_KEY,
+    env.EMAIL,
+    env.FROM_EMAIL,
+  ];
+
+  if (requiredEnvVars.some(value => !value)) {
+    return json(
+      {
+        errors: {
+          form: contactContent.unconfiguredMessage,
+        },
       },
-      Message: {
-        Body: {
-          Text: {
-            Data: `From: ${email}\n\n${message}`,
+      { status: 500 }
+    );
+  }
+
+  const ses = new SESClient({
+    region: 'us-east-1',
+    credentials: {
+      accessKeyId: env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
+    },
+  });
+
+  try {
+    await ses.send(
+      new SendEmailCommand({
+        Destination: {
+          ToAddresses: [env.EMAIL],
+        },
+        Message: {
+          Body: {
+            Text: {
+              Data: `From: ${email}\n\n${message}`,
+            },
+          },
+          Subject: {
+            Data: `Portfolio message from ${email}`,
           },
         },
-        Subject: {
-          Data: `Portfolio message from ${email}`,
+        Source: `Portfolio <${env.FROM_EMAIL}>`,
+        ReplyToAddresses: [email],
+      })
+    );
+  } catch {
+    return json(
+      {
+        errors: {
+          form: contactContent.failedMessage,
         },
       },
-      Source: `Portfolio <${context.cloudflare.env.FROM_EMAIL}>`,
-      ReplyToAddresses: [email],
-    })
-  );
+      { status: 500 }
+    );
+  }
 
   return json({ success: true });
 }
@@ -119,7 +148,11 @@ export const Contact = () => {
               as="h1"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
-              <DecoderText text="Say hello" start={status !== 'exited'} delay={300} />
+              <DecoderText
+                text={contactContent.title}
+                start={status !== 'exited'}
+                delay={300}
+              />
             </Heading>
             <Divider
               className={styles.divider}
@@ -174,6 +207,7 @@ export const Contact = () => {
                   <div className={styles.formErrorContent} ref={errorRef}>
                     <div className={styles.formErrorMessage}>
                       <Icon className={styles.formErrorIcon} icon="error" />
+                      {actionData?.errors?.form}
                       {actionData?.errors?.email}
                       {actionData?.errors?.message}
                     </div>
@@ -206,7 +240,7 @@ export const Contact = () => {
               className={styles.completeTitle}
               data-status={status}
             >
-              Message Sent
+              {contactContent.successTitle}
             </Heading>
             <Text
               size="l"
@@ -215,7 +249,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS)}
             >
-              I’ll get back to you within a couple days, sit tight
+              {contactContent.successBody}
             </Text>
             <Button
               secondary
@@ -226,7 +260,7 @@ export const Contact = () => {
               href="/"
               icon="chevron-right"
             >
-              Back to homepage
+              {contactContent.backLabel}
             </Button>
           </div>
         )}

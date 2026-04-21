@@ -11,7 +11,7 @@ export function baseMeta({
 }) {
   const titleText = [prefix, title].filter(Boolean).join(' | ');
 
-  return [
+  const meta = [
     { title: titleText },
     { name: 'description', content: description },
     { name: 'author', content: name },
@@ -28,7 +28,12 @@ export function baseMeta({
     { property: 'twitter:description', content: description },
     { property: 'twitter:title', content: titleText },
     { property: 'twitter:site', content: url },
-    { property: 'twitter:creator', content: twitter },
     { property: 'twitter:image', content: ogImage },
   ];
+
+  if (twitter) {
+    meta.push({ property: 'twitter:creator', content: twitter });
+  }
+
+  return meta;
 }

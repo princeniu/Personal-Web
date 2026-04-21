@@ -8,22 +8,21 @@ and graphic assets behind this site humanstxt.org.
 
 _______________________________________________________________________________
 
-DESIGNER | デザイナー
+DESIGNER & DEVELOPER
 
-Hamish Williams
-Hand crafted design & web development
+Zhuo (Prince) Niu
+Product design, mobile development, and frontend engineering
 
 Design tools:
 Figma
-Photoshop
-Blender
+Xmind
+Miro
 
-twitter.com/hamishmw
-github.com/hamishmw
+github.com/princeniu
 
 _______________________________________________________________________________
 
-TECHNOLOGY | テクノロジー
+TECHNOLOGY
 
 React
 Remix
@@ -32,7 +31,7 @@ Framer Motion
 
 _______________________________________________________________________________
 
-FONTS | フォント
+FONTS
 
 Gotham
 IPA Gothic Regular

@@ -1,56 +1,59 @@
 <p align="center">
   <img src="/public/favicon.svg" width="50" alt="Logo" />
 </p>
-<h1 align="center">Personal portfolio</h1>
+<h1 align="center">Zhuo (Prince) Niu Portfolio</h1>
 
-[![Site preview](/public/site-preview.png)](https://hamishw.com)
+Personal portfolio for product design, mobile development, and frontend engineering work. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/).
 
-My design portfolio to showcase a few projects. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://hamishw.com) or check out a live version of the [components storybook](https://storybook.hamishw.com).
+## Project Structure
 
-## Install & run
+Portfolio content is data-driven:
 
-Make sure you have nodejs `19.9.0` or higher and npm `9.6.3` or higher installed. Install dependencies with:
+- `app/data/project-content.js` contains project copy, slugs, roles, summaries, and section structure.
+- `app/data/projects.js` binds that content to imported assets.
+- `app/routes/projects.$slug/route.jsx` renders every project route from the shared data.
+- `app/routes/projects/project-case.jsx` maps project section types to the existing visual layout components.
+
+To add a new project:
+
+1. Add assets to `app/assets/`.
+2. Add the project entry to `portfolioProjects` in `app/data/project-content.js`.
+3. Bind its images and homepage preview textures in `app/data/projects.js`.
+4. Add the slug to `featuredProjectSlugs` only if it should appear on the homepage.
+5. Run `npm test` and `npm run build`.
+
+## Install & Run
+
+Use the Node version declared in `.node-version`, then install dependencies:
 
 ```bash
 npm install
 ```
 
-Once it's done start up a local server with:
+Start the local development server:
 
 ```bash
 npm run dev
 ```
 
-To view the components storybook:
+Run the data contract tests:
 
 ```bash
-npm run dev:storybook
+npm test
+```
+
+Build for production:
+
+```bash
+npm run build
 ```
 
 ## Deployment
 
-I've set up the site using Cloudflare for hosting. Deploy the site to Cloudflare Pages:
+The project is configured for Cloudflare Pages:
 
 ```bash
 npm run deploy
 ```
 
-## Permissions
-
-I'm cool with anyone using the code or parts of the code for their own site, it is open source so people can learn from it and adapt it. However, I would encourage you to modify the theme and components it to make it your own. If you are using the site's design largely unmodified, I'd appreciate being credited as the designer of the website.
-
-I do not give permission to present any of my projects as your own (this is being actively used as my portfolio site and these are my real projects I've worked on).
-
-## FAQs
-
-<details>
-  <summary>How do I change the color on the <code>DisplacementSphere</code> (blobby rotating thing in the background).</summary>
-  
-  You'll need to edit the fragment shader. [Check out this issue for more details](https://github.com/HamishMW/portfolio/issues/19#issuecomment-870996615).
-</details>
-
-<details>
-  <summary>How do I get the contact form to work?</summary>
-  
-  To get the contact form working create an AWS account and set up SES (Simple Email service). Then plug in your details into `.dev.vars.example` and rename it to `.dev.vars`. You'll also need to add these as enviroment variables in the Cloudflare dashboard for it to work in production. Or if you don't mind sending through gmail use [nodemailer](https://nodemailer.com/) instead.
-</details>
+The contact form uses AWS SES through Cloudflare environment variables. Copy `.dev.vars.example` to `.dev.vars` for local development and configure the same variables in Cloudflare Pages for production.

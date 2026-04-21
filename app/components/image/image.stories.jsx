@@ -6,17 +6,17 @@ export default {
 };
 
 const imageData = {
-  alt: 'An abstract purple and pink neon thing',
-  src: '/static/modern-styling-in-react-banner.jpg',
+  alt: 'Portfolio site preview',
+  src: '/site-preview.png',
   width: 960,
   height: 540,
-  placeholder: '/static/modern-styling-in-react-banner-placeholder.jpg',
+  placeholder: '/site-preview.png',
 };
 
 const Story = args => (
   <StoryContainer>
     <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0px, 960px)' }}>
-      <Image alt="An abstract purple and pink neon thing" {...imageData} {...args} />
+      <Image alt="Portfolio site preview" {...imageData} {...args} />
     </div>
   </StoryContainer>
 );

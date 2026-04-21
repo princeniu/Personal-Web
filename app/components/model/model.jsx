@@ -66,6 +66,8 @@ export const Model = ({
   ...rest
 }) => {
   const [loaded, setLoaded] = useState(false);
+  const [webglReady, setWebglReady] = useState(false);
+  const [webglFailed, setWebglFailed] = useState(false);
   const container = useRef();
   const canvas = useRef();
   const camera = useRef();
@@ -91,13 +93,20 @@ export const Model = ({
   useEffect(() => {
     const { clientWidth, clientHeight } = container.current;
 
-    renderer.current = new WebGLRenderer({
-      canvas: canvas.current,
-      alpha: true,
-      antialias: false,
-      powerPreference: 'high-performance',
-      failIfMajorPerformanceCaveat: true,
-    });
+    try {
+      renderer.current = new WebGLRenderer({
+        canvas: canvas.current,
+        alpha: true,
+        antialias: false,
+        powerPreference: 'high-performance',
+        failIfMajorPerformanceCaveat: true,
+      });
+    } catch {
+      setLoaded(true);
+      setWebglFailed(true);
+      onLoad?.();
+      return undefined;
+    }
 
     renderer.current.setPixelRatio(2);
     renderer.current.setSize(clientWidth, clientHeight);
@@ -210,9 +219,11 @@ export const Model = ({
     const unsubscribeX = rotationX.on('change', renderFrame);
     const unsubscribeY = rotationY.on('change', renderFrame);
 
+    setWebglReady(true);
+
     return () => {
-      renderTarget.current.dispose();
-      renderTargetBlur.current.dispose();
+      renderTarget.current?.dispose();
+      renderTargetBlur.current?.dispose();
       removeLights(lights.current);
       cleanScene(scene.current);
       cleanRenderer(renderer.current);
@@ -223,6 +234,8 @@ export const Model = ({
   }, []);
 
   const blurShadow = useCallback(amount => {
+    if (!blurPlane.current || !renderer.current) return;
+
     blurPlane.current.visible = true;
 
     // Blur horizontally and draw in the renderTargetBlur
@@ -246,6 +259,17 @@ export const Model = ({
 
   // Handle render passes for a single frame
   const renderFrame = useCallback(() => {
+    if (
+      !camera.current ||
+      !depthMaterial.current ||
+      !modelGroup.current ||
+      !renderer.current ||
+      !scene.current ||
+      !shadowCamera.current
+    ) {
+      return;
+    }
+
     const blurAmount = 5;
 
     // Remove the background
@@ -304,6 +328,8 @@ export const Model = ({
 
   // Handle window resize
   useEffect(() => {
+    if (!webglReady) return undefined;
+
     const handleResize = () => {
       if (!container.current) return;
 
@@ -322,7 +348,7 @@ export const Model = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [renderFrame]);
+  }, [renderFrame, webglReady]);
 
   return (
     <div
@@ -334,21 +360,22 @@ export const Model = ({
       aria-label={alt}
       {...rest}
     >
-      <canvas className={styles.canvas} ref={canvas} />
-      {models.map((model, index) => (
-        <Device
-          key={JSON.stringify(model.position)}
-          renderer={renderer}
-          modelGroup={modelGroup}
-          show={show}
-          showDelay={showDelay}
-          renderFrame={renderFrame}
-          index={index}
-          setLoaded={setLoaded}
-          onLoad={onLoad}
-          model={model}
-        />
-      ))}
+      {!webglFailed && <canvas className={styles.canvas} ref={canvas} />}
+      {webglReady &&
+        models.map((model, index) => (
+          <Device
+            key={JSON.stringify(model.position)}
+            renderer={renderer}
+            modelGroup={modelGroup}
+            show={show}
+            showDelay={showDelay}
+            renderFrame={renderFrame}
+            index={index}
+            setLoaded={setLoaded}
+            onLoad={onLoad}
+            model={model}
+          />
+        ))}
     </div>
   );
 };

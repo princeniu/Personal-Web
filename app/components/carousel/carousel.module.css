@@ -34,6 +34,11 @@
     position: relative;
   }
 
+  .fallbackImage {
+    display: block;
+    width: 100%;
+  }
+
   .placeholder {
     grid-column: 1;
     grid-row: 1;

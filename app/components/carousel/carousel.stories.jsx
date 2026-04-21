@@ -9,15 +9,15 @@ export const Images = () => (
   <StoryContainer>
     <Carousel
       style={{ maxWidth: 800, width: '100%' }}
-      placeholder="/static/modern-styling-in-react-banner-placeholder.jpg"
+      placeholder="/site-preview.png"
       images={[
         {
-          src: '/static/modern-styling-in-react-banner.jpg',
-          alt: 'Neon pink and blue lights',
+          src: '/site-preview.png',
+          alt: 'Portfolio site preview',
         },
         {
-          src: '/static/hello-world-banner.jpg',
-          alt: 'Geometric blue shapes',
+          src: '/social-image.png',
+          alt: 'Portfolio social preview',
         },
       ]}
       width={1920}

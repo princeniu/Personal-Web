@@ -17,6 +17,8 @@ const baseTokens = {
     'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
   japaneseFontStack:
     'IPA Gothic, ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, Hiragino Sans, Osaka, メイリオ, Meiryo, Segoe UI, sans-serif',
+  chineseFontStack:
+    'PingFang SC, Microsoft YaHei, sans-serif',
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
@@ -106,29 +108,29 @@ const tokensMobileSmall = {
   fontSizeH4: pxToRem(20),
 };
 
-// Tokens that change based on theme
+// 主题相关的颜色配置以及具体颜色说明
 const dark = {
-  background: 'oklch(17.76% 0 0)',
-  backgroundLight: 'oklch(21.78% 0 0)',
-  primary: 'oklch(84.42% 0.19 202.24)',
-  accent: 'oklch(84.42% 0.19 202.24)',
-  error: 'oklch(65.91% 0.249 13.76)',
-  text: 'var(--white)',
-  textTitle: 'var(--text)',
-  textBody: 'color-mix(in lab, var(--text) 80%, transparent)',
-  textLight: 'color-mix(in lab, var(--text) 60%, transparent)',
+  background: 'oklch(17.76% 0 0)', // 背景颜色，接近黑色
+  backgroundLight: 'oklch(21.78% 0 0)', // 浅背景颜色，深灰色
+  primary: 'oklch(84.42% 0.19 50)', // 主色调，亮黄色
+  accent: 'oklch(84.42% 0.19 50)', // 强调色，亮黄色
+  error: 'oklch(65.91% 0.249 13.76)', // 错误颜色，红色
+  text: 'var(--white)', // 文字颜色，白色
+  textTitle: 'var(--text)', // 标题文字颜色，白色
+  textBody: 'color-mix(in lab, var(--text) 80%, transparent)', // 正文文字颜色，半透明白色
+  textLight: 'color-mix(in lab, var(--text) 60%, transparent)', // 浅色文字颜色，更透明的白色
 };
 
 const light = {
-  background: 'oklch(96.12% 0 0)',
-  backgroundLight: 'var(--white)',
-  primary: 'var(--black)',
-  accent: 'oklch(84.42% 0.19 202.24)',
-  error: 'oklch(63.17% 0.259 25.41)',
-  text: 'var(--black)',
-  textTitle: 'color-mix(in lab, var(--text) 90%, transparent)',
-  textBody: 'color-mix(in lab, var(--text) 75%, transparent)',
-  textLight: 'color-mix(in lab, var(--text) 55%, transparent)',
+  background: 'oklch(96.12% 0 0)', // 背景颜色，接近白色
+  backgroundLight: 'var(--white)', // 浅背景颜色，白色
+  primary: 'oklch(84.42% 0.19 50)', // 主色调，亮黄色
+  accent: 'oklch(84.42% 0.19 50)', // 强调色，亮黄色
+  error: 'oklch(63.17% 0.259 25.41)', // 错误颜色，橙色
+  text: 'var(--black)', // 文字颜色，黑色
+  textTitle: 'color-mix(in lab, var(--text) 90%, transparent)', // 标题文字颜色，稍透明的黑色
+  textBody: 'color-mix(in lab, var(--text) 75%, transparent)', // 正文文字颜色，半透明黑色
+  textLight: 'color-mix(in lab, var(--text) 55%, transparent)', // 浅色文字颜色，更透明的黑色
 };
 
 export const tokens = {
