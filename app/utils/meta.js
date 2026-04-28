@@ -8,8 +8,11 @@ export function baseMeta({
   description,
   prefix = name,
   ogImage = defaultOgImage,
+  url: pageUrl = url,
+  path,
 }) {
   const titleText = [prefix, title].filter(Boolean).join(' | ');
+  const resolvedUrl = path ? `${url}${path}` : pageUrl;
 
   const meta = [
     { title: titleText },
@@ -22,7 +25,7 @@ export function baseMeta({
     { property: 'og:title', content: titleText },
     { property: 'og:site_name', content: name },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: url },
+    { property: 'og:url', content: resolvedUrl },
     { property: 'og:description', content: description },
     { property: 'twitter:card', content: 'summary_large_image' },
     { property: 'twitter:description', content: description },

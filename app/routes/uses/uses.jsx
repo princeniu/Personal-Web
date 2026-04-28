@@ -22,6 +22,7 @@ export const meta = () => {
   return baseMeta({
     title: 'Uses',
     description: usesContent.metaDescription,
+    path: '/uses',
   });
 };
 

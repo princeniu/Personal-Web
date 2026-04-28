@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 import {
@@ -60,4 +61,23 @@ test('project paths use stable portfolio URLs', () => {
 test('more-work is a first-class project route', () => {
   assert.equal(resolveProjectSlug('more-work'), 'more-work');
   assert.deepEqual(legacyProjectSlugRedirects, {});
+});
+
+test('repository metadata points to the active GitHub repo', () => {
+  const packageJson = JSON.parse(readFileSync('package.json', 'utf8'));
+  const configJson = JSON.parse(readFileSync('app/config.json', 'utf8'));
+
+  assert.equal(packageJson.repository, 'https://github.com/princeniu/Personal-Web.git');
+  assert.equal(configJson.repo, 'https://github.com/princeniu/Personal-Web');
+});
+
+test('sitemap only publishes intended public project routes', () => {
+  const sitemap = readFileSync('public/sitemap.xml', 'utf8');
+
+  assert.match(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
+  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/sayit/);
+
+  for (const slug of ['porsche-digital-interface', 'posture-checker', 'little-lemon']) {
+    assert.match(sitemap, new RegExp(`https://princeniu\\.com/projects/${slug}`));
+  }
 });

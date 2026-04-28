@@ -23,6 +23,7 @@ export const meta = () => {
   return baseMeta({
     title: 'Contact',
     description: contactContent.metaDescription,
+    path: '/contact',
   });
 };
 
