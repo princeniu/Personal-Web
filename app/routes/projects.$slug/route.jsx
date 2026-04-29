@@ -23,6 +23,7 @@ export const meta = ({ params }) => {
     return baseMeta({
       title: 'Project not found',
       description: 'The requested project could not be found.',
+      path: `/projects/${params.slug}`,
     });
   }
 
@@ -30,6 +31,7 @@ export const meta = ({ params }) => {
     title: project.title,
     description: project.description,
     prefix: 'Projects',
+    path: `/projects/${params.slug}`,
   });
 };
 

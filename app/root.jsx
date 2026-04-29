@@ -18,6 +18,7 @@ import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
 import { Progress } from '~/components/progress';
+import { getSessionSecrets } from '~/utils/session';
 import config from '~/config.json';
 import styles from './root.module.css';
 import './reset.module.css';
@@ -60,7 +61,7 @@ export const loader = async ({ request, context }) => {
       maxAge: 604_800,
       path: '/',
       sameSite: 'lax',
-      secrets: [context.cloudflare.env.SESSION_SECRET || ' '],
+      secrets: getSessionSecrets(request, context.cloudflare.env),
       secure: true,
     },
   });
