@@ -27,6 +27,7 @@ To add a new project:
 Use the Node version declared in `.node-version`, then install dependencies:
 
 ```bash
+nvm use
 npm install
 ```
 
