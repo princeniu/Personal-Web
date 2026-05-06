@@ -73,3 +73,151 @@
   position: relative;
   transform: scale(1.35);
 }
+
+.timeline {
+  --line: color-mix(in lab, var(--text) 20%, transparent);
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spaceM);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: var(--line);
+  }
+
+  @media (--mediaLaptop) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceL);
+
+    &::before {
+      top: 0;
+      bottom: 0;
+      left: 22px;
+      right: auto;
+      width: 1px;
+      height: auto;
+    }
+  }
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--spaceS);
+  padding-top: var(--spaceL);
+
+  @media (--mediaLaptop) {
+    grid-template-columns: 44px 1fr;
+    padding-top: 0;
+    column-gap: var(--spaceM);
+  }
+}
+
+.timelineIndex {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--accent);
+  font-size: var(--fontSizeBodyS);
+  font-weight: var(--fontWeightMedium);
+  z-index: 1;
+
+  @media (--mediaLaptop) {
+    grid-row: 1 / span 2;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.timelineTitle {
+  margin: 0;
+  font-size: var(--fontSizeBodyM);
+}
+
+.timelineDescription {
+  margin: 0;
+  color: var(--textLight);
+  font-size: var(--fontSizeBodyM);
+  line-height: 1.6;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spaceM);
+
+  @media (--mediaLaptop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (--mediaTablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--mediaMobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metricCard {
+  border: 1px solid color-mix(in lab, var(--text) 16%, transparent);
+  border-radius: 16px;
+  padding: var(--spaceL);
+  background: color-mix(in lab, var(--backgroundLight) 70%, transparent);
+}
+
+.metricValue {
+  display: block;
+  color: var(--accent);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+  margin-bottom: var(--spaceS);
+}
+
+.metricLabel {
+  color: var(--textLight);
+  font-size: var(--fontSizeBodyS);
+  line-height: 1.5;
+}
+
+.evidenceList {
+  margin: 0;
+  border-top: 1px solid color-mix(in lab, var(--text) 16%, transparent);
+}
+
+.evidenceItem {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--spaceL);
+  padding: var(--spaceL) 0;
+  border-bottom: 1px solid color-mix(in lab, var(--text) 16%, transparent);
+
+  & dt {
+    font-weight: var(--fontWeightMedium);
+  }
+
+  & dd {
+    margin: 0;
+    color: var(--text);
+  }
+
+  @media (--mediaMobile) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceS);
+  }
+}

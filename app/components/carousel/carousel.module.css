@@ -71,6 +71,8 @@
       content: '';
       position: absolute;
       inset: 0;
+      background: color-mix(in lab, var(--black) 48%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in lab, var(--white) 22%, transparent);
       transition-property: background, box-shadow;
       transition-duration: var(--durationM);
       transition-timing-function: var(--bezierFastoutSlowin);
@@ -84,7 +86,8 @@
     }
 
     &:hover::before {
-      background: color-mix(in lab, var(--white) 10%, transparent);
+      background: color-mix(in lab, var(--black) 66%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in lab, var(--white) 34%, transparent);
     }
 
     & svg {
