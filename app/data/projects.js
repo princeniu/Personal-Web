@@ -71,6 +71,46 @@ import sayitPopoverIdle from '~/assets/sayit-popover-idle.png';
 import sayitPopoverRecording from '~/assets/sayit-popover-recording.png';
 import sayitIphoneMic from '~/assets/sayit-iphone-mic.jpg';
 
+import trekassistAlertModalLarge from '~/assets/trekassist-alert-modal-large.jpg';
+import trekassistAlertModalPlaceholder from '~/assets/trekassist-alert-modal-placeholder.jpg';
+import trekassistAlertModal from '~/assets/trekassist-alert-modal.jpg';
+import trekassistDiscoveryFlowLarge from '~/assets/trekassist-discovery-flow-large.jpg';
+import trekassistDiscoveryFlowPlaceholder from '~/assets/trekassist-discovery-flow-placeholder.jpg';
+import trekassistDiscoveryFlow from '~/assets/trekassist-discovery-flow.jpg';
+import trekassistEmergencyConfirmationLarge from '~/assets/trekassist-emergency-confirmation-large.jpg';
+import trekassistEmergencyConfirmationPlaceholder from '~/assets/trekassist-emergency-confirmation-placeholder.jpg';
+import trekassistEmergencyConfirmation from '~/assets/trekassist-emergency-confirmation.jpg';
+import trekassistGuidedTourMammothLarge from '~/assets/trekassist-guided-tour-mammoth-large.jpg';
+import trekassistGuidedTourMammothPlaceholder from '~/assets/trekassist-guided-tour-mammoth-placeholder.jpg';
+import trekassistGuidedTourMammoth from '~/assets/trekassist-guided-tour-mammoth.jpg';
+import trekassistGuidedToursLarge from '~/assets/trekassist-guided-tours-large.jpg';
+import trekassistGuidedToursPlaceholder from '~/assets/trekassist-guided-tours-placeholder.jpg';
+import trekassistGuidedTours from '~/assets/trekassist-guided-tours.jpg';
+import trekassistHomeAlertLarge from '~/assets/trekassist-home-alert-large.jpg';
+import trekassistHomeAlertPlaceholder from '~/assets/trekassist-home-alert-placeholder.jpg';
+import trekassistHomeAlert from '~/assets/trekassist-home-alert.jpg';
+import trekassistMapMammothLarge from '~/assets/trekassist-map-mammoth-large.jpg';
+import trekassistMapMammothPlaceholder from '~/assets/trekassist-map-mammoth-placeholder.jpg';
+import trekassistMapMammoth from '~/assets/trekassist-map-mammoth.jpg';
+import trekassistPostTestConceptLarge from '~/assets/trekassist-post-test-concept-large.jpg';
+import trekassistPostTestConceptPlaceholder from '~/assets/trekassist-post-test-concept-placeholder.jpg';
+import trekassistPostTestConcept from '~/assets/trekassist-post-test-concept.jpg';
+import trekassistSafetyFlowLarge from '~/assets/trekassist-safety-flow-large.jpg';
+import trekassistSafetyFlowPlaceholder from '~/assets/trekassist-safety-flow-placeholder.jpg';
+import trekassistSafetyFlow from '~/assets/trekassist-safety-flow.jpg';
+import trekassistSafetyScreenLarge from '~/assets/trekassist-safety-screen-large.jpg';
+import trekassistSafetyScreenPlaceholder from '~/assets/trekassist-safety-screen-placeholder.jpg';
+import trekassistSafetyScreen from '~/assets/trekassist-safety-screen.jpg';
+import trekassistSettingsLarge from '~/assets/trekassist-settings-large.jpg';
+import trekassistSettingsPlaceholder from '~/assets/trekassist-settings-placeholder.jpg';
+import trekassistSettings from '~/assets/trekassist-settings.jpg';
+import trekassistGrandPrismaticBgLarge from '~/assets/trekassist-grand-prismatic-bg-large.jpg';
+import trekassistGrandPrismaticBgPlaceholder from '~/assets/trekassist-grand-prismatic-bg-placeholder.jpg';
+import trekassistGrandPrismaticBg from '~/assets/trekassist-grand-prismatic-bg.jpg';
+import trekassistYellowstoneSignBgLarge from '~/assets/trekassist-yellowstone-sign-bg-large.jpg';
+import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowstone-sign-bg-placeholder.jpg';
+import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
+
 const imageAssets = {
   littleLemonHero: {
     src: littleLemonHero,
@@ -203,6 +243,97 @@ const imageAssets = {
     width: 1179,
     height: 2556,
   },
+  trekassistAlertModal: {
+    src: trekassistAlertModal,
+    srcSet: `${trekassistAlertModal} 800w, ${trekassistAlertModalLarge} 1600w`,
+    placeholder: trekassistAlertModalPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistDiscoveryFlow: {
+    src: trekassistDiscoveryFlow,
+    srcSet: `${trekassistDiscoveryFlow} 1000w, ${trekassistDiscoveryFlowLarge} 1800w`,
+    placeholder: trekassistDiscoveryFlowPlaceholder,
+    width: 1000,
+    height: 607,
+  },
+  trekassistEmergencyConfirmation: {
+    src: trekassistEmergencyConfirmation,
+    srcSet: `${trekassistEmergencyConfirmation} 800w, ${trekassistEmergencyConfirmationLarge} 1600w`,
+    placeholder: trekassistEmergencyConfirmationPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistGuidedTourMammoth: {
+    src: trekassistGuidedTourMammoth,
+    srcSet: `${trekassistGuidedTourMammoth} 800w, ${trekassistGuidedTourMammothLarge} 1600w`,
+    placeholder: trekassistGuidedTourMammothPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistGuidedTours: {
+    src: trekassistGuidedTours,
+    srcSet: `${trekassistGuidedTours} 800w, ${trekassistGuidedToursLarge} 1600w`,
+    placeholder: trekassistGuidedToursPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistHomeAlert: {
+    src: trekassistHomeAlert,
+    srcSet: `${trekassistHomeAlert} 800w, ${trekassistHomeAlertLarge} 1600w`,
+    placeholder: trekassistHomeAlertPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistMapMammoth: {
+    src: trekassistMapMammoth,
+    srcSet: `${trekassistMapMammoth} 800w, ${trekassistMapMammothLarge} 1600w`,
+    placeholder: trekassistMapMammothPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistPostTestConcept: {
+    src: trekassistPostTestConcept,
+    srcSet: `${trekassistPostTestConcept} 1000w, ${trekassistPostTestConceptLarge} 1800w`,
+    placeholder: trekassistPostTestConceptPlaceholder,
+    width: 1000,
+    height: 601,
+  },
+  trekassistSafetyFlow: {
+    src: trekassistSafetyFlow,
+    srcSet: `${trekassistSafetyFlow} 1000w, ${trekassistSafetyFlowLarge} 1800w`,
+    placeholder: trekassistSafetyFlowPlaceholder,
+    width: 1000,
+    height: 427,
+  },
+  trekassistSafetyScreen: {
+    src: trekassistSafetyScreen,
+    srcSet: `${trekassistSafetyScreen} 800w, ${trekassistSafetyScreenLarge} 1600w`,
+    placeholder: trekassistSafetyScreenPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistSettings: {
+    src: trekassistSettings,
+    srcSet: `${trekassistSettings} 800w, ${trekassistSettingsLarge} 1600w`,
+    placeholder: trekassistSettingsPlaceholder,
+    width: 800,
+    height: 600,
+  },
+  trekassistGrandPrismaticBg: {
+    src: trekassistGrandPrismaticBg,
+    srcSet: `${trekassistGrandPrismaticBg} 960w, ${trekassistGrandPrismaticBgLarge} 1920w`,
+    placeholder: trekassistGrandPrismaticBgPlaceholder,
+    width: 960,
+    height: 540,
+  },
+  trekassistYellowstoneSignBg: {
+    src: trekassistYellowstoneSignBg,
+    srcSet: `${trekassistYellowstoneSignBg} 960w, ${trekassistYellowstoneSignBgLarge} 1920w`,
+    placeholder: trekassistYellowstoneSignBgPlaceholder,
+    width: 960,
+    height: 540,
+  },
 };
 
 const backgrounds = {
@@ -219,6 +350,14 @@ const backgrounds = {
     width: 1600,
     height: 900,
     opacity: 0.35,
+  },
+  trekassist: {
+    src: trekassistYellowstoneSignBg,
+    srcSet: `${trekassistYellowstoneSignBg} 960w, ${trekassistYellowstoneSignBgLarge} 1920w`,
+    placeholder: trekassistYellowstoneSignBgPlaceholder,
+    width: 960,
+    height: 540,
+    opacity: 0.55,
   },
   'porsche-digital-interface': {
     src: porscheBackground,
@@ -270,6 +409,16 @@ const summaryTextures = {
   sayit: [
     {
       srcSet: `${sayitPopoverIdle} 375w, ${sayitPopoverIdle} 1124w`,
+    },
+  ],
+  trekassist: [
+    {
+      srcSet: `${trekassistHomeAlert} 375w, ${trekassistHomeAlert} 800w`,
+      placeholder: trekassistHomeAlertPlaceholder,
+    },
+    {
+      srcSet: `${trekassistMapMammoth} 375w, ${trekassistMapMammoth} 800w`,
+      placeholder: trekassistMapMammothPlaceholder,
     },
   ],
 };

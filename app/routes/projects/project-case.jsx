@@ -125,6 +125,53 @@ const ProjectComparisonColumns = ({ section }) => (
   </ProjectSection>
 );
 
+const ProjectTimeline = ({ section }) => (
+  <ProjectSection light={section.light}>
+    <ProjectSectionContent width="xl">
+      <ProjectTextRow width="m">
+        <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+        {renderBody(section.body)}
+      </ProjectTextRow>
+      <ol className={styles.timeline} aria-label={section.heading}>
+        {section.items.map((item, index) => (
+          <li className={styles.timelineItem} key={item.title}>
+            <span className={styles.timelineIndex}>{String(index + 1).padStart(2, '0')}</span>
+            <h3 className={styles.timelineTitle}>{item.title}</h3>
+            <p className={styles.timelineDescription}>{item.description}</p>
+          </li>
+        ))}
+      </ol>
+    </ProjectSectionContent>
+  </ProjectSection>
+);
+
+const ProjectMetrics = ({ section }) => (
+  <ProjectSection light={section.light}>
+    <ProjectSectionContent width="xl">
+      <ProjectTextRow width="m">
+        <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+        {renderBody(section.body)}
+      </ProjectTextRow>
+      <div className={styles.metricsGrid}>
+        {section.metrics.map(metric => (
+          <div className={styles.metricCard} key={metric.label}>
+            <strong className={styles.metricValue}>{metric.value}</strong>
+            <span className={styles.metricLabel}>{metric.label}</span>
+          </div>
+        ))}
+      </div>
+      <dl className={styles.evidenceList}>
+        {section.evidence.map(item => (
+          <div className={styles.evidenceItem} key={item.label}>
+            <dt>{item.label}</dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </ProjectSectionContent>
+  </ProjectSection>
+);
+
 const ProjectOutcome = ({ section }) => {
   if (!section.image) {
     return (
@@ -137,7 +184,7 @@ const ProjectOutcome = ({ section }) => {
   return (
     <ThemeProvider theme="dark" data-invert>
       <ProjectSection
-        backgroundOverlayOpacity={0.5}
+        backgroundOverlayOpacity={section.backgroundOverlayOpacity ?? 0.5}
         backgroundElement={renderImage({
           image: section.image,
           alt: '',
@@ -185,6 +232,10 @@ const ProjectSectionRenderer = ({ section }) => {
       return <ProjectImageTextSection section={section} />;
     case 'comparison-columns':
       return <ProjectComparisonColumns section={section} />;
+    case 'timeline':
+      return <ProjectTimeline section={section} />;
+    case 'metrics':
+      return <ProjectMetrics section={section} />;
     case 'outcome':
       return <ProjectOutcome section={section} />;
     default:
