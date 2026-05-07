@@ -408,8 +408,14 @@ const summaryTextures = {
   ],
   sayit: [
     {
+      src: sayitPopoverIdle,
       srcSet: `${sayitPopoverIdle} 1124w`,
       placeholder: sayitPopoverIdle,
+    },
+    {
+      src: sayitPopoverRecording,
+      srcSet: `${sayitPopoverRecording} 1128w`,
+      placeholder: sayitPopoverRecording,
     },
   ],
   trekassist: [

@@ -114,9 +114,77 @@ export function ProjectSummary({
     );
   }
 
+  function renderMacOSUtilityPreview(visible) {
+    const idleTexture = model.textures?.[0];
+    const recordingTexture = model.textures?.[1] || idleTexture;
+
+    return (
+      <div
+        className={styles.sayitPreview}
+        data-visible={true}
+        role="img"
+        aria-label={model.alt}
+      >
+        <div className={styles.sayitGlow} aria-hidden />
+        <div className={styles.sayitWindow}>
+          <div className={styles.sayitMenuBar} aria-hidden>
+            <div className={styles.sayitTrafficLights}>
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className={styles.sayitMenuItems}>
+              <span>SayIt</span>
+              <span>Edit</span>
+              <span>Engine</span>
+            </div>
+            <div className={styles.sayitStatus}>
+              <span className={styles.sayitStatusDot} />
+              Listening
+            </div>
+          </div>
+          <div className={styles.sayitCanvas}>
+            <div className={styles.sayitHotkey} aria-hidden>
+              <span>⌥</span>
+              <span>Space</span>
+              <small>Global hotkey</small>
+            </div>
+            <img
+              className={styles.sayitPopover}
+              src={idleTexture?.src || idleTexture?.placeholder}
+              srcSet={idleTexture?.srcSet}
+              sizes="(max-width: 696px) 76vw, 28vw"
+              alt=""
+              aria-hidden="true"
+            />
+            <div className={styles.sayitRecordingCard} aria-hidden>
+              <div className={styles.sayitWaveform}>
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+              <img
+                src={recordingTexture?.src || recordingTexture?.placeholder}
+                srcSet={recordingTexture?.srcSet}
+                sizes="160px"
+                alt=""
+              />
+            </div>
+            <div className={styles.sayitTranscript} aria-hidden>
+              <span>“Turn spoken thoughts into clean text.”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   function renderPreview(visible) {
     return (
       <div className={styles.preview}>
+        {model.type === 'macosUtility' && renderMacOSUtilityPreview(visible)}
         {model.type === 'laptop' && (
           <>
             {renderKatakana('laptop', visible)}

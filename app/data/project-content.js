@@ -471,8 +471,8 @@ export const portfolioProjects = [
       title: 'SayIt',
       description:
         'A shipped macOS voice-to-text utility, designed and built end-to-end as a privacy-first menu bar product with a global hotkey, real-time HUD feedback, and local Whisper support.',
-      modelType: 'laptop',
-      modelAlt: 'SayIt macOS menu bar app shown on a laptop',
+      modelType: 'macosUtility',
+      modelAlt: 'SayIt macOS menu bar utility preview with floating popover and hotkey workflow',
       quickFacts: [
         { label: 'Role', value: 'Designer-Builder (solo, end-to-end)' },
         { label: 'Methods', value: 'Product design, native development, on-device AI' },
