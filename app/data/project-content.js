@@ -38,20 +38,76 @@ export const portfolioProjects = [
       },
       {
         type: 'text',
+        heading: 'Internship Context',
+        body: [
+          'I joined Porsche Asia Pacific as a UX/UI design intern, embedded with the team responsible for evolving Porsche Communication Management — the in-car infotainment surface drivers and passengers see across navigation, media, climate, voice, and assistance features.',
+          'My remit centered on the Taycan-class digital cockpit: improving how core flows like navigation, voice control, and AI-driven assistance feel under real driving conditions, then translating those decisions into component-level specs that engineering could implement without ambiguity.',
+        ],
+      },
+      {
+        type: 'text',
         heading: 'The Problem',
         body: [
-          'As automotive technology advances, in-car control systems need to feel seamless, intuitive, and safe. Porsche aimed to refine Porsche Communication Management with clearer navigation, voice control, and AI-driven interactions.',
-          'The design challenge was to reduce complex user flows, improve interface responsiveness, and support multimodal interaction without distracting drivers from the road.',
+          'As in-car software gets more capable, the cost of a confusing flow goes up. A driver pulling onto a freeway should not have to think about where a control lives, whether voice is listening, or whether a system action has actually been accepted.',
+          'The design challenge was to reduce flow complexity, improve interface responsiveness, and let touch, voice, and AI assistance carry the same task — so drivers could pick whichever modality was safest in the moment, instead of being locked into the one the screen happened to expose.',
+        ],
+      },
+      {
+        type: 'timeline',
+        heading: 'Process Timeline',
+        body: [
+          'The work moved through six phases — research, mapping, low-fidelity exploration, high-fidelity design, engineering hand-off, and post-hand-off optimization — with constant back-and-forth between design intent and what the platform could render under load.',
+        ],
+        items: [
+          {
+            title: 'Discovery & Audit',
+            description:
+              'Reviewed existing PCM flows, competitive automotive HMIs, and driver-distraction guidance to scope which surfaces deserved redesign first.',
+          },
+          {
+            title: 'Flow Mapping',
+            description:
+              'Mapped voice, navigation, cruise, lane-keeping, and parking-assist flows end to end — including failure, retry, and re-entry paths.',
+          },
+          {
+            title: 'Wireframing',
+            description:
+              'Tested grid menus, quick-control bars, and voice-command surfaces in low fidelity to compare information density, reach, and glanceability.',
+          },
+          {
+            title: 'High-Fidelity Design',
+            description:
+              'Refined the layout, type scale, motion, and color treatment for in-car readability across varying ambient light conditions.',
+          },
+          {
+            title: 'Engineering Hand-Off',
+            description:
+              'Documented component-level UI specs, motion behavior, and edge-case states so engineering had one canonical source of truth per surface.',
+          },
+          {
+            title: 'Performance Optimization',
+            description:
+              'Iterated with engineering on micro-interactions and asset weights, contributing to a 30% reduction in interface load time at hand-off.',
+          },
         ],
       },
       {
         type: 'image',
         image: 'porscheFlowchart',
         light: true,
-        heading: 'Interaction Flow',
+        heading: 'Mapping the Voice Flow',
         alt: 'Flowchart for Porsche Digital Interface voice command interactions',
         body: [
-          'The flowchart maps voice command interactions for navigation, cruise control, lane keeping, and parking assistance. It prioritizes clarity, accessible feedback, predictable prompts, and error recovery.',
+          'Before drawing any screens, the voice flow had to be legible end to end. The flowchart maps the listening, confirmation, action, and error-recovery paths for navigation, cruise control, lane keeping, and parking assistance — including what the system says back when it does not understand, and how the driver returns to a safe default state without staring at the screen.',
+          'This artifact was as much a contract with engineering as it was a design tool: it defined which prompts were allowed where, what feedback the driver would always receive, and where AI suggestions could appear without forcing a confirmation step.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Multimodal Design Principles',
+        body: [
+          'A driver\'s attention is finite and safety-critical. The same task — set a destination, change a climate setting, accept a cruise suggestion — needs to be completable through whichever modality is safest in the moment, not just the one the screen happens to surface.',
+          'I worked from three principles. Every primary action should be reachable through both touch and voice. AI suggestions should be glanceable and dismissible, never a forced modal. And feedback should always confirm system state, especially after a voice command, so drivers never have to look down to verify what just happened.',
         ],
       },
       {
@@ -59,7 +115,7 @@ export const portfolioProjects = [
         heading: 'Wireframes',
         images: ['porscheWireframeMain', 'porscheWireframeNavigation'],
         body: [
-          'The wireframes explored a grid-based app menu, quick access controls, a voice command bar, and real-time system status feedback for an easier in-car experience.',
+          'The wireframes explored a grid-based app menu, persistent quick-access controls, a voice-command bar, and real-time system status feedback. The goal was to keep the home view scannable in under a second while making sure no primary task was more than two interactions deep.',
         ],
       },
       {
@@ -67,14 +123,22 @@ export const portfolioProjects = [
         heading: 'High-Fidelity Prototype',
         images: ['porscheHome', 'porschePrototype'],
         body: [
-          'The prototype brought touch, visual hierarchy, and voice assistance together so drivers could complete key tasks with less friction and fewer distractions.',
+          'The high-fidelity prototype brought touch, visual hierarchy, and voice assistance together. Color and motion were tuned for in-car readability, and the layout reused shared primitives so the same component behavior carried across navigation, media, and assistant surfaces.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Optimizing for Load Time',
+        body: [
+          'The 30% load-time reduction came out of a tight loop with engineering during and after hand-off. Component specs were rewritten to reuse shared primitives, animation durations and asset weights were tuned for the platform\'s rendering budget, and several redundant transition states collapsed into a single canonical path.',
+          'The lesson was that performance is not a downstream "engineering" concern. Design decisions about hierarchy, transition complexity, and asset choice show up directly in how the interface feels under load — so treating hand-off as a continuation of the design, not an end of it, is what made the win measurable.',
         ],
       },
       {
         type: 'metrics',
         heading: 'Impact at a Glance',
         body: [
-          'Iteration on micro-interactions and component-level UI specs translated directly into measurable performance and clarity gains during the engineering handoff.',
+          'Iteration on micro-interactions and component-level UI specs translated directly into measurable performance and clarity gains during the engineering hand-off.',
         ],
         metrics: [
           { value: '30%', label: 'Reduction in interface load time' },
@@ -102,9 +166,10 @@ export const portfolioProjects = [
       {
         type: 'outcome',
         image: 'porscheOutcome',
-        heading: 'Project Outcomes',
+        heading: 'Reflection',
         body: [
-          'The redesigned interface reduced task complexity through optimized navigation flows and multimodal inputs. Usability testing indicated stronger satisfaction with the AI voice assistant and clearer control paths, and the iterated UI contributed to a 30% reduction in load time at handoff.',
+          'Designing for an automotive HMI sharpened how I think about attention budgets, error recovery, and the cost of every extra screen. The interface that ships to a driver has to absorb context the user has no time to give it — weather, traffic, modality preference, fatigue — without forcing them to translate the system\'s state back into safety.',
+          'The most valuable habit I left with was treating the engineering hand-off as part of the design itself. Measurable wins like the 30% load-time reduction were the product of design and implementation iterating together, not of either side handing finished work over the wall.',
         ],
       },
     ],
@@ -142,13 +207,68 @@ export const portfolioProjects = [
         alt: 'Posture Checker app interface',
       },
       {
+        type: 'text',
+        heading: 'Why Posture, Why Build the Hardware Too',
+        body: [
+          'I spend most of my day at a desk, and most existing posture apps either rely on the phone\'s gyroscope (which only works when the phone is strapped to your back) or on camera-based detection (which forces a specific seating position and feels invasive). Neither survives a normal workday.',
+          'I wanted to test whether a small dedicated sensor — paired over Bluetooth Low Energy with a phone the user already carries — could close that gap: continuous, low-friction, privacy-respecting feedback that still lives in a familiar mobile interface.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Problem Discovery',
+        body: [
+          'A scan of existing posture apps showed a recurring pattern: real-time feedback was either intrusive (frequent buzzes for momentary slouches) or absent (only end-of-day summaries). Long-term behavior change needs the middle ground — feedback that fires when posture is genuinely poor for long enough to matter, paired with trends the user can look back on without effort.',
+          'That framing gave the project two non-negotiables: (1) a sensor that captures posture continuously without depending on phone placement, and (2) a feedback loop that respects the user\'s attention while still being useful day to day.',
+        ],
+      },
+      {
+        type: 'timeline',
+        heading: 'Process Timeline',
+        body: [
+          'As a solo designer-builder, I treated the project as one continuous loop: design constraints fed hardware decisions, hardware behavior reshaped the UI, and the UI exposed new questions for the data layer.',
+        ],
+        items: [
+          {
+            title: 'Research',
+            description:
+              'Audited posture apps and wearables; defined target users (knowledge workers and students with sedentary days) and the core feedback gap.',
+          },
+          {
+            title: 'Hardware Prototyping',
+            description:
+              'Built an Arduino-based posture sensor with BLE broadcast to validate that a small, battery-friendly device could stream posture data continuously.',
+          },
+          {
+            title: 'System Architecture',
+            description:
+              'Defined the data flow from sensor to React Native app to local storage and Firebase, including reconnection and offline behavior.',
+          },
+          {
+            title: 'UX Design',
+            description:
+              'Wireframed a single-dashboard mobile experience around live status, daily goals, trends, and quick settings.',
+          },
+          {
+            title: 'BLE Integration',
+            description:
+              'Implemented the pairing flow, live data stream, and reconnection handling — the part of the system most likely to fail silently in the real world.',
+          },
+          {
+            title: 'Feedback Loop Tuning',
+            description:
+              'Added thresholded push notifications so the app reacts to sustained poor posture instead of every momentary slouch, then refined trends and history surfaces around what users would actually want to look back on.',
+          },
+        ],
+      },
+      {
         type: 'image-text',
         image: 'postureArchitecture',
         light: true,
         heading: 'System Architecture',
         alt: 'Posture Checker app system architecture diagram',
         body: [
-          'The architecture combines React Native UI, Bluetooth device connectivity, posture data processing, local storage, charting, and push notifications for a seamless real-time tracking loop.',
+          'The architecture spans a BLE-enabled posture sensor, a React Native client (iOS + Android), local storage for offline resilience, Firebase for sync and auth, charting for trends, and push notifications for the corrective feedback loop. Designing this end-to-end as one person meant every layer had to stay deliberately simple.',
         ],
       },
       {
@@ -157,7 +277,15 @@ export const portfolioProjects = [
         heading: 'User Activity Flow',
         alt: 'Posture Checker app user activity flow',
         body: [
-          'The user flow covers app launch, Bluetooth pairing, device detection, real-time posture analysis, corrective notifications, and progress visualization.',
+          'The user flow covers app launch, Bluetooth pairing, device detection, real-time posture analysis, corrective notifications, and progress visualization. Pairing was treated as a first-class moment — not a hidden settings step — because the value of the entire product depends on it succeeding the first time.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Hardware & Connectivity Decisions',
+        body: [
+          'BLE was chosen over USB or Wi-Fi for three reasons: it preserves all-day battery life on a small wearable, it pairs cleanly with a phone the user already carries, and its connection model (advertise → connect → stream) maps onto a mobile UX that can recover gracefully from disconnects.',
+          'Sampling was set to 1 Hz. Higher rates added battery cost and noise without changing the behavioral signal — sustained posture over many seconds is what matters, not millisecond-level twitches. Local storage holds the raw stream so trends and history work even when the network is unavailable.',
         ],
       },
       {
@@ -167,7 +295,7 @@ export const portfolioProjects = [
         heading: 'Wireframes',
         alt: 'Posture Checker app wireframes',
         body: [
-          'The wireframes organize posture status, daily goals, settings, stats, and core navigation into a simple mobile structure optimized for quick feedback.',
+          'Wireframes organized posture status, daily goals, settings, stats, and core navigation into a single-dashboard structure. The bet was that a quick check-in (a few seconds, a few times a day) is more useful than a deep app the user has to "open and explore."',
         ],
       },
       {
@@ -177,17 +305,18 @@ export const portfolioProjects = [
         heading: 'High-Fidelity Prototype',
         alt: 'Posture Checker high-fidelity prototype screens',
         body: [
-          'The high-fidelity prototype refines tracking, goal progress, analytics, and settings into an approachable mobile experience for repeated daily use.',
+          'The high-fidelity prototype tightens tracking, goal progress, analytics, and settings into an approachable surface for repeated daily use. Information density was intentionally low: the home view answers "how am I sitting right now?" before anything else.',
         ],
       },
       {
         type: 'comparison-columns',
         image: 'postureFinalApp',
         light: true,
-        heading: 'Physical Product Integration',
+        heading: 'Designing the Feedback Loop',
         alt: 'Posture Checker final app screen',
         body: [
-          'The app connects with a physical posture device to deliver real-time posture monitoring, feedback, goal tracking, and visual progress insights.',
+          'The riskiest UX decision in the product was when to interrupt the user. Notifying on every slouch trains the user to ignore the app; only summarizing at end-of-day misses the moment when correction matters.',
+          'I settled on a sustained-threshold model: feedback fires when poor posture persists past a configurable duration. Combined with trend visualizations, it turns the app from a nag into a habit-building surface — the user sees "today vs. yesterday" instead of just "you are slouching, again."',
         ],
       },
       {
@@ -223,9 +352,10 @@ export const portfolioProjects = [
       {
         type: 'outcome',
         image: 'postureTeam',
-        heading: 'Project Outcomes',
+        heading: 'Reflection',
         body: [
-          'The digital and physical posture correction system helped users understand posture habits through immediate feedback, stored trends, and recurring notifications. The shipped build proved that a single designer-builder can take a hardware-integrated mobile product from concept through a working multi-screen experience.',
+          'Posture Checker was the project where I stopped treating "design" and "engineering" as separate phases. The hardware constraints (battery, sampling rate, BLE reconnection) reshaped the UI; the UI revealed which data the system actually needed to keep; and the feedback loop only worked once design intent and the data pipeline were tuned together.',
+          'The shipped build proved that a single designer-builder can take a hardware-integrated mobile product from concept through a working multi-screen experience. The next iteration I would prioritize is on-device trend modeling — closing more of the feedback loop without requiring a cloud round-trip.',
         ],
       },
     ],
@@ -459,10 +589,60 @@ export const portfolioProjects = [
       },
       {
         type: 'text',
+        heading: 'Capstone Context',
+        body: [
+          'Little Lemon was the capstone project for the Google UX Design Certificate — a Mediterranean neighborhood restaurant brief used to walk through the full UX process end to end. The deliverable spans research, problem definition, low- and high-fidelity prototypes, usability testing, and iteration.',
+          'I treated it less as a course assignment and more as a constrained product exercise: a real restaurant\'s hardest UX problems are the same as a tech product\'s — finding what you came for quickly, completing a transaction without dropping off, and trusting the place enough to come back.',
+        ],
+      },
+      {
+        type: 'text',
         heading: 'The Challenge',
         body: [
-          'The project focused on helping diners browse the menu, make reservations, and move through the restaurant experience without confusion or unnecessary steps.',
-          'The design needed to work across mobile and responsive layouts while keeping core actions easy to find.',
+          'Diners arrive with one of three intents: browse the menu, make a reservation, or place an order. Each one needs to be reachable in seconds, on phones first, without forcing the user through the rest of the site.',
+          'The design also had to work across responsive breakpoints and stay accessible — readable type, sufficient contrast, and clear focus states — without losing the warmth that makes a neighborhood restaurant feel inviting in the first place.',
+        ],
+      },
+      {
+        type: 'timeline',
+        heading: 'UX Process',
+        body: [
+          'The work followed the five-phase UX process the certificate is built around — empathize, define, ideate, prototype, and test — with iteration looping back to earlier phases as testing surfaced new issues.',
+        ],
+        items: [
+          {
+            title: 'Empathize',
+            description:
+              'User interviews and competitive scans of restaurant booking experiences to understand what diners actually need before, during, and after a reservation.',
+          },
+          {
+            title: 'Define',
+            description:
+              'Synthesized findings into personas, user journeys, and a problem statement focused on first-time visitors and return diners.',
+          },
+          {
+            title: 'Ideate',
+            description:
+              'Mapped the information architecture, sketched alternate layouts for menu, reservation, and ordering, and selected directions worth prototyping.',
+          },
+          {
+            title: 'Prototype',
+            description:
+              'Built low-fidelity wireframes, then high-fidelity mockups in Figma covering menu browsing, reservation, ordering, and confirmation flows.',
+          },
+          {
+            title: 'Test & Iterate',
+            description:
+              'Ran usability tests on key tasks, identified friction points around menu navigation and reservation steps, and refined the high-fidelity flow accordingly.',
+          },
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Research & User Needs',
+        body: [
+          'Across early interviews and competitive analysis, three needs came up repeatedly: a clear sense of "what kind of place is this" within a few seconds of landing, a menu that can be scanned without horizontal scrolling on a phone, and a reservation flow that does not bury date, time, and party size behind extra screens.',
+          'Those three needs became the design constraints the rest of the work answered to. Anything that pulled attention away from them — promotional banners, oversized hero images, secondary calls to action — had to justify itself or get cut.',
         ],
       },
       {
@@ -470,15 +650,32 @@ export const portfolioProjects = [
         heading: 'Interface Exploration',
         images: ['littleLemonMenu', 'littleLemonReservation'],
         body: [
-          'The interface exploration focused on menu browsing, reservation steps, visual hierarchy, and clear task completion for first-time visitors.',
+          'The high-fidelity screens focus on the two flows users actually came for: scanning the menu and booking a table. Both are reachable from the home view in one tap, both stay readable on mobile without zoom, and the visual system leans on warm neutrals and clear typographic hierarchy rather than decoration.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Usability Testing',
+        body: [
+          'Usability testing centered on the core flows — finding a menu item, completing a reservation, and reviewing an order. I watched for hesitation points, unexpected back-button presses, and any moment where participants asked "wait, where is…" instead of moving forward.',
+          'The recurring patterns were small but real: reservation steps benefited from clearer step indication, the menu needed stronger category affordances on mobile, and confirmation states needed to feel like the end of a flow rather than an interstitial. Each of those fed directly into the next iteration.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Accessibility & Responsive Design',
+        body: [
+          'Accessibility was treated as part of the visual system, not a checklist at the end. Type scales, color contrast, focus states, and tap-target sizes were defined alongside the brand palette so every screen inherited them by default.',
+          'The responsive behavior keeps the same primary actions reachable from any breakpoint. On mobile, the menu and reservation entry points stay above the fold; on larger screens, the layout breathes without rearranging the underlying hierarchy.',
         ],
       },
       {
         type: 'outcome',
         image: 'littleLemonHero',
-        heading: 'Project Outcomes',
+        heading: 'Reflection',
         body: [
-          'The final experience presents a clearer restaurant journey from discovery to reservation, with improved navigation and a visual system suited to a friendly neighborhood restaurant.',
+          'Little Lemon was the project where I learned that "UX process" is not a sequence to perform — it is a feedback loop where each phase keeps recompressing the problem until the design earns its complexity. Most of the changes that mattered came from cutting things, not adding them.',
+          'It also reframed how I think about visual identity in product work. The warmth of a neighborhood restaurant did not come from decoration; it came from clear hierarchy, restrained imagery, and trusting the content to carry the brand. That is a habit I have brought into every product project since.',
         ],
       },
     ],
@@ -613,17 +810,65 @@ export const portfolioProjects = [
         type: 'text',
         heading: 'The Opportunity',
         body: [
-          'SayIt started from a simple productivity gap: system dictation and cloud transcription tools either interrupted writing flow, added friction, or raised privacy concerns for everyday capture.',
-          'The goal was to build a menu bar utility that feels immediate and native on macOS, letting users trigger recording from anywhere, transcribe quickly, and paste the result without breaking focus.',
+          'SayIt started from a simple productivity gap. System dictation surfaces a modal that interrupts writing flow. Cloud transcription tools work, but they round-trip every word through somebody else\'s server, and they break the moment the network does.',
+          'The goal was a menu bar utility that feels as immediate and native as a system shortcut: trigger from anywhere with a global hotkey, transcribe locally, and paste the result without ever leaving the window the user is already in.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Why a Menu Bar Utility',
+        body: [
+          'A full-window app would have undercut the entire point. Voice-to-text only works as a productivity primitive when it disappears between uses — visible enough to invoke, quiet enough to ignore. The menu bar gives the app a permanent home without ever owning a workspace, which is the ergonomics the product needed.',
+          'Building it as a native macOS app (rather than an Electron wrapper) was a deliberate choice. The product is judged against system utilities, not against other apps; it has to feel like Spotlight, not like a browser tab.',
+        ],
+      },
+      {
+        type: 'timeline',
+        heading: 'From Idea to v1.0.5',
+        body: [
+          'SayIt was designed and built end to end as one person, then shipped publicly through GitHub Releases. The phases below trace the path from a SwiftUI sketch to a signed and notarized macOS binary.',
+        ],
+        items: [
+          {
+            title: 'Concept',
+            description:
+              'Defined the product as a menu bar dictation utility — global hotkey, single primary action, no full-window UI, on-device by default.',
+          },
+          {
+            title: 'SwiftUI Prototype',
+            description:
+              'Stood up the popover surface, microphone selector, and engine settings to validate that the entire interaction could live inside a small floating panel.',
+          },
+          {
+            title: 'whisper.cpp Integration',
+            description:
+              'Wired in on-device Whisper for fully local transcription, including model selection and fallback behavior when a model is missing or downloading.',
+          },
+          {
+            title: 'Hotkey & Permissions',
+            description:
+              'Implemented global hotkey capture, microphone access prompts, and Accessibility-permission flows so the app could be triggered from any active window.',
+          },
+          {
+            title: 'Notarization & Distribution',
+            description:
+              'Set up signing, notarization, and a GitHub Releases pipeline so the app installs cleanly on macOS without Gatekeeper warnings.',
+          },
+          {
+            title: 'Public Release (v1.0.5)',
+            description:
+              'Iterated through five public versions, refining microphone resilience, HUD feedback, and onboarding based on usage in my own daily workflow.',
+          },
         ],
       },
       {
         type: 'image',
         image: 'sayitPopoverIdle',
-        heading: 'Product Surface and Core Controls',
+        heading: 'Product Surface & Core Controls',
         alt: 'SayIt popover showing microphone, engine, and start recording controls',
         body: [
-          'The product centers on a compact popover with a single primary action, microphone selection, transcription engine settings, and lightweight status messaging. The interface stays quiet until needed, matching the expectation of a utility rather than a traditional full-window app.',
+          'The product centers on a compact popover: a single primary action, a microphone selector, a transcription engine choice, and lightweight status messaging. The interface stays quiet until needed, matching the expectation of a utility — not a traditional full-window app.',
+          'The design decision behind this surface was to resist feature creep. Every additional control would have pulled the app further away from "press hotkey, talk, paste."',
         ],
       },
       {
@@ -632,25 +877,81 @@ export const portfolioProjects = [
         heading: 'One-Toggle Recording Flow',
         alt: 'SayIt popover during active recording and transcription workflow',
         body: [
-          'Interaction design was intentionally reduced to a reliable toggle: start recording, stop and transcribe, then copy the result automatically. Supporting states like recording duration, audio level, slow transcription hints, and HUD feedback help the app stay understandable without becoming visually heavy.',
+          'Interaction was reduced to a reliable toggle: start recording, stop and transcribe, then copy the result automatically. Supporting states — recording duration, live audio level, slow-transcription hints, and HUD feedback in the menu bar — keep the app understandable without becoming visually heavy.',
+          'The HUD itself does most of the work. Once the hotkey is muscle memory, the user does not need to look at the popover at all; the menu bar icon and a brief overlay are enough to confirm the system is doing the right thing.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'On-Device, Always',
+        body: [
+          'Choosing whisper.cpp over a cloud API was a product decision before it was a technical one. Local transcription means the app keeps working offline, never sees a per-request bill, and gives users a credible privacy story — voice is sensitive data, and "we don\'t send it anywhere" is a much stronger guarantee than any privacy policy.',
+          'The trade-off is model size and cold-start cost. The app exposes engine and model selection so users on lighter machines can pick a smaller model, while users who care more about accuracy can opt into a larger one.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'The Permissions & Hotkey Wall',
+        body: [
+          'The hardest part of shipping a macOS utility is not the feature — it is the trust gradient the OS demands. SayIt needs Microphone access to capture audio and Accessibility access to paste into other apps. Each prompt is a place users can drop off, and each one is rendered by macOS, not by the app.',
+          'The fix was to design the onboarding around those prompts instead of around the app\'s own UI: explain why each permission is needed before macOS asks, and give the user a recoverable path back to permissions in System Settings if they decline. The hotkey itself uses standard global hotkey APIs, with a settings surface that lets the user rebind it without restarting the app.',
         ],
       },
       {
         type: 'image-text',
         image: 'sayitIphoneMic',
-        heading: 'Device Resilience and Ecosystem Fit',
+        heading: 'Device Resilience & Ecosystem Fit',
         alt: 'iPhone Continuity microphone connected to SayIt on macOS',
         body: [
-          'A notable detail in the product strategy was microphone reliability. Beyond local speech capture and Whisper integration, the app accounts for device changes and supports Continuity microphone handoff, which makes the workflow more dependable in clamshell or external-monitor setups.',
+          'Microphone reliability turned out to be the most fragile part of the product. Devices appear and disappear constantly — Bluetooth headsets, external interfaces, Continuity mics, lid closures — and a transcription utility that loses input mid-sentence is worse than one that never started.',
+          'The app handles device changes explicitly: it watches for input route changes, falls back to a sensible default when the chosen mic disappears, and supports Continuity microphone handoff so iPhone-as-mic works in clamshell and external-monitor setups without any extra setup from the user.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Shipping a Notarized macOS App',
+        body: [
+          'The codebase had to clear three bars to be installable by anyone but me: code signing with a valid Developer ID certificate, Apple notarization for Gatekeeper, and a clean release artifact distributed through GitHub Releases.',
+          'Each of those steps is small in isolation and brutal in combination — entitlements, hardened runtime, notary submission, stapling, and download-link plumbing all have to align before a stranger can double-click the app and have it just open. Getting that pipeline reliable is what made shipping v1.0.5 possible without manual intervention each time.',
+        ],
+      },
+      {
+        type: 'metrics',
+        heading: 'Build Snapshot',
+        body: [
+          'SayIt is a small product by surface area and a meaningful one by depth — every layer (audio capture, transcription, permissions, distribution) had to be production-ready for a single user double-clicking a downloaded binary to have a clean experience.',
+        ],
+        metrics: [
+          { value: 'v1.0.5', label: 'Public release on GitHub Releases' },
+          { value: '5', label: 'Iterations refining microphone, HUD, and onboarding' },
+          { value: '100%', label: 'On-device transcription via whisper.cpp' },
+          { value: '2', label: 'System permissions surfaced (Microphone · Accessibility)' },
+        ],
+        evidence: [
+          {
+            label: 'End-to-end execution',
+            value:
+              'Designed and built solo across product surface, audio pipeline, transcription engine, permissions UX, and signed/notarized distribution.',
+          },
+          {
+            label: 'Privacy-first by default',
+            value:
+              'Audio never leaves the device — whisper.cpp runs locally, with model selection exposed so users can trade accuracy for speed on their own hardware.',
+          },
+          {
+            label: 'Resilient to real ecosystems',
+            value:
+              'Handles input device changes, supports Continuity microphone handoff, and degrades predictably when permissions or models are missing.',
+          },
         ],
       },
       {
         type: 'outcome',
         image: 'sayitBrand',
-        heading: 'Outcome',
+        heading: 'Reflection',
         body: [
-          'The project shipped as a real macOS product with downloadable releases, a polished onboarding flow, localized strings, and a tested codebase spanning app control, permissions, audio capture, and transcription behavior.',
-          'For the portfolio, SayIt adds a stronger example of end-to-end product execution: identifying a focused problem, shaping the interaction model, and delivering a native tool that connects UX decisions directly to production implementation.',
+          'SayIt is the project where I stopped designing for a deck and started designing for a binary. Every decision — popover density, HUD timing, model choice, permission copy — got tested against the same question: does this still feel like a system utility, or does it feel like an app?',
+          'For the portfolio, SayIt is the strongest example of end-to-end product execution I have: identifying a focused problem, shaping the interaction model, choosing the right technology, and delivering a signed, notarized macOS product that real users can download and use today.',
         ],
       },
     ],
