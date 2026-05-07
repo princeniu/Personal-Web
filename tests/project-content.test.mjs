@@ -38,11 +38,11 @@ test('featured project slugs point at real projects in display order', () => {
   const availableSlugs = new Set(portfolioProjects.map(project => project.slug));
 
   assert.deepEqual(featuredProjectSlugs, [
-    'porsche-digital-interface',
-    'posture-checker',
     'trekassist',
-    'little-lemon',
+    'porsche-digital-interface',
     'sayit',
+    'posture-checker',
+    'little-lemon',
   ]);
 
   for (const slug of featuredProjectSlugs) {

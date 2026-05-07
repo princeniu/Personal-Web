@@ -30,8 +30,8 @@ export const links = () => {
 
 export const meta = () => {
   return baseMeta({
-    title: 'Developer + Designer',
-    description: `Design portfolio of ${config.name} — a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility.`,
+    title: 'Product Design · Human Factors · AI Products',
+    description: `Portfolio of ${config.name} — a designer-builder working at the intersection of Human Factors, Product Design, and AI. Shipped UI/UX for complex systems including in-car interfaces, safety-critical outdoor devices, and native macOS AI tools.`,
     path: '/',
   });
 };
@@ -106,6 +106,7 @@ export const Home = () => {
             textures: project.summary.textures,
             type: project.summary.modelType,
           }}
+          quickFacts={project.summary.quickFacts}
           sectionRef={projectRefs.current[index]}
           title={project.summary.title}
           visible={visibleSections.includes(projectRefs.current[index]?.current)}

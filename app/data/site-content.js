@@ -1,8 +1,8 @@
 export const profileContent = {
   eyebrow: 'About me',
-  heading: 'Hi there',
+  heading: 'Designing the seam between people and complex systems.',
   description:
-    'I’m Zhuo (Prince) Niu, a designer-builder working across UI/UX, AI products, and human factors. I’m currently studying Human Factors Engineering at Tufts, with a Computer Engineering background from Purdue.\n\nI like building products at the point where a vague idea has to become real. That usually means asking what problem is worth solving, designing the first usable flow, testing the rough version, and then building enough of it for people to actually use.\n\nMy work sits between human factors, product design, and engineering. I care about the small moments that make a product feel clear instead of confusing: the prompt, the feedback, the recovery path, the first click that makes sense. Recently, I’ve worked on Porsche in-car interactions, a BLE-based posture tracking app, and SayIt, a shipped macOS voice-to-text tool.',
+    'I’m Zhuo (Prince) Niu, a designer-builder working across UI/UX, AI products, and human factors. I’m currently studying Human Factors Engineering at Tufts, with a Computer Engineering background from Purdue.\n\nI like building products at the point where a vague idea has to become real. That usually means asking what problem is worth solving, designing the first usable flow, testing the rough version, and then building enough of it for people to actually use.\n\nMy work sits between human factors, product design, and engineering. I care about the small moments that make a product feel clear instead of confusing: the prompt, the feedback, the recovery path, the first click that makes sense. Recently, I’ve worked on Porsche in-car interactions, a BLE-based posture tracking app, and SayIt, a shipped macOS voice-to-text tool.\n\nI’m currently looking for product design, UX, and human factors opportunities focused on building thoughtful products, refining UI/UX, and shaping complex user experiences.',
   ctaLabel: 'Send me a message',
 };
 

@@ -1,9 +1,9 @@
 export const featuredProjectSlugs = [
-  'porsche-digital-interface',
-  'posture-checker',
   'trekassist',
-  'little-lemon',
+  'porsche-digital-interface',
   'sayit',
+  'posture-checker',
+  'little-lemon',
 ];
 
 export const legacyProjectSlugRedirects = {};
@@ -18,9 +18,15 @@ export const portfolioProjects = [
     summary: {
       title: 'Porsche Digital Interface',
       description:
-        'Contributed to Porsche in-car UX design by creating high-fidelity prototypes and research-backed flows for navigation, voice control, and AI assistance.',
+        'Automotive HMI redesign for the Porsche Taycan: research-backed flows and high-fidelity prototypes for navigation, voice control, and AI assistance, focused on safer multimodal interaction.',
       modelType: 'laptop',
       modelAlt: 'Porsche Digital Interface prototype shown on a laptop',
+      quickFacts: [
+        { label: 'Role', value: 'UX / UI Designer' },
+        { label: 'Methods', value: 'UX research, multimodal flow design, prototyping' },
+        { label: 'Tools', value: 'Figma' },
+        { label: 'Outcome', value: 'High-fidelity prototype with stronger voice-assistant satisfaction' },
+      ],
     },
     sections: [
       {
@@ -88,9 +94,15 @@ export const portfolioProjects = [
     summary: {
       title: 'Posture Checker',
       description:
-        'A posture tracking app that connects to wearable sensors, stores local posture data, sends alerts, and visualizes back-health progress.',
+        'A React Native mobile app paired with a BLE wearable sensor that delivers real-time corrective feedback, stores local posture data, and visualizes back-health progress.',
       modelType: 'phone',
       modelAlt: 'Posture Checker app screens shown on phones',
+      quickFacts: [
+        { label: 'Role', value: 'Product Designer + Mobile Developer' },
+        { label: 'Methods', value: 'User research, BLE prototyping, system architecture' },
+        { label: 'Tools', value: 'React Native, BLE, Figma' },
+        { label: 'Outcome', value: 'Working cross-platform app with paired hardware sensor' },
+      ],
     },
     sections: [
       {
@@ -172,9 +184,15 @@ export const portfolioProjects = [
     summary: {
       title: 'TrekAssist',
       description:
-        'A team UX/HFE case study exploring safety-focused navigation, emergency support, usability testing, and low-power interaction for a constrained outdoor e-ink device.',
+        'A team UX/HFE case study for a solar-powered outdoor e-ink device, validated through usability testing with 9 participants across 6 scenario-based tasks covering navigation, emergency support, and low-power interaction.',
       modelType: 'laptop',
       modelAlt: 'TrekAssist e-ink national park guide interface shown on a laptop',
+      quickFacts: [
+        { label: 'Role', value: 'UX / Human Factors Designer (team)' },
+        { label: 'Methods', value: 'UI design, usability testing (n=9), scenario tasks, flow mapping' },
+        { label: 'Tools', value: 'Figma, e-ink prototyping' },
+        { label: 'Outcome', value: 'Validated safety-critical flows; surfaced Low Power discoverability fix' },
+      ],
     },
     sections: [
       {
@@ -365,6 +383,12 @@ export const portfolioProjects = [
         'A Google UX Design Certificate project focused on responsive restaurant browsing, reservation, and ordering flows refined through user research and usability testing.',
       modelType: 'phone',
       modelAlt: 'Little Lemon restaurant app screens shown on phones',
+      quickFacts: [
+        { label: 'Role', value: 'UX Designer' },
+        { label: 'Methods', value: 'User research, usability testing, responsive design' },
+        { label: 'Tools', value: 'Figma' },
+        { label: 'Outcome', value: 'Google UX Design Certificate capstone case study' },
+      ],
     },
     sections: [
       {
@@ -446,9 +470,15 @@ export const portfolioProjects = [
     summary: {
       title: 'SayIt',
       description:
-        'Designed and built a privacy-first macOS voice-to-text utility with a menu bar workflow, global hotkey, real-time HUD feedback, and local Whisper support.',
+        'A shipped macOS voice-to-text utility, designed and built end-to-end as a privacy-first menu bar product with a global hotkey, real-time HUD feedback, and local Whisper support.',
       modelType: 'laptop',
       modelAlt: 'SayIt macOS menu bar app shown on a laptop',
+      quickFacts: [
+        { label: 'Role', value: 'Designer-Builder (solo, end-to-end)' },
+        { label: 'Methods', value: 'Product design, native development, on-device AI' },
+        { label: 'Tools', value: 'SwiftUI, Whisper, Xcode' },
+        { label: 'Outcome', value: 'Shipped macOS app with downloadable releases' },
+      ],
     },
     sections: [
       {

@@ -29,6 +29,7 @@ export function ProjectSummary({
   buttonText,
   buttonLink,
   alternate,
+  quickFacts,
   ...rest
 }) {
   const [focused, setFocused] = useState(false);
@@ -94,6 +95,16 @@ export function ProjectSummary({
         <Text className={styles.description} data-visible={visible} as="p">
           {description}
         </Text>
+        {quickFacts?.length > 0 && (
+          <dl className={styles.quickFacts} data-visible={visible}>
+            {quickFacts.map(fact => (
+              <div className={styles.quickFactRow} key={fact.label}>
+                <dt className={styles.quickFactLabel}>{fact.label}</dt>
+                <dd className={styles.quickFactValue}>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
         <div className={styles.button} data-visible={visible}>
           <Button iconHoverShift href={buttonLink} iconEnd="arrow-right">
             {buttonText}

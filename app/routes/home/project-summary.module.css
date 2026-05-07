@@ -257,6 +257,58 @@
   }
 }
 
+.quickFacts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spaceS);
+  margin: 0 0 var(--spaceXL) 0;
+  padding: var(--spaceM) 0 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--textBody) 18%, transparent);
+  transition-property: opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationXL);
+  transition-delay: var(--durationL);
+  opacity: 0;
+
+  @media (--mediaUseMotion) {
+    transition-property: transform, opacity;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-visible='true'] {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.quickFactRow {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: baseline;
+  gap: var(--spaceM);
+
+  @media (--mediaMobile) {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+.quickFactLabel {
+  font-size: var(--fontSizeBodyS);
+  font-weight: var(--fontWeightMedium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+}
+
+.quickFactValue {
+  font-size: var(--fontSizeBodyS);
+  line-height: var(--lineHeightBody);
+  color: var(--textLight);
+  margin: 0;
+}
+
 .button {
   transition-property: opacity;
   transition-timing-function: var(--bezierFastoutSlowin);
