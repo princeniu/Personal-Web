@@ -6,9 +6,11 @@ import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { createRef, useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
+import profileImg from '~/assets/profile.jpg';
 import styles from './home.module.css';
 
-// Prefetch draco decoader wasm
+// Prefetch draco decoder wasm + preload the About-section profile photo so
+// it's ready by the time the user scrolls past the intro hero.
 export const links = () => {
   return [
     {
@@ -24,6 +26,12 @@ export const links = () => {
       as: 'fetch',
       type: 'application/wasm',
       importance: 'low',
+    },
+    {
+      rel: 'preload',
+      href: profileImg,
+      as: 'image',
+      fetchPriority: 'low',
     },
   ];
 };
