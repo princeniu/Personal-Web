@@ -1,0 +1,21 @@
+{
+  "entry": [
+    "app/root.jsx",
+    "app/routes/**/*.{js,jsx,mjs}",
+    "app/components/**/*.stories.jsx",
+    "scripts/*.cjs",
+    "tests/*.test.mjs"
+  ],
+  "extensions": [".js", ".jsx", ".mjs", ".cjs"],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "build/**",
+    "public/**",
+    ".storybook/**",
+    "storybook-static/**"
+  ],
+  "ignoreUnresolved": [],
+  "ignoreUnimported": [
+    "app/components/**/*.stories.jsx"
+  ]
+}

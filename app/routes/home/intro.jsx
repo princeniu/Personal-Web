@@ -21,6 +21,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
   const { theme } = useTheme();
   const { disciplines } = config;
   const [disciplineIndex, setDisciplineIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const prevTheme = usePrevious(theme);
   const introLabel = [disciplines.slice(0, -1).join(', '), disciplines.slice(-1)[0]].join(
     ', and '
@@ -35,7 +36,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
       const index = (disciplineIndex + 1) % disciplines.length;
       setDisciplineIndex(index);
     },
-    5000,
+    paused ? null : 5000,
     theme
   );
 
@@ -108,6 +109,26 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                       )}
                     </Transition>
                   ))}
+                  <button
+                    type="button"
+                    className={styles.disciplineToggle}
+                    onClick={() => setPaused(p => !p)}
+                    aria-pressed={paused}
+                    aria-label={
+                      paused ? 'Resume rotating disciplines' : 'Pause rotating disciplines'
+                    }
+                    title={paused ? 'Resume' : 'Pause'}
+                  >
+                    {paused ? (
+                      <svg aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    ) : (
+                      <svg aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+                      </svg>
+                    )}
+                  </button>
                 </div>
               </Heading>
             </header>
@@ -119,6 +140,15 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               onClick={handleScrollClick}
             >
               <VisuallyHidden>Scroll to projects</VisuallyHidden>
+              <svg
+                aria-hidden
+                stroke="currentColor"
+                width="28"
+                height="10"
+                viewBox="0 0 43 15"
+              >
+                <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
+              </svg>
             </RouterLink>
             <RouterLink
               to="/#projects"

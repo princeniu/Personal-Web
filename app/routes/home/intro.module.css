@@ -180,6 +180,45 @@
   }
 }
 
+/* Pause/play control for the auto-rotating discipline word. Sits inline at
+   the end of the row, fades in when the row is hovered or the button is
+   focused so it stays out of the way during normal viewing. */
+.disciplineToggle {
+  margin-left: var(--spaceM);
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in lab, var(--text) 24%, transparent);
+  background: transparent;
+  color: color-mix(in lab, var(--text) 60%, transparent);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--durationS) ease, color var(--durationS) ease,
+    border-color var(--durationS) ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+  }
+}
+
+.row:hover .disciplineToggle,
+.disciplineToggle:focus-visible {
+  opacity: 1;
+}
+
+@media (--mediaTouch) {
+  .disciplineToggle {
+    opacity: 1;
+  }
+}
+
 .line {
   content: '';
   height: 2px;
@@ -214,51 +253,46 @@
 
 @keyframes introScrollIndicator {
   0% {
-    transform: translate3d(-1px, 0, 0);
-    opacity: 0;
+    transform: translateY(0);
   }
 
-  20% {
-    transform: translate3d(-1px, 0, 0);
-    opacity: 1;
+  50% {
+    transform: translateY(6px);
   }
 
   100% {
-    transform: translate3d(-1px, 8px, 0);
-    opacity: 0;
+    transform: translateY(0);
   }
 }
 
 .scrollIndicator {
-  border: 2px solid color-mix(in lab, var(--text) 40%, transparent);
-  border-radius: 20px;
-  width: 26px;
-  height: 38px;
   position: fixed;
-  bottom: 64px;
-  transition-property: opacity;
-  transition-duration: var(--durationL);
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  color: color-mix(in lab, var(--text) 50%, transparent);
+  transition-property: opacity, color;
+  transition-duration: var(--durationM);
   transition-timing-function: ease;
   opacity: 0;
 
-  &::before {
-    content: '';
-    height: 7px;
-    width: 2px;
-    background: color-mix(in lab, var(--text) 40%, transparent);
-    border-radius: 4px;
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-1px);
+  & svg {
+    stroke: currentColor;
   }
 
   @media (--mediaUseMotion) {
-    transition-property: opacity, transform;
-
-    &::before {
+    transition-property: opacity, transform, color;
+    & svg {
       animation: introScrollIndicator 2s ease infinite;
     }
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--accent);
+    opacity: 1;
   }
 
   &[data-status='entered'] {
@@ -275,10 +309,6 @@
 
   @media (--mediaTouch) {
     display: none;
-  }
-
-  &:focus-visible {
-    opacity: 1;
   }
 }
 
