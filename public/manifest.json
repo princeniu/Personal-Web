@@ -1,6 +1,15 @@
 {
   "short_name": "Prince Niu",
   "name": "Portfolio of Zhuo (Prince) Niu",
+  "description": "Portfolio of Zhuo (Prince) Niu — UI/UX designer and AI product developer working at the intersection of Human Factors, Product Design, and AI.",
+  "lang": "en",
+  "id": "/",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#111111",
+  "background_color": "#111111",
   "icons": [
     {
       "src": "shortcut.png",
@@ -10,16 +19,14 @@
     {
       "src": "icon-256.png",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#111111",
-  "background_color": "#111111"
+  ]
 }

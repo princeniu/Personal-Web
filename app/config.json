@@ -1,11 +1,20 @@
 {
   "name": "Zhuo (Prince) Niu",
   "role": "Designer-Builder",
-  "disciplines": ["Human Factors", "AI Products", "Prototyping"],
+  "disciplines": [
+    "Human Factors",
+    "AI Products",
+    "Prototyping",
+    "UX Research",
+    "Design Engineering"
+  ],
   "url": "https://princeniu.com",
+  "email": "Zhuo.Niu@tufts.edu",
+  "location": "Medford, MA",
   "bluesky": "",
   "figma": "",
   "github": "princeniu",
+  "linkedin": "zhuoniu110",
   "repo": "https://github.com/princeniu/Personal-Web",
-  "ascii": "__  __  __\n\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215\n"
+  "ascii": "__  __  __\n\\ \\ \\ \\ \\∕\n \\ \\∕\\ \\\n  \\∕  \\∕\n"
 }
