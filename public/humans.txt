@@ -33,6 +33,6 @@ _______________________________________________________________________________
 
 FONTS
 
-Gotham
+Inter (variable, Latin subset) — rsms.me/inter
 IPA Gothic Regular
 Hiragino Kaku Gothic W8

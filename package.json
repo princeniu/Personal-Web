@@ -7,8 +7,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix vite:build",
+    "build": "node ./scripts/generate-sitemap.cjs && remix vite:build",
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
+    "sitemap": "node ./scripts/generate-sitemap.cjs",
     "test": "node --test tests/*.test.mjs",
     "start": "wrangler pages dev ./build/client",
     "postinstall": "node ./scripts/draco.cjs",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.515.0",
+    "@fontsource-variable/inter": "^5.2.8",
     "@mdx-js/react": "^3.0.1",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",

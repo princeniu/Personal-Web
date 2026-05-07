@@ -29,10 +29,22 @@ const springConfig = {
   mass: 2,
 };
 
+// Skip the WebGL displacement sphere on low-end devices and metered
+// connections. The intro stays readable; we just don't run the shader.
+function shouldSkipForDevice() {
+  if (typeof navigator === 'undefined') return false;
+  const memory = navigator.deviceMemory; // not on every browser
+  if (typeof memory === 'number' && memory > 0 && memory < 4) return true;
+  const conn = navigator.connection;
+  if (conn?.saveData) return true;
+  if (conn?.effectiveType && /^(slow-2g|2g)$/.test(conn.effectiveType)) return true;
+  return false;
+}
+
 export const DisplacementSphere = props => {
   const { theme } = useTheme();
   const [webglReady, setWebglReady] = useState(false);
-  const [webglFailed, setWebglFailed] = useState(false);
+  const [webglFailed, setWebglFailed] = useState(() => shouldSkipForDevice());
   const start = useRef(Date.now());
   const canvasRef = useRef();
   const mouse = useRef();
@@ -51,6 +63,8 @@ export const DisplacementSphere = props => {
   const rotationY = useSpring(0, springConfig);
 
   useEffect(() => {
+    if (webglFailed) return undefined;
+
     const { innerWidth, innerHeight } = window;
     mouse.current = new Vector2(0.8, 0.5);
 

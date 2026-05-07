@@ -1,9 +1,5 @@
-import GothamBoldItalic from '~/assets/fonts/gotham-bold-italic.woff2';
-import GothamBold from '~/assets/fonts/gotham-bold.woff2';
-import GothamBookItalic from '~/assets/fonts/gotham-book-italic.woff2';
-import GothamBook from '~/assets/fonts/gotham-book.woff2';
-import GothamMediumItalic from '~/assets/fonts/gotham-medium-italic.woff2';
-import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
+import InterVariable from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
+import InterVariableItalic from '@fontsource-variable/inter/files/inter-latin-wght-italic.woff2';
 import IPAGothic from '~/assets/fonts/ipa-gothic.woff2';
 import { createContext, useContext } from 'react';
 import { classes, media } from '~/utils/style';
@@ -117,50 +113,18 @@ const tokenStyles = squish(`
 
 const fontStyles = squish(`
   @font-face {
-    font-family: Gotham;
-    font-weight: 400;
-    src: url(${GothamBook}) format('woff2');
-    font-display: block;
+    font-family: Inter;
+    font-weight: 100 900;
+    src: url(${InterVariable}) format('woff2-variations');
+    font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: Gotham;
-    font-weight: 400;
-    src: url(${GothamBookItalic}) format('woff2');
-    font-display: block;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: Gotham;
-    font-weight: 500;
-    src: url(${GothamMedium}) format('woff2');
-    font-display: block;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: Gotham;
-    font-weight: 500;
-    src: url(${GothamMediumItalic}) format('woff2');
-    font-display: block;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: Gotham;
-    font-weight: 700;
-    src: url(${GothamBold}) format('woff2');
-    font-display: block;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: Gotham;
-    font-weight: 700;
-    src: url(${GothamBoldItalic}) format('woff2');
-    font-display: block;
+    font-family: Inter;
+    font-weight: 100 900;
+    src: url(${InterVariableItalic}) format('woff2-variations');
+    font-display: swap;
     font-style: italic;
   }
 

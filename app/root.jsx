@@ -11,14 +11,14 @@ import {
 } from '@remix-run/react';
 import { createCookieSessionStorage, json } from '@remix-run/cloudflare';
 import { ThemeProvider, themeStyles } from '~/components/theme-provider';
-import GothamBook from '~/assets/fonts/gotham-book.woff2';
-import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
+import InterVariable from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
 import { useEffect } from 'react';
 import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
 import { Progress } from '~/components/progress';
 import { getSessionSecrets } from '~/utils/session';
+import { personSchema, websiteSchema } from '~/utils/meta';
 import config from '~/config.json';
 import styles from './root.module.css';
 import './reset.module.css';
@@ -27,14 +27,7 @@ import './global.module.css';
 export const links = () => [
   {
     rel: 'preload',
-    href: GothamMedium,
-    as: 'font',
-    type: 'font/woff2',
-    crossOrigin: '',
-  },
-  {
-    rel: 'preload',
-    href: GothamBook,
+    href: InterVariable,
     as: 'font',
     type: 'font/woff2',
     crossOrigin: '',
@@ -117,6 +110,14 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="canonical" href={canonicalUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+        />
       </head>
       <body data-theme={theme}>
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
