@@ -1,6 +1,15 @@
 @layer components {
   .monogram {
+    transition: fill var(--durationL) ease;
+  }
+
+  .base {
     fill: var(--textTitle);
+    transition: fill var(--durationL) ease;
+  }
+
+  .accent {
+    fill: var(--accent);
     transition: fill var(--durationL) ease;
   }
 
