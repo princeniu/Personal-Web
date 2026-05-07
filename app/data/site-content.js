@@ -258,7 +258,7 @@ export const usesContent = {
   ],
   system: [
     { label: 'Operating system', value: 'macOS' },
-    { label: 'Browser', value: 'Chrome' },
+    { label: 'Browser', value: 'Arc' },
     { label: 'Monitor', value: 'LG 27UN850-W 4K' },
     { label: 'Keyboard', value: 'Keychron K2' },
     { label: 'Mouse', value: 'Logitech G305' },
