@@ -31,6 +31,22 @@ const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Per-IP rate limit on contact form submissions. Cloudflare KV TTL acts as
+// the cooldown window; if the KV binding is missing (local dev without the
+// namespace bound) we skip the check rather than hard-failing.
+const RATE_LIMIT_WINDOW_SECONDS = 60;
+
+async function isRateLimited(env, request) {
+  const kv = env.CONTACT_RATE_LIMIT;
+  if (!kv) return false;
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const key = `contact:${ip}`;
+  const recent = await kv.get(key);
+  if (recent) return true;
+  await kv.put(key, '1', { expirationTtl: RATE_LIMIT_WINDOW_SECONDS });
+  return false;
+}
+
 export async function action({ context, request }) {
   const env = context.cloudflare?.env || {};
   const formData = await request.formData();
@@ -41,6 +57,14 @@ export async function action({ context, request }) {
 
   // Return without sending if a bot trips the honeypot
   if (isBot) return json({ success: true });
+
+  // Throttle real submissions before doing any expensive work
+  if (await isRateLimited(env, request)) {
+    return json(
+      { errors: { form: contactContent.rateLimitedMessage } },
+      { status: 429 }
+    );
+  }
 
   // Handle input validation on the server
   if (!email || !EMAIL_PATTERN.test(email)) {

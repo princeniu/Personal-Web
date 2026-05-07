@@ -1,5 +1,10 @@
 compatibility_date = "2024-01-29"
 
+# KV bindings:
+# - MY_KV: legacy session-cookie binding kept for backwards compatibility
+# - CONTACT_RATE_LIMIT: per-IP rate limit on contact-form submissions
+#   (action falls through gracefully if the binding is missing in dev)
 kv_namespaces = [
-  { id = "MY_KV", binding="MY_KV" }
+  { id = "MY_KV", binding = "MY_KV" },
+  { id = "2f5cf6da199b4ef9abb81d45acb80761", binding = "CONTACT_RATE_LIMIT" }
 ]

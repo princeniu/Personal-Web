@@ -12,6 +12,8 @@ export const contactContent = {
     'Get in touch about product design, frontend development, mobile projects, or collaboration opportunities.',
   privacyNote:
     'Your email is only used to reply to this message and is never shared.',
+  rateLimitedMessage:
+    'You just sent a message. Please wait a minute before sending another one.',
   successTitle: 'Message Sent',
   successBody: 'I’ll reply as soon as I can, usually within the week. Thanks for reaching out.',
   backLabel: 'Back to homepage',
