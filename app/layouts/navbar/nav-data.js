@@ -3,15 +3,15 @@ import config from '~/config.json';
 export const navLinks = [
   {
     label: 'Projects',
-    pathname: '/#project-1',
+    pathname: '/#projects',
   },
   {
     label: 'About',
     pathname: '/#details',
   },
   {
-    label: 'More Work',
-    pathname: '/projects/more-work',
+    label: 'All Work',
+    pathname: '/projects/all-work',
   },
   {
     label: 'Contact',
@@ -24,6 +24,16 @@ export const navLinks = [
 ];
 
 export const socialLinks = [
+  config.linkedin && {
+    label: 'LinkedIn',
+    url: `https://www.linkedin.com/in/${config.linkedin}`,
+    icon: 'linkedin',
+  },
+  config.github && {
+    label: 'Github',
+    url: `https://github.com/${config.github}`,
+    icon: 'github',
+  },
   config.bluesky && {
     label: 'Bluesky',
     url: `https://bsky.app/profile/${config.bluesky}`,
@@ -34,9 +44,10 @@ export const socialLinks = [
     url: `https://www.figma.com/${config.figma}`,
     icon: 'figma',
   },
-  config.github && {
-    label: 'Github',
-    url: `https://github.com/${config.github}`,
-    icon: 'github',
+  {
+    label: 'Resume (PDF)',
+    url: '/resume.pdf',
+    icon: 'resume',
+    download: true,
   },
 ].filter(Boolean);

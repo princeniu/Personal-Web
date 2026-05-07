@@ -145,6 +145,58 @@ const ProjectTimeline = ({ section }) => (
   </ProjectSection>
 );
 
+const ProjectGrid = ({ section }) => (
+  <ProjectSection light={section.light}>
+    <ProjectSectionContent width="xl">
+      <ProjectTextRow width="m">
+        <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+        {renderBody(section.body)}
+      </ProjectTextRow>
+      <ul className={styles.projectGrid} aria-label={section.heading}>
+        {section.items.map(item => {
+          const inner = (
+            <>
+              {item.timeframe && (
+                <span className={styles.projectGridTimeframe}>{item.timeframe}</span>
+              )}
+              <h3 className={styles.projectGridTitle}>{item.title}</h3>
+              <p className={styles.projectGridDescription}>{item.description}</p>
+              {!!item.tags?.length && (
+                <ul className={styles.projectGridTags} aria-label="Tools and methods">
+                  {item.tags.map(tag => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              )}
+              {item.href && (
+                <span className={styles.projectGridCta} aria-hidden>
+                  View case study →
+                </span>
+              )}
+            </>
+          );
+
+          return (
+            <li
+              key={item.title}
+              className={styles.projectGridItem}
+              data-linked={!!item.href}
+            >
+              {item.href ? (
+                <a className={styles.projectGridLink} href={item.href}>
+                  {inner}
+                </a>
+              ) : (
+                <div className={styles.projectGridStatic}>{inner}</div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </ProjectSectionContent>
+  </ProjectSection>
+);
+
 const ProjectMetrics = ({ section }) => (
   <ProjectSection light={section.light}>
     <ProjectSectionContent width="xl">
@@ -236,6 +288,8 @@ const ProjectSectionRenderer = ({ section }) => {
       return <ProjectTimeline section={section} />;
     case 'metrics':
       return <ProjectMetrics section={section} />;
+    case 'project-grid':
+      return <ProjectGrid section={section} />;
     case 'outcome':
       return <ProjectOutcome section={section} />;
     default:

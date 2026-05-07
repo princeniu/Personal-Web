@@ -1,13 +1,14 @@
 .summary {
-  height: 100vh;
+  min-height: 80vh;
   width: 100%;
   max-height: 1080px;
   padding-bottom: var(--spaceL);
-  margin: 120px 0;
+  margin: 96px 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-margin-top: var(--spaceXL);
 
   @media (--mediaDesktop) {
     margin: var(--space2XL) 0;

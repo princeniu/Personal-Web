@@ -1,11 +1,16 @@
-import { json } from '@remix-run/cloudflare';
+import { json, redirect } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import { getProjectBySlug } from '~/data/projects';
-import { resolveProjectSlug } from '~/data/project-content';
+import { legacyProjectSlugRedirects, resolveProjectSlug } from '~/data/project-content';
 import { baseMeta } from '~/utils/meta';
 import { ProjectCase } from '../projects/project-case';
 
 export const loader = async ({ params }) => {
+  // Permanent redirect for legacy slugs so old links keep working in search results.
+  if (legacyProjectSlugRedirects[params.slug]) {
+    return redirect(`/projects/${legacyProjectSlugRedirects[params.slug]}`, 301);
+  }
+
   const resolvedSlug = resolveProjectSlug(params.slug);
   const project = getProjectBySlug(resolvedSlug);
 

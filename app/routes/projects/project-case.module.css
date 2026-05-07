@@ -221,3 +221,90 @@
     gap: var(--spaceS);
   }
 }
+
+.projectGrid {
+  list-style: none;
+  margin: var(--space2XL) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spaceL);
+
+  @media (--mediaTablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectGridItem {
+  display: flex;
+}
+
+.projectGridLink,
+.projectGridStatic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceS);
+  width: 100%;
+  padding: var(--spaceL);
+  border: 1px solid color-mix(in lab, var(--text) 16%, transparent);
+  border-radius: 16px;
+  background: color-mix(in lab, var(--backgroundLight) 50%, transparent);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--durationS) ease, transform var(--durationS) ease,
+    background var(--durationS) ease;
+}
+
+.projectGridLink:hover,
+.projectGridLink:focus-visible {
+  border-color: var(--accent);
+  background: color-mix(in lab, var(--accent) 8%, var(--backgroundLight));
+  transform: translateY(-2px);
+}
+
+.projectGridTimeframe {
+  font-size: var(--fontSizeBodyXS);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--fontWeightMedium);
+}
+
+.projectGridTitle {
+  margin: 0;
+  font-size: var(--fontSizeH5);
+  line-height: 1.2;
+  color: var(--textTitle);
+}
+
+.projectGridDescription {
+  margin: 0;
+  color: var(--textBody);
+  font-size: var(--fontSizeBodyM);
+  line-height: 1.55;
+}
+
+.projectGridTags {
+  list-style: none;
+  margin: var(--spaceS) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spaceXS) var(--spaceS);
+
+  & li {
+    font-size: var(--fontSizeBodyXS);
+    color: var(--textLight);
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: color-mix(in lab, var(--text) 8%, transparent);
+  }
+}
+
+.projectGridCta {
+  margin-top: auto;
+  padding-top: var(--spaceS);
+  font-size: var(--fontSizeBodyS);
+  color: var(--accent);
+  font-weight: var(--fontWeightMedium);
+}

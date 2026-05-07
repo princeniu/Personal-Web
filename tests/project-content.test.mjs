@@ -56,12 +56,13 @@ test('project paths use stable portfolio URLs', () => {
     '/projects/porsche-digital-interface'
   );
   assert.equal(getProjectPath('posture-checker'), '/projects/posture-checker');
-  assert.equal(getProjectPath('more-work'), '/projects/more-work');
+  assert.equal(getProjectPath('all-work'), '/projects/all-work');
 });
 
-test('more-work is a first-class project route', () => {
-  assert.equal(resolveProjectSlug('more-work'), 'more-work');
-  assert.deepEqual(legacyProjectSlugRedirects, {});
+test('all-work is a first-class project route, with legacy more-work redirect', () => {
+  assert.equal(resolveProjectSlug('all-work'), 'all-work');
+  assert.equal(resolveProjectSlug('more-work'), 'all-work');
+  assert.deepEqual(legacyProjectSlugRedirects, { 'more-work': 'all-work' });
 });
 
 test('repository metadata points to the active GitHub repo', () => {
@@ -75,7 +76,8 @@ test('repository metadata points to the active GitHub repo', () => {
 test('sitemap only publishes intended public project routes', () => {
   const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 
-  assert.match(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
+  assert.match(sitemap, /https:\/\/princeniu\.com\/projects\/all-work/);
+  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/sayit/);
 
   for (const slug of ['porsche-digital-interface', 'posture-checker', 'trekassist', 'little-lemon']) {

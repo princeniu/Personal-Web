@@ -6,7 +6,9 @@ export const featuredProjectSlugs = [
   'little-lemon',
 ];
 
-export const legacyProjectSlugRedirects = {};
+export const legacyProjectSlugRedirects = {
+  'more-work': 'all-work',
+};
 
 export const portfolioProjects = [
   {
@@ -22,10 +24,10 @@ export const portfolioProjects = [
       modelType: 'laptop',
       modelAlt: 'Porsche Digital Interface prototype shown on a laptop',
       quickFacts: [
-        { label: 'Role', value: 'UX / UI Designer' },
+        { label: 'Role', value: 'UX / UI Designer (Porsche Asia Pacific internship)' },
         { label: 'Methods', value: 'UX research, multimodal flow design, prototyping' },
         { label: 'Tools', value: 'Figma' },
-        { label: 'Outcome', value: 'High-fidelity prototype with stronger voice-assistant satisfaction' },
+        { label: 'Outcome', value: '30% reduction in interface load time after iterative UI optimization' },
       ],
     },
     sections: [
@@ -69,11 +71,40 @@ export const portfolioProjects = [
         ],
       },
       {
+        type: 'metrics',
+        heading: 'Impact at a Glance',
+        body: [
+          'Iteration on micro-interactions and component-level UI specs translated directly into measurable performance and clarity gains during the engineering handoff.',
+        ],
+        metrics: [
+          { value: '30%', label: 'Reduction in interface load time' },
+          { value: '4', label: 'Multimodal flows shipped (touch · voice · AI · GUI)' },
+          { value: '12+', label: 'High-fidelity component specs handed off' },
+        ],
+        evidence: [
+          {
+            label: 'Performance',
+            value:
+              'Iterative tuning of micro-interactions and asset weights contributed to a 30% reduction in load time across the navigation, voice, and assistant surfaces.',
+          },
+          {
+            label: 'Cross-functional alignment',
+            value:
+              'Design rationale and interaction-flow walkthroughs aligned design and engineering on usability goals, visual consistency, and technical feasibility before development.',
+          },
+          {
+            label: 'Multimodal coverage',
+            value:
+              'Flows spanned touch, voice command, and AI-driven assistance — so drivers could complete the same task through whichever modality was safer in the moment.',
+          },
+        ],
+      },
+      {
         type: 'outcome',
         image: 'porscheOutcome',
         heading: 'Project Outcomes',
         body: [
-          'The redesigned interface reduced task complexity through optimized navigation flows and multimodal inputs. Usability testing indicated stronger satisfaction with the AI voice assistant and clearer control paths.',
+          'The redesigned interface reduced task complexity through optimized navigation flows and multimodal inputs. Usability testing indicated stronger satisfaction with the AI voice assistant and clearer control paths, and the iterated UI contributed to a 30% reduction in load time at handoff.',
         ],
       },
     ],
@@ -98,10 +129,10 @@ export const portfolioProjects = [
       modelType: 'phone',
       modelAlt: 'Posture Checker app screens shown on phones',
       quickFacts: [
-        { label: 'Role', value: 'Product Designer + Mobile Developer' },
-        { label: 'Methods', value: 'User research, BLE prototyping, system architecture' },
-        { label: 'Tools', value: 'React Native, BLE, Figma' },
-        { label: 'Outcome', value: 'Working cross-platform app with paired hardware sensor' },
+        { label: 'Role', value: 'Product Designer + Mobile Developer (solo)' },
+        { label: 'Methods', value: 'User research, BLE prototyping, system architecture, push-feedback loops' },
+        { label: 'Tools', value: 'React Native, Expo, BLE, Arduino, Firebase, Figma' },
+        { label: 'Outcome', value: 'Cross-platform iOS + Android app paired with a custom BLE posture sensor' },
       ],
     },
     sections: [
@@ -160,11 +191,41 @@ export const portfolioProjects = [
         ],
       },
       {
+        type: 'metrics',
+        heading: 'Build Snapshot',
+        body: [
+          'The build covered the full product surface: a hardware-paired mobile app, an end-to-end interaction model, and a feedback loop designed to make posture habits visible.',
+        ],
+        metrics: [
+          { value: '2', label: 'Platforms shipped (iOS + Android via React Native)' },
+          { value: '1', label: 'Custom BLE-enabled posture sensor integrated' },
+          { value: '5+', label: 'Core screens (status, goals, trends, history, settings)' },
+          { value: '1 Hz', label: 'Real-time posture sampling cadence' },
+        ],
+        evidence: [
+          {
+            label: 'Hardware-software integration',
+            value:
+              'Designed and implemented the BLE pairing flow connecting the React Native app to a custom posture sensor, including reconnection handling and live data streaming.',
+          },
+          {
+            label: 'Feedback loop',
+            value:
+              'Push notifications fire when poor posture persists past a threshold, supporting behavior change without nagging users for momentary slouches.',
+          },
+          {
+            label: 'Information surfaces',
+            value:
+              'Live status, daily goals, historical trends, and good-vs-slouch visualizations were unified into a single mobile dashboard for quick daily check-ins.',
+          },
+        ],
+      },
+      {
         type: 'outcome',
         image: 'postureTeam',
         heading: 'Project Outcomes',
         body: [
-          'The digital and physical posture correction system helped users understand posture habits through immediate feedback, stored trends, and recurring notifications.',
+          'The digital and physical posture correction system helped users understand posture habits through immediate feedback, stored trends, and recurring notifications. The shipped build proved that a single designer-builder can take a hardware-integrated mobile product from concept through a working multi-screen experience.',
         ],
       },
     ],
@@ -423,40 +484,102 @@ export const portfolioProjects = [
     ],
   },
   {
-    slug: 'more-work',
-    title: 'More Work',
+    slug: 'all-work',
+    title: 'All Work',
     description:
-      'A broader view of product, prototype, and implementation work spanning shipped tools, client collaborations, and smaller experiments that support the core portfolio.',
-    roles: ['Product Design', 'Frontend Development', 'Prototyping', 'Interaction Design'],
+      'A broader index of shipped products, internships, prototypes, and exploratory builds across product design, mobile development, and AI tooling.',
+    roles: ['Product Design', 'UX Research', 'Mobile Development', 'AI Integration', 'Prototyping'],
     summary: {
-      title: 'More Work',
+      title: 'All Work',
       description:
-        'A lightweight index for additional work, private case studies, and cross-disciplinary product explorations outside the featured portfolio.',
+        'An index of shipped products, internship work, prototypes, and exploratory builds — the broader portfolio behind the featured case studies.',
       modelType: 'laptop',
-      modelAlt: 'Additional portfolio work overview',
+      modelAlt: 'Overview of additional portfolio work',
     },
     sections: [
       {
         type: 'text',
-        heading: 'What Lives Here',
+        heading: 'The Broader Portfolio',
         body: [
-          'This page holds the work that does not fit neatly into the featured case studies on the homepage: smaller product launches, exploratory builds, internal tools, and private client work that can only be shared selectively.',
-          'The common thread is the same as the rest of the portfolio: reducing complexity, making interaction models clearer, and getting ideas into a form that can be tested or shipped.',
+          'The featured case studies on the homepage cover the work I most want to walk through end to end. This page holds the rest: shipped products, real internship work, course-driven case studies, and the smaller builds that shape how I think about design and engineering.',
+          'The common thread is the same as the featured work: reducing complexity, making interaction models clearer, and getting ideas into a form that can actually be tested or shipped.',
         ],
       },
       {
-        type: 'text',
-        heading: 'Kinds of Projects',
+        type: 'project-grid',
+        heading: 'Selected Work',
         body: [
-          'Across recent engagements, the work has included design systems, rapid prototypes, UX refinements for existing products, cross-platform interface work, and implementation-heavy collaboration where design decisions had to hold up in production.',
-          'Some of that work is public, some is embedded in client products, and some is intentionally kept lightweight in the portfolio because the most useful artifact is the shipped outcome rather than a long case study.',
+          'A scannable view of recent and ongoing work. Featured case studies open into full project pages; the rest is summarized here.',
+        ],
+        items: [
+          {
+            title: 'SayIt',
+            timeframe: 'Apr 2026 · Shipped',
+            description:
+              'Production macOS menu bar app for voice-to-text. Global hotkey, on-device Whisper, signed and notarized v1.0.5 release on GitHub Releases.',
+            tags: ['Swift', 'SwiftUI', 'whisper.cpp', 'AppKit'],
+            href: '/projects/sayit',
+          },
+          {
+            title: 'TrekAssist',
+            timeframe: 'Sep 2025 – Dec 2025 · Tufts',
+            description:
+              'Solar-powered e-ink national park guide. Usability tested with 9 participants across 6 outdoor scenarios; surfaced and addressed Low Power discoverability.',
+            tags: ['Human Factors', 'Figma', 'Usability Testing', 'E-Ink'],
+            href: '/projects/trekassist',
+          },
+          {
+            title: 'Porsche Digital Interface',
+            timeframe: 'Jun 2024 – Sep 2024 · Porsche Asia Pacific',
+            description:
+              'In-car interaction prototypes for Porsche Communication Management. Iterative UI tuning contributed to a 30% reduction in interface load time.',
+            tags: ['UX/UI', 'Multimodal', 'Figma', 'Automotive HMI'],
+            href: '/projects/porsche-digital-interface',
+          },
+          {
+            title: 'Posture Checker',
+            timeframe: 'Sep 2024 – Dec 2024',
+            description:
+              'Cross-platform React Native app paired with a custom BLE posture sensor. Real-time tracking, trends, and corrective push notifications.',
+            tags: ['React Native', 'BLE', 'Firebase', 'Hardware'],
+            href: '/projects/posture-checker',
+          },
+          {
+            title: 'AI-Driven Multimodal UX (China GPI Tech)',
+            timeframe: 'Jun 2023 – Aug 2023 · Internship',
+            description:
+              'Designed multimodal UX flows blending voice, touch, and GUI. Refined NLP voice commands, lifting speech recognition accuracy to 95%.',
+            tags: ['Multimodal UX', 'NLP', 'Voice Interaction'],
+          },
+          {
+            title: 'Little Lemon Restaurant',
+            timeframe: '2024 · Google UX Capstone',
+            description:
+              'Responsive booking and ordering experience refined through user research and usability testing. Google UX Design Certificate capstone.',
+            tags: ['UX Design', 'Figma', 'Responsive'],
+            href: '/projects/little-lemon',
+          },
+          {
+            title: 'Meta iOS Developer · Capstone',
+            timeframe: '2024 · Coursera',
+            description:
+              'Native iOS work covering Swift, Core Data, version control, and product-level UI/UX research as part of the Meta iOS Developer Professional Certificate.',
+            tags: ['Swift', 'Core Data', 'iOS'],
+          },
+          {
+            title: 'Private & Client Work',
+            timeframe: 'Available on request',
+            description:
+              'Additional design-system, prototyping, and implementation-heavy work that lives inside client products. Walkthroughs available on request.',
+            tags: ['Design Systems', 'Prototyping', 'Frontend'],
+          },
         ],
       },
       {
         type: 'outcome',
-        heading: 'Availability',
+        heading: 'Want to dig deeper?',
         body: [
-          'Additional samples and project walkthroughs are available on request when the context is relevant. That is the simplest way to keep the public portfolio focused while still making room for broader work history.',
+          'If something on this page is relevant to a role you’re hiring for, get in touch — I’m happy to walk through process, decisions, and tradeoffs that don’t fit in a public case study.',
         ],
       },
     ],

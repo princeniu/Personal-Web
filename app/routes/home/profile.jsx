@@ -77,7 +77,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   width={960}
                   height={1280}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
-                  alt="Zhuo Niu portrait"
+                  alt="Portrait of Zhuo (Prince) Niu"
                 />
                 <svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
                   <use href={`${katakana}#katakana-profile`} />
