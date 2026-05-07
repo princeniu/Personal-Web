@@ -141,6 +141,20 @@
   display: none;
 }
 
+.privacyNote {
+  margin-top: var(--spaceL);
+  font-size: var(--fontSizeBodyXS);
+  color: var(--textLight);
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity var(--durationM) ease var(--delay);
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    opacity: 1;
+  }
+}
+
 .button {
   --buttonLoaderDelay: var(--durationL);
 

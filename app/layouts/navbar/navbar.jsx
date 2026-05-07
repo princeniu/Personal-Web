@@ -21,7 +21,9 @@ export const Navbar = () => {
   const location = useLocation();
   const windowSize = useWindowSize();
   const headerRef = useRef();
-  const isMobile = windowSize.width <= media.mobile || windowSize.height <= 696;
+  // Use width-only detection so a short desktop window (split-screen, devtools open)
+  // doesn't get treated as mobile, which previously caused the theme toggle to vanish.
+  const isMobile = windowSize.width <= media.mobile;
   const scrollToHash = useScrollToHash();
 
   useEffect(() => {
@@ -206,15 +208,16 @@ export const Navbar = () => {
 
 const NavbarIcons = ({ desktop }) => (
   <div className={styles.navIcons}>
-    {socialLinks.map(({ label, url, icon }) => (
+    {socialLinks.map(({ label, url, icon, download }) => (
       <a
         key={label}
         data-navbar-item={desktop || undefined}
         className={styles.navIconLink}
         aria-label={label}
         href={url}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={download ? undefined : '_blank'}
+        rel={download ? undefined : 'noopener noreferrer'}
+        download={download || undefined}
       >
         <Icon className={styles.navIcon} icon={icon} />
       </a>

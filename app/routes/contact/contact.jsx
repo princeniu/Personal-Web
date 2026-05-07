@@ -29,7 +29,7 @@ export const meta = () => {
 
 const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
-const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function action({ context, request }) {
   const env = context.cloudflare?.env || {};
@@ -201,6 +201,8 @@ export const Contact = () => {
                   className={styles.formError}
                   ref={nodeRef}
                   data-status={errorStatus}
+                  role="alert"
+                  aria-live="polite"
                   style={cssProps({
                     height: errorStatus ? errorRef.current?.offsetHeight : 0,
                   })}
@@ -208,9 +210,13 @@ export const Contact = () => {
                   <div className={styles.formErrorContent} ref={errorRef}>
                     <div className={styles.formErrorMessage}>
                       <Icon className={styles.formErrorIcon} icon="error" />
-                      {actionData?.errors?.form}
-                      {actionData?.errors?.email}
-                      {actionData?.errors?.message}
+                      {[
+                        actionData?.errors?.form,
+                        actionData?.errors?.email,
+                        actionData?.errors?.message,
+                      ]
+                        .filter(Boolean)
+                        .join(' · ')}
                     </div>
                   </div>
                 </div>
@@ -229,6 +235,13 @@ export const Contact = () => {
             >
               Send message
             </Button>
+            <p
+              className={styles.privacyNote}
+              data-status={status}
+              style={getDelay(tokens.base.durationL, initDelay)}
+            >
+              {contactContent.privacyNote}
+            </p>
           </Form>
         )}
       </Transition>
