@@ -2,7 +2,7 @@ export const profileContent = {
   eyebrow: 'About me',
   heading: 'Hi there',
   description:
-    'I’m Zhuo (Prince) Niu, a developer and designer focused on turning complex product ideas into clear, usable experiences. My work sits between interface design, prototyping, and implementation, with recent projects spanning in-car systems, mobile health tools, and responsive product experiences.',
+    'I’m Zhuo (Prince) Niu, a designer-builder working across UI/UX, AI products, and human factors. I’m currently studying Human Factors Engineering at Tufts, with a Computer Engineering background from Purdue.\n\nI like building products at the point where a vague idea has to become real. That usually means asking what problem is worth solving, designing the first usable flow, testing the rough version, and then building enough of it for people to actually use.\n\nMy work sits between human factors, product design, and engineering. I care about the small moments that make a product feel clear instead of confusing: the prompt, the feedback, the recovery path, the first click that makes sense. Recently, I’ve worked on Porsche in-car interactions, a BLE-based posture tracking app, and SayIt, a shipped macOS voice-to-text tool.',
   ctaLabel: 'Send me a message',
 };
 
