@@ -222,6 +222,19 @@
   }
 }
 
+/* Constrain phone-screenshot galleries and heroes (portrait aspect ratio)
+   so they render at a reasonable size on desktop instead of stretching to
+   full width. */
+.portraitGallery,
+.portraitHero {
+  max-width: 360px;
+  margin: 0 auto;
+
+  @media (--mediaMobile) {
+    max-width: 280px;
+  }
+}
+
 .projectGrid {
   list-style: none;
   margin: var(--space2XL) 0 0;

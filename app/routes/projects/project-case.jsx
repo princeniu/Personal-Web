@@ -51,22 +51,30 @@ const renderTextRow = section => (
 
 const ProjectGallery = ({ section }) => {
   const [firstImage] = section.images;
+  // Treat clearly portrait imagery (e.g. phone screenshots) as a constrained
+  // device frame so a 428×1000 asset doesn't stretch the carousel into a
+  // 2x-tall column on desktop.
+  const isPortrait =
+    section.portrait ?? firstImage.height > firstImage.width * 1.4;
+  const portraitSizes = `(max-width: ${media.mobile}px) 70vw, 360px`;
 
   return (
     <ProjectSection light={section.light}>
       <ProjectSectionContent>
-        <Suspense>
-          <Carousel
-            placeholder={firstImage.placeholder}
-            images={section.images.map(image => ({
-              srcSet: image.srcSet,
-              sizes: imageSizes,
-              alt: image.alt || section.alt || section.heading,
-            }))}
-            width={firstImage.width}
-            height={firstImage.height}
-          />
-        </Suspense>
+        <div className={isPortrait ? styles.portraitGallery : undefined}>
+          <Suspense>
+            <Carousel
+              placeholder={firstImage.placeholder}
+              images={section.images.map(image => ({
+                srcSet: image.srcSet,
+                sizes: isPortrait ? portraitSizes : imageSizes,
+                alt: image.alt || section.alt || section.heading,
+              }))}
+              width={firstImage.width}
+              height={firstImage.height}
+            />
+          </Suspense>
+        </div>
         {renderTextRow(section)}
       </ProjectSectionContent>
     </ProjectSection>
@@ -261,23 +269,29 @@ const ProjectSectionRenderer = ({ section }) => {
   switch (section.type) {
     case 'gallery':
       return <ProjectGallery section={section} />;
-    case 'hero-image':
+    case 'hero-image': {
+      const isPortrait =
+        section.portrait ?? section.image.height > section.image.width * 1.4;
+      const portraitSizes = `(max-width: ${media.mobile}px) 70vw, 360px`;
       return (
         <ProjectSection padding="top">
           <ProjectSectionContent>
-            <ProjectImage
-              raised
-              src={section.image.src}
-              srcSet={section.image.srcSet}
-              width={section.image.width}
-              height={section.image.height}
-              placeholder={section.image.placeholder}
-              alt={section.alt}
-              sizes={imageSizes}
-            />
+            <div className={isPortrait ? styles.portraitHero : undefined}>
+              <ProjectImage
+                raised
+                src={section.image.src}
+                srcSet={section.image.srcSet}
+                width={section.image.width}
+                height={section.image.height}
+                placeholder={section.image.placeholder}
+                alt={section.alt}
+                sizes={isPortrait ? portraitSizes : imageSizes}
+              />
+            </div>
           </ProjectSectionContent>
         </ProjectSection>
       );
+    }
     case 'image':
       return <ProjectImageSection section={section} />;
     case 'image-text':

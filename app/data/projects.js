@@ -112,26 +112,29 @@ import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowst
 import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
 
 const imageAssets = {
+  // Little Lemon assets are 428×1000 portrait phone screenshots (and 856×2000
+  // for the @2x variant). These dimensions drive the rendered aspect ratio,
+  // so they must match the underlying file or the image gets squashed.
   littleLemonHero: {
     src: littleLemonHero,
-    srcSet: `${littleLemonHero} 800w, ${littleLemonHeroLarge} 1600w`,
+    srcSet: `${littleLemonHero} 428w, ${littleLemonHeroLarge} 856w`,
     placeholder: littleLemonHeroPlaceholder,
-    width: 800,
-    height: 500,
+    width: 428,
+    height: 1000,
   },
   littleLemonMenu: {
     src: littleLemonMenu,
-    srcSet: `${littleLemonMenu} 800w, ${littleLemonMenuLarge} 1600w`,
+    srcSet: `${littleLemonMenu} 428w, ${littleLemonMenuLarge} 856w`,
     placeholder: littleLemonMenuPlaceholder,
-    width: 800,
-    height: 500,
+    width: 428,
+    height: 1000,
   },
   littleLemonReservation: {
     src: littleLemonHero,
-    srcSet: `${littleLemonHero} 800w, ${littleLemonHeroLarge} 1600w`,
+    srcSet: `${littleLemonHero} 428w, ${littleLemonHeroLarge} 856w`,
     placeholder: littleLemonHeroPlaceholder,
-    width: 800,
-    height: 500,
+    width: 428,
+    height: 1000,
   },
   porscheFlowchart: {
     src: porscheFlowchart,
