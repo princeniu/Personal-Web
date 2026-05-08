@@ -140,7 +140,11 @@ const ProjectTimeline = ({ section }) => (
         <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
         {renderBody(section.body)}
       </ProjectTextRow>
-      <ol className={styles.timeline} aria-label={section.heading}>
+      <ol
+        className={styles.timeline}
+        style={{ '--cols-desktop': Math.min(7, section.items.length) }}
+        aria-label={section.heading}
+      >
         {section.items.map((item, index) => (
           <li className={styles.timelineItem} key={item.title}>
             <span className={styles.timelineIndex}>{String(index + 1).padStart(2, '0')}</span>
@@ -212,7 +216,13 @@ const ProjectMetrics = ({ section }) => (
         <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
         {renderBody(section.body)}
       </ProjectTextRow>
-      <div className={styles.metricsGrid}>
+      <div
+        className={styles.metricsGrid}
+        style={{
+          '--cols-desktop': Math.min(5, section.metrics.length),
+          '--cols-laptop': Math.min(3, section.metrics.length),
+        }}
+      >
         {section.metrics.map(metric => (
           <div className={styles.metricCard} key={metric.label}>
             <strong className={styles.metricValue}>{metric.value}</strong>
