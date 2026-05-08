@@ -149,16 +149,19 @@ const imageAssets = {
   },
   etongueIssfDashboard: {
     src: etongueIssfDashboard,
+    srcSet: `${etongueIssfDashboard} 2048w`,
     width: 2048,
     height: 1103,
   },
   etongueTasteProfile: {
     src: etongueTasteProfile,
+    srcSet: `${etongueTasteProfile} 2048w`,
     width: 2048,
     height: 1103,
   },
   etongueIssfScore: {
     src: etongueIssfScore,
+    srcSet: `${etongueIssfScore} 2048w`,
     width: 2048,
     height: 1103,
   },
