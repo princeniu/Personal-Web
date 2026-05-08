@@ -69,6 +69,16 @@ export const portfolioProjects = [
         ],
       },
       {
+        type: 'image',
+        image: 'etongueIssfDashboard',
+        heading: 'Platform Concept: ISSF Dashboard',
+        alt: 'ISSF Dashboard showing mixed panel method with E-Tongue + semi-trained data achieving 94% accuracy',
+        body: [
+          'The ISSF Dashboard translates the mixed-method vision into a working surface. A status line communicates the core methodology — Semi-trained panel + E-Tongue + GC-O — backed by accuracy (94%), correlation (r=0.91), and sample size (n=127), giving food developers a clear line of evidence confidence before they even begin comparing prototypes.',
+          'Each sample card surfaces a hedonic score at a glance, while the dashboard panels for CATA attributes, intensity ratings, and emotional profiles let developers drill into the specific evidence behind every number.',
+        ],
+      },
+      {
         type: 'timeline',
         heading: 'Process Timeline',
         body: [
@@ -118,6 +128,15 @@ export const portfolioProjects = [
         body: [
           'The platform concept connected panelist tasks such as CATA selection, intensity ratings, hedonic ratings, and emotional response with developer tasks such as configuring samples, reviewing machine testing, analyzing agreement, and making final product calls.',
           'Instead of asking users to manually reconcile every chart and response, the experience emphasized interpretation: confidence, rationale, agreement patterns, off-note detection, and clear Go / Tweak / Stop recommendations.',
+        ],
+      },
+      {
+        type: 'gallery',
+        heading: 'Hybrid Evidence in Practice',
+        images: ['etongueTasteProfile', 'etongueIssfScore'],
+        body: [
+          'Two views of the same hybrid evidence workflow. The Taste Profile radar visualizes 9-axis E-Tongue output — sourness through richness — from the Insent TS-5000Z with precise measurement conditions (2:5 dilution, 40°C, 7000rpm). The ISSF Score view combines machine data with panelist feedback into a single actionable recommendation: Go, Tweak, or Stop — with confidence, risk level, and estimated savings.',
+          'Together, these surfaces let developers move between the raw sensory signal and the product-level decision without losing traceability back to the evidence.',
         ],
       },
       {

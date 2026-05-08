@@ -78,6 +78,9 @@ import etongueEarlyPrototypePlaceholder from '~/assets/etongue-early-prototype-p
 import etongueEarlyPrototypePoster from '~/assets/etongue-early-prototype-poster.jpg';
 import etongueSensorCloseup from '~/assets/etongue-sensor-closeup.jpg';
 import etongueSensorCloseupPlaceholder from '~/assets/etongue-sensor-closeup-placeholder.jpg';
+import etongueIssfDashboard from '~/assets/etongue-issf-dashboard.png';
+import etongueTasteProfile from '~/assets/etongue-taste-profile.png';
+import etongueIssfScore from '~/assets/etongue-issf-score.png';
 
 import trekassistAlertModalLarge from '~/assets/trekassist-alert-modal-large.jpg';
 import trekassistAlertModalPlaceholder from '~/assets/trekassist-alert-modal-placeholder.jpg';
@@ -143,6 +146,21 @@ const imageAssets = {
     placeholder: etongueSensorCloseupPlaceholder,
     width: 947,
     height: 631,
+  },
+  etongueIssfDashboard: {
+    src: etongueIssfDashboard,
+    width: 2048,
+    height: 1103,
+  },
+  etongueTasteProfile: {
+    src: etongueTasteProfile,
+    width: 2048,
+    height: 1103,
+  },
+  etongueIssfScore: {
+    src: etongueIssfScore,
+    width: 2048,
+    height: 1103,
   },
   // Little Lemon assets are 428×1000 portrait phone screenshots (and 856×2000
   // for the @2x variant). These dimensions drive the rendered aspect ratio,
