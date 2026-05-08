@@ -81,6 +81,10 @@ import etongueSensorCloseupPlaceholder from '~/assets/etongue-sensor-closeup-pla
 import etongueIssfDashboard from '~/assets/etongue-issf-dashboard.png';
 import etongueTasteProfile from '~/assets/etongue-taste-profile.png';
 import etongueIssfScore from '~/assets/etongue-issf-score.png';
+import etonguePrototypeMachineTesting from '~/assets/etongue-prototype-machine-testing.png';
+import etonguePrototypeAnalyzeResults from '~/assets/etongue-prototype-analyze-results.png';
+import etonguePrototypeFinalDecision from '~/assets/etongue-prototype-final-decision.png';
+import etonguePrototypeConfigureProducts from '~/assets/etongue-prototype-configure-products.png';
 
 import trekassistAlertModalLarge from '~/assets/trekassist-alert-modal-large.jpg';
 import trekassistAlertModalPlaceholder from '~/assets/trekassist-alert-modal-placeholder.jpg';
@@ -164,6 +168,30 @@ const imageAssets = {
     srcSet: `${etongueIssfScore} 2048w`,
     width: 2048,
     height: 1103,
+  },
+  etonguePrototypeMachineTesting: {
+    src: etonguePrototypeMachineTesting,
+    srcSet: `${etonguePrototypeMachineTesting} 1265w`,
+    width: 1265,
+    height: 1856,
+  },
+  etonguePrototypeAnalyzeResults: {
+    src: etonguePrototypeAnalyzeResults,
+    srcSet: `${etonguePrototypeAnalyzeResults} 1265w`,
+    width: 1265,
+    height: 1653,
+  },
+  etonguePrototypeFinalDecision: {
+    src: etonguePrototypeFinalDecision,
+    srcSet: `${etonguePrototypeFinalDecision} 1265w`,
+    width: 1265,
+    height: 2253,
+  },
+  etonguePrototypeConfigureProducts: {
+    src: etonguePrototypeConfigureProducts,
+    srcSet: `${etonguePrototypeConfigureProducts} 1265w`,
+    width: 1265,
+    height: 1624,
   },
   // Little Lemon assets are 428×1000 portrait phone screenshots (and 856×2000
   // for the @2x variant). These dimensions drive the rendered aspect ratio,

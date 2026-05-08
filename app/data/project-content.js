@@ -140,6 +140,20 @@ export const portfolioProjects = [
         ],
       },
       {
+        type: 'gallery',
+        heading: 'Final Prototype: ISSF Platform',
+        images: [
+          'etonguePrototypeMachineTesting',
+          'etonguePrototypeAnalyzeResults',
+          'etonguePrototypeFinalDecision',
+          'etonguePrototypeConfigureProducts',
+        ],
+        body: [
+          'The final prototype materialized the ISS-F platform across four core views. Machine Testing lets teams compare up to 12 product samples and 2 dairy controls across E-Tongue, GC-O aroma, and chemical composition data. Analyze Results surfaces CATA attributes, intensity ratings, hedonic scores, and emotional profiles from semi-trained panelists alongside machine readings.',
+          'Final Decision translates the hybrid evidence into Go / Tweak / Stop recommendations — each backed by ISSF confidence scores, sensory profiles, trained-panel validation deltas, and estimated cost savings. Configure Products supports administrator workflows for creating evaluation sessions, managing panelist rosters, and tracking product status through Active → Complete.',
+        ],
+      },
+      {
         type: 'image-text',
         image: 'etongueSensorCloseup',
         heading: 'From Sensor Readings to Decision Cues',
