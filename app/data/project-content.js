@@ -180,7 +180,7 @@ export const portfolioProjects = [
       },
       {
         type: 'outcome',
-        image: 'etongueEarlyPrototypePoster',
+        image: 'etongueSensorCloseup',
         heading: 'Reflection',
         body: [
           'This project showed that complex data products do not become usable just by adding dashboards. When people need to make decisions under uncertainty, the interface has to organize evidence, surface tradeoffs, and explain why a recommendation is being made.',
