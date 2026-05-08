@@ -394,10 +394,10 @@ const imageAssets = {
 
 const backgrounds = {
   'etongue-sensory-platform': {
-    src: etongueEarlyPrototypePoster,
-    placeholder: etongueEarlyPrototypePlaceholder,
-    width: 1200,
-    height: 798,
+    src: etongueDeviceContext,
+    placeholder: etongueDeviceContextPlaceholder,
+    width: 1284,
+    height: 856,
     opacity: 0.18,
   },
   'little-lemon': {
