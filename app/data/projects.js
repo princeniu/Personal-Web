@@ -71,6 +71,14 @@ import sayitPopoverIdle from '~/assets/sayit-popover-idle.png';
 import sayitPopoverRecording from '~/assets/sayit-popover-recording.png';
 import sayitIphoneMic from '~/assets/sayit-iphone-mic.jpg';
 
+import etongueDeviceContext from '~/assets/etongue-device-context.jpg';
+import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
+import etongueEarlyPrototype from '~/assets/etongue-early-prototype.mp4';
+import etongueEarlyPrototypePlaceholder from '~/assets/etongue-early-prototype-placeholder.jpg';
+import etongueEarlyPrototypePoster from '~/assets/etongue-early-prototype-poster.jpg';
+import etongueSensorCloseup from '~/assets/etongue-sensor-closeup.jpg';
+import etongueSensorCloseupPlaceholder from '~/assets/etongue-sensor-closeup-placeholder.jpg';
+
 import trekassistAlertModalLarge from '~/assets/trekassist-alert-modal-large.jpg';
 import trekassistAlertModalPlaceholder from '~/assets/trekassist-alert-modal-placeholder.jpg';
 import trekassistAlertModal from '~/assets/trekassist-alert-modal.jpg';
@@ -112,6 +120,30 @@ import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowst
 import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
 
 const imageAssets = {
+  etongueDeviceContext: {
+    src: etongueDeviceContext,
+    placeholder: etongueDeviceContextPlaceholder,
+    width: 1284,
+    height: 856,
+  },
+  etongueEarlyPrototype: {
+    src: etongueEarlyPrototype,
+    placeholder: etongueEarlyPrototypePlaceholder,
+    width: 1626,
+    height: 1080,
+  },
+  etongueEarlyPrototypePoster: {
+    src: etongueEarlyPrototypePoster,
+    placeholder: etongueEarlyPrototypePlaceholder,
+    width: 1200,
+    height: 798,
+  },
+  etongueSensorCloseup: {
+    src: etongueSensorCloseup,
+    placeholder: etongueSensorCloseupPlaceholder,
+    width: 947,
+    height: 631,
+  },
   // Little Lemon assets are 428×1000 portrait phone screenshots (and 856×2000
   // for the @2x variant). These dimensions drive the rendered aspect ratio,
   // so they must match the underlying file or the image gets squashed.
@@ -340,6 +372,13 @@ const imageAssets = {
 };
 
 const backgrounds = {
+  'etongue-sensory-platform': {
+    src: etongueEarlyPrototypePoster,
+    placeholder: etongueEarlyPrototypePlaceholder,
+    width: 1200,
+    height: 798,
+    opacity: 0.18,
+  },
   'little-lemon': {
     src: littleLemonHero,
     srcSet: `${littleLemonHero} 800w, ${littleLemonHeroLarge} 1600w`,
@@ -379,6 +418,13 @@ const backgrounds = {
 };
 
 const summaryTextures = {
+  'etongue-sensory-platform': [
+    {
+      src: etongueEarlyPrototypePoster,
+      srcSet: `${etongueEarlyPrototypePoster} 1200w`,
+      placeholder: etongueEarlyPrototypePlaceholder,
+    },
+  ],
   'little-lemon': [
     {
       srcSet: `${littleLemonMenu} 375w, ${littleLemonMenuLarge} 750w`,

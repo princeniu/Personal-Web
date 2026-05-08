@@ -39,10 +39,10 @@ test('featured project slugs point at real projects in display order', () => {
 
   assert.deepEqual(featuredProjectSlugs, [
     'trekassist',
+    'etongue-sensory-platform',
     'porsche-digital-interface',
     'sayit',
     'posture-checker',
-    'little-lemon',
   ]);
 
   for (const slug of featuredProjectSlugs) {
@@ -80,7 +80,13 @@ test('sitemap only publishes intended public project routes', () => {
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/sayit/);
 
-  for (const slug of ['porsche-digital-interface', 'posture-checker', 'trekassist', 'little-lemon']) {
+  for (const slug of [
+    'porsche-digital-interface',
+    'posture-checker',
+    'trekassist',
+    'etongue-sensory-platform',
+    'little-lemon',
+  ]) {
     assert.match(sitemap, new RegExp(`https://princeniu\\.com/projects/${slug}`));
   }
 });
