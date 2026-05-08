@@ -135,7 +135,7 @@ const ProjectComparisonColumns = ({ section }) => (
 
 const ProjectTimeline = ({ section }) => (
   <ProjectSection light={section.light}>
-    <ProjectSectionContent width="xl">
+    <ProjectSectionContent>
       <ProjectTextRow width="m">
         <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
         {renderBody(section.body)}
@@ -155,7 +155,7 @@ const ProjectTimeline = ({ section }) => (
 
 const ProjectGrid = ({ section }) => (
   <ProjectSection light={section.light}>
-    <ProjectSectionContent width="xl">
+    <ProjectSectionContent>
       <ProjectTextRow width="m">
         <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
         {renderBody(section.body)}
@@ -207,7 +207,7 @@ const ProjectGrid = ({ section }) => (
 
 const ProjectMetrics = ({ section }) => (
   <ProjectSection light={section.light}>
-    <ProjectSectionContent width="xl">
+    <ProjectSectionContent>
       <ProjectTextRow width="m">
         <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
         {renderBody(section.body)}
