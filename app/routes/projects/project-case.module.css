@@ -116,6 +116,7 @@
   align-content: start;
   gap: var(--spaceS);
   padding-top: var(--spaceL);
+  min-width: 0;
 
   @media (--mediaLaptop) {
     grid-template-columns: 44px 1fr;
@@ -147,6 +148,7 @@
 .timelineTitle {
   margin: 0;
   font-size: var(--fontSizeBodyM);
+  overflow-wrap: anywhere;
 }
 
 .timelineDescription {
@@ -154,6 +156,8 @@
   color: var(--textLight);
   font-size: var(--fontSizeBodyM);
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .metricsGrid {
