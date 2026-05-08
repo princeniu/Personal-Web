@@ -65,6 +65,10 @@
   &[data-visible='true'] {
     opacity: 1;
   }
+
+  @media (--mediaTablet) {
+    white-space: normal;
+  }
 }
 
 .description {

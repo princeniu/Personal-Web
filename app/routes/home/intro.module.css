@@ -73,6 +73,15 @@
 
 .title {
   letter-spacing: -0.03em;
+
+  /* Mobile token sets fontSizeH0 to 56px, but mobileS (≤400px) drops it to
+     42px. Phones in the 393–440 CSS-px range still get 56px so words like
+     Designer-Builder / Design Engineering overflow. Scale fluidly so the
+     longest discipline (Design Engineering) plus the "+ " prefix and pause
+     button still fit on a single line at iPhone widths (375–440 px). */
+  @media (--mediaMobile) {
+    font-size: clamp(1.875rem, 8.5vw, 3.5rem);
+  }
 }
 
 .row {
