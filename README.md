@@ -3,6 +3,10 @@
 </p>
 <h1 align="center">Zhuo (Prince) Niu Portfolio</h1>
 
+<p align="center">
+  <img src="/public/social-image.png" alt="Site preview" width="600" />
+</p>
+
 Personal portfolio for product design, mobile development, and frontend engineering work. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). Typeset in [Inter](https://rsms.me/inter/) (variable, Latin subset).
 
 ## Project Structure
