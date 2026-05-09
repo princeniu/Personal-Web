@@ -6,7 +6,7 @@ import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { createRef, useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
-import profileImg from '~/assets/profile.jpg';
+import profileImg from '~/assets/profile.webp';
 import styles from './home.module.css';
 
 // Prefetch draco decoder wasm + preload the About-section profile photo so

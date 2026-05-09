@@ -11,3 +11,10 @@ Icon?
 
 public/draco
 storybook-static
+
+# AI tooling
+.claude
+.hermes
+
+# Misc
+public/Thumbnail.png

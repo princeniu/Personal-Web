@@ -15,6 +15,16 @@ export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
     assetsInlineLimit: 1024,
+    rollupOptions: {
+      output: {
+        // Suppress warning for Three.js chunk (lazy-loaded in task #2)
+        chunkSizeWarningLimit: 600,
+      },
+      onLog(level, log, handler) {
+        if (log.message?.includes('api.set-theme')) return;
+        handler(level, log);
+      },
+    },
   },
   server: {
     port: 7777,
