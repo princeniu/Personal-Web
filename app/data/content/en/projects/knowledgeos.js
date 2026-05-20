@@ -33,8 +33,8 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosArchitecture',
-        alt: 'KnowledgeOS architecture diagram showing inputs, agent maintenance layer, Markdown vault, and review outputs',
+        image: 'knowledgeosHeroBanner',
+        alt: 'KnowledgeOS concept — fragmented sources transformed by agent into structured knowledge outputs',
       },
       {
         type: 'text',

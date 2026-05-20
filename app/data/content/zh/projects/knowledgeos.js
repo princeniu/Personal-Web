@@ -19,8 +19,8 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosArchitecture',
-        alt: 'KnowledgeOS 架构图，展示输入层、agent 维护层、Markdown 知识库与审查输出',
+        image: 'knowledgeosHeroBanner',
+        alt: 'KnowledgeOS 概念图——碎片来源经 agent 转化后成为结构化知识输出',
       },
       {
         type: 'text',
