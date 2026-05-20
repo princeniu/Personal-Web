@@ -110,7 +110,7 @@
       <text x="935" y="360" class="small">human-readable source of truth</text>
 
       <text x="940" y="414" class="small">02-projects / project memory</text>
-      <text x="912" y="472" class="label">Compiled Knowledge Layer</text>
+      <text x="940" y="472" class="label">Compiled Knowledge Layer</text>
       <text x="940" y="506" class="small">LLM Wiki-style source-backed pages</text>
       <text x="940" y="544" class="small">GBrain-style entity memory + relations</text>
       <text x="940" y="582" class="small">Current judgments / evidence timelines</text>
