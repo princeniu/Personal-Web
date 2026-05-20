@@ -33,8 +33,8 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosArchitecture',
-        alt: 'KnowledgeOS architecture diagram showing inputs, agent maintenance layer, Markdown vault, and review outputs',
+        image: 'knowledgeosHeroBg',
+        alt: 'Abstract constellation background — gold nodes and lines suggesting knowledge graph connections',
       },
       {
         type: 'text',
@@ -186,7 +186,7 @@ slug: 'knowledgeos',
       },
       {
         type: 'outcome',
-        image: 'knowledgeosArchitecture',
+        image: 'knowledgeosReflectionBg',
         backgroundOverlayOpacity: 0.72,
         heading: 'Reflection',
         body: [

@@ -19,8 +19,8 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosArchitecture',
-        alt: 'KnowledgeOS 架构图，展示输入层、agent 维护层、Markdown 知识库与审查输出',
+        image: 'knowledgeosHeroBg',
+        alt: '抽象星座背景——金色节点与连线暗示知识图谱连接',
       },
       {
         type: 'text',
@@ -132,7 +132,7 @@ slug: 'knowledgeos',
       },
       {
         type: 'outcome',
-        image: 'knowledgeosArchitecture',
+        image: 'knowledgeosReflectionBg',
         backgroundOverlayOpacity: 0.72,
         heading: '反思',
         body: [
