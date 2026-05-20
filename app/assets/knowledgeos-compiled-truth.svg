@@ -32,7 +32,7 @@
       <text x="842" y="592" class="small">→ Hermes Agent: workflow maintenance</text>
       <text x="842" y="624" class="small">→ Reviews / audits / weekly synthesis</text>
 
-      <rect x="170" y="690" width="1238" height="112" rx="20" class="card"/>
+      <rect x="170" y="690" width="1238" height="124" rx="20" class="card"/>
       <text x="202" y="734" class="label">Evidence Timeline</text>
       <line x1="224" y1="770" x2="1330" y2="770" class="line"/>
       <circle cx="280" cy="770" r="8" fill="#e8a838"/><text x="269" y="804" class="tiny">v0.1</text>

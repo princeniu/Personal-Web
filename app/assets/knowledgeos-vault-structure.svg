@@ -43,8 +43,8 @@
       <text x="640" y="326" class="small">The vault is organized around what future work needs to retrieve, not around where a note happened to be captured.</text>
       <g transform="translate(640 382)">
         <rect width="360" height="122" rx="18" class="row"/><text x="28" y="42" class="label">Project memory</text><text x="28" y="75" class="small">Current state, decisions, evidence, next actions</text>
-        <rect x="412" width="360" height="122" rx="18" class="row2"/><text x="440" y="42" class="label">AI workflows</text><text x="440" y="75" class="small">Capture rules, automation patterns, agent procedures</text>
-        <rect y="160" width="360" height="122" rx="18" class="row2"/><text x="28" y="202" class="label">Product ideas</text><text x="28" y="235" class="small">Positioning, strategy, productization boundaries</text>
+        <rect x="412" width="360" height="122" rx="18" class="row2"/><text x="440" y="42" class="label">AI workflows</text><text x="440" y="75" class="small">Capture rules, automation patterns, procedures</text>
+        <rect y="160" width="360" height="122" rx="18" class="row2"/><text x="28" y="202" class="label">Product ideas</text><text x="28" y="235" class="small">Positioning, strategy, and product boundaries</text>
         <rect x="412" y="160" width="360" height="122" rx="18" class="row"/><text x="440" y="202" class="label">LLM Wiki + GBrain layer</text><text x="440" y="235" class="small">Source-backed pages, entity memory, relations</text>
         <rect y="320" width="772" height="122" rx="18" class="pill"/><text x="28" y="362" class="label">Review loop</text><text x="28" y="395" class="small">Daily capture → weekly synthesis → maintenance audit → Git backup</text>
       </g>
