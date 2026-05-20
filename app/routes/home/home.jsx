@@ -125,7 +125,13 @@ export const Home = () => {
         />
       ))}
       <div className={styles.allWorkCta}>
-        <Button secondary iconHoverShift href="/projects/all-work" iconEnd="arrow-right">
+        <span className={styles.allWorkEyebrow}>Explore the full portfolio</span>
+        <Button
+          className={styles.allWorkButton}
+          iconHoverShift
+          href="/projects/all-work"
+          iconEnd="arrow-right"
+        >
           View all work
         </Button>
       </div>
