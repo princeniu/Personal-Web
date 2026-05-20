@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">KnowledgeOS review and audit loop</title>
+  <desc id="desc">A sanitized dark mockup showing KnowledgeOS daily capture, weekly review, maintenance audit, HTML artifact generation, and Git backup loop.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505"/><stop offset="1" stop-color="#15100a"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity="0.45"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#e8a838"/></marker>
+    <style>.font{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:42px;font-weight:700;fill:#f7f7f7;letter-spacing:-.03em}.sub{font-size:18px;fill:#a1a1aa}.h{font-size:22px;font-weight:700;fill:#f7f7f7}.label{font-size:16px;font-weight:650;fill:#f4f4f5}.small{font-size:14px;fill:#a1a1aa}.tiny{font-size:12px;fill:#85858f}.gold{fill:#e8a838}.panel{fill:#101012;stroke:#2b2b31;stroke-width:1.2}.card{fill:#151518;stroke:#29292f;stroke-width:1}.accent{fill:rgba(232,168,56,.10);stroke:rgba(232,168,56,.42);stroke-width:1}.line{fill:none;stroke:#e8a838;stroke-width:2.2;marker-end:url(#arrow);opacity:.78}</style>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <g class="font">
+    <rect x="72" y="58" width="1456" height="884" rx="34" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.08)"/>
+    <text x="118" y="132" class="title">Review loops as product infrastructure</text>
+    <text x="118" y="170" class="sub">KnowledgeOS uses scheduled synthesis and audits to keep the vault useful as it grows.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="140" y="260" width="1320" height="560" rx="28" class="panel"/>
+
+      <rect x="210" y="350" width="220" height="150" rx="20" class="card"/>
+      <text x="240" y="402" class="label">Daily Capture</text>
+      <text x="240" y="438" class="small">High-value events</text>
+      <text x="240" y="466" class="small">become lightweight</text>
+      <text x="240" y="494" class="small">structured records.</text>
+
+      <rect x="530" y="350" width="220" height="150" rx="20" class="accent"/>
+      <text x="560" y="402" class="label gold">Weekly Synthesis</text>
+      <text x="560" y="438" class="small">Patterns and state</text>
+      <text x="560" y="466" class="small">changes update</text>
+      <text x="560" y="494" class="small">current judgment.</text>
+
+      <rect x="850" y="350" width="220" height="150" rx="20" class="card"/>
+      <text x="880" y="402" class="label">Maintenance Audit</text>
+      <text x="880" y="438" class="small">Checks links, sources,</text>
+      <text x="880" y="466" class="small">markers, structure,</text>
+      <text x="880" y="494" class="small">and backup health.</text>
+
+      <rect x="1170" y="350" width="220" height="150" rx="20" class="card"/>
+      <text x="1200" y="402" class="label">Derived Artifacts</text>
+      <text x="1200" y="438" class="small">HTML reviews,</text>
+      <text x="1200" y="466" class="small">career bullets,</text>
+      <text x="1200" y="494" class="small">Git recovery.</text>
+
+      <path d="M 438 425 C 470 425 492 425 522 425" class="line"/>
+      <path d="M 758 425 C 790 425 812 425 842 425" class="line"/>
+      <path d="M 1078 425 C 1110 425 1132 425 1162 425" class="line"/>
+
+      <rect x="260" y="610" width="1080" height="96" rx="20" class="accent"/>
+      <text x="302" y="652" class="label gold">Operational principle</text>
+      <text x="302" y="684" class="small">The system does not only remember. It periodically checks whether its memory is still organized, connected, source-backed, and useful.</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">KnowledgeOS architecture diagram</title>
+  <desc id="desc">A dark architecture diagram showing inputs flowing into an agent maintenance layer, then into a Markdown knowledge vault and derived outputs, with a review and backup loop.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1f2937" stroke-width="0.6" opacity="0.45"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="48%" stop-color="#0b0b0d"/>
+      <stop offset="100%" stop-color="#15100a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e8a838" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#e8a838" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#e8a838" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.36"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e8a838" opacity="0.88"/>
+    </marker>
+    <marker id="arrowMuted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b949e" opacity="0.75"/>
+    </marker>
+    <style>
+      .mono { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .title { font-size: 42px; font-weight: 680; fill: #f7f7f7; letter-spacing: -0.03em; }
+      .subtitle { font-size: 18px; fill: #a1a1aa; letter-spacing: -0.01em; }
+      .section-title { font-size: 20px; font-weight: 650; fill: #f2f2f2; letter-spacing: -0.02em; }
+      .label { font-size: 16px; font-weight: 580; fill: #f4f4f5; }
+      .small { font-size: 13px; fill: #a1a1aa; }
+      .tiny { font-size: 12px; fill: #85858f; }
+      .card { fill: #111113; stroke: #2b2b31; stroke-width: 1.2; }
+      .card-strong { fill: #14120d; stroke: #e8a838; stroke-width: 1.6; }
+      .card-blue { fill: rgba(8, 51, 68, 0.32); stroke: #22d3ee; stroke-width: 1.3; }
+      .card-green { fill: rgba(6, 78, 59, 0.30); stroke: #34d399; stroke-width: 1.3; }
+      .card-violet { fill: rgba(76, 29, 149, 0.28); stroke: #a78bfa; stroke-width: 1.3; }
+      .card-amber { fill: rgba(120, 53, 15, 0.26); stroke: #e8a838; stroke-width: 1.3; }
+      .line { fill: none; stroke: #e8a838; stroke-width: 2.2; marker-end: url(#arrow); opacity: 0.8; }
+      .muted-line { fill: none; stroke: #8b949e; stroke-width: 1.7; marker-end: url(#arrowMuted); opacity: 0.6; }
+      .loop-line { fill: none; stroke: #e8a838; stroke-width: 1.8; stroke-dasharray: 7 8; marker-end: url(#arrow); opacity: 0.72; }
+      .pill { fill: rgba(232, 168, 56, 0.10); stroke: rgba(232, 168, 56, 0.42); stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)" opacity="0.55"/>
+  <circle cx="1270" cy="160" r="360" fill="url(#glow)"/>
+  <circle cx="340" cy="820" r="300" fill="url(#glow)" opacity="0.45"/>
+
+  <g class="mono">
+    <rect x="70" y="56" width="1460" height="888" rx="34" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.08)"/>
+
+    <g transform="translate(110 105)">
+      <circle cx="10" cy="11" r="5" fill="#e8a838"/>
+      <text x="30" y="18" class="tiny" fill="#e8a838">LIVE LOCAL-FIRST SYSTEM</text>
+      <text x="0" y="74" class="title">KnowledgeOS</text>
+      <text x="0" y="110" class="subtitle">Agent-maintained personal knowledge system built on Markdown source of truth</text>
+    </g>
+
+    <!-- Layer labels -->
+    <text x="140" y="255" class="section-title">Inputs</text>
+    <text x="495" y="255" class="section-title">Agent Maintenance Layer</text>
+    <text x="935" y="255" class="section-title">Markdown Knowledge Vault</text>
+    <text x="1260" y="255" class="section-title">Derived Outputs</text>
+
+    <!-- Inputs -->
+    <g filter="url(#softShadow)">
+      <rect x="120" y="300" width="260" height="76" rx="16" class="card-blue"/>
+      <text x="145" y="331" class="label">Hermes conversations</text>
+      <text x="145" y="355" class="small">Telegram + agent sessions</text>
+
+      <rect x="120" y="398" width="260" height="76" rx="16" class="card-blue"/>
+      <text x="145" y="429" class="label">Project updates</text>
+      <text x="145" y="453" class="small">progress, decisions, blockers</text>
+
+      <rect x="120" y="496" width="260" height="76" rx="16" class="card-blue"/>
+      <text x="145" y="527" class="label">Research sources</text>
+      <text x="145" y="551" class="small">papers, posts, videos, notes</text>
+
+      <rect x="120" y="594" width="260" height="76" rx="16" class="card-blue"/>
+      <text x="145" y="625" class="label">Career + learning</text>
+      <text x="145" y="649" class="small">portfolio, courses, patterns</text>
+    </g>
+
+    <!-- Agent layer -->
+    <g filter="url(#softShadow)">
+      <rect x="465" y="295" width="340" height="390" rx="24" class="card-strong"/>
+      <text x="500" y="335" class="label">Hermes Agent</text>
+      <text x="500" y="360" class="small">rules-driven maintenance workflow</text>
+
+      <rect x="500" y="392" width="270" height="42" rx="12" class="pill"/>
+      <text x="520" y="419" class="small">capture protocol</text>
+      <rect x="500" y="445" width="270" height="42" rx="12" class="pill"/>
+      <text x="520" y="472" class="small">privacy filtering</text>
+      <rect x="500" y="498" width="270" height="42" rx="12" class="pill"/>
+      <text x="520" y="525" class="small">classification + dedupe</text>
+      <rect x="500" y="551" width="270" height="42" rx="12" class="pill"/>
+      <text x="520" y="578" class="small">weekly synthesis</text>
+      <rect x="500" y="604" width="270" height="42" rx="12" class="pill"/>
+      <text x="520" y="631" class="small">maintenance audit</text>
+    </g>
+
+    <!-- Vault -->
+    <g filter="url(#softShadow)">
+      <rect x="900" y="295" width="310" height="390" rx="24" class="card-violet"/>
+      <text x="935" y="335" class="label">Local Markdown Vault</text>
+      <text x="935" y="360" class="small">human-readable source of truth</text>
+
+      <text x="940" y="414" class="small">02-projects / project memory</text>
+      <text x="912" y="472" class="label">Compiled Knowledge Layer</text>
+      <text x="940" y="506" class="small">LLM Wiki-style source-backed pages</text>
+      <text x="940" y="544" class="small">GBrain-style entity memory + relations</text>
+      <text x="940" y="582" class="small">Current judgments / evidence timelines</text>
+      <text x="940" y="625" class="tiny">Compiled Truth · Evidence Timeline · Relations</text>
+    </g>
+
+    <!-- Outputs -->
+    <g filter="url(#softShadow)">
+      <rect x="1260" y="300" width="240" height="76" rx="16" class="card-green"/>
+      <text x="1284" y="331" class="label">Obsidian views</text>
+      <text x="1284" y="355" class="small">browse, graph, backlinks</text>
+
+      <rect x="1260" y="398" width="240" height="76" rx="16" class="card-green"/>
+      <text x="1284" y="429" class="label">Weekly HTML</text>
+      <text x="1284" y="453" class="small">review artifacts</text>
+
+      <rect x="1260" y="496" width="240" height="76" rx="16" class="card-green"/>
+      <text x="1284" y="527" class="label">Career material</text>
+      <text x="1284" y="551" class="small">resume + portfolio bullets</text>
+
+      <rect x="1260" y="594" width="240" height="76" rx="16" class="card-green"/>
+      <text x="1284" y="625" class="label">Git backup</text>
+      <text x="1284" y="649" class="small">recoverable local asset</text>
+    </g>
+
+    <!-- Arrows -->
+    <path d="M 382 338 C 420 338 425 390 464 390" class="muted-line"/>
+    <path d="M 382 436 C 420 436 425 455 464 455" class="muted-line"/>
+    <path d="M 382 534 C 420 534 425 520 464 520" class="muted-line"/>
+    <path d="M 382 632 C 420 632 425 585 464 585" class="muted-line"/>
+    <path d="M 807 490 C 846 490 858 490 898 490" class="line"/>
+    <path d="M 1212 338 C 1232 338 1238 338 1258 338" class="muted-line"/>
+    <path d="M 1212 436 C 1232 436 1238 436 1258 436" class="muted-line"/>
+    <path d="M 1212 534 C 1232 534 1238 534 1258 534" class="muted-line"/>
+    <path d="M 1212 632 C 1232 632 1238 632 1258 632" class="muted-line"/>
+
+    <!-- Loop -->
+    <path d="M 1380 692 C 1375 728 1328 748 1260 752" class="loop-line"/>
+    <path d="M 410 752 C 335 744 278 724 250 690" class="loop-line"/>
+    <text x="560" y="728" class="small" fill="#e8a838">review · audit · backup loop keeps context current</text>
+
+    <!-- Bottom cards -->
+    <g filter="url(#softShadow)">
+      <rect x="120" y="760" width="315" height="104" rx="18" class="card"/>
+      <text x="146" y="798" class="label">Local-first ownership</text>
+      <text x="146" y="827" class="small">Markdown remains portable, inspectable,</text>
+      <text x="146" y="850" class="small">and recoverable through Git.</text>
+
+      <rect x="470" y="760" width="315" height="104" rx="18" class="card"/>
+      <text x="496" y="798" class="label">Agent-maintained</text>
+      <text x="496" y="827" class="small">The agent classifies, dedupes, updates,</text>
+      <text x="496" y="850" class="small">and audits instead of dumping transcripts.</text>
+
+      <rect x="820" y="760" width="315" height="104" rx="18" class="card"/>
+      <text x="846" y="798" class="label">Maintained judgment</text>
+      <text x="846" y="827" class="small">Core pages keep current synthesis,</text>
+      <text x="846" y="850" class="small">evidence timelines, and relations.</text>
+
+      <rect x="1170" y="760" width="330" height="104" rx="18" class="card"/>
+      <text x="1196" y="798" class="label">Operational loop</text>
+      <text x="1196" y="827" class="small">Daily capture, weekly synthesis, audits,</text>
+      <text x="1196" y="850" class="small">HTML artifacts, and backup cron jobs.</text>
+    </g>
+  </g>
+</svg>

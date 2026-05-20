@@ -71,6 +71,15 @@ import sayitPopoverIdle from '~/assets/sayit-popover-idle.png';
 import sayitPopoverRecording from '~/assets/sayit-popover-recording.png';
 import sayitIphoneMic from '~/assets/sayit-iphone-mic.jpg';
 
+import knowledgeosArchitecture from '~/assets/knowledgeos-architecture.webp';
+import knowledgeosArchitecturePlaceholder from '~/assets/knowledgeos-architecture-placeholder.jpg';
+import knowledgeosVaultStructure from '~/assets/knowledgeos-vault-structure.webp';
+import knowledgeosVaultStructurePlaceholder from '~/assets/knowledgeos-vault-structure-placeholder.jpg';
+import knowledgeosCompiledTruth from '~/assets/knowledgeos-compiled-truth.webp';
+import knowledgeosCompiledTruthPlaceholder from '~/assets/knowledgeos-compiled-truth-placeholder.jpg';
+import knowledgeosWeeklyReview from '~/assets/knowledgeos-weekly-review.webp';
+import knowledgeosWeeklyReviewPlaceholder from '~/assets/knowledgeos-weekly-review-placeholder.jpg';
+
 import etongueDeviceContext from '~/assets/etongue-device-context.webp';
 import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
 import etongueEarlyPrototype from '~/assets/etongue-early-prototype.mp4';
@@ -127,6 +136,34 @@ import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowst
 import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
 
 const imageAssets = {
+  knowledgeosArchitecture: {
+    src: knowledgeosArchitecture,
+    srcSet: `${knowledgeosArchitecture} 1600w`,
+    placeholder: knowledgeosArchitecturePlaceholder,
+    width: 1600,
+    height: 1000,
+  },
+  knowledgeosVaultStructure: {
+    src: knowledgeosVaultStructure,
+    srcSet: `${knowledgeosVaultStructure} 1600w`,
+    placeholder: knowledgeosVaultStructurePlaceholder,
+    width: 1600,
+    height: 1000,
+  },
+  knowledgeosCompiledTruth: {
+    src: knowledgeosCompiledTruth,
+    srcSet: `${knowledgeosCompiledTruth} 1600w`,
+    placeholder: knowledgeosCompiledTruthPlaceholder,
+    width: 1600,
+    height: 1000,
+  },
+  knowledgeosWeeklyReview: {
+    src: knowledgeosWeeklyReview,
+    srcSet: `${knowledgeosWeeklyReview} 1600w`,
+    placeholder: knowledgeosWeeklyReviewPlaceholder,
+    width: 1600,
+    height: 1000,
+  },
   etongueDeviceContext: {
     src: etongueDeviceContext,
     placeholder: etongueDeviceContextPlaceholder,
