@@ -19,7 +19,7 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosHeroBanner',
+        image: 'knowledgeosHeroBannerZh',
         alt: 'KnowledgeOS 概念图——碎片来源经 agent 转化后成为结构化知识输出',
       },
       {

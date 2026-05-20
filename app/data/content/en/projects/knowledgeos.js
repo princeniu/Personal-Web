@@ -33,7 +33,7 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosHeroBanner',
+        image: 'knowledgeosHeroBannerEn',
         alt: 'KnowledgeOS concept — fragmented sources transformed by agent into structured knowledge outputs',
       },
       {

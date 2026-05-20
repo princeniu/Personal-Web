@@ -82,7 +82,8 @@ import knowledgeosWeeklyReview from '~/assets/knowledgeos-weekly-review.webp';
 import knowledgeosWeeklyReviewPlaceholder from '~/assets/knowledgeos-weekly-review-placeholder.jpg';
 import knowledgeosHeroBg from '~/assets/knowledgeos-hero-bg.webp';
 import knowledgeosReflectionBg from '~/assets/knowledgeos-reflection-bg.webp';
-import knowledgeosHeroBanner from '~/assets/knowledgeos-hero-banner.webp';
+import knowledgeosHeroBannerZh from '~/assets/knowledgeos-hero-banner-zh.webp';
+import knowledgeosHeroBannerEn from '~/assets/knowledgeos-hero-banner-en.webp';
 
 import etongueDeviceContext from '~/assets/etongue-device-context.webp';
 import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
@@ -180,9 +181,15 @@ const imageAssets = {
     width: 1600,
     height: 1000,
   },
-  knowledgeosHeroBanner: {
-    src: knowledgeosHeroBanner,
-    srcSet: `${knowledgeosHeroBanner} 1600w`,
+  knowledgeosHeroBannerZh: {
+    src: knowledgeosHeroBannerZh,
+    srcSet: `${knowledgeosHeroBannerZh} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  knowledgeosHeroBannerEn: {
+    src: knowledgeosHeroBannerEn,
+    srcSet: `${knowledgeosHeroBannerEn} 1600w`,
     width: 1600,
     height: 1000,
   },
