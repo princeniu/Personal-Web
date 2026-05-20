@@ -1,4 +1,5 @@
 import { Footer } from '~/components/footer';
+import { Button } from '~/components/button';
 import { featuredProjects } from '~/data/projects';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -123,6 +124,11 @@ export const Home = () => {
           visible={visibleSections.includes(projectRefs.current[index]?.current)}
         />
       ))}
+      <div className={styles.allWorkCta}>
+        <Button secondary iconHoverShift href="/projects/all-work" iconEnd="arrow-right">
+          View all work
+        </Button>
+      </div>
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
