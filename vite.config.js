@@ -40,6 +40,10 @@ export default defineConfig({
       routes(defineRoutes) {
         return defineRoutes(route => {
           route('/', 'routes/home/route.js', { index: true });
+          route('/zh', 'routes/zh-home.js');
+          route('/zh/contact', 'routes/zh-contact.js');
+          route('/zh/uses', 'routes/zh-uses.js');
+          route('/zh/projects/:slug', 'routes/zh-projects-$slug.jsx');
         });
       },
     }),

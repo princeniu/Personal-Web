@@ -17,15 +17,33 @@ const DisplacementSphere = lazy(() =>
   import('./displacement-sphere').then(module => ({ default: module.DisplacementSphere }))
 );
 
-export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
+export function Intro({
+  id,
+  sectionRef,
+  scrollIndicatorHidden,
+  name = config.name,
+  role = config.role,
+  disciplines = config.disciplines,
+  scrollTo = '/#projects',
+  scrollLabel = 'Scroll to projects',
+  listSeparator = ', ',
+  finalJoin = ', and ',
+  pauseLabel = 'Pause rotating disciplines',
+  resumeLabel = 'Resume rotating disciplines',
+  pauseTitle = 'Pause',
+  resumeTitle = 'Resume',
+  ...rest
+}) {
   const { theme } = useTheme();
-  const { disciplines } = config;
   const [disciplineIndex, setDisciplineIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const prevTheme = usePrevious(theme);
-  const introLabel = [disciplines.slice(0, -1).join(', '), disciplines.slice(-1)[0]].join(
-    ', and '
-  );
+  const introLabel =
+    disciplines.length > 1
+      ? [disciplines.slice(0, -1).join(listSeparator), disciplines.slice(-1)[0]].join(
+          finalJoin
+        )
+      : disciplines[0];
   const currentDiscipline = disciplines.find((item, index) => index === disciplineIndex);
   const titleId = `${id}-title`;
   const scrollToHash = useScrollToHash();
@@ -71,11 +89,11 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
             )}
             <header className={styles.text}>
               <h1 className={styles.name} data-visible={visible} id={titleId}>
-                <DecoderText text={config.name} delay={500} />
+                <DecoderText text={name} delay={500} />
               </h1>
               <Heading level={0} as="h2" className={styles.title}>
                 <VisuallyHidden className={styles.label}>
-                  {`${config.role} + ${introLabel}`}
+                  {`${role} + ${introLabel}`}
                 </VisuallyHidden>
                 <span aria-hidden className={styles.row}>
                   <span
@@ -83,7 +101,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                     data-status={status}
                     style={cssProps({ delay: tokens.base.durationXS })}
                   >
-                    {config.role}
+                    {role}
                   </span>
                   <span className={styles.line} data-status={status} />
                 </span>
@@ -114,10 +132,8 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                     className={styles.disciplineToggle}
                     onClick={() => setPaused(p => !p)}
                     aria-pressed={paused}
-                    aria-label={
-                      paused ? 'Resume rotating disciplines' : 'Pause rotating disciplines'
-                    }
-                    title={paused ? 'Resume' : 'Pause'}
+                    aria-label={paused ? resumeLabel : pauseLabel}
+                    title={paused ? resumeTitle : pauseTitle}
                   >
                     {paused ? (
                       <svg aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -133,13 +149,13 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               </Heading>
             </header>
             <RouterLink
-              to="/#projects"
+              to={scrollTo}
               className={styles.scrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}
               onClick={handleScrollClick}
             >
-              <VisuallyHidden>Scroll to projects</VisuallyHidden>
+              <VisuallyHidden>{scrollLabel}</VisuallyHidden>
               <svg
                 aria-hidden
                 stroke="currentColor"
@@ -151,13 +167,13 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               </svg>
             </RouterLink>
             <RouterLink
-              to="/#projects"
+              to={scrollTo}
               className={styles.mobileScrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}
               onClick={handleScrollClick}
             >
-              <VisuallyHidden>Scroll to projects</VisuallyHidden>
+              <VisuallyHidden>{scrollLabel}</VisuallyHidden>
               <svg
                 aria-hidden
                 stroke="currentColor"

@@ -1,11 +1,13 @@
 import { Footer } from '~/components/footer';
 import { Button } from '~/components/button';
-import { featuredProjects } from '~/data/projects';
+import { featuredProjects, zhFeaturedProjects } from '~/data/projects';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { createRef, useEffect, useRef, useState } from 'react';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname, localizePath } from '~/i18n/route';
 import config from '~/config.json';
 import profileImg from '~/assets/profile.webp';
 import styles from './home.module.css';
@@ -40,19 +42,54 @@ export const links = () => {
 export const meta = () => {
   return baseMeta({
     title: 'Product Design · Human Factors · AI Products',
-    description: `Portfolio of ${config.name} — a designer-builder working at the intersection of Human Factors, Product Design, and AI. Shipped UI/UX for complex systems including in-car interfaces, safety-critical outdoor devices, and native macOS AI tools.`,
+    description: `Portfolio of Zhuo (Prince) Niu — a designer-builder working at the intersection of Human Factors, Product Design, and AI. Shipped UI/UX for complex systems including in-car interfaces, safety-critical outdoor devices, and native macOS AI tools.`,
     path: '/',
   });
 };
 
 export const Home = () => {
+  const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const isZh = locale === 'zh';
+  const projects = isZh ? zhFeaturedProjects : featuredProjects;
+  const homeLabels = isZh
+    ? {
+        name: '牛拙Prince',
+        role: 'Designer-Builder',
+        disciplines: ['人因工程', 'AI 产品', '原型设计', 'UX 研究', '设计工程'],
+        viewProject: '查看项目',
+        explorePortfolio: '查看完整作品集',
+        viewAllWork: '查看全部作品',
+        scrollToProjects: '滚动到项目',
+        listSeparator: '、',
+        finalJoin: '和',
+        pauseLabel: '暂停轮播领域标签',
+        resumeLabel: '继续轮播领域标签',
+        pauseTitle: '暂停',
+        resumeTitle: '继续',
+      }
+    : {
+        name: config.name,
+        role: config.role,
+        disciplines: config.disciplines,
+        viewProject: 'View project',
+        explorePortfolio: 'Explore the full portfolio',
+        viewAllWork: 'View all work',
+        scrollToProjects: 'Scroll to projects',
+        listSeparator: ', ',
+        finalJoin: ', and ',
+        pauseLabel: 'Pause rotating disciplines',
+        resumeLabel: 'Resume rotating disciplines',
+        pauseTitle: 'Pause',
+        resumeTitle: 'Resume',
+      };
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectRefs = useRef([]);
   const details = useRef();
 
-  projectRefs.current = featuredProjects.map(
+  projectRefs.current = projects.map(
     (_, index) => projectRefs.current[index] || createRef()
   );
 
@@ -100,15 +137,26 @@ export const Home = () => {
     <div className={styles.home}>
       <Intro
         id="intro"
+        name={homeLabels.name}
+        role={homeLabels.role}
+        disciplines={homeLabels.disciplines}
         sectionRef={intro}
+        scrollTo={localizePath('/#projects', locale)}
+        scrollLabel={homeLabels.scrollToProjects}
+        listSeparator={homeLabels.listSeparator}
+        finalJoin={homeLabels.finalJoin}
+        pauseLabel={homeLabels.pauseLabel}
+        resumeLabel={homeLabels.resumeLabel}
+        pauseTitle={homeLabels.pauseTitle}
+        resumeTitle={homeLabels.resumeTitle}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
       <div id="projects" />
-      {featuredProjects.map((project, index) => (
+      {projects.map((project, index) => (
         <ProjectSummary
           alternate={index % 2 === 1}
-          buttonLink={project.path}
-          buttonText="View project"
+          buttonLink={localizePath(project.path, locale)}
+          buttonText={homeLabels.viewProject}
           description={project.summary.description}
           id={`project-${index + 1}`}
           index={index + 1}
@@ -125,14 +173,14 @@ export const Home = () => {
         />
       ))}
       <div className={styles.allWorkCta}>
-        <span className={styles.allWorkEyebrow}>Explore the full portfolio</span>
+        <span className={styles.allWorkEyebrow}>{homeLabels.explorePortfolio}</span>
         <Button
           className={styles.allWorkButton}
           iconHoverShift
-          href="/projects/all-work"
+          href={localizePath('/projects/all-work', locale)}
           iconEnd="arrow-right"
         >
-          View all work
+          {homeLabels.viewAllWork}
         </Button>
       </div>
       <Profile

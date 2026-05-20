@@ -12,23 +12,28 @@ const staticRoutes = [
 ];
 
 // Slugs intentionally excluded from the public sitemap.
-// SayIt is shipped through GitHub Releases, so its case study is reachable
-// from the homepage but not indexed as an isolated route.
 const SITEMAP_EXCLUDED_SLUGS = new Set(['sayit']);
 
 function readProjectSlugs() {
-  const file = fs.readFileSync(
-    path.resolve(__dirname, '../app/data/project-content.js'),
-    'utf8'
-  );
+  const projectsDir = path.resolve(__dirname, '../app/data/content/en/projects');
   const slugs = [];
+  const files = fs.readdirSync(projectsDir).filter(f => f.endsWith('.js'));
   const re = /slug:\s*['"]([^'"]+)['"]/g;
-  let match;
-  while ((match = re.exec(file)) !== null) {
-    slugs.push(match[1]);
+
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(projectsDir, file), 'utf8');
+    let match;
+    while ((match = re.exec(content)) !== null) {
+      slugs.push(match[1]);
+    }
   }
   return slugs;
 }
+
+const localizeRoute = route => ({
+  ...route,
+  path: route.path === '/' ? '/zh' : `/zh${route.path}`,
+});
 
 const projectRoutes = readProjectSlugs()
   .filter(slug => !SITEMAP_EXCLUDED_SLUGS.has(slug))
@@ -38,7 +43,15 @@ const projectRoutes = readProjectSlugs()
     changefreq: 'monthly',
   }));
 
-const allRoutes = [...staticRoutes, ...projectRoutes];
+const localizedStaticRoutes = staticRoutes.map(localizeRoute);
+const localizedProjectRoutes = projectRoutes.map(localizeRoute);
+
+const allRoutes = [
+  ...staticRoutes,
+  ...localizedStaticRoutes,
+  ...projectRoutes,
+  ...localizedProjectRoutes,
+];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

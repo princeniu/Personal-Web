@@ -6,6 +6,8 @@ import { Transition } from '~/components/transition';
 import { useScrollToHash, useWindowSize } from '~/hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { useEffect, useRef, useState } from 'react';
+import { getLocaleFromPathname, localizePath, stripLocaleFromPathname } from '~/i18n/route';
+import { localeLabels, supportedLocales } from '~/i18n/locales';
 import { cssProps, media, msToNum, numToMs } from '~/utils/style';
 import { NavToggle } from './nav-toggle';
 import { ThemeToggle } from './theme-toggle';
@@ -19,6 +21,12 @@ export const Navbar = () => {
   const [target, setTarget] = useState();
   const { theme } = useTheme();
   const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const isZh = locale === 'zh';
+  const displayName = isZh ? '牛拙Prince' : config.name;
+  const displayRole = isZh ? 'Designer-Builder' : config.role;
+  const basePathname = stripLocaleFromPathname(location.pathname);
+  const localizedCurrentPath = `${basePathname}${location.hash}`;
   const windowSize = useWindowSize();
   const headerRef = useRef();
   // Use width-only detection so a short desktop window (split-screen, devtools open)
@@ -28,15 +36,15 @@ export const Navbar = () => {
 
   useEffect(() => {
     // Prevent ssr mismatch by storing this in state
-    setCurrent(`${location.pathname}${location.hash}`);
-  }, [location]);
+    setCurrent(localizedCurrentPath);
+  }, [localizedCurrentPath]);
 
   // Handle smooth scroll nav items
   useEffect(() => {
-    if (!target || location.pathname !== '/') return;
-    setCurrent(`${location.pathname}${target}`);
+    if (!target || basePathname !== '/') return;
+    setCurrent(`${basePathname}${target}`);
     scrollToHash(target, () => setTarget(null));
-  }, [location.pathname, scrollToHash, target]);
+  }, [basePathname, scrollToHash, target]);
 
   // Handle swapping the theme when intersecting with inverse themed elements
   useEffect(() => {
@@ -130,7 +138,7 @@ export const Navbar = () => {
     const hash = event.currentTarget.href.split('#')[1];
     setTarget(null);
 
-    if (hash && location.pathname === '/') {
+    if (hash && basePathname === '/') {
       setTarget(`#${hash}`);
       event.preventDefault();
     }
@@ -146,56 +154,82 @@ export const Navbar = () => {
       <RouterLink
         unstable_viewTransition
         prefetch="intent"
-        to={location.pathname === '/' ? '/#intro' : '/'}
+        to={basePathname === '/' ? localizePath('/#intro', locale) : localizePath('/', locale)}
         data-navbar-item
         className={styles.logo}
-        aria-label={`${config.name}, ${config.role}`}
+        aria-label={`${displayName}, ${displayRole}`}
         onClick={handleMobileNavClick}
       >
         <Monogram highlight />
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       <nav className={styles.nav}>
-        <div className={styles.navList}>
-          {navLinks.map(({ label, pathname }) => (
-            <RouterLink
-              unstable_viewTransition
-              prefetch="intent"
-              to={pathname}
-              key={label}
-              data-navbar-item
-              className={styles.navLink}
-              aria-current={getCurrent(pathname)}
-              onClick={handleNavItemClick}
-            >
-              {label}
-            </RouterLink>
-          ))}
+        <div className={styles.navList} data-locale={locale}>
+          {navLinks.map(({ label, zhLabel, pathname }) => {
+            const localizedPathname = localizePath(pathname, locale);
+            const navLabel = isZh ? zhLabel : label;
+
+            return (
+              <RouterLink
+                unstable_viewTransition
+                prefetch="intent"
+                to={localizedPathname}
+                key={label}
+                data-navbar-item
+                className={styles.navLink}
+                aria-current={getCurrent(pathname)}
+                onClick={handleNavItemClick}
+              >
+                {navLabel}
+              </RouterLink>
+            );
+          })}
+        </div>
+        <div className={styles.navActions}>
+          <LanguageToggle
+            className={styles.languageToggle}
+            currentLocale={locale}
+            pathname={localizedCurrentPath}
+          />
         </div>
         <NavbarIcons desktop />
       </nav>
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
         {({ visible, nodeRef }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
-            {navLinks.map(({ label, pathname }, index) => (
-              <RouterLink
-                unstable_viewTransition
-                prefetch="intent"
-                to={pathname}
-                key={label}
-                className={styles.mobileNavLink}
-                data-visible={visible}
-                aria-current={getCurrent(pathname)}
-                onClick={handleMobileNavClick}
-                style={cssProps({
-                  transitionDelay: numToMs(
-                    Number(msToNum(tokens.base.durationS)) + index * 50
-                  ),
-                })}
-              >
-                {label}
-              </RouterLink>
-            ))}
+            {navLinks.map(({ label, zhLabel, pathname }, index) => {
+              const localizedPathname = localizePath(pathname, locale);
+              const navLabel = isZh ? zhLabel : label;
+
+              return (
+                <RouterLink
+                  unstable_viewTransition
+                  prefetch="intent"
+                  to={localizedPathname}
+                  key={label}
+                  className={styles.mobileNavLink}
+                  data-visible={visible}
+                  aria-current={getCurrent(pathname)}
+                  onClick={handleMobileNavClick}
+                  style={cssProps({
+                    transitionDelay: numToMs(
+                      Number(msToNum(tokens.base.durationS)) + index * 50
+                    ),
+                  })}
+                >
+                  {navLabel}
+                </RouterLink>
+              );
+            })}
+            <div className={styles.mobileUtilityNav} data-visible={visible}>
+              <span className={styles.mobileUtilityLabel}>{isZh ? '语言' : 'Language'}</span>
+              <LanguageToggle
+                className={styles.mobileLanguageToggle}
+                currentLocale={locale}
+                pathname={localizedCurrentPath}
+                onClick={() => setMenuOpen(false)}
+              />
+            </div>
             <NavbarIcons />
             <ThemeToggle isMobile />
           </nav>
@@ -203,6 +237,23 @@ export const Navbar = () => {
       </Transition>
       {!isMobile && <ThemeToggle data-navbar-item />}
     </header>
+  );
+};
+
+const LanguageToggle = ({ className, currentLocale, pathname, onClick }) => {
+  const targetLocale = supportedLocales.find(locale => locale !== currentLocale) || 'en';
+
+  return (
+    <RouterLink
+      unstable_viewTransition
+      prefetch="intent"
+      className={className}
+      to={localizePath(pathname, targetLocale)}
+      aria-label={`Switch language to ${localeLabels[targetLocale]}`}
+      onClick={onClick}
+    >
+      {currentLocale === 'zh' ? 'EN' : '中文'}
+    </RouterLink>
   );
 };
 

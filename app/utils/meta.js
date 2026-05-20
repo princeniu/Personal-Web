@@ -1,4 +1,5 @@
 import config from '~/config.json';
+import { localeMeta } from '~/i18n/locales';
 
 const { name, url, twitter, linkedin, github } = config;
 const defaultOgImage = `${url}/social-image.png`;
@@ -11,9 +12,11 @@ export function baseMeta({
   url: pageUrl = url,
   path,
   type = 'website',
+  locale = 'en',
 }) {
   const titleText = [prefix, title].filter(Boolean).join(' | ');
   const resolvedUrl = path ? `${url}${path}` : pageUrl;
+  const resolvedLocale = localeMeta[locale] || localeMeta.en;
 
   const meta = [
     { title: titleText },
@@ -33,7 +36,7 @@ export function baseMeta({
     { property: 'og:site_name', content: name },
     { property: 'og:type', content: type },
     { property: 'og:url', content: resolvedUrl },
-    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:locale', content: resolvedLocale.ogLocale },
     { property: 'og:description', content: description },
     { property: 'twitter:card', content: 'summary_large_image' },
     { property: 'twitter:description', content: description },
@@ -81,12 +84,14 @@ export function personSchema() {
   };
 }
 
-export function websiteSchema() {
+export function websiteSchema(locale = 'en') {
+  const resolvedLocale = localeMeta[locale] || localeMeta.en;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name,
     url,
-    inLanguage: 'en-US',
+    inLanguage: resolvedLocale.schemaLanguage,
   };
 }

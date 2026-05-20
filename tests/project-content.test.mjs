@@ -77,8 +77,13 @@ test('sitemap only publishes intended public project routes', () => {
   const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 
   assert.match(sitemap, /https:\/\/princeniu\.com\/projects\/all-work/);
+  assert.match(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/all-work/);
+  assert.match(sitemap, /https:\/\/princeniu\.com\/zh\/contact/);
+  assert.match(sitemap, /https:\/\/princeniu\.com\/zh\/uses/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
+  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/more-work/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/sayit/);
+  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/sayit/);
 
   for (const slug of [
     'porsche-digital-interface',
@@ -88,5 +93,6 @@ test('sitemap only publishes intended public project routes', () => {
     'little-lemon',
   ]) {
     assert.match(sitemap, new RegExp(`https://princeniu\\.com/projects/${slug}`));
+    assert.match(sitemap, new RegExp(`https://princeniu\\.com/zh/projects/${slug}`));
   }
 });

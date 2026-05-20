@@ -3,22 +3,27 @@ import config from '~/config.json';
 export const navLinks = [
   {
     label: 'Projects',
+    zhLabel: '项目',
     pathname: '/#projects',
   },
   {
     label: 'About',
+    zhLabel: '关于',
     pathname: '/#details',
   },
   {
     label: 'All Work',
+    zhLabel: '全部作品',
     pathname: '/projects/all-work',
   },
   {
     label: 'Contact',
+    zhLabel: '联系',
     pathname: '/contact',
   },
   {
     label: 'Uses',
+    zhLabel: '工具',
     pathname: '/uses',
   },
 ];

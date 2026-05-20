@@ -1,6 +1,7 @@
 import usesBackgroundPlaceholder from '~/assets/uses-background-placeholder.jpg';
 import usesBackground from '~/assets/uses-background.mp4';
-import { usesContent } from '~/data/site-content';
+import { usesContent as enUses } from '~/data/site-content';
+import { usesContent as zhUses } from '~/data/content/zh/site-content';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { List, ListItem } from '~/components/list';
@@ -16,17 +17,22 @@ import {
   ProjectTextRow,
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname } from '~/i18n/route';
 import styles from './uses.module.css';
 
 export const meta = () => {
   return baseMeta({
     title: 'Uses',
-    description: usesContent.metaDescription,
+    description: enUses.metaDescription,
     path: '/uses',
   });
 };
 
 export const Uses = () => {
+  const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const content = locale === 'zh' ? zhUses : enUses;
   return (
     <>
       <ProjectContainer className={styles.uses}>
@@ -36,10 +42,10 @@ export const Uses = () => {
           opacity={0.7}
         />
         <ProjectHeader
-          title={usesContent.heroTitle}
-          description={usesContent.heroDescription}
+          title={content.heroTitle}
+          description={content.heroDescription}
         />
-        {usesContent.sections.map(section => (
+        {content.sections.map(section => (
           <ProjectSection key={section.heading} padding="none" className={styles.section}>
             <ProjectSectionContent>
               <ProjectTextRow width="m">
@@ -63,7 +69,7 @@ export const Uses = () => {
               <ProjectSectionHeading>System</ProjectSectionHeading>
               <Table>
                 <TableBody>
-                  {usesContent.system.map(item => (
+                  {content.system.map(item => (
                     <TableRow key={item.label}>
                       <TableHeadCell>{item.label}</TableHeadCell>
                       <TableCell>{item.value}</TableCell>

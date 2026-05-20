@@ -1,7 +1,8 @@
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
-import { contactContent } from '~/data/site-content';
+import { contactContent as enContact } from '~/data/site-content';
+import { contactContent as zhContact } from '~/data/content/zh/site-content';
 import { Footer } from '~/components/footer';
 import { Heading } from '~/components/heading';
 import { Icon } from '~/components/icon';
@@ -15,6 +16,8 @@ import { useRef } from 'react';
 import { cssProps, msToNum, numToMs } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname, localizePath } from '~/i18n/route';
 import { json } from '@remix-run/cloudflare';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import styles from './contact.module.css';
@@ -22,7 +25,7 @@ import styles from './contact.module.css';
 export const meta = () => {
   return baseMeta({
     title: 'Contact',
-    description: contactContent.metaDescription,
+    description: enContact.metaDescription,
     path: '/contact',
   });
 };
@@ -47,6 +50,14 @@ async function isRateLimited(env, request) {
   return false;
 }
 
+function getContentForRequest(request) {
+  const referer = request.headers.get('referer') || '';
+  const locale = getLocaleFromPathname(
+    referer ? new URL(referer).pathname : '/'
+  );
+  return locale === 'zh' ? zhContact : enContact;
+}
+
 export async function action({ context, request }) {
   const env = context.cloudflare?.env || {};
   const formData = await request.formData();
@@ -59,9 +70,10 @@ export async function action({ context, request }) {
   if (isBot) return json({ success: true });
 
   // Throttle real submissions before doing any expensive work
+  const content = getContentForRequest(request);
   if (await isRateLimited(env, request)) {
     return json(
-      { errors: { form: contactContent.rateLimitedMessage } },
+      { errors: { form: content.rateLimitedMessage } },
       { status: 429 }
     );
   }
@@ -98,7 +110,7 @@ export async function action({ context, request }) {
     return json(
       {
         errors: {
-          form: contactContent.unconfiguredMessage,
+          form: content.unconfiguredMessage,
         },
       },
       { status: 500 }
@@ -137,7 +149,7 @@ export async function action({ context, request }) {
     return json(
       {
         errors: {
-          form: contactContent.failedMessage,
+          form: content.failedMessage,
         },
       },
       { status: 500 }
@@ -148,6 +160,9 @@ export async function action({ context, request }) {
 }
 
 export const Contact = () => {
+  const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const content = locale === 'zh' ? zhContact : enContact;
   const errorRef = useRef();
   const email = useFormInput('');
   const message = useFormInput('');
@@ -174,7 +189,7 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
               <DecoderText
-                text={contactContent.title}
+                text={content.title}
                 start={status !== 'exited'}
                 delay={300}
               />
@@ -264,7 +279,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationL, initDelay)}
             >
-              {contactContent.privacyNote}
+              {content.privacyNote}
             </p>
           </Form>
         )}
@@ -278,7 +293,7 @@ export const Contact = () => {
               className={styles.completeTitle}
               data-status={status}
             >
-              {contactContent.successTitle}
+              {content.successTitle}
             </Heading>
             <Text
               size="l"
@@ -287,7 +302,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS)}
             >
-              {contactContent.successBody}
+              {content.successBody}
             </Text>
             <Button
               secondary
@@ -295,10 +310,10 @@ export const Contact = () => {
               className={styles.completeButton}
               data-status={status}
               style={getDelay(tokens.base.durationM)}
-              href="/"
+              href={localizePath('/', locale)}
               icon="chevron-right"
             >
-              {contactContent.backLabel}
+              {content.backLabel}
             </Button>
           </div>
         )}

@@ -3,6 +3,7 @@ import {
   getProjectPath,
   portfolioProjects,
 } from './project-content';
+import { portfolioProjects as zhPortfolioProjects } from './content/zh/index.js';
 
 import porscheBackgroundLarge from '~/assets/porsche-background-tile-large.jpg';
 import porscheBackgroundPlaceholder from '~/assets/porsche-background-tile-placeholder.jpg';
@@ -582,10 +583,17 @@ const withAssets = project => ({
 
 export const projects = portfolioProjects.map(withAssets);
 
+export const zhProjects = zhPortfolioProjects.map(withAssets);
+
 export const featuredProjects = featuredProjectSlugs.map(slug =>
   projects.find(project => project.slug === slug)
+);
+
+export const zhFeaturedProjects = featuredProjectSlugs.map(slug =>
+  zhProjects.find(project => project.slug === slug)
 );
 
 export const getProjectBySlug = slug => projects.find(project => project.slug === slug);
 
 export { getProjectPath };
+export { withAssets };

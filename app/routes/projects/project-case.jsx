@@ -157,36 +157,40 @@ const ProjectTimeline = ({ section }) => (
   </ProjectSection>
 );
 
-const ProjectGrid = ({ section }) => (
-  <ProjectSection light={section.light}>
-    <ProjectSectionContent>
-      <ProjectTextRow width="m">
-        <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
-        {renderBody(section.body)}
-      </ProjectTextRow>
-      <ul className={styles.projectGrid} aria-label={section.heading}>
-        {section.items.map(item => {
-          const inner = (
-            <>
-              {item.timeframe && (
-                <span className={styles.projectGridTimeframe}>{item.timeframe}</span>
-              )}
-              <h3 className={styles.projectGridTitle}>{item.title}</h3>
-              <p className={styles.projectGridDescription}>{item.description}</p>
-              {!!item.tags?.length && (
-                <ul className={styles.projectGridTags} aria-label="Tools and methods">
-                  {item.tags.map(tag => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              )}
-              {item.href && (
-                <span className={styles.projectGridCta} aria-hidden>
-                  View case study →
-                </span>
-              )}
-            </>
-          );
+const ProjectGrid = ({ section }) => {
+  const tagsLabel = section.tagsLabel || 'Tools and methods';
+  const ctaLabel = section.ctaLabel || 'View case study';
+
+  return (
+    <ProjectSection light={section.light}>
+      <ProjectSectionContent>
+        <ProjectTextRow width="m">
+          <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+          {renderBody(section.body)}
+        </ProjectTextRow>
+        <ul className={styles.projectGrid} aria-label={section.heading}>
+          {section.items.map(item => {
+            const inner = (
+              <>
+                {item.timeframe && (
+                  <span className={styles.projectGridTimeframe}>{item.timeframe}</span>
+                )}
+                <h3 className={styles.projectGridTitle}>{item.title}</h3>
+                <p className={styles.projectGridDescription}>{item.description}</p>
+                {!!item.tags?.length && (
+                  <ul className={styles.projectGridTags} aria-label={tagsLabel}>
+                    {item.tags.map(tag => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                )}
+                {item.href && (
+                  <span className={styles.projectGridCta} aria-hidden>
+                    {ctaLabel} →
+                  </span>
+                )}
+              </>
+            );
 
           return (
             <li
@@ -207,7 +211,8 @@ const ProjectGrid = ({ section }) => (
       </ul>
     </ProjectSectionContent>
   </ProjectSection>
-);
+  );
+};
 
 const ProjectMetrics = ({ section }) => (
   <ProjectSection light={section.light}>

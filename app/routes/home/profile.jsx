@@ -1,7 +1,8 @@
 import profileImgLarge from '~/assets/profile-large.jpg';
 import profileImgPlaceholder from '~/assets/profile-placeholder.jpg';
 import profileImg from '~/assets/profile.jpg';
-import { profileContent } from '~/data/site-content';
+import { profileContent as enProfile } from '~/data/site-content';
+import { profileContent as zhProfile } from '~/data/content/zh/site-content';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
@@ -11,22 +12,27 @@ import { Section } from '~/components/section';
 import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
 import { Fragment, useState } from 'react';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname, localizePath } from '~/i18n/route';
 import { media } from '~/utils/style';
 import katakana from './katakana.svg';
 import styles from './profile.module.css';
 
-const ProfileText = ({ visible, titleId }) => (
+const ProfileText = ({ visible, titleId, heading, description }) => (
   <Fragment>
     <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
-      <DecoderText text={profileContent.heading} start={visible} delay={500} />
+      <DecoderText text={heading} start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      {profileContent.description}
+      {description}
     </Text>
   </Fragment>
 );
 
 export const Profile = ({ id, visible, sectionRef }) => {
+  const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const content = locale === 'zh' ? zhProfile : enProfile;
   const [focused, setFocused] = useState(false);
   const titleId = `${id}-title`;
 
@@ -45,15 +51,20 @@ export const Profile = ({ id, visible, sectionRef }) => {
         {({ visible, nodeRef }) => (
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
-              <ProfileText visible={visible} titleId={titleId} />
+              <ProfileText
+                visible={visible}
+                titleId={titleId}
+                heading={content.heading}
+                description={content.description}
+              />
               <Button
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="/contact"
+                href={localizePath('/contact', locale)}
                 icon="send"
               >
-                {profileContent.ctaLabel}
+                {content.ctaLabel}
               </Button>
             </div>
             <div className={styles.column}>
@@ -65,7 +76,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   collapseDelay={1000}
                 />
                 <div className={styles.tagText} data-visible={visible}>
-                  {profileContent.eyebrow}
+                  {content.eyebrow}
                 </div>
               </div>
               <div className={styles.image}>
@@ -77,7 +88,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   width={960}
                   height={1280}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
-                  alt="Portrait of Zhuo (Prince) Niu"
+                  alt={locale === 'zh' ? '牛拙Prince 肖像' : 'Portrait of Zhuo (Prince) Niu'}
                 />
                 <svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
                   <use href={`${katakana}#katakana-profile`} />

@@ -17,6 +17,9 @@ import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
 import { Progress } from '~/components/progress';
+import { getAlternateLinks } from '~/i18n/links';
+import { localeMeta } from '~/i18n/locales';
+import { getLocaleFromPathname, getPathnameWithoutTrailingSlash } from '~/i18n/route';
 import { getSessionSecrets } from '~/utils/session';
 import { personSchema, websiteSchema } from '~/utils/meta';
 import config from '~/config.json';
@@ -43,9 +46,10 @@ export const links = () => [
 export const loader = async ({ request, context }) => {
   const { url } = request;
   const { pathname } = new URL(url);
-  const pathnameSliced =
-    pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  const locale = getLocaleFromPathname(pathname);
+  const pathnameSliced = getPathnameWithoutTrailingSlash(pathname);
   const canonicalUrl = `${config.url}${pathnameSliced}`;
+  const alternateLinks = getAlternateLinks(pathnameSliced);
 
   const { getSession, commitSession } = createCookieSessionStorage({
     cookie: {
@@ -63,7 +67,7 @@ export const loader = async ({ request, context }) => {
   const theme = session.get('theme') || 'dark';
 
   return json(
-    { canonicalUrl, theme },
+    { canonicalUrl, locale, alternateLinks, theme },
     {
       headers: {
         'Set-Cookie': await commitSession(session),
@@ -73,9 +77,10 @@ export const loader = async ({ request, context }) => {
 };
 
 export default function App() {
-  let { canonicalUrl, theme } = useLoaderData();
+  let { canonicalUrl, locale, alternateLinks, theme } = useLoaderData();
   const fetcher = useFetcher();
   const { state } = useNavigation();
+  const htmlLang = localeMeta[locale]?.htmlLang || localeMeta.en.htmlLang;
 
   if (fetcher.formData?.has('theme')) {
     theme = fetcher.formData.get('theme');
@@ -96,7 +101,7 @@ export default function App() {
   }, []);
 
   return (
-    <html lang="en">
+    <html lang={htmlLang}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -110,13 +115,21 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="canonical" href={canonicalUrl} />
+        {alternateLinks.map(link => (
+          <link
+            key={link.hrefLang}
+            rel={link.rel}
+            hrefLang={link.hrefLang}
+            href={link.href}
+          />
+        ))}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema()) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema(locale)) }}
         />
       </head>
       <body data-theme={theme}>
