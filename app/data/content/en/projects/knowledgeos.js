@@ -33,8 +33,8 @@ slug: 'knowledgeos',
     sections: [
       {
         type: 'hero-image',
-        image: 'knowledgeosHeroBg',
-        alt: 'Abstract constellation background — gold nodes and lines suggesting knowledge graph connections',
+        image: 'knowledgeosArchitecture',
+        alt: 'KnowledgeOS architecture diagram showing inputs, agent maintenance layer, Markdown vault, and review outputs',
       },
       {
         type: 'text',

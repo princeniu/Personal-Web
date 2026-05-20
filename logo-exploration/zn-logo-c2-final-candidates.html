@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZN Logo C2 Final Candidates — Open Modular</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --dark-bg: oklch(17.76% 0 0);
+      --dark-surface: oklch(21.78% 0 0);
+      --light-bg: oklch(96.12% 0 0);
+      --accent: oklch(84.42% 0.19 50);
+      --ink: #f7f7f7;
+      --paper: #111;
+      --muted: color-mix(in oklab, var(--ink) 64%, transparent);
+      --line: color-mix(in oklab, var(--ink) 12%, transparent);
+      --font: Gotham, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 0%, color-mix(in oklab, var(--accent) 13%, transparent), transparent 34rem),
+        var(--dark-bg);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    .page { width: min(1180px, calc(100vw - 40px)); margin: 0 auto; padding: 56px 0 80px; }
+    .hero { display: grid; grid-template-columns: 1fr .9fr; gap: 34px; align-items: end; border-bottom: 1px solid var(--line); padding-bottom: 30px; margin-bottom: 28px; }
+    .eyebrow { font: 12px/1 var(--mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: clamp(42px, 7vw, 92px); line-height: .92; letter-spacing: -.075em; }
+    .hero p { margin: 0; color: var(--muted); font-size: 17px; max-width: 560px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 34px; }
+    button { appearance: none; border: 1px solid var(--line); background: color-mix(in oklab, var(--dark-surface) 82%, transparent); color: var(--ink); border-radius: 999px; min-height: 42px; padding: 0 16px; font: 600 13px/1 var(--font); cursor: pointer; }
+    button[aria-pressed="true"] { background: var(--accent); color: #111; border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card { background: color-mix(in oklab, var(--dark-surface) 88%, transparent); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.22); }
+    .cardHeader { padding: 22px; border-bottom: 1px solid var(--line); min-height: 148px; }
+    h2 { margin: 0 0 8px; font-size: 22px; letter-spacing: -.045em; line-height: 1.08; }
+    .stance { margin: 0; color: var(--muted); font-size: 14px; }
+    .specimen { padding: 22px; display: grid; gap: 18px; }
+    .largeMark { min-height: 190px; display: grid; place-items: center; border-radius: 18px; background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.008)), #171717; color: var(--ink); position: relative; overflow: hidden; }
+    .largeMark::before { content: ""; position: absolute; inset: 18px; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 22px 22px; mask-image: radial-gradient(circle, black, transparent 70%); opacity: .42; }
+    .largeMark svg { position: relative; z-index: 1; width: 178px; height: auto; overflow: visible; }
+    .preview { border: 1px solid var(--line); border-radius: 16px; padding: 14px; display: grid; gap: 12px; }
+    .preview.light { background: var(--light-bg); color: var(--paper); border-color: rgba(0,0,0,.09); }
+    .preview.dark { background: #151515; color: var(--ink); }
+    .label { font: 11px/1 var(--mono); color: color-mix(in oklab, currentColor 48%, transparent); text-transform: uppercase; letter-spacing: .08em; }
+    .row { display: flex; align-items: center; gap: 14px; min-height: 50px; }
+    .markBox { width: 48px; height: 48px; display: grid; place-items: center; flex: 0 0 auto; }
+    .word { display: grid; gap: 3px; }
+    .word strong { font-size: 13px; letter-spacing: -.02em; }
+    .word span { font-size: 12px; color: color-mix(in oklab, currentColor 55%, transparent); }
+    .scale { display: flex; align-items: center; gap: 12px; }
+    .favicon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: currentColor; color: #151515; }
+    .favicon svg { color: var(--accent); }
+    .note { border-top: 1px solid var(--line); padding-top: 14px; font-size: 13px; color: var(--muted); min-height: 96px; }
+    .note strong { color: var(--ink); display: block; margin-bottom: 4px; }
+    code { display: block; white-space: pre-wrap; color: color-mix(in oklab, var(--ink) 70%, transparent); font: 11px/1.45 var(--mono); background: rgba(0,0,0,.18); border: 1px solid var(--line); border-radius: 14px; padding: 12px; max-height: 120px; overflow: auto; }
+    .recommendation { margin-top: 22px; padding: 24px; border-radius: 24px; background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 16%, transparent), rgba(255,255,255,.025)); border: 1px solid color-mix(in oklab, var(--accent) 34%, transparent); display: grid; grid-template-columns: .72fr 1.28fr; gap: 24px; align-items: center; }
+    .recommendation h2 { font-size: 34px; margin: 0; letter-spacing: -.055em; }
+    .recommendation p { margin: 0; color: color-mix(in oklab, var(--ink) 76%, transparent); }
+    .fill { fill: currentColor; }
+    .accentFill { fill: var(--accent); }
+    .stroke { fill: none; stroke: currentColor; stroke-width: 4.2; stroke-linecap: round; stroke-linejoin: round; }
+    .strokeAccent { fill: none; stroke: var(--accent); stroke-width: 4.2; stroke-linecap: round; stroke-linejoin: round; }
+    .card[data-theme="light"] { background: #fff; color: #111; }
+    .card[data-theme="light"] .largeMark { background: #f2f2f2; color: #111; }
+    .card[data-theme="light"] .stance,
+    .card[data-theme="light"] .note { color: rgba(0,0,0,.62); }
+    .card[data-theme="light"] .note strong { color: #111; }
+    .card[data-theme="light"] code { color: rgba(0,0,0,.7); background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.1); }
+    @media (max-width: 980px) { .hero, .grid, .recommendation { grid-template-columns: 1fr; } .cardHeader { min-height: auto; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Selected direction / C2 Open Modular ZN</div>
+        <h1>C2 Final<br />Candidates</h1>
+      </div>
+      <p>Since C2 feels right, this board narrows it into three near-final options. All keep the open modular cut vibe, but tune the tradeoff between ZN readability, personal looseness, and production-readiness for the existing portfolio monogram component.</p>
+    </section>
+
+    <div class="controls" aria-label="Preview controls">
+      <button id="darkBtn" aria-pressed="true">Dark board</button>
+      <button id="lightBtn" aria-pressed="false">Light board</button>
+      <button id="compactBtn" aria-pressed="false">Compact marks</button>
+    </div>
+
+    <section class="grid">
+      <article class="card variant">
+        <header class="cardHeader">
+          <h2>C2.1 Balanced Modular</h2>
+          <p class="stance">Closest to the selected C2, but slightly thinner and more open. Safest final candidate.</p>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Balanced modular ZN logo">
+              <path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z" />
+              <path class="accentFill" d="M54 8h7v28h-7V18L33 36h-8l29-26v-2Z" />
+            </svg>
+          </div>
+          <div class="preview dark"><div class="label">Navbar / dark</div><div class="row"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/><path class="accentFill" d="M54 8h7v28h-7V18L33 36h-8l29-26v-2Z"/></svg></span><span class="word"><strong>Zhuo Niu</strong><span>Designer-builder</span></span></div></div>
+          <div class="preview light"><div class="label">Navbar / light + favicon</div><div class="row"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/><path class="accentFill" d="M54 8h7v28h-7V18L33 36h-8l29-26v-2Z"/></svg></span><span class="scale"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/></svg></span></span></div></div>
+          <p class="note"><strong>Use if:</strong> You want C2 as-is, just production-polished. Best balance of recognizable ZN and mature portfolio vibe.</p>
+          <code>viewBox="0 0 72 44"
+&lt;path d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z" /&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant">
+        <header class="cardHeader">
+          <h2>C2.2 Looser Cut</h2>
+          <p class="stance">Keeps modular geometry but introduces a slight path-like rhythm, so it feels less corporate.</p>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Looser cut ZN logo">
+              <path class="fill" d="M10 9h39v6H28L11 29v7h40v-6H29l23-21h-8L19 31V9h-9Z" />
+              <path class="accentFill" d="M55 8h7v28h-7V19L35 36h-8l28-25V8Z" />
+              <path d="M19 31l7 5h-7z" fill="rgba(255,255,255,.24)" />
+            </svg>
+          </div>
+          <div class="preview dark"><div class="label">Navbar / dark</div><div class="row"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 9h39v6H28L11 29v7h40v-6H29l23-21h-8L19 31V9h-9Z"/><path class="accentFill" d="M55 8h7v28h-7V19L35 36h-8l28-25V8Z"/></svg></span><span class="word"><strong>Zhuo Niu</strong><span>HFE × AI Product</span></span></div></div>
+          <div class="preview light"><div class="label">Navbar / light + favicon</div><div class="row"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 9h39v6H28L11 29v7h40v-6H29l23-21h-8L19 31V9h-9Z"/><path class="accentFill" d="M55 8h7v28h-7V19L35 36h-8l28-25V8Z"/></svg></span><span class="scale"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="fill" d="M10 9h39v6H28L11 29v7h40v-6H29l23-21h-8L19 31V9h-9Z"/></svg></span></span></div></div>
+          <p class="note"><strong>Use if:</strong> You like C2 but still want more creative looseness. This is my personal favorite for “not a template.”</p>
+          <code>viewBox="0 0 72 44"
+&lt;path d="M10 9h39v6H28L11 29v7h40v-6H29l23-21h-8L19 31V9h-9Z" /&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant">
+        <header class="cardHeader">
+          <h2>C2.3 Outline Hybrid</h2>
+          <p class="stance">Translates C2 into a lighter outline form. More airy, but less compatible with current fill hover.</p>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Outline modular ZN logo">
+              <path class="stroke" d="M11 10 H49 L25 32 H53" />
+              <path class="stroke" d="M18 33 V10 L54 33 V10" />
+              <path class="strokeAccent" d="M54 10 V33" />
+            </svg>
+          </div>
+          <div class="preview dark"><div class="label">Navbar / dark</div><div class="row"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="stroke" d="M11 10 H49 L25 32 H53"/><path class="stroke" d="M18 33 V10 L54 33 V10"/><path class="strokeAccent" d="M54 10 V33"/></svg></span><span class="word"><strong>Zhuo Niu</strong><span>Product Developer</span></span></div></div>
+          <div class="preview light"><div class="label">Navbar / light + favicon</div><div class="row"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="stroke" d="M11 10 H49 L25 32 H53"/><path class="stroke" d="M18 33 V10 L54 33 V10"/><path class="strokeAccent" d="M54 10 V33"/></svg></span><span class="scale"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="stroke" stroke-width="5.8" d="M11 10 H49 L25 32 H53"/><path class="stroke" stroke-width="5.8" d="M18 33 V10 L54 33 V10"/></svg></span></span></div></div>
+          <p class="note"><strong>Use if:</strong> You decide the filled modular mark is still too heavy. This is lightest, but less distinctive than C2.1/C2.2.</p>
+          <code>viewBox="0 0 72 44"
+&lt;path d="M11 10 H49 L25 32 H53" /&gt;
+&lt;path d="M18 33 V10 L54 33 V10" /&gt;</code>
+        </div>
+      </article>
+    </section>
+
+    <section class="recommendation">
+      <h2>My pick</h2>
+      <p><strong>C2.2 Looser Cut</strong> is the best next step: it keeps the modular C2 vibe you liked, but adds just enough looseness to avoid feeling like a corporate template. If you want safest/cleanest, use C2.1. I would not choose C2.3 unless you decide the filled mark is still too heavy.</p>
+    </section>
+  </main>
+
+  <script>
+    const variants = [...document.querySelectorAll('.variant')];
+    const darkBtn = document.querySelector('#darkBtn');
+    const lightBtn = document.querySelector('#lightBtn');
+    const compactBtn = document.querySelector('#compactBtn');
+    function setTheme(theme) {
+      variants.forEach(v => v.dataset.theme = theme);
+      darkBtn.setAttribute('aria-pressed', theme === 'dark');
+      lightBtn.setAttribute('aria-pressed', theme === 'light');
+    }
+    darkBtn.addEventListener('click', () => setTheme('dark'));
+    lightBtn.addEventListener('click', () => setTheme('light'));
+    compactBtn.addEventListener('click', () => {
+      const pressed = compactBtn.getAttribute('aria-pressed') === 'true';
+      compactBtn.setAttribute('aria-pressed', String(!pressed));
+      document.querySelectorAll('.largeMark svg').forEach(svg => svg.style.transform = !pressed ? 'scale(.72)' : 'scale(1)');
+    });
+  </script>
+</body>
+</html>

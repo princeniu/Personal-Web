@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZN Logo Concept Board — Zhuo Niu Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --dark-bg: oklch(17.76% 0 0);
+      --dark-surface: oklch(21.78% 0 0);
+      --light-bg: oklch(96.12% 0 0);
+      --light-surface: #fff;
+      --ink: #f7f7f7;
+      --paper-ink: #141414;
+      --muted: color-mix(in oklab, var(--ink) 62%, transparent);
+      --accent: oklch(84.42% 0.19 50);
+      --line: color-mix(in oklab, var(--ink) 12%, transparent);
+      --font: Gotham, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 0%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 30rem),
+        var(--dark-bg);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    .page {
+      width: min(1240px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 30px;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      color: var(--accent);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 96px);
+      line-height: .92;
+      letter-spacing: -.07em;
+      font-weight: 700;
+    }
+    .hero p {
+      margin: 0;
+      color: color-mix(in oklab, var(--ink) 72%, transparent);
+      font-size: 17px;
+      max-width: 520px;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 34px;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: color-mix(in oklab, var(--dark-surface) 80%, transparent);
+      color: var(--ink);
+      border-radius: 999px;
+      min-height: 42px;
+      padding: 0 16px;
+      font: 600 13px/1 var(--font);
+      cursor: pointer;
+    }
+    button[aria-pressed="true"] {
+      background: var(--accent);
+      color: #111;
+      border-color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: color-mix(in oklab, var(--dark-surface) 86%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 540px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.22);
+    }
+    .cardHeader {
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+    }
+    .card h2 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      letter-spacing: -.04em;
+      line-height: 1.1;
+    }
+    .stance {
+      margin: 0;
+      color: color-mix(in oklab, var(--ink) 62%, transparent);
+      font-size: 14px;
+    }
+    .rank {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 12px;
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+    .specimen {
+      padding: 24px;
+      display: grid;
+      gap: 20px;
+    }
+    .largeMark {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
+        #181818;
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+    .largeMark::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(circle, black, transparent 68%);
+      opacity: .45;
+    }
+    .largeMark svg { position: relative; z-index: 1; width: 180px; height: auto; }
+    .previewRow {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr;
+      gap: 12px;
+    }
+    .preview {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      min-height: 116px;
+      display: grid;
+      gap: 10px;
+      align-content: center;
+    }
+    .preview.light {
+      background: var(--light-bg);
+      color: var(--paper-ink);
+      border-color: rgba(0,0,0,.09);
+    }
+    .preview.dark { background: #151515; color: var(--ink); }
+    .label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: color-mix(in oklab, currentColor 48%, transparent);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .navbarMock {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .navbarMock .markBox {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+    }
+    .navText { display: grid; gap: 3px; }
+    .navText strong { font-size: 13px; letter-spacing: -.02em; }
+    .navText span { font-size: 12px; color: color-mix(in oklab, currentColor 55%, transparent); }
+    .faviconSet { display: flex; align-items: center; gap: 12px; }
+    .favicon {
+      display: grid; place-items: center;
+      border-radius: 9px;
+      background: currentColor;
+      color: #151515;
+    }
+    .light .favicon { color: #111; background: currentColor; }
+    .favicon svg { color: var(--accent); }
+    .hoverDemo {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 52px; height: 52px;
+      overflow: hidden;
+    }
+    .hoverDemo::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      background: var(--accent);
+      transform: translateY(60%);
+      opacity: .95;
+      mix-blend-mode: screen;
+      clip-path: inset(0 round 2px);
+    }
+    .notes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .note {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      font-size: 13px;
+      color: color-mix(in oklab, var(--ink) 68%, transparent);
+    }
+    .note strong { color: var(--ink); display: block; margin-bottom: 4px; }
+    code {
+      display: block;
+      white-space: pre-wrap;
+      color: color-mix(in oklab, var(--ink) 70%, transparent);
+      font: 11px/1.45 var(--mono);
+      background: rgba(0,0,0,.18);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      max-height: 90px;
+      overflow: auto;
+    }
+    .recommendation {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 16%, transparent), rgba(255,255,255,.025));
+      border: 1px solid color-mix(in oklab, var(--accent) 34%, transparent);
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .recommendation h2 { margin: 0; font-size: 34px; letter-spacing: -.05em; line-height: 1; }
+    .recommendation p { margin: 0; color: color-mix(in oklab, var(--ink) 74%, transparent); }
+    .mark-stroke { fill: none; stroke: currentColor; stroke-width: 5.2; stroke-linecap: square; stroke-linejoin: miter; }
+    .mark-stroke-round { fill: none; stroke: currentColor; stroke-width: 5.4; stroke-linecap: round; stroke-linejoin: round; }
+    .mark-fill { fill: currentColor; }
+    .accentNode { fill: var(--accent); }
+    .variant[data-theme="light"] .largeMark { background: #f2f2f2; color: #111; }
+    .variant[data-theme="light"] { background: #fff; color: #111; }
+    .variant[data-theme="light"] .stance,
+    .variant[data-theme="light"] .note { color: rgba(0,0,0,.62); }
+    .variant[data-theme="light"] .note strong { color: #111; }
+    .variant[data-theme="light"] code { color: rgba(0,0,0,.7); background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.1); }
+    @media (max-width: 920px) {
+      .hero, .grid, .recommendation { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .previewRow, .notes { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Zhuo Niu / Prince Niu / Personal Portfolio</div>
+        <h1>ZN Logo<br />Concept Board</h1>
+      </div>
+      <p>Four SVG-first logo directions for replacing the current template monogram. Designed to fit the existing portfolio: dark theme, bright yellow accent, fixed left navbar, small favicon use, and a designer-builder / HFE / AI-product identity.</p>
+    </section>
+
+    <div class="controls" aria-label="Preview controls">
+      <button id="darkBtn" aria-pressed="true">Dark board</button>
+      <button id="lightBtn" aria-pressed="false">Light board</button>
+      <button id="compactBtn" aria-pressed="false">Compact marks</button>
+    </div>
+
+    <section class="grid">
+      <article class="card variant" id="shared-diagonal">
+        <header class="cardHeader">
+          <div>
+            <h2>A. Shared Diagonal ZN</h2>
+            <p class="stance">Geometric, precise, engineering-minded. Z and N share one diagonal gesture.</p>
+          </div>
+          <div class="rank">Strong-fit</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 64 40" role="img" aria-label="Shared diagonal ZN mark">
+              <path class="mark-stroke" d="M10 7 H48 L16 33 H54" />
+              <path class="mark-stroke" d="M16 33 V7 L48 33 V7" />
+              <path class="mark-stroke" style="stroke: var(--accent); opacity:.95" d="M16 33 L48 7" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark">
+              <div class="label">Navbar / dark</div>
+              <div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-stroke" d="M10 7 H48 L16 33 H54"/><path class="mark-stroke" d="M16 33 V7 L48 33 V7"/><path class="mark-stroke" style="stroke:var(--accent)" d="M16 33 L48 7"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>Designer-builder</span></span></div>
+            </div>
+            <div class="preview light">
+              <div class="label">Navbar / light</div>
+              <div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-stroke" d="M10 7 H48 L16 33 H54"/><path class="mark-stroke" d="M16 33 V7 L48 33 V7"/><path class="mark-stroke" style="stroke:var(--accent)" d="M16 33 L48 7"/></svg></span></div>
+            </div>
+            <div class="preview dark">
+              <div class="label">Favicon scale</div>
+              <div class="faviconSet"><span class="favicon" style="width:32px;height:32px"><svg viewBox="0 0 64 40" width="22"><path class="mark-stroke" stroke-width="7" d="M10 7 H48 L16 33 H54"/><path class="mark-stroke" stroke-width="7" d="M16 33 V7 L48 33 V7"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 64 40" width="36"><path class="mark-stroke" d="M10 7 H48 L16 33 H54"/><path class="mark-stroke" d="M16 33 V7 L48 33 V7"/></svg></span></div>
+            </div>
+          </div>
+          <div class="notes"><p class="note"><strong>Why it fits</strong>Best balance of personal initials + technical precision. The shared diagonal gives the mark a reason to exist rather than two plain letters.</p><p class="note"><strong>Risk</strong>At favicon size, the full Z+N structure is slightly busy. Final version should simplify stroke overlaps.</p></div>
+          <code>&lt;svg viewBox="0 0 64 40"&gt;
+  &lt;path d="M10 7 H48 L16 33 H54" /&gt;
+  &lt;path d="M16 33 V7 L48 33 V7" /&gt;
+&lt;/svg&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant" id="path-zn">
+        <header class="cardHeader">
+          <div>
+            <h2>B. Path / Journey ZN</h2>
+            <p class="stance">A single continuous route through Z into N. More UX flow, navigation, human factors.</p>
+          </div>
+          <div class="rank">Most personal</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 64 40" role="img" aria-label="Path journey ZN mark">
+              <path class="mark-stroke-round" d="M10 8 H48 L17 32 H55" />
+              <path class="mark-stroke-round" d="M18 32 V8 L49 32 V8" />
+              <circle class="accentNode" cx="10" cy="8" r="3.4" />
+              <circle class="accentNode" cx="55" cy="32" r="3.4" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-stroke-round" d="M10 8 H48 L17 32 H55"/><path class="mark-stroke-round" d="M18 32 V8 L49 32 V8"/><circle class="accentNode" cx="10" cy="8" r="3.4"/><circle class="accentNode" cx="55" cy="32" r="3.4"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>HFE × AI product</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-stroke-round" d="M10 8 H48 L17 32 H55"/><path class="mark-stroke-round" d="M18 32 V8 L49 32 V8"/><circle class="accentNode" cx="10" cy="8" r="3.4"/><circle class="accentNode" cx="55" cy="32" r="3.4"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon" style="width:32px;height:32px"><svg viewBox="0 0 64 40" width="22"><path class="mark-stroke-round" stroke-width="7" d="M10 8 H48 L17 32 H55"/><path class="mark-stroke-round" stroke-width="7" d="M18 32 V8 L49 32 V8"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 64 40" width="36"><path class="mark-stroke-round" d="M10 8 H48 L17 32 H55"/><path class="mark-stroke-round" d="M18 32 V8 L49 32 V8"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>Why it fits</strong>It connects initials to your UX/HFE story: flows, paths, transitions from vague idea to working product.</p><p class="note"><strong>Risk</strong>Rounded endpoints feel friendlier but slightly less premium. Needs restraint so it doesn't become an app icon.</p></div>
+          <code>&lt;svg viewBox="0 0 64 40"&gt;
+  &lt;path d="M10 8 H48 L17 32 H55" /&gt;
+  &lt;path d="M18 32 V8 L49 32 V8" /&gt;
+  &lt;circle cx="10" cy="8" r="3.4" /&gt;
+&lt;/svg&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant" id="modular-zn">
+        <header class="cardHeader">
+          <div>
+            <h2>C. Modular Cut ZN</h2>
+            <p class="stance">Filled shape with deliberate cuts. Feels like systems, components, code, construction.</p>
+          </div>
+          <div class="rank">Most iconic</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 64 40" role="img" aria-label="Modular cut ZN mark">
+              <path class="mark-fill" fill-rule="evenodd" d="M8 6h39v6H24.5L8 28v6h41v-6H25.8L47 7.5V34h7V6h-7L21 31.5V6H8Zm8 6v10.5L27 12H16Z" />
+              <rect class="accentNode" x="49" y="6" width="7" height="28" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-fill" fill-rule="evenodd" d="M8 6h39v6H24.5L8 28v6h41v-6H25.8L47 7.5V34h7V6h-7L21 31.5V6H8Zm8 6v10.5L27 12H16Z"/><rect class="accentNode" x="49" y="6" width="7" height="28"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>Product Developer</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-fill" fill-rule="evenodd" d="M8 6h39v6H24.5L8 28v6h41v-6H25.8L47 7.5V34h7V6h-7L21 31.5V6H8Zm8 6v10.5L27 12H16Z"/><rect class="accentNode" x="49" y="6" width="7" height="28"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon" style="width:32px;height:32px"><svg viewBox="0 0 64 40" width="22"><path class="mark-fill" d="M8 6h39v6H24.5L8 28v6h41v-6H25.8L47 7.5V34h7V6h-7L21 31.5V6H8Z"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 64 40" width="36"><path class="mark-fill" d="M8 6h39v6H24.5L8 28v6h41v-6H25.8L47 7.5V34h7V6h-7L21 31.5V6H8Z"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>Why it fits</strong>Cleanest for production because it is a fill-based mark like the current template; hover highlight can reuse the existing clipPath technique.</p><p class="note"><strong>Risk</strong>Most “brand/logo” feeling, but less warm. Could read as a tech studio mark more than a person.</p></div>
+          <code>&lt;svg viewBox="0 0 64 40"&gt;
+  &lt;path fill-rule="evenodd" d="M8 6h39v6H24.5..." /&gt;
+&lt;/svg&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant" id="human-zn">
+        <header class="cardHeader">
+          <div>
+            <h2>D. Human-Centered ZN</h2>
+            <p class="stance">Softer geometry with one human node. Balances technical structure and HFE warmth.</p>
+          </div>
+          <div class="rank">Warmest</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 64 40" role="img" aria-label="Human-centered ZN mark">
+              <path class="mark-stroke-round" d="M11 9 H45 L19 31 H53" />
+              <path class="mark-stroke-round" d="M18 31 V9 L48 31 V9" />
+              <circle class="accentNode" cx="32" cy="20" r="5" />
+              <circle cx="32" cy="20" r="2" fill="#151515" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-stroke-round" d="M11 9 H45 L19 31 H53"/><path class="mark-stroke-round" d="M18 31 V9 L48 31 V9"/><circle class="accentNode" cx="32" cy="20" r="5"/><circle cx="32" cy="20" r="2" fill="#151515"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>Human-centered AI</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 64 40" width="48"><path class="mark-stroke-round" d="M11 9 H45 L19 31 H53"/><path class="mark-stroke-round" d="M18 31 V9 L48 31 V9"/><circle class="accentNode" cx="32" cy="20" r="5"/><circle cx="32" cy="20" r="2" fill="#fff"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon" style="width:32px;height:32px"><svg viewBox="0 0 64 40" width="22"><path class="mark-stroke-round" stroke-width="7" d="M11 9 H45 L19 31 H53"/><path class="mark-stroke-round" stroke-width="7" d="M18 31 V9 L48 31 V9"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 64 40" width="36"><path class="mark-stroke-round" d="M11 9 H45 L19 31 H53"/><path class="mark-stroke-round" d="M18 31 V9 L48 31 V9"/><circle class="accentNode" cx="32" cy="20" r="4"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>Why it fits</strong>The center node hints at people inside systems, which matches Human Factors better than a purely mechanical mark.</p><p class="note"><strong>Risk</strong>The node is meaningful, but it adds detail. If used, favicon should drop the inner circle.</p></div>
+          <code>&lt;svg viewBox="0 0 64 40"&gt;
+  &lt;path d="M11 9 H45 L19 31 H53" /&gt;
+  &lt;path d="M18 31 V9 L48 31 V9" /&gt;
+  &lt;circle cx="32" cy="20" r="5" /&gt;
+&lt;/svg&gt;</code>
+        </div>
+      </article>
+    </section>
+
+    <section class="recommendation">
+      <h2>My take</h2>
+      <p><strong>A is the safest winner</strong> for a recruiting portfolio: recognizable initials, crisp engineering feel, and compatible with the current SVG/hover system. <strong>B is the most conceptually yours</strong> if you want the mark to carry the UX/HFE “journey/path” idea. I would not ship D as-is; I would borrow its warmth only if A feels too cold.</p>
+    </section>
+  </main>
+
+  <script>
+    const variants = [...document.querySelectorAll('.variant')];
+    const darkBtn = document.querySelector('#darkBtn');
+    const lightBtn = document.querySelector('#lightBtn');
+    const compactBtn = document.querySelector('#compactBtn');
+    function setTheme(theme) {
+      variants.forEach(v => v.dataset.theme = theme);
+      darkBtn.setAttribute('aria-pressed', theme === 'dark');
+      lightBtn.setAttribute('aria-pressed', theme === 'light');
+    }
+    darkBtn.addEventListener('click', () => setTheme('dark'));
+    lightBtn.addEventListener('click', () => setTheme('light'));
+    compactBtn.addEventListener('click', () => {
+      const pressed = compactBtn.getAttribute('aria-pressed') === 'true';
+      compactBtn.setAttribute('aria-pressed', String(!pressed));
+      document.documentElement.style.setProperty('--compact-scale', !pressed ? '.72' : '1');
+      document.querySelectorAll('.largeMark svg').forEach(svg => svg.style.transform = !pressed ? 'scale(.72)' : 'scale(1)');
+    });
+  </script>
+</body>
+</html>

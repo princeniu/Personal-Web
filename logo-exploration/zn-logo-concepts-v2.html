@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZN Logo Concept Board v2 — Refined A/C Directions</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --dark-bg: oklch(17.76% 0 0);
+      --dark-surface: oklch(21.78% 0 0);
+      --light-bg: oklch(96.12% 0 0);
+      --ink: #f7f7f7;
+      --paper: #111;
+      --muted: color-mix(in oklab, var(--ink) 63%, transparent);
+      --accent: oklch(84.42% 0.19 50);
+      --line: color-mix(in oklab, var(--ink) 12%, transparent);
+      --font: Gotham, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in oklab, var(--accent) 13%, transparent), transparent 32rem),
+        radial-gradient(circle at 85% 18%, rgba(255,255,255,.06), transparent 24rem),
+        var(--dark-bg);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    .page { width: min(1240px, calc(100vw - 40px)); margin: 0 auto; padding: 56px 0 80px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 34px;
+      align-items: end;
+      padding-bottom: 30px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { font: 12px/1 var(--mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: clamp(42px, 7vw, 92px); line-height: .92; letter-spacing: -.075em; }
+    .hero p { margin: 0; color: var(--muted); font-size: 17px; max-width: 560px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+    .summary div { border: 1px solid var(--line); background: rgba(255,255,255,.025); border-radius: 18px; padding: 16px; }
+    .summary strong { display: block; font-size: 13px; color: var(--ink); margin-bottom: 4px; }
+    .summary span { display: block; font-size: 13px; color: var(--muted); }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+    button { appearance: none; border: 1px solid var(--line); background: color-mix(in oklab, var(--dark-surface) 80%, transparent); color: var(--ink); border-radius: 999px; min-height: 42px; padding: 0 16px; font: 600 13px/1 var(--font); cursor: pointer; }
+    button[aria-pressed="true"] { background: var(--accent); color: #111; border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { background: color-mix(in oklab, var(--dark-surface) 88%, transparent); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.22); }
+    .cardHeader { padding: 22px 22px 18px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 18px; align-items: start; }
+    h2 { margin: 0 0 7px; font-size: 23px; letter-spacing: -.045em; line-height: 1.08; }
+    .stance { margin: 0; color: var(--muted); font-size: 14px; }
+    .tag { font: 12px/1 var(--mono); color: var(--accent); white-space: nowrap; padding-top: 4px; }
+    .specimen { padding: 24px; display: grid; gap: 20px; }
+    .largeMark {
+      min-height: 200px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.008)),
+        #171717;
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+    .largeMark::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(circle, black, transparent 70%);
+      opacity: .42;
+    }
+    .largeMark svg { position: relative; z-index: 1; width: 188px; height: auto; overflow: visible; }
+    .previewRow { display: grid; grid-template-columns: 1.08fr .92fr .92fr; gap: 12px; }
+    .preview { border: 1px solid var(--line); border-radius: 16px; padding: 14px; min-height: 116px; display: grid; gap: 10px; align-content: center; }
+    .preview.dark { background: #151515; color: var(--ink); }
+    .preview.light { background: var(--light-bg); color: var(--paper); border-color: rgba(0,0,0,.09); }
+    .label { font: 11px/1 var(--mono); color: color-mix(in oklab, currentColor 48%, transparent); text-transform: uppercase; letter-spacing: .08em; }
+    .navbarMock { display: flex; align-items: center; gap: 16px; }
+    .markBox { width: 48px; height: 48px; display: grid; place-items: center; }
+    .navText { display: grid; gap: 3px; }
+    .navText strong { font-size: 13px; letter-spacing: -.02em; }
+    .navText span { font-size: 12px; color: color-mix(in oklab, currentColor 55%, transparent); }
+    .faviconSet { display: flex; align-items: center; gap: 12px; }
+    .favicon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: currentColor; color: #151515; }
+    .favicon svg { color: var(--accent); }
+    .hoverDemo { position: relative; display: grid; place-items: center; width: 52px; height: 52px; overflow: hidden; }
+    .hoverDemo::after { content: ""; position: absolute; inset: 8px; background: var(--accent); transform: translateY(54%); opacity: .92; mix-blend-mode: screen; }
+    .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .note { border-top: 1px solid var(--line); padding-top: 14px; font-size: 13px; color: var(--muted); }
+    .note strong { display: block; color: var(--ink); margin-bottom: 4px; }
+    code { display: block; white-space: pre-wrap; color: color-mix(in oklab, var(--ink) 70%, transparent); font: 11px/1.45 var(--mono); background: rgba(0,0,0,.18); border: 1px solid var(--line); border-radius: 14px; padding: 12px; max-height: 90px; overflow: auto; }
+    .recommendation { margin-top: 22px; padding: 24px; border-radius: 24px; background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 16%, transparent), rgba(255,255,255,.025)); border: 1px solid color-mix(in oklab, var(--accent) 34%, transparent); display: grid; grid-template-columns: .72fr 1.28fr; gap: 24px; align-items: center; }
+    .recommendation h2 { font-size: 34px; margin: 0; letter-spacing: -.055em; }
+    .recommendation p { margin: 0; color: color-mix(in oklab, var(--ink) 76%, transparent); }
+
+    .stroke { fill: none; stroke: currentColor; stroke-width: 4.1; stroke-linecap: round; stroke-linejoin: round; }
+    .strokeThin { fill: none; stroke: currentColor; stroke-width: 3.25; stroke-linecap: round; stroke-linejoin: round; }
+    .strokeSquare { fill: none; stroke: currentColor; stroke-width: 4.2; stroke-linecap: butt; stroke-linejoin: round; }
+    .fill { fill: currentColor; }
+    .accent { stroke: var(--accent); fill: none; }
+    .accentFill { fill: var(--accent); }
+    .card[data-theme="light"] { background: #fff; color: #111; }
+    .card[data-theme="light"] .largeMark { background: #f2f2f2; color: #111; }
+    .card[data-theme="light"] .stance,
+    .card[data-theme="light"] .note { color: rgba(0,0,0,.62); }
+    .card[data-theme="light"] .note strong { color: #111; }
+    .card[data-theme="light"] code { color: rgba(0,0,0,.7); background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.1); }
+    @media (max-width: 940px) { .hero, .grid, .recommendation { grid-template-columns: 1fr; } .summary { grid-template-columns: 1fr; } .previewRow, .notes { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Round 2 / less bulky / clearer ZN / more creative</div>
+        <h1>ZN Logo<br />Refinement v2</h1>
+      </div>
+      <p>This round keeps the vibe of <strong>C. Modular Cut</strong> and <strong>A. Shared Diagonal</strong>, but makes the marks lighter, less rigid, and more legible as ZN. The goal is not final production code yet — it is narrowing the visual direction.</p>
+    </section>
+
+    <section class="summary">
+      <div><strong>What changed from A</strong><span>Thinner strokes, more asymmetry, looser diagonals, less blocky construction.</span></div>
+      <div><strong>What changed from C</strong><span>Clearer Z + N separation, less dense fill mass, more negative space.</span></div>
+      <div><strong>What to judge</strong><span>Can you read ZN at navbar size, and does it feel like you rather than a template?</span></div>
+    </section>
+
+    <div class="controls" aria-label="Preview controls">
+      <button id="darkBtn" aria-pressed="true">Dark board</button>
+      <button id="lightBtn" aria-pressed="false">Light board</button>
+      <button id="compactBtn" aria-pressed="false">Compact marks</button>
+    </div>
+
+    <section class="grid">
+      <article class="card variant" id="a2-loose-diagonal">
+        <header class="cardHeader">
+          <div>
+            <h2>A2. Loose Diagonal ZN</h2>
+            <p class="stance">A refined A: lighter, more handwritten-path energy, but still clean enough for a portfolio.</p>
+          </div>
+          <div class="tag">Best A update</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Loose diagonal ZN logo">
+              <path class="stroke" d="M12 10 C22 7 39 8 53 9 L20 34 C31 32 47 33 60 34" />
+              <path class="strokeThin" d="M18 33 L18 11 L52 33 L52 11" />
+              <path class="strokeThin accent" d="M22 31 L50 12" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="stroke" d="M12 10 C22 7 39 8 53 9 L20 34 C31 32 47 33 60 34"/><path class="strokeThin" d="M18 33 L18 11 L52 33 L52 11"/><path class="strokeThin accent" d="M22 31 L50 12"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>Designer-builder</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="stroke" d="M12 10 C22 7 39 8 53 9 L20 34 C31 32 47 33 60 34"/><path class="strokeThin" d="M18 33 L18 11 L52 33 L52 11"/><path class="strokeThin accent" d="M22 31 L50 12"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="stroke" stroke-width="5.8" d="M12 10 C22 7 39 8 53 9 L20 34 C31 32 47 33 60 34"/><path class="strokeThin" stroke-width="4.8" d="M18 33 L18 11 L52 33 L52 11"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 72 44" width="38"><path class="stroke" d="M12 10 C22 7 39 8 53 9 L20 34 C31 32 47 33 60 34"/><path class="strokeThin" d="M18 33 L18 11 L52 33 L52 11"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>What improved</strong>Still reads as ZN, but the curved top/bottom strokes make it less rigid and less bulky than A v1.</p><p class="note"><strong>Concern</strong>The Z and N overlap is still visually busy. For final SVG, we may remove the yellow diagonal or make it only appear on hover.</p></div>
+          <code>&lt;path d="M12 10 C22 7 39 8 53 9 L20 34 C31 32 47 33 60 34" /&gt;
+&lt;path d="M18 33 L18 11 L52 33 L52 11" /&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant" id="a3-offset-path">
+        <header class="cardHeader">
+          <div>
+            <h2>A3. Offset Path ZN</h2>
+            <p class="stance">A more creative A: Z is a route, N is a structural echo. More motion, less logo-template.</p>
+          </div>
+          <div class="tag">Most creative A</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Offset path ZN logo">
+              <path class="strokeSquare" d="M12 12 H50 L21 32 H61" />
+              <path class="strokeThin" d="M18 35 V10 L53 35 V9" />
+              <circle class="accentFill" cx="50" cy="12" r="2.8" />
+              <circle class="accentFill" cx="21" cy="32" r="2.8" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="strokeSquare" d="M12 12 H50 L21 32 H61"/><path class="strokeThin" d="M18 35 V10 L53 35 V9"/><circle class="accentFill" cx="50" cy="12" r="2.8"/><circle class="accentFill" cx="21" cy="32" r="2.8"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>HFE × AI Product</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="strokeSquare" d="M12 12 H50 L21 32 H61"/><path class="strokeThin" d="M18 35 V10 L53 35 V9"/><circle class="accentFill" cx="50" cy="12" r="2.8"/><circle class="accentFill" cx="21" cy="32" r="2.8"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="strokeSquare" stroke-width="5.8" d="M12 12 H50 L21 32 H61"/><path class="strokeThin" stroke-width="4.6" d="M18 35 V10 L53 35 V9"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 72 44" width="38"><path class="strokeSquare" d="M12 12 H50 L21 32 H61"/><path class="strokeThin" d="M18 35 V10 L53 35 V9"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>What improved</strong>The mark feels less “perfectly engineered” because the N sits slightly behind the Z path. It has more interaction-flow energy.</p><p class="note"><strong>Concern</strong>More expressive, but maybe less premium than A2. The dots should be optional, probably not in favicon.</p></div>
+          <code>&lt;path d="M12 12 H50 L21 32 H61" /&gt;
+&lt;path d="M18 35 V10 L53 35 V9" /&gt;
+&lt;circle cx="50" cy="12" r="2.8" /&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant" id="c2-open-cut">
+        <header class="cardHeader">
+          <div>
+            <h2>C2. Open Modular ZN</h2>
+            <p class="stance">A clearer C: preserves modular cut vibe, but opens the mass so Z and N become more readable.</p>
+          </div>
+          <div class="tag">Best C update</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Open modular ZN logo">
+              <path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z" />
+              <path class="accentFill" d="M54 8h7v28h-7V18L33 36h-8l29-26v-2Z" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/><path class="accentFill" d="M54 8h7v28h-7V18L33 36h-8l29-26v-2Z"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>Product Developer</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/><path class="accentFill" d="M54 8h7v28h-7V18L33 36h-8l29-26v-2Z"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 72 44" width="38"><path class="fill" d="M10 8h40v6H27L10 29v7h42v-6H28l24-22h-9L18 31V8h-8Z"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>What improved</strong>Compared with C v1, this has clearer Z top/bottom and a visible N right pillar. More negative space, less heavy block.</p><p class="note"><strong>Concern</strong>Still the most “logo brand” direction. If you want personal/creative, pair it with a thinner final cut.</p></div>
+          <code>&lt;path d="M10 8h40v6H27L10 29v7h42v-6H28..." /&gt;
+&lt;path d="M54 8h7v28h-7V18L33 36..." /&gt;</code>
+        </div>
+      </article>
+
+      <article class="card variant" id="c3-ribbon-cut">
+        <header class="cardHeader">
+          <div>
+            <h2>C3. Ribbon Cut ZN</h2>
+            <p class="stance">A more creative C: a folded ribbon / system path that reads as Z first, N second.</p>
+          </div>
+          <div class="tag">Most distinctive</div>
+        </header>
+        <div class="specimen">
+          <div class="largeMark">
+            <svg viewBox="0 0 72 44" role="img" aria-label="Ribbon cut ZN logo">
+              <path class="fill" d="M10 9h43l-5 6H27L10 30v5h42l5-6H29l26-20h-8L20 29V9h-10Z" />
+              <path class="accentFill" d="M52 9h8v26h-8V21L37 35h-9l24-22V9Z" opacity=".96" />
+              <path d="M20 29l7 6h-7z" fill="rgba(255,255,255,.24)" />
+            </svg>
+          </div>
+          <div class="previewRow">
+            <div class="preview dark"><div class="label">Navbar / dark</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 9h43l-5 6H27L10 30v5h42l5-6H29l26-20h-8L20 29V9h-10Z"/><path class="accentFill" d="M52 9h8v26h-8V21L37 35h-9l24-22V9Z"/></svg></span><span class="navText"><strong>Zhuo Niu</strong><span>Designer-builder</span></span></div></div>
+            <div class="preview light"><div class="label">Navbar / light</div><div class="navbarMock"><span class="markBox"><svg viewBox="0 0 72 44" width="48"><path class="fill" d="M10 9h43l-5 6H27L10 30v5h42l5-6H29l26-20h-8L20 29V9h-10Z"/><path class="accentFill" d="M52 9h8v26h-8V21L37 35h-9l24-22V9Z"/></svg></span></div></div>
+            <div class="preview dark"><div class="label">Favicon scale</div><div class="faviconSet"><span class="favicon"><svg viewBox="0 0 72 44" width="24"><path class="fill" d="M10 9h43l-5 6H27L10 30v5h42l5-6H29l26-20h-8L20 29V9h-10Z"/></svg></span><span class="hoverDemo"><svg viewBox="0 0 72 44" width="38"><path class="fill" d="M10 9h43l-5 6H27L10 30v5h42l5-6H29l26-20h-8L20 29V9h-10Z"/></svg></span></div></div>
+          </div>
+          <div class="notes"><p class="note"><strong>What improved</strong>More creative and less generic than C2. The angled cuts make it feel like a constructed system instead of a block-letter monogram.</p><p class="note"><strong>Concern</strong>ZN readability is better than C v1, but still stylized. It may need a small “Zhuo Niu” wordmark nearby in some contexts.</p></div>
+          <code>&lt;path d="M10 9h43l-5 6H27L10 30v5h42..." /&gt;
+&lt;path d="M52 9h8v26h-8V21L37 35..." /&gt;</code>
+        </div>
+      </article>
+    </section>
+
+    <section class="recommendation">
+      <h2>My v2 take</h2>
+      <p><strong>A2</strong> is the best refinement if you want “clearly ZN + more personal + less bulky.” <strong>C2</strong> is the best refinement if you want the C vibe but need better legibility. My recommendation is to take <strong>A2's loose motion</strong> and <strong>C2's production-ready fill logic</strong>, then make a final hybrid for the actual site SVG.</p>
+    </section>
+  </main>
+
+  <script>
+    const variants = [...document.querySelectorAll('.variant')];
+    const darkBtn = document.querySelector('#darkBtn');
+    const lightBtn = document.querySelector('#lightBtn');
+    const compactBtn = document.querySelector('#compactBtn');
+    function setTheme(theme) {
+      variants.forEach(v => v.dataset.theme = theme);
+      darkBtn.setAttribute('aria-pressed', theme === 'dark');
+      lightBtn.setAttribute('aria-pressed', theme === 'light');
+    }
+    darkBtn.addEventListener('click', () => setTheme('dark'));
+    lightBtn.addEventListener('click', () => setTheme('light'));
+    compactBtn.addEventListener('click', () => {
+      const pressed = compactBtn.getAttribute('aria-pressed') === 'true';
+      compactBtn.setAttribute('aria-pressed', String(!pressed));
+      document.querySelectorAll('.largeMark svg').forEach(svg => svg.style.transform = !pressed ? 'scale(.72)' : 'scale(1)');
+    });
+  </script>
+</body>
+</html>

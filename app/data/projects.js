@@ -502,6 +502,13 @@ const backgrounds = {
     height: 540,
     opacity: 0.55,
   },
+  knowledgeos: {
+    src: knowledgeosHeroBg,
+    srcSet: `${knowledgeosHeroBg} 1600w`,
+    width: 1600,
+    height: 1000,
+    opacity: 0.45,
+  },
   'porsche-digital-interface': {
     src: porscheBackground,
     srcSet: `${porscheBackground} 1080w, ${porscheBackgroundLarge} 2160w`,
