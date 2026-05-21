@@ -2,7 +2,7 @@ export const etongueProject = {
   slug: 'etongue-sensory-platform',
   title: 'E-Tongue Sensory Decision Support Platform',
   description:
-    '一个以人为中心的决策支持平台，将 E-Tongue 机器味觉数据与半训练感官评审反馈结合，帮助食品开发团队比较原型并做出 Go / Tweak / Stop 决策。',
+    '一个决策支持平台，将 E-Tongue 机器味觉数据与半训练感官评审反馈结合，帮助食品开发团队比较原型，并判断下一步应该 Go、Tweak 还是 Stop。',
   roles: [
     'UX Researcher + UI Designer',
     'Human Factor Product Design',
@@ -13,7 +13,7 @@ export const etongueProject = {
   summary: {
     title: 'E-Tongue Sensory Platform',
     description:
-      '一个 Human Factor Product Design 案例，探索食品开发者如何结合机器味觉测量与评审感知数据，做出更清晰的早期产品决策。',
+      '一个 Human Factor Product Design 案例，研究如何把机器味觉数据和人工感官反馈用于更清晰的早期产品判断。',
     modelType: 'laptop',
     modelAlt: '笔记本电脑上展示的 E-Tongue 感官决策支持原型',
     quickFacts: [
@@ -33,8 +33,8 @@ export const etongueProject = {
       type: 'text',
       heading: '项目背景',
       body: [
-        '在 Human Factor Product Design 课程中，我们团队探索食品开发者如何通过结合两类非常不同的证据来评估产品样本：E-Tongue 机器味觉测量，以及半训练感官评审员的反馈。',
-        '设计挑战不只是展示更多数据。我们需要帮助团队比较样本、理解机器读数与人类感知之间的不一致，并从原始感官证据推进到更清晰的产品决策。',
+        '在 Human Factor Product Design 课程中，我们团队关注食品开发中的一个具体判断问题：当证据同时来自 E-Tongue 机器读数和半训练感官评审员时，团队该如何比较不同产品样本。',
+        '难点不是再加一个 dashboard。食品团队已经有数据，真正需要的是看清样本之间发生了什么变化、机器读数和人类感知在哪里不一致，以及这些证据是否足够支持原型继续推进。',
       ],
     },
     {
@@ -43,16 +43,16 @@ export const etongueProject = {
       heading: '理解感测系统',
       alt: '作为领域参考的商用 E-Tongue 味觉感测仪器',
       body: [
-        '项目从一个物理感测系统开始，而不只是一个屏幕。E-Tongue 工作流涉及样本准备、机器测量，以及解释对食品科学团队有意义但对更广泛产品利益相关者不一定透明的输出。',
-        '课程研究中的设备语境帮助我们围绕真实交接点设计平台：把技术测量转化为开发团队能够讨论、信任并采取行动的决策依据。',
+        '项目从物理感测流程开始，而不是从一张空白界面开始。E-Tongue 评估涉及样本准备、重复测量，以及对食品科学团队有意义但不一定容易被产品相关方读懂的输出。',
+        '这个设备语境决定了平台的重点：把技术测量变成开发团队可以讨论、可以追溯、也可以用于决策的依据。',
       ],
     },
     {
       type: 'text',
       heading: 'UX 问题',
       body: [
-        '机器味觉数据可以精确且可重复，但脱离领域语境后很难解释。人类评审反馈更丰富，也更接近真实感知，但它可能主观、缓慢，并且在参与者之间不一致。',
-        '我们将核心 UX 问题定义为决策支持：平台如何帮助食品开发者理解样本之间发生了什么变化、为什么重要，以及下一步应该 Go、Tweak 还是 Stop？',
+        '机器味觉数据可以精确且可重复，但它不会自己解释自己。评审反馈更接近人的真实感知，却也更慢、更主观，并且在参与者之间更容易出现差异。',
+        '我们把核心 UX 问题定义为决策支持：平台如何帮助食品开发者理解发生了什么变化、为什么重要，以及下一步应该 Go、Tweak 还是 Stop？',
       ],
     },
     {
@@ -61,21 +61,21 @@ export const etongueProject = {
       heading: '平台概念：ISSF Dashboard',
       alt: 'ISSF Dashboard 展示 E-Tongue + 半训练评审混合方法，并达到 94% 准确率',
       body: [
-        'ISSF Dashboard 将混合方法愿景转化为一个可操作界面。状态栏说明核心方法——Semi-trained panel + E-Tongue + GC-O——并展示准确率（94%）、相关性（r=0.91）和样本量（n=127），让食品开发者在比较原型之前就能看到清晰的证据可信度。',
-        '每个样本卡片在第一眼呈现 hedonic score，而 CATA attributes、intensity ratings 和 emotional profiles 面板则让开发者深入查看每个数字背后的具体证据。',
+        'ISSF Dashboard 给混合方法一个可工作的界面。状态栏展示证据模型 Semi-trained panel + E-Tongue + GC-O，并列出准确率（94%）、相关性（r=0.91）和样本量（n=127），让食品开发者在比较原型前先判断证据可信度。',
+        '每个样本卡片先呈现 hedonic score。CATA attributes、intensity ratings 和 emotional profiles 面板随后让团队检查分数背后的具体证据，而不是把数字当成黑箱结论。',
       ],
     },
     {
       type: 'timeline',
       heading: '流程时间线',
       body: [
-        '项目从领域发现推进到任务分析、概念选择、基于角色的工作流、早期原型和形成性可用性测试。',
+        '项目依次经过领域发现、任务分析、概念选择、基于角色的工作流、早期原型和形成性可用性测试。',
       ],
       items: [
         {
           title: '客户与领域发现',
           description:
-            '梳理感官评估流程、E-Tongue 数据输出，以及食品开发者在比较产品原型时需要做出的决策。',
+            '梳理感官评估流程、E-Tongue 数据输出，以及食品开发者在比较产品原型时需要做出的判断。',
         },
         {
           title: '任务分析',
@@ -85,12 +85,12 @@ export const etongueProject = {
         {
           title: '概念方向',
           description:
-            '比较 dashboard、comparison tool 和 decision-support 方向后，优先选择能把证据转化为可行动建议的工作流。',
+            '比较 dashboard、comparison tool 和 decision-support 方向后，选择最能把证据连接到产品判断的工作流。',
         },
         {
           title: '基于角色的原型',
           description:
-            '将体验拆分为评审员问卷和食品开发者分析视图，让每个角色聚焦在合适的信息粒度。',
+            '将体验拆分为评审员问卷和食品开发者分析视图，让每个角色看到合适的信息粒度。',
         },
         {
           title: '形成性测试',
@@ -105,16 +105,16 @@ export const etongueProject = {
       heading: '早期原型演示',
       alt: '早期 E-Tongue 感官平台原型的视频演示',
       body: [
-        '这段早期原型演示呈现了团队第一版端到端产品方向：基于角色的入口、样本工作流、感官问卷交互，以及用于解释结果的决策支持层雏形。',
-        '我们有意把它作为流程证据，而不是最终打磨完成的产品。这个原型的价值在于，它让工作流具体到可以被批评、测试和迭代。',
+        '这段早期原型演示呈现了团队第一版完整产品方向：基于角色的入口、样本工作流、感官问卷交互，以及用于解释结果的决策支持层雏形。',
+        '我们把它作为流程证据，而不是最终打磨完成的产品。这个原型的价值在于，它让工作流具体到可以被批评、测试和继续修改。',
       ],
     },
     {
       type: 'text',
       heading: '为混合感官证据设计',
       body: [
-        '平台概念连接了评审员任务（如 CATA 选择、强度评分、喜好评分和情绪反应）与开发者任务（如配置样本、查看机器测试、分析一致性和做出最终产品判断）。',
-        '我们没有让用户手动调和每张图表和每条反馈，而是强调解释层：信心、理由、一致性模式、异味检测，以及清晰的 Go / Tweak / Stop 建议。',
+        '平台把评审员任务（CATA 选择、强度评分、喜好评分和情绪反应）与开发者任务（配置样本、查看机器测试、分析一致性和做产品判断）连接在一起。',
+        '我们没有让用户手动调和每张图表和每条反馈，而是把体验重心放在解释层：信心、理由、一致性模式、异味检测，以及 Go / Tweak / Stop 建议。',
       ],
     },
     {
@@ -122,8 +122,8 @@ export const etongueProject = {
       heading: '混合证据的实际呈现',
       images: ['etongueTasteProfile', 'etongueIssfScore'],
       body: [
-        '这是同一套混合证据工作流的两个视角。Taste Profile 雷达图展示来自 Insent TS-5000Z 的 9 轴 E-Tongue 输出——从酸味到浓郁度——并保留具体测量条件（2:5 稀释、40°C、7000rpm）。ISSF Score 视图则把机器数据和评审反馈合并为一个可行动建议：Go、Tweak 或 Stop，并附带信心、风险等级和预计节省成本。',
-        '这两类界面让开发者能在原始感官信号和产品层决策之间切换，同时不丢失回溯证据的路径。',
+        '这两个视图从不同距离展示同一套证据。Taste Profile 雷达图展示来自 Insent TS-5000Z 的 9 轴 E-Tongue 输出，覆盖从酸味到浓郁度的变化，并保留测量条件（2:5 稀释、40°C、7000rpm）。ISSF Score 视图则把机器数据和评审反馈合并成 Go、Tweak 或 Stop 建议，并附带信心、风险等级和预计节省成本。',
+        '这样设计的目的，是让开发者能在原始感官信号和产品层判断之间切换，同时保留回溯证据的路径。',
       ],
     },
     {
@@ -136,8 +136,8 @@ export const etongueProject = {
         'etonguePrototypeConfigureProducts',
       ],
       body: [
-        '最终原型通过四个核心视图呈现 ISS-F 平台。Machine Testing 支持团队比较最多 12 个产品样本和 2 个乳制品对照，覆盖 E-Tongue、GC-O aroma 和化学成分数据。Analyze Results 将 CATA attributes、intensity ratings、hedonic scores 和 semi-trained panelists 的 emotional profiles 与机器读数放在一起。',
-        'Final Decision 将混合证据转化为 Go / Tweak / Stop 建议，每条建议都由 ISSF confidence scores、sensory profiles、trained-panel validation deltas 和预计节省成本支撑。Configure Products 支持管理员创建评估会话、管理评审员名单，并追踪产品从 Active 到 Complete 的状态。',
+        '最终原型把 ISS-F 平台组织成四个核心视图。Machine Testing 支持团队比较最多 12 个产品样本和 2 个乳制品对照，覆盖 E-Tongue、GC-O aroma 和化学成分数据。Analyze Results 将 CATA attributes、intensity ratings、hedonic scores 和 semi-trained panelists 的 emotional profiles 与机器读数放在一起。',
+        'Final Decision 根据混合证据给出 Go / Tweak / Stop 建议，并用 ISSF confidence scores、sensory profiles、trained-panel validation deltas 和预计节省成本支撑判断。Configure Products 支持管理员创建评估会话、管理评审员名单，并追踪产品从 Active 到 Complete 的状态。',
       ],
     },
     {
@@ -146,15 +146,15 @@ export const etongueProject = {
       heading: '从传感器读数到决策线索',
       alt: 'E-Tongue 传感器探针特写，用作感测工作流设计语境',
       body: [
-        '感测硬件让工作流背后的隐藏复杂度变得可见：多个探针、重复测量、校准预期和样本级比较，都服务于一个看似简单的问题——食品原型是否准备好继续推进。',
-        '这种复杂度塑造了我们的界面优先级：平台需要保留技术可信度，同时给用户一条从传感器证据到产品层解释的可读路径。',
+        '感测硬件让背后的工作变得可见：多个探针、校准预期、重复测量和样本级比较，都指向一个很实际的问题，食品原型是否已经准备好继续推进。',
+        '这直接影响了界面优先级。平台需要保留技术可信度，同时给用户一条从传感器证据走向产品解释的可读路径。',
       ],
     },
     {
       type: 'metrics',
       heading: '测试快照',
       body: [
-        '我们的可用性测试是形成性的：目标是在系统进一步打磨前，识别术语、量表设计和工作流预期可能失效的地方。',
+        '我们的可用性测试是形成性的。目标是在系统进一步打磨前，找出术语、量表设计和工作流预期可能失效的地方。',
       ],
       metrics: [
         { value: '3', label: '参与测试的评审员' },
@@ -175,7 +175,7 @@ export const etongueProject = {
         {
           label: '工作流预期',
           value:
-            '测试暴露了若干用户期待更清晰起始状态、更强进度提示和更一致交互模式的时刻。',
+            '测试暴露出用户期待更清晰起始状态、更强进度提示和更一致交互模式的地方。',
         },
       ],
     },
@@ -184,8 +184,8 @@ export const etongueProject = {
       image: 'etongueSensorCloseup',
       heading: '反思',
       body: [
-        '这个项目说明，复杂数据产品不会因为增加 dashboard 就自然变得可用。当人们需要在不确定性下做决策时，界面必须组织证据、呈现权衡，并解释为什么会产生某个建议。',
-        '对我们团队来说，最重要的转变是从数据可视化走向决策支持 UX：在机器测量、人类感知和下一步产品开发行动之间设计一个共享解释层。',
+        '这个项目让我更明确地看到：复杂数据产品不会因为图表准确就自然变得可用。当人们需要在不确定性下做决策时，界面必须组织证据、呈现权衡，并解释为什么某个建议值得被采纳。',
+        '对我们团队来说，关键转变是从数据可视化走向决策支持 UX。重点不再是展示每个信号，而是在机器测量、人类感知和下一步产品行动之间设计一个解释层。',
       ],
     },
   ],

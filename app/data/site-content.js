@@ -2,7 +2,7 @@ export const profileContent = {
   eyebrow: 'About me',
   heading: 'Designing the seam between people and complex systems.',
   description:
-    'I’m Zhuo (Prince) Niu, a designer-builder working across UI/UX, AI products, and human factors. I’m currently studying Human Factors Engineering at Tufts, with a Computer Engineering background from Purdue.\n\nI like building products at the point where a vague idea has to become real. That usually means asking what problem is worth solving, designing the first usable flow, testing the rough version, and then building enough of it for people to actually use.\n\nMy work sits between human factors, product design, and engineering. I care about the small moments that make a product feel clear instead of confusing: the prompt, the feedback, the recovery path, the first click that makes sense. Recently, I shipped UI work for the Porsche Communication Management system at Porsche Asia Pacific (contributing to a 30% reduction in load time), built a BLE-paired posture-tracking app, and released SayIt — a macOS voice-to-text utility distributed through GitHub Releases.\n\nI’m currently looking for product design, UX, and human factors roles focused on thoughtful products, refined UI/UX, and complex multimodal experiences.',
+    'I’m Zhuo (Prince) Niu, a designer-builder working across UI/UX, AI products, and human factors. I’m currently studying Human Factors Engineering at Tufts, after finishing my Computer Engineering degree at Purdue.\n\nI like the part of product work where an idea stops being abstract. That usually means deciding which problem is worth solving, shaping the first usable flow, testing a rough version, and building enough of it for someone to actually use.\n\nMy work sits between human factors, product design, and engineering. I care about the details that decide whether a product feels clear or confusing: the prompt, the feedback, the recovery path, the first click that makes sense. Recently, I shipped UI work for Porsche Communication Management at Porsche Asia Pacific, built a BLE-paired posture-tracking app, and released SayIt, a macOS voice-to-text utility distributed through GitHub Releases.\n\nI’m currently looking for product design, UX, and human factors roles around thoughtful products, refined UI/UX, and complex multimodal experiences.',
   ctaLabel: 'Send me a message',
 };
 
@@ -28,7 +28,7 @@ export const usesContent = {
     'The tools, frameworks, AI workflows, and hardware I use to design and ship things across web, mobile, and macOS.',
   heroTitle: 'Uses',
   heroDescription:
-    'A somewhat comprehensive list of the tools, apps, frameworks, and hardware I rely on day to day to design and ship things across web, mobile, and macOS.',
+    'The tools, apps, frameworks, and hardware I use day to day for design, web, mobile, macOS, and AI workflow work.',
   sections: [
     {
       heading: 'Design',
@@ -37,7 +37,7 @@ export const usesContent = {
           label: 'Figma',
           url: 'https://www.figma.com',
           description:
-            'My primary environment for UI design — high-fidelity prototypes, component specs, and most of the visual work I ship lives here.',
+            'My primary environment for UI design, polished prototypes, component specs, and most of the visual work I ship.',
         },
         {
           label: 'Design Systems',
@@ -64,7 +64,7 @@ export const usesContent = {
         {
           label: 'Human-Centered Design',
           description:
-            'The lens I bring to every project — start from the user’s context, not the feature list.',
+            'The lens I bring to every project: start from the user’s context, not the feature list.',
         },
         {
           label: 'User Research',
@@ -74,7 +74,7 @@ export const usesContent = {
         {
           label: 'Usability Testing',
           description:
-            'Structured task scenarios with metrics like success rate, completion time, errors, and ease ratings to drive iteration.',
+            'Structured tasks with metrics like success rate, completion time, errors, and ease ratings to guide iteration.',
         },
         {
           label: 'Typography',
@@ -107,7 +107,7 @@ export const usesContent = {
           label: 'JavaScript',
           url: 'https://developer.mozilla.org/docs/Web/JavaScript',
           description:
-            'The glue for everything browser-based — still where most of my web work starts.',
+            'The glue for everything browser-based. Most of my web work still starts here.',
         },
         {
           label: 'TypeScript',
@@ -119,13 +119,13 @@ export const usesContent = {
           label: 'React',
           url: 'https://react.dev/',
           description:
-            'My primary web UI library — the component model just clicks for me as a designer.',
+            'My primary web UI library. The component model just clicks for me as a designer.',
         },
         {
           label: 'React Native',
           url: 'https://reactnative.dev/',
           description:
-            'What I use for cross-platform mobile when I want one codebase across iOS and Android.',
+            'What I use for mobile apps that need one codebase across iOS and Android.',
         },
         {
           label: 'HTML & CSS',
@@ -136,7 +136,7 @@ export const usesContent = {
           label: 'Tailwind CSS',
           url: 'https://tailwindcss.com/',
           description:
-            'My default styling layer on new web projects — utility-first keeps me moving fast.',
+            'My default styling layer on new web projects. Utility classes keep iteration fast.',
         },
         {
           label: 'C / C++',
@@ -157,13 +157,13 @@ export const usesContent = {
           label: 'GitHub',
           url: 'https://github.com/',
           description:
-            'Where my code, releases, and CI live — including signed and notarized macOS distribution workflows.',
+            'Where my code, releases, and CI live, including signed and notarized macOS distribution workflows.',
         },
         {
           label: 'Firebase',
           url: 'https://firebase.google.com/',
           description:
-            'My go-to for auth and real-time data on quick mobile builds.',
+            'My go-to for auth and live data on quick mobile builds.',
         },
         {
           label: 'Expo',
@@ -244,12 +244,12 @@ export const usesContent = {
         {
           label: 'AI Agent Workflows',
           description:
-            'Designing how multiple agents and tools collaborate to complete a task end-to-end.',
+            'Designing how multiple agents and tools collaborate to complete a task from start to finish.',
         },
         {
           label: 'Human-AI Interaction',
           description:
-            'The design lens I bring to AI products — making model behavior legible, recoverable, and trustworthy.',
+            'The design lens I bring to AI products: make model behavior legible, recoverable, and trustworthy.',
         },
         {
           label: 'Whisper / Speech-to-Text',

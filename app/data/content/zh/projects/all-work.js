@@ -2,22 +2,22 @@ export const allWorkProject = {
   slug: 'all-work',
   title: '全部项目',
   description:
-    '一个更完整的作品索引，覆盖已发布产品、实习项目、原型和探索性构建，横跨产品设计、移动开发与 AI 工具。',
+    '一个作品索引，覆盖已发布产品、实习项目、原型和探索性构建，横跨产品设计、移动开发与 AI 工具。',
   roles: ['产品设计', 'UX 研究', '移动开发', 'AI 集成', '原型设计'],
   summary: {
     title: '全部项目',
     description:
-      '已发布产品、实习工作、原型和探索性构建的索引——主页精选案例背后的更完整作品集。',
+      '主页精选案例之外的项目索引，包括已发布产品、实习工作、原型和小型构建。',
     modelType: 'laptop',
     modelAlt: '额外作品集项目概览',
   },
   sections: [
     {
       type: 'text',
-      heading: '更完整的作品集',
+      heading: '其他项目',
       body: [
-        '主页上的精选案例覆盖的是我最希望完整讲清楚过程的工作。这个页面收纳其余内容：已发布产品、真实实习项目、课程驱动的案例研究，以及一些塑造我设计与工程思考方式的小型构建。',
-        '共同线索与精选项目一致：降低复杂度，让交互模型更清楚，并把想法推进到真正可以被测试或发布的形态。',
+        '主页上的精选案例是我最想展开讲过程的项目。这个页面收纳其余内容：已发布产品、真实实习项目、课程项目，以及一些影响我设计与工程思考的小型构建。',
+        '这些项目大多围绕同一个方向：把交互模型讲清楚，做出能验证的原型，并尽量把想法推进到可以测试或发布的状态。',
       ],
     },
     {
@@ -40,8 +40,8 @@ export const allWorkProject = {
         {
           title: 'KnowledgeOS',
           timeframe: '2026 年 5 月 · 运行中的系统',
-          description:
-            '由 agent 维护的个人知识系统，基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份构建。用于把日常对话、项目更新和研究沉淀为长期上下文。',
+            description:
+              '基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
           tags: ['AI Systems', 'Knowledge Architecture', 'Markdown', 'Automation'],
           href: '/zh/projects/knowledgeos',
         },
@@ -49,7 +49,7 @@ export const allWorkProject = {
           title: 'TrekAssist',
           timeframe: '2025 年 9 月 – 12 月 · Tufts',
           description:
-            '太阳能电子墨水屏国家公园导览设备。通过 9 位参与者、6 个户外场景任务进行可用性测试，并发现和处理 Low Power 可发现性问题。',
+            '太阳能电子墨水屏国家公园导览设备。通过 9 位参与者、6 个户外任务进行可用性测试，并发现和处理 Low Power 可发现性问题。',
           tags: ['Human Factors', 'Figma', 'Usability Testing', 'E-Ink'],
           href: '/zh/projects/trekassist',
         },
@@ -104,7 +104,7 @@ export const allWorkProject = {
       type: 'outcome',
       heading: '想进一步了解？',
       body: [
-        '如果这个页面里的某个项目与你正在招聘的角色相关，欢迎联系我——我很乐意讲解那些不适合放进公开案例页的流程、决策和权衡。',
+        '如果这个页面里的某个项目与你正在招聘的角色相关，欢迎联系我。我很乐意讲解那些不适合放进公开案例页的流程、决策和权衡。',
       ],
     },
   ],

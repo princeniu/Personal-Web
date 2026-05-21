@@ -2,22 +2,22 @@ export const allWorkProject = {
 slug: 'all-work',
     title: 'All Work',
     description:
-      'A broader index of shipped products, internships, prototypes, and exploratory builds across product design, mobile development, and AI tooling.',
+      'An index of shipped products, internships, prototypes, and exploratory builds across product design, mobile development, and AI tooling.',
     roles: ['Product Design', 'UX Research', 'Mobile Development', 'AI Integration', 'Prototyping'],
     summary: {
       title: 'All Work',
       description:
-        'An index of shipped products, internship work, prototypes, and exploratory builds — the broader portfolio behind the featured case studies.',
+        'Shipped products, internship work, prototypes, and smaller builds that sit behind the featured case studies.',
       modelType: 'laptop',
       modelAlt: 'Overview of additional portfolio work',
     },
     sections: [
       {
         type: 'text',
-        heading: 'The Broader Portfolio',
+        heading: 'The Rest of the Work',
         body: [
-          'The featured case studies on the homepage cover the work I most want to walk through end to end. This page holds the rest: shipped products, real internship work, course-driven case studies, and the smaller builds that shape how I think about design and engineering.',
-          'The common thread is the same as the featured work: reducing complexity, making interaction models clearer, and getting ideas into a form that can actually be tested or shipped.',
+          'The featured case studies on the homepage are the projects I most want to walk through in depth. This page holds the rest: shipped products, real internship work, course projects, and smaller builds that shaped how I think about design and engineering.',
+          'Most of this work sits in the same space: clearer interaction models, practical prototypes, and ideas pushed far enough that they can be tested or shipped.',
         ],
       },
       {
@@ -39,7 +39,7 @@ slug: 'all-work',
             title: 'KnowledgeOS',
             timeframe: 'May 2026 · Live System',
             description:
-              'Agent-maintained personal knowledge system built on Markdown, Obsidian, Hermes Agent, cron workflows, and Git backup. Designed to turn daily conversations, project updates, and research into durable long-term context.',
+              'Personal knowledge system built on Markdown, Obsidian, Hermes Agent, cron workflows, and Git backup. It keeps useful project context from disappearing inside chat threads.',
             tags: ['AI Systems', 'Knowledge Architecture', 'Markdown', 'Automation'],
             href: '/projects/knowledgeos',
           },
@@ -63,7 +63,7 @@ slug: 'all-work',
             title: 'Posture Checker',
             timeframe: 'Sep 2024 – Dec 2024',
             description:
-              'Cross-platform React Native app paired with a custom BLE posture sensor. Real-time tracking, trends, and corrective push notifications.',
+              'React Native app paired with a custom BLE posture sensor. Live tracking, trends, and corrective push notifications.',
             tags: ['React Native', 'BLE', 'Firebase', 'Hardware'],
             href: '/projects/posture-checker',
           },
@@ -102,7 +102,7 @@ slug: 'all-work',
         type: 'outcome',
         heading: 'Want to dig deeper?',
         body: [
-          'If something on this page is relevant to a role you’re hiring for, get in touch — I’m happy to walk through process, decisions, and tradeoffs that don’t fit in a public case study.',
+          'If something on this page is relevant to a role you’re hiring for, get in touch. I’m happy to walk through process, decisions, and tradeoffs that don’t fit in a public case study.',
         ],
       },
     ],
