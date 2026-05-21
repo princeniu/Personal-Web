@@ -65,7 +65,7 @@ export const knowledgeosProject = {
       },
       {
         type: 'image',
-        image: 'knowledgeosArchitecture',
+        image: 'knowledgeosArchitectureZh',
         heading: '系统架构：本地真相来源，Agent 维护层',
         alt: 'KnowledgeOS 系统架构图，含输入层、agent 维护层、Markdown 知识库和衍生输出',
         body: [
@@ -75,7 +75,7 @@ export const knowledgeosProject = {
       },
       {
         type: 'image',
-        image: 'knowledgeosVaultStructure',
+        image: 'knowledgeosVaultStructureZh',
         heading: '设计 Agent 工作流',
         alt: 'KnowledgeOS 知识库结构与 agent 工作流，用于评估、分类、更新和审查知识',
         body: [
@@ -85,7 +85,7 @@ export const knowledgeosProject = {
       },
       {
         type: 'image',
-        image: 'knowledgeosCompiledTruth',
+        image: 'knowledgeosCompiledTruthZh',
         heading: '从保存的笔记到维护化的判断',
         alt: '一份脱敏的 KnowledgeOS 项目记忆页面，展示当前判断、证据时间线和关联关系',
         body: [
@@ -95,7 +95,7 @@ export const knowledgeosProject = {
       },
       {
         type: 'image',
-        image: 'knowledgeosWeeklyReview',
+        image: 'knowledgeosWeeklyReviewZh',
         heading: '审查循环作为产品基础设施',
         alt: 'KnowledgeOS 每周审查或维护审计产物，展示自动化综合与结构检查',
         body: [

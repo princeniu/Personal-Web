@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">KnowledgeOS review and audit loop</title>
+  <desc id="desc">A sanitized dark mockup showing KnowledgeOS daily capture, weekly review, maintenance audit, HTML artifact generation, and Git backup loop.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505"/><stop offset="1" stop-color="#15100a"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity="0.45"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#e8a838"/></marker>
+    <style>.font{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title{font-size:42px;font-weight:700;fill:#f7f7f7;letter-spacing:-.03em}.sub{font-size:18px;fill:#a1a1aa}.h{font-size:22px;font-weight:700;fill:#f7f7f7}.label{font-size:16px;font-weight:650;fill:#f4f4f5}.small{font-size:14px;fill:#a1a1aa}.tiny{font-size:12px;fill:#85858f}.gold{fill:#e8a838}.panel{fill:#101012;stroke:#2b2b31;stroke-width:1.2}.card{fill:#151518;stroke:#29292f;stroke-width:1}.accent{fill:rgba(232,168,56,.10);stroke:rgba(232,168,56,.42);stroke-width:1}.line{fill:none;stroke:#e8a838;stroke-width:2.2;marker-end:url(#arrow);opacity:.78}</style>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <g class="font">
+    <rect x="72" y="58" width="1456" height="884" rx="34" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.08)"/>
+    <text x="118" y="132" class="title">把审查循环作为产品基础设施</text>
+    <text x="118" y="170" class="sub">KnowledgeOS 通过定期综合和审计，让知识库在增长后仍然有用。</text>
+
+    <g filter="url(#shadow)">
+      <rect x="140" y="260" width="1320" height="560" rx="28" class="panel"/>
+
+      <rect x="210" y="350" width="220" height="150" rx="20" class="card"/>
+      <text x="240" y="390" class="label">每日采集</text>
+      <text x="240" y="426" class="small">高价值事件</text>
+      <text x="240" y="454" class="small">变成轻量级</text>
+      <text x="240" y="482" class="small">结构化记录。</text>
+
+      <rect x="530" y="350" width="220" height="150" rx="20" class="accent"/>
+      <text x="560" y="390" class="label gold">每周综合</text>
+      <text x="560" y="426" class="small">模式和状态</text>
+      <text x="560" y="454" class="small">变化会更新</text>
+      <text x="560" y="482" class="small">当前判断。</text>
+
+      <rect x="850" y="350" width="220" height="150" rx="20" class="card"/>
+      <text x="880" y="390" class="label">维护审计</text>
+      <text x="880" y="426" class="small">检查链接、来源、</text>
+      <text x="880" y="454" class="small">标记、结构，</text>
+      <text x="880" y="482" class="small">以及备份健康度。</text>
+
+      <rect x="1170" y="350" width="220" height="150" rx="20" class="card"/>
+      <text x="1200" y="390" class="label">衍生产物</text>
+      <text x="1200" y="426" class="small">HTML 审查、</text>
+      <text x="1200" y="454" class="small">职业要点、</text>
+      <text x="1200" y="482" class="small">Git 恢复。</text>
+
+      <path d="M 438 425 C 470 425 492 425 522 425" class="line"/>
+      <path d="M 758 425 C 790 425 812 425 842 425" class="line"/>
+      <path d="M 1078 425 C 1110 425 1132 425 1162 425" class="line"/>
+
+      <rect x="260" y="610" width="1080" height="96" rx="20" class="accent"/>
+      <text x="302" y="652" class="label gold">运维原则</text>
+      <text x="302" y="684" class="small">系统不只是记忆。它会定期检查自己的记忆是否仍然有序、连接、有来源支撑，并且有用。</text>
+    </g>
+  </g>
+</svg>

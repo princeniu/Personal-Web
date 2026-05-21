@@ -1,5 +1,5 @@
 export const allWorkProject = {
-slug: 'all-work',
+    slug: 'all-work',
     title: 'All Work',
     description:
       'An index of shipped products, internships, prototypes, and exploratory builds across product design, mobile development, and AI tooling.',
@@ -68,11 +68,12 @@ slug: 'all-work',
             href: '/projects/posture-checker',
           },
           {
-            title: 'AI-Driven Multimodal UX (China GPI Tech)',
-            timeframe: 'Jun 2023 – Aug 2023 · Internship',
+            title: 'E-Tongue Sensory Platform',
+            timeframe: '2025 · Human Factor Product Design',
             description:
-              'Designed multimodal UX flows blending voice, touch, and GUI. Refined NLP voice commands, lifting speech recognition accuracy to 95%.',
-            tags: ['Multimodal UX', 'NLP', 'Voice Interaction'],
+              'Decision-support prototype that combines E-Tongue taste measurements with semi-trained panel feedback to help food teams compare samples and choose Go, Tweak, or Stop.',
+            tags: ['Human Factors', 'Decision-Support UX', 'Figma', 'Usability Testing'],
+            href: '/projects/etongue-sensory-platform',
           },
           {
             title: 'Little Lemon Restaurant',
@@ -81,13 +82,6 @@ slug: 'all-work',
               'Responsive booking and ordering experience refined through user research and usability testing. Google UX Design Certificate capstone.',
             tags: ['UX Design', 'Figma', 'Responsive'],
             href: '/projects/little-lemon',
-          },
-          {
-            title: 'Meta iOS Developer · Capstone',
-            timeframe: '2024 · Coursera',
-            description:
-              'Native iOS work covering Swift, Core Data, version control, and product-level UI/UX research as part of the Meta iOS Developer Professional Certificate.',
-            tags: ['Swift', 'Core Data', 'iOS'],
           },
           {
             title: 'Private & Client Work',

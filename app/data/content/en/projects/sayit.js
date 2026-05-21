@@ -164,7 +164,8 @@ export const sayitProject = {
       },
       {
         type: 'outcome',
-        image: 'sayitBrand',
+        image: 'knowledgeosReflectionBg',
+        backgroundOverlayOpacity: 0.72,
         heading: 'Reflection',
         body: [
           'SayIt is the project where I stopped designing for a deck and started designing for a binary. Popover density, HUD timing, model choice, and permission copy all had to answer the same question: does this still feel like a system utility, or does it feel like an app?',

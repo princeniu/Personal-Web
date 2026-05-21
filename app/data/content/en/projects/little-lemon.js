@@ -107,7 +107,8 @@ export const littleLemonProject = {
     },
     {
       type: 'outcome',
-      image: 'littleLemonHero',
+      image: 'knowledgeosReflectionBg',
+      backgroundOverlayOpacity: 0.72,
       heading: 'Reflection',
       body: [
         'Little Lemon taught me that the UX process is not a sequence to perform for a case study. It is a way to keep compressing the problem until the interface only contains what has earned its place.',

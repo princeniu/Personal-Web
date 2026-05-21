@@ -107,7 +107,8 @@ export const littleLemonProject = {
     },
     {
       type: 'outcome',
-      image: 'littleLemonHero',
+      image: 'knowledgeosReflectionBg',
+      backgroundOverlayOpacity: 0.72,
       heading: '反思',
       body: [
         'Little Lemon 让我意识到，UX 流程不是为了案例展示而表演的一套步骤。它更像一种持续压缩问题的方法，直到界面里只剩下有理由存在的东西。',

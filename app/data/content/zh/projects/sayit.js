@@ -128,7 +128,8 @@ export const sayitProject = {
       },
       {
         type: 'outcome',
-        image: 'sayitBrand',
+        image: 'knowledgeosReflectionBg',
+        backgroundOverlayOpacity: 0.72,
         heading: '反思',
         body: [
           'SayIt 是我从「为幻灯片做设计」转向「为二进制文件做设计」的项目。popover 密度、HUD 时机、模型选择、权限文案都要回答同一个问题：这仍然像一个系统工具，还是开始像一个 App？',

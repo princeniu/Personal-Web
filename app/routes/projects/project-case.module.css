@@ -179,6 +179,7 @@
 }
 
 .metricCard {
+  min-width: 0;
   border: 1px solid color-mix(in lab, var(--text) 16%, transparent);
   border-radius: 16px;
   padding: var(--spaceL);
@@ -188,9 +189,11 @@
 .metricValue {
   display: block;
   color: var(--accent);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
   line-height: 1;
   margin-bottom: var(--spaceS);
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .metricLabel {

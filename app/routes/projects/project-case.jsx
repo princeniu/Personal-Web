@@ -224,7 +224,7 @@ const ProjectMetrics = ({ section }) => (
       <div
         className={styles.metricsGrid}
         style={{
-          '--cols-desktop': Math.min(5, section.metrics.length),
+          '--cols-desktop': Math.min(4, section.metrics.length),
           '--cols-laptop': Math.min(3, section.metrics.length),
         }}
       >

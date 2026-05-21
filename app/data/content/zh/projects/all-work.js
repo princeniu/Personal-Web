@@ -40,8 +40,8 @@ export const allWorkProject = {
         {
           title: 'KnowledgeOS',
           timeframe: '2026 年 5 月 · 运行中的系统',
-            description:
-              '基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
+          description:
+            '基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
           tags: ['AI Systems', 'Knowledge Architecture', 'Markdown', 'Automation'],
           href: '/zh/projects/knowledgeos',
         },
@@ -70,11 +70,12 @@ export const allWorkProject = {
           href: '/zh/projects/posture-checker',
         },
         {
-          title: 'AI-Driven Multimodal UX (China GPI Tech)',
-          timeframe: '2023 年 6 月 – 8 月 · 实习',
+          title: 'E-Tongue Sensory Platform',
+          timeframe: '2025 · Human Factor Product Design',
           description:
-            '设计融合语音、触控和 GUI 的多模态 UX 流程。优化 NLP 语音指令，将语音识别准确率提升到 95%。',
-          tags: ['Multimodal UX', 'NLP', 'Voice Interaction'],
+            '结合 E-Tongue 机器味觉数据和半训练感官评审反馈的决策支持原型，帮助食品团队比较样本并判断下一步 Go、Tweak 还是 Stop。',
+          tags: ['Human Factors', 'Decision-Support UX', 'Figma', 'Usability Testing'],
+          href: '/zh/projects/etongue-sensory-platform',
         },
         {
           title: 'Little Lemon Restaurant',
@@ -83,13 +84,6 @@ export const allWorkProject = {
             '通过用户研究和可用性测试迭代的响应式餐厅预约与点餐体验。Google UX Design Certificate capstone。',
           tags: ['UX Design', 'Figma', 'Responsive'],
           href: '/zh/projects/little-lemon',
-        },
-        {
-          title: 'Meta iOS Developer · Capstone',
-          timeframe: '2024 · Coursera',
-          description:
-            '原生 iOS 项目，覆盖 Swift、Core Data、版本控制，以及 Meta iOS Developer Professional Certificate 中的产品级 UI/UX 研究。',
-          tags: ['Swift', 'Core Data', 'iOS'],
         },
         {
           title: 'Private & Client Work',

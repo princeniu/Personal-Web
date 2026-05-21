@@ -74,12 +74,20 @@ import sayitIphoneMic from '~/assets/sayit-iphone-mic.jpg';
 
 import knowledgeosArchitecture from '~/assets/knowledgeos-architecture.webp';
 import knowledgeosArchitecturePlaceholder from '~/assets/knowledgeos-architecture-placeholder.jpg';
+import knowledgeosArchitectureZh from '~/assets/knowledgeos-architecture-zh.webp';
+import knowledgeosArchitectureZhPlaceholder from '~/assets/knowledgeos-architecture-zh-placeholder.jpg';
 import knowledgeosVaultStructure from '~/assets/knowledgeos-vault-structure.webp';
 import knowledgeosVaultStructurePlaceholder from '~/assets/knowledgeos-vault-structure-placeholder.jpg';
+import knowledgeosVaultStructureZh from '~/assets/knowledgeos-vault-structure-zh.webp';
+import knowledgeosVaultStructureZhPlaceholder from '~/assets/knowledgeos-vault-structure-zh-placeholder.jpg';
 import knowledgeosCompiledTruth from '~/assets/knowledgeos-compiled-truth.webp';
 import knowledgeosCompiledTruthPlaceholder from '~/assets/knowledgeos-compiled-truth-placeholder.jpg';
+import knowledgeosCompiledTruthZh from '~/assets/knowledgeos-compiled-truth-zh.webp';
+import knowledgeosCompiledTruthZhPlaceholder from '~/assets/knowledgeos-compiled-truth-zh-placeholder.jpg';
 import knowledgeosWeeklyReview from '~/assets/knowledgeos-weekly-review.webp';
 import knowledgeosWeeklyReviewPlaceholder from '~/assets/knowledgeos-weekly-review-placeholder.jpg';
+import knowledgeosWeeklyReviewZh from '~/assets/knowledgeos-weekly-review-zh.webp';
+import knowledgeosWeeklyReviewZhPlaceholder from '~/assets/knowledgeos-weekly-review-zh-placeholder.jpg';
 import knowledgeosHeroBg from '~/assets/knowledgeos-hero-bg.webp';
 import knowledgeosReflectionBg from '~/assets/knowledgeos-reflection-bg.webp';
 import knowledgeosHeroBannerZh from '~/assets/knowledgeos-hero-banner-zh.webp';
@@ -148,10 +156,24 @@ const imageAssets = {
     width: 1600,
     height: 1000,
   },
+  knowledgeosArchitectureZh: {
+    src: knowledgeosArchitectureZh,
+    srcSet: `${knowledgeosArchitectureZh} 1600w`,
+    placeholder: knowledgeosArchitectureZhPlaceholder,
+    width: 1600,
+    height: 1000,
+  },
   knowledgeosVaultStructure: {
     src: knowledgeosVaultStructure,
     srcSet: `${knowledgeosVaultStructure} 1600w`,
     placeholder: knowledgeosVaultStructurePlaceholder,
+    width: 1600,
+    height: 1000,
+  },
+  knowledgeosVaultStructureZh: {
+    src: knowledgeosVaultStructureZh,
+    srcSet: `${knowledgeosVaultStructureZh} 1600w`,
+    placeholder: knowledgeosVaultStructureZhPlaceholder,
     width: 1600,
     height: 1000,
   },
@@ -162,10 +184,24 @@ const imageAssets = {
     width: 1600,
     height: 1000,
   },
+  knowledgeosCompiledTruthZh: {
+    src: knowledgeosCompiledTruthZh,
+    srcSet: `${knowledgeosCompiledTruthZh} 1600w`,
+    placeholder: knowledgeosCompiledTruthZhPlaceholder,
+    width: 1600,
+    height: 1000,
+  },
   knowledgeosWeeklyReview: {
     src: knowledgeosWeeklyReview,
     srcSet: `${knowledgeosWeeklyReview} 1600w`,
     placeholder: knowledgeosWeeklyReviewPlaceholder,
+    width: 1600,
+    height: 1000,
+  },
+  knowledgeosWeeklyReviewZh: {
+    src: knowledgeosWeeklyReviewZh,
+    srcSet: `${knowledgeosWeeklyReviewZh} 1600w`,
+    placeholder: knowledgeosWeeklyReviewZhPlaceholder,
     width: 1600,
     height: 1000,
   },
