@@ -1,6 +1,6 @@
 export const profileContent = {
   eyebrow: '关于我',
-  heading: '在人因与复杂系统的接缝处做设计。',
+  heading: '在人与系统之间做设计。',
   description:
     '我是牛拙Prince，做 UI/UX、AI 产品和人因工程交叉方向的 designer-builder。目前在 Tufts 读 Human Factors Engineering 硕士，本科是 Purdue 计算机工程。\n\n我喜欢产品从抽象想法变成真实东西的那个阶段：判断问题值不值得做，画出第一个能走通的流程，拿粗糙版本去测试，然后把它继续做成别人真的能用的东西。\n\n我的工作介于人因、产品设计和工程之间。我关注那些决定产品清不清楚的细节：提示出现的时机、反馈的方式、出错后的恢复路径，还有用户第一次点击时能不能马上理解。最近我交付了 Porsche Asia Pacific 的 PCM 车载界面 UI 工作，做过一个 BLE 配对的姿势追踪 App，也通过 GitHub Releases 发布了 SayIt，一个运行在 macOS 上的语音转文字工具。\n\n我正在寻找产品设计、UX 和人因方向的机会，尤其关注打磨到位的产品、细致的 UI/UX 和复杂的多模态体验。',
   ctaLabel: '联系我',
