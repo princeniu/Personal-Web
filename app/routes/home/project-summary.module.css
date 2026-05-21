@@ -635,29 +635,69 @@
 }
 
 @media (--mediaMobile) {
+  .knowledgePreview {
+    width: min(100%, 390px);
+    aspect-ratio: auto;
+    margin-bottom: var(--space2XL);
+  }
+
   .knowledgePanel {
-    width: 90%;
-    min-height: 72%;
-    padding: var(--spaceL);
-    gap: var(--spaceM);
+    width: 100%;
+    min-height: 0;
+    padding: var(--spaceM);
+    gap: var(--spaceS);
+    border-radius: 24px;
   }
 
   .knowledgeHeader {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: var(--spaceS);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    font-size: 0.72rem;
+  }
+
+  .knowledgeHeroText {
+    gap: 6px;
+    padding: var(--spaceS) 0;
   }
 
   .knowledgeHeroText span {
-    font-size: clamp(2.6rem, 16vw, 4rem);
+    font-size: clamp(2rem, 11vw, 2.6rem);
+    white-space: nowrap;
+  }
+
+  .knowledgeHeroText small {
+    max-width: 28ch;
+    font-size: 0.76rem;
   }
 
   .knowledgeFlow {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .knowledgeFlow div {
-    width: 100%;
+    width: auto;
+    padding: 10px 8px;
+    border-radius: 14px;
+  }
+
+  .knowledgeFlow strong {
+    font-size: 0.72rem;
+  }
+
+  .knowledgeFlow span {
+    display: none;
+  }
+
+  .knowledgeFooter {
+    gap: 6px;
+    font-size: 0.66rem;
+  }
+
+  .knowledgeFooter span {
+    padding: 5px 7px;
   }
 }
 
