@@ -181,10 +181,56 @@ export function ProjectSummary({
     );
   }
 
+  function renderKnowledgeSystemPreview(visible) {
+    return (
+      <div
+        className={styles.knowledgePreview}
+        data-visible={visible}
+        role="img"
+        aria-label={model.alt}
+      >
+        <div className={styles.knowledgeGlow} aria-hidden />
+        <div className={styles.knowledgePanel}>
+          <div className={styles.knowledgeHeader}>
+            <span className={styles.knowledgeEyebrow}>Local-first memory layer</span>
+            <span className={styles.knowledgeStatus}>Live system</span>
+          </div>
+          <div className={styles.knowledgeHeroText}>
+            <span>
+              Knowledge<strong>OS</strong>
+            </span>
+            <small>Agent-maintained context for decisions, projects, and research.</small>
+          </div>
+          <div className={styles.knowledgeFlow} aria-hidden>
+            <div>
+              <strong>Capture</strong>
+              <span>conversations · work logs</span>
+            </div>
+            <div>
+              <strong>Synthesize</strong>
+              <span>current judgment · links</span>
+            </div>
+            <div>
+              <strong>Audit</strong>
+              <span>structure · backups</span>
+            </div>
+          </div>
+          <div className={styles.knowledgeFooter} aria-hidden>
+            <span>Markdown vault</span>
+            <span>Hermes Agent</span>
+            <span>Git-backed</span>
+            <span>Weekly review</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   function renderPreview(visible) {
     return (
       <div className={styles.preview}>
         {model.type === 'macosUtility' && renderMacOSUtilityPreview(visible)}
+        {model.type === 'knowledgeSystem' && renderKnowledgeSystemPreview(visible)}
         {model.type === 'laptop' && (
           <>
             {renderKatakana('laptop', visible)}

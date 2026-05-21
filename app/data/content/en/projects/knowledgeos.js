@@ -15,7 +15,7 @@ export const knowledgeosProject = {
       title: 'KnowledgeOS',
       description:
         'A personal knowledge system built with Markdown, Obsidian, Hermes Agent, cron workflows, and Git backup. It keeps useful project context from disappearing inside chat threads.',
-      modelType: 'laptop',
+      modelType: 'knowledgeSystem',
       modelAlt: 'KnowledgeOS system architecture and Markdown knowledge vault preview',
       quickFacts: [
         { label: 'Role', value: 'Designer-Builder / System Architect' },

@@ -11,10 +11,10 @@ import {
 
 export const featuredProjectSlugs = [
   'trekassist',
-  'etongue-sensory-platform',
+  'knowledgeos',
   'porsche-digital-interface',
   'sayit',
-  'posture-checker',
+  'etongue-sensory-platform',
 ];
 
 export const legacyProjectSlugRedirects = {

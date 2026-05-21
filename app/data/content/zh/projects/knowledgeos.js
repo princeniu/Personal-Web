@@ -7,7 +7,7 @@ export const knowledgeosProject = {
   summary: {
       title: 'KnowledgeOS',
       description: '一个基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
-      modelType: 'laptop',
+      modelType: 'knowledgeSystem',
       modelAlt: 'KnowledgeOS 系统架构与 Markdown 知识库预览',
       quickFacts: [
         { label: '角色', value: 'Designer-Builder / 系统架构师' },

@@ -39,10 +39,10 @@ test('featured project slugs point at real projects in display order', () => {
 
   assert.deepEqual(featuredProjectSlugs, [
     'trekassist',
-    'etongue-sensory-platform',
+    'knowledgeos',
     'porsche-digital-interface',
     'sayit',
-    'posture-checker',
+    'etongue-sensory-platform',
   ]);
 
   for (const slug of featuredProjectSlugs) {
