@@ -9,6 +9,17 @@ export const knowledgeosProject = {
       description: '一个基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
       modelType: 'knowledgeSystem',
       modelAlt: 'KnowledgeOS 系统架构与 Markdown 知识库预览',
+      preview: {
+        eyebrow: '本地优先记忆层',
+        status: '运行中',
+        subtitle: '由 AI agent 维护决策、项目和研究上下文。',
+        flowItems: [
+          { title: '采集', detail: '对话 · 工作记录' },
+          { title: '综合', detail: '当前判断 · 关联链接' },
+          { title: '审计', detail: '结构 · 备份' },
+        ],
+        footerItems: ['Markdown 知识库', 'Hermes Agent', 'Git 备份', '每周回顾'],
+      },
       quickFacts: [
         { label: '角色', value: 'Designer-Builder / 系统架构师' },
         { label: '方法', value: '信息架构、agent 工作流设计、自动化、审查机制' },

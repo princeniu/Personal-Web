@@ -17,6 +17,17 @@ export const knowledgeosProject = {
         'A personal knowledge system built with Markdown, Obsidian, Hermes Agent, cron workflows, and Git backup. It keeps useful project context from disappearing inside chat threads.',
       modelType: 'knowledgeSystem',
       modelAlt: 'KnowledgeOS system architecture and Markdown knowledge vault preview',
+      preview: {
+        eyebrow: 'Local-first memory layer',
+        status: 'Live system',
+        subtitle: 'Agent-maintained context for decisions, projects, and research.',
+        flowItems: [
+          { title: 'Capture', detail: 'conversations · work logs' },
+          { title: 'Synthesize', detail: 'current judgment · links' },
+          { title: 'Audit', detail: 'structure · backups' },
+        ],
+        footerItems: ['Markdown vault', 'Hermes Agent', 'Git-backed', 'Weekly review'],
+      },
       quickFacts: [
         { label: 'Role', value: 'Designer-Builder / System Architect' },
         {

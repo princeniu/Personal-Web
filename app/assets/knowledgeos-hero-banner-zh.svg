@@ -27,13 +27,13 @@
       从碎片信息到可维护的判断
     </text>
 
-    <text x="800" y="542" text-anchor="middle" font-size="20px" fill="#71717a" letter-spacing="-0.01em">
-      an agent-driven personal knowledge system
+    <text x="800" y="542" text-anchor="middle" font-size="20px" fill="#71717a" letter-spacing="0.02em">
+      由 AI agent 维护的个人知识系统
     </text>
 
-    <rect x="648" y="580" width="304" height="38" rx="19" fill="rgba(232,168,56,0.05)" stroke="rgba(232,168,56,0.12)" stroke-width="1"/>
-    <text x="800" y="605" text-anchor="middle" font-size="13px" fill="#e8a838" letter-spacing="0.08em">AGENT-MAINTAINED · LOCAL-FIRST</text>
+    <rect x="660" y="580" width="280" height="38" rx="19" fill="rgba(232,168,56,0.05)" stroke="rgba(232,168,56,0.12)" stroke-width="1"/>
+    <text x="800" y="605" text-anchor="middle" font-size="13px" fill="#e8a838" letter-spacing="0.08em">AGENT 维护 · 本地优先</text>
   </g>
 
-  <text x="800" y="940" text-anchor="middle" class="f" font-size="13px" fill="#52525b" letter-spacing="0.06em">OPERATIONAL · LOCAL-FIRST · MARKDOWN SOURCE OF TRUTH · CRON-BACKED</text>
+  <text x="800" y="940" text-anchor="middle" class="f" font-size="13px" fill="#52525b" letter-spacing="0.06em">运行中 · 本地优先 · MARKDOWN 真相来源 · CRON 备份</text>
 </svg>

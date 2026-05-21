@@ -163,6 +163,7 @@ export const Home = () => {
           key={project.slug}
           model={{
             alt: project.summary.modelAlt,
+            preview: project.summary.preview,
             textures: project.summary.textures,
             type: project.summary.modelType,
           }}

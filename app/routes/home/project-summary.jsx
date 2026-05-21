@@ -182,6 +182,19 @@ export function ProjectSummary({
   }
 
   function renderKnowledgeSystemPreview(visible) {
+    const preview = model.preview || {};
+    const flowItems = preview.flowItems || [
+      { title: 'Capture', detail: 'conversations · work logs' },
+      { title: 'Synthesize', detail: 'current judgment · links' },
+      { title: 'Audit', detail: 'structure · backups' },
+    ];
+    const footerItems = preview.footerItems || [
+      'Markdown vault',
+      'Hermes Agent',
+      'Git-backed',
+      'Weekly review',
+    ];
+
     return (
       <div
         className={styles.knowledgePreview}
@@ -192,34 +205,32 @@ export function ProjectSummary({
         <div className={styles.knowledgeGlow} aria-hidden />
         <div className={styles.knowledgePanel}>
           <div className={styles.knowledgeHeader}>
-            <span className={styles.knowledgeEyebrow}>Local-first memory layer</span>
-            <span className={styles.knowledgeStatus}>Live system</span>
+            <span className={styles.knowledgeEyebrow}>
+              {preview.eyebrow || 'Local-first memory layer'}
+            </span>
+            <span className={styles.knowledgeStatus}>{preview.status || 'Live system'}</span>
           </div>
           <div className={styles.knowledgeHeroText}>
             <span>
               Knowledge<strong>OS</strong>
             </span>
-            <small>Agent-maintained context for decisions, projects, and research.</small>
+            <small>
+              {preview.subtitle ||
+                'Agent-maintained context for decisions, projects, and research.'}
+            </small>
           </div>
           <div className={styles.knowledgeFlow} aria-hidden>
-            <div>
-              <strong>Capture</strong>
-              <span>conversations · work logs</span>
-            </div>
-            <div>
-              <strong>Synthesize</strong>
-              <span>current judgment · links</span>
-            </div>
-            <div>
-              <strong>Audit</strong>
-              <span>structure · backups</span>
-            </div>
+            {flowItems.map(item => (
+              <div key={item.title}>
+                <strong>{item.title}</strong>
+                <span>{item.detail}</span>
+              </div>
+            ))}
           </div>
           <div className={styles.knowledgeFooter} aria-hidden>
-            <span>Markdown vault</span>
-            <span>Hermes Agent</span>
-            <span>Git-backed</span>
-            <span>Weekly review</span>
+            {footerItems.map(item => (
+              <span key={item}>{item}</span>
+            ))}
           </div>
         </div>
       </div>
