@@ -23,13 +23,26 @@ const Carousel = lazy(() =>
 
 const imageSizes = `(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`;
 
-const urlRegex = /(https?:\/\/[^\s.,;:!?)]+)/;
+const urlRegex = /(https?:\/\/[^\s.,;:!?)]+)/g;
 
 const renderBody = body =>
   body?.map((paragraph, i) => {
-    const parts = paragraph.split(urlRegex);
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+    const regex = new RegExp(urlRegex.source, urlRegex.flags);
+    while ((match = regex.exec(paragraph)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(paragraph.slice(lastIndex, match.index));
+      }
+      parts.push(match[0]);
+      lastIndex = regex.lastIndex;
+    }
+    if (lastIndex < paragraph.length) {
+      parts.push(paragraph.slice(lastIndex));
+    }
     const children = parts.map((part, j) =>
-      urlRegex.test(part) ? (
+      /^https?:\/\//.test(part) ? (
         <a key={j} href={part} target="_blank" rel="noopener noreferrer">
           {part.replace(/^https?:\/\//, '')}
         </a>
