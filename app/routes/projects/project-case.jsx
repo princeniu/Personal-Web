@@ -23,7 +23,7 @@ const Carousel = lazy(() =>
 
 const imageSizes = `(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`;
 
-const urlRegex = /(https?:\/\/[^\s.,;:!?)]+)/g;
+const urlRegex = /(https?:\/\/[^\s.,;:!?)]+)/;
 
 const renderBody = body =>
   body?.map((paragraph, i) => {
