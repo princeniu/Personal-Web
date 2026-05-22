@@ -202,6 +202,7 @@ export const knowledgeosProject = {
           'After building KnowledgeOS as a live personal system, I extracted the reusable layer into KnowledgeOS Starter Vault: a privacy-safe, configurable template for people who want their own agent-maintained knowledge system.',
           'The starter vault does not copy my private taxonomy or personal notes. Instead, it packages the transferable infrastructure: capture protocol, memory rules, source-backed knowledge schema, taxonomy configuration, daily and weekly review templates, optional domain packs, privacy scanning, and wikilink validation.',
           'This turns the project from a private productivity system into a reusable design artifact: a way to explore how personal knowledge management changes when AI agents become responsible for maintenance, not just generation.',
+          'The KnowledgeOS Starter Vault is available as a public GitHub template: github.com/princeniu/KnowledgeOS',
         ],
       },
       {
