@@ -148,7 +148,7 @@ export const knowledgeosProject = {
           '在 KnowledgeOS 作为我的个人系统稳定运行后，我把其中可复用的一层抽离成了 KnowledgeOS Starter Vault：一个隐私安全、可配置的模板，面向想搭建 agent 维护型个人知识系统的人。',
           'Starter Vault 不复制我的私人分类或个人笔记，而是封装可迁移的基础设施：采集协议、记忆规则、有源知识结构、taxonomy 配置、每日与每周复盘模板、可选领域包、隐私扫描和 wikilink 检查。',
           '这让 KnowledgeOS 不只是一个私人效率系统，也变成了一个可复用的设计产物：它探索的是，当 AI agent 不只负责生成内容，而开始负责长期维护知识时，个人知识管理会如何变化。',
-          'KnowledgeOS Starter Vault 已作为公开 GitHub 模板发布：github.com/princeniu/KnowledgeOS',
+          'KnowledgeOS Starter Vault 已作为公开 GitHub 模板发布：https://github.com/princeniu/KnowledgeOS',
         ],
       },
       {

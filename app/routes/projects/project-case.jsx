@@ -23,10 +23,24 @@ const Carousel = lazy(() =>
 
 const imageSizes = `(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`;
 
+const urlRegex = /(https?:\/\/[^\s.,;:!?)]+)/g;
+
 const renderBody = body =>
-  body?.map(paragraph => (
-    <ProjectSectionText key={paragraph}>{paragraph}</ProjectSectionText>
-  ));
+  body?.map((paragraph, i) => {
+    const parts = paragraph.split(urlRegex);
+    const children = parts.map((part, j) =>
+      urlRegex.test(part) ? (
+        <a key={j} href={part} target="_blank" rel="noopener noreferrer">
+          {part.replace(/^https?:\/\//, '')}
+        </a>
+      ) : (
+        part
+      )
+    );
+    return (
+      <ProjectSectionText key={i}>{children}</ProjectSectionText>
+    );
+  });
 
 const renderImage = ({ image, alt, className, sizes = imageSizes, ...rest }) => (
   <Image
