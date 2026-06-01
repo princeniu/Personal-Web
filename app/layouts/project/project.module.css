@@ -174,7 +174,7 @@
   }
 
   .backgroundScrim {
-    --background1: color-mix(in lab, var(--background) var(--opacity), transparent);
+    --background1: color-mix(in lab, var(--background) 96%, transparent);
     --background2: var(--background);
 
     position: absolute;
@@ -182,10 +182,19 @@
     transition: var(--durationM) ease;
     transition-property: --background1, --background2;
     z-index: var(--zIndex1);
-    background: linear-gradient(var(--background1), var(--background2));
+    background: linear-gradient(
+      var(--background1) 0%,
+      color-mix(in lab, var(--background) 88%, transparent) 44%,
+      var(--background2) 100%
+    );
 
     @supports (background: linear-gradient(in lab, red, red)) {
-      background: linear-gradient(in lab, var(--background1), var(--background2));
+      background: linear-gradient(
+        in lab,
+        var(--background1) 0%,
+        color-mix(in lab, var(--background) 88%, transparent) 44%,
+        var(--background2) 100%
+      );
     }
   }
 
@@ -360,6 +369,8 @@
   }
 
   .sectionText {
+    max-width: 64ch;
+
     + a,
     + & {
       margin-top: var(--spaceL);

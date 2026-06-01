@@ -263,8 +263,8 @@
   grid-template-columns: auto 1fr auto;
   gap: var(--spaceM);
   align-items: center;
-  min-height: 44px;
-  padding: 0 var(--spaceM);
+  min-height: 48px;
+  padding: 8px var(--spaceM);
   border-bottom: 1px solid color-mix(in srgb, var(--textTitle) 10%, transparent);
   background: color-mix(in srgb, var(--background) 84%, transparent);
   color: var(--textLight);
@@ -324,8 +324,8 @@
 
 .sayitCanvas {
   position: relative;
-  min-height: 360px;
-  padding: var(--spaceXL);
+  min-height: 380px;
+  padding: calc(var(--spaceXL) + 4px);
 
   @media (--mediaMobile) {
     min-height: 300px;
@@ -344,8 +344,8 @@
 }
 
 .sayitHotkey {
-  top: var(--spaceXL);
-  right: var(--spaceXL);
+  top: calc(var(--spaceXL) + 4px);
+  right: calc(var(--spaceXL) + 4px);
   display: grid;
   grid-template-columns: auto auto;
   gap: 4px 8px;
@@ -360,14 +360,15 @@
 .sayitHotkey small {
   grid-column: 1 / -1;
   color: var(--textLight);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
   font-weight: var(--fontWeightRegular);
 }
 
 .sayitPopover {
   position: absolute;
-  left: 10%;
-  top: 17%;
+  left: 12%;
+  top: 19%;
   width: 48%;
   max-width: 320px;
   border-radius: 22px;
@@ -375,8 +376,8 @@
 }
 
 .sayitRecordingCard {
-  right: 10%;
-  bottom: 23%;
+  right: 12%;
+  bottom: 25%;
   width: 30%;
   min-width: 150px;
   padding: 10px;
@@ -411,11 +412,13 @@
 .sayitWaveform span:nth-child(5) { height: 18px; }
 
 .sayitTranscript {
-  left: 18%;
-  right: 12%;
-  bottom: var(--spaceXL);
+  left: 20%;
+  right: 14%;
+  bottom: calc(var(--spaceXL) + 6px);
   padding: 14px 18px;
   border-radius: 18px;
+  border-color: color-mix(in srgb, var(--textTitle) 8%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, #000 22%, transparent);
   color: var(--textTitle);
   font-size: var(--fontSizeBodyS);
   line-height: var(--lineHeightBody);

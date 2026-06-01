@@ -153,6 +153,7 @@
 
 .timelineDescription {
   margin: 0;
+  max-width: 64ch;
   color: var(--textLight);
   font-size: var(--fontSizeBodyM);
   line-height: 1.6;
