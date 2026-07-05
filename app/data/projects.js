@@ -238,6 +238,7 @@ const imageAssets = {
   etongueEarlyPrototype: {
     src: etongueEarlyPrototype,
     placeholder: etongueEarlyPrototypePlaceholder,
+    poster: etongueEarlyPrototypePoster,
     width: 1626,
     height: 1080,
   },

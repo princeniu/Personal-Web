@@ -63,6 +63,7 @@ const renderImage = ({ image, alt, className, sizes = imageSizes, ...rest }) => 
     width={image.width}
     height={image.height}
     placeholder={image.placeholder}
+    poster={image.poster}
     alt={alt}
     sizes={sizes}
     {...rest}

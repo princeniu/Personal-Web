@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider, themeStyles } from '../app/components/theme-provider';
 import '../app/reset.module.css';
 import '../app/global.module.css';
@@ -13,12 +14,14 @@ export const decorators = [
     }, [theme]);
 
     return (
-      <ThemeProvider theme={theme}>
-        <style>{themeStyles}</style>
-        <div id="story-root" className="storyRoot">
-          <Story />
-        </div>
-      </ThemeProvider>
+      <MemoryRouter>
+        <ThemeProvider theme={theme}>
+          <style>{themeStyles}</style>
+          <div id="story-root" className="storyRoot">
+            <Story />
+          </div>
+        </ThemeProvider>
+      </MemoryRouter>
     );
   },
 ];

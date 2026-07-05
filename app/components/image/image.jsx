@@ -3,6 +3,9 @@ import { Icon } from '~/components/icon';
 import { useTheme } from '~/components/theme-provider';
 import { useReducedMotion } from 'framer-motion';
 import { useHasMounted, useInViewport } from '~/hooks';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname } from '~/i18n/route';
+import { getUiStrings } from '~/i18n/ui';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { resolveSrcFromSrcSet } from '~/utils/image';
 import { classes, cssProps, numToMs } from '~/utils/style';
@@ -71,9 +74,12 @@ const ImageElements = ({
   height,
   noPauseButton,
   cover,
+  poster,
   ...rest
 }) => {
   const reduceMotion = useReducedMotion();
+  const location = useLocation();
+  const ui = getUiStrings(getLocaleFromPathname(location.pathname));
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [playing, setPlaying] = useState(!reduceMotion);
   const [videoSrc, setVideoSrc] = useState();
@@ -84,18 +90,22 @@ const ImageElements = ({
   const showFullRes = inViewport;
   const hasMounted = useHasMounted();
 
+  // Defer video loading until the element is actually in the viewport so
+  // offscreen videos never start downloading. Once resolved, the src sticks.
   useEffect(() => {
+    if (!isVideo || !inViewport || videoSrc) return;
+
     const resolveVideoSrc = async () => {
       const resolvedVideoSrc = await resolveSrcFromSrcSet({ srcSet, sizes });
       setVideoSrc(resolvedVideoSrc);
     };
 
-    if (isVideo && srcSet) {
+    if (srcSet) {
       resolveVideoSrc();
-    } else if (isVideo) {
+    } else {
       setVideoSrc(src);
     }
-  }, [isVideo, sizes, src, srcSet]);
+  }, [isVideo, inViewport, videoSrc, sizes, src, srcSet]);
 
   useEffect(() => {
     if (!videoRef.current || !videoSrc) return;
@@ -154,12 +164,14 @@ const ImageElements = ({
             muted
             loop
             playsInline
+            preload="none"
             className={styles.element}
             data-loaded={loaded}
             data-cover={cover}
             autoPlay={!reduceMotion}
             onLoadStart={onLoad}
             src={videoSrc}
+            poster={poster}
             aria-label={alt}
             ref={videoRef}
             {...rest}
@@ -167,7 +179,7 @@ const ImageElements = ({
           {!noPauseButton && (
             <Button className={styles.button} onClick={togglePlaying}>
               <Icon icon={playing ? 'pause' : 'play'} />
-              {playing ? 'Pause' : 'Play'}
+              {playing ? ui.pause : ui.play}
             </Button>
           )}
         </Fragment>
