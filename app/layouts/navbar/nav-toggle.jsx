@@ -1,13 +1,19 @@
 import { Button } from '~/components/button';
 import { Icon } from '~/components/icon';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname } from '~/i18n/route';
+import { getUiStrings } from '~/i18n/ui';
 import styles from './nav-toggle.module.css';
 
 export const NavToggle = ({ menuOpen, ...rest }) => {
+  const location = useLocation();
+  const ui = getUiStrings(getLocaleFromPathname(location.pathname));
+
   return (
     <Button
       iconOnly
       className={styles.toggle}
-      aria-label="Menu"
+      aria-label={ui.menu}
       aria-expanded={menuOpen}
       {...rest}
     >

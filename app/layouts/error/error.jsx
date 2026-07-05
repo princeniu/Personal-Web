@@ -7,29 +7,35 @@ import { DecoderText } from '~/components/decoder-text';
 import { Heading } from '~/components/heading';
 import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname, localizePath } from '~/i18n/route';
 import styles from './error.module.css';
 import { Image } from '~/components/image';
 import flatlineSkull from './error-flatline.svg';
 
 export function Error({ error }) {
   const flatlined = !error.status;
+  const location = useLocation();
+  const locale = getLocaleFromPathname(location.pathname);
+  const isZh = locale === 'zh';
 
   const getMessage = () => {
     switch (error.status) {
       case 404:
         return {
-          summary: 'Error: redacted',
-          message:
-            'This page could not be found. It either doesn’t exist or was deleted. Or perhaps you don’t exist and this webpage couldn’t find you.',
+          summary: isZh ? '错误：已删失' : 'Error: redacted',
+          message: isZh
+            ? '找不到这个页面。它可能不存在，也可能已被删除。又或者是你不存在，所以这个页面找不到你。'
+            : 'This page could not be found. It either doesn’t exist or was deleted. Or perhaps you don’t exist and this webpage couldn’t find you.',
         };
       case 405:
         return {
-          summary: 'Error: method denied',
+          summary: isZh ? '错误：方法不被允许' : 'Error: method denied',
           message: error.data,
         };
       default:
         return {
-          summary: 'Error: anomaly',
+          summary: isZh ? '错误：异常' : 'Error: anomaly',
           message: error.statusText || error.data || error.toString(),
         };
     }
@@ -45,10 +51,12 @@ export function Error({ error }) {
             __html: `
             [data-theme='dark'] {
               --primary: oklch(69.27% 0.242 25.41);
+              --primaryText: oklch(69.27% 0.242 25.41);
               --accent: oklch(69.27% 0.242 25.41);
             }
             [data-theme='light'] {
               --primary: oklch(56.29% 0.182 26.5);
+              --primaryText: oklch(56.29% 0.182 26.5);
               --accent: oklch(56.29% 0.182 26.5);
             }
           `,
@@ -106,7 +114,7 @@ export function Error({ error }) {
                     href="https://www.youtube.com/watch?v=EuQzHGcsjlA"
                     icon="chevron-right"
                   >
-                    Emotional support
+                    {isZh ? '情绪支持' : 'Emotional support'}
                   </Button>
                 ) : (
                   <Button
@@ -114,10 +122,10 @@ export function Error({ error }) {
                     iconHoverShift
                     className={styles.button}
                     data-visible={visible}
-                    href="/"
+                    href={localizePath('/', locale)}
                     icon="chevron-right"
                   >
-                    Back to homepage
+                    {isZh ? '回到首页' : 'Back to homepage'}
                   </Button>
                 )}
               </div>

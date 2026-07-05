@@ -66,7 +66,7 @@ export const Uses = () => {
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
             <ProjectTextRow stretch width="m">
-              <ProjectSectionHeading>System</ProjectSectionHeading>
+              <ProjectSectionHeading>{content.systemHeading}</ProjectSectionHeading>
               <Table>
                 <TableBody>
                   {content.system.map(item => (

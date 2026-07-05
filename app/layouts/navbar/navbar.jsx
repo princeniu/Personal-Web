@@ -8,6 +8,7 @@ import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { useEffect, useRef, useState } from 'react';
 import { getLocaleFromPathname, localizePath, stripLocaleFromPathname } from '~/i18n/route';
 import { localeLabels, supportedLocales } from '~/i18n/locales';
+import { getUiStrings } from '~/i18n/ui';
 import { cssProps, media, msToNum, numToMs } from '~/utils/style';
 import { NavToggle } from './nav-toggle';
 import { ThemeToggle } from './theme-toggle';
@@ -242,6 +243,7 @@ export const Navbar = () => {
 
 const LanguageToggle = ({ className, currentLocale, pathname, onClick }) => {
   const targetLocale = supportedLocales.find(locale => locale !== currentLocale) || 'en';
+  const ui = getUiStrings(currentLocale);
 
   return (
     <RouterLink
@@ -249,7 +251,7 @@ const LanguageToggle = ({ className, currentLocale, pathname, onClick }) => {
       prefetch="intent"
       className={className}
       to={localizePath(pathname, targetLocale)}
-      aria-label={`Switch language to ${localeLabels[targetLocale]}`}
+      aria-label={ui.switchLanguage(localeLabels[targetLocale])}
       onClick={onClick}
     >
       {currentLocale === 'zh' ? 'EN' : '中文'}
@@ -257,21 +259,26 @@ const LanguageToggle = ({ className, currentLocale, pathname, onClick }) => {
   );
 };
 
-const NavbarIcons = ({ desktop }) => (
-  <div className={styles.navIcons}>
-    {socialLinks.map(({ label, url, icon, download }) => (
-      <a
-        key={label}
-        data-navbar-item={desktop || undefined}
-        className={styles.navIconLink}
-        aria-label={label}
-        href={url}
-        target={download ? undefined : '_blank'}
-        rel={download ? undefined : 'noopener noreferrer'}
-        download={download || undefined}
-      >
-        <Icon className={styles.navIcon} icon={icon} />
-      </a>
-    ))}
-  </div>
-);
+const NavbarIcons = ({ desktop }) => {
+  const location = useLocation();
+  const isZh = getLocaleFromPathname(location.pathname) === 'zh';
+
+  return (
+    <div className={styles.navIcons}>
+      {socialLinks.map(({ label, zhLabel, url, icon, download }) => (
+        <a
+          key={label}
+          data-navbar-item={desktop || undefined}
+          className={styles.navIconLink}
+          aria-label={isZh && zhLabel ? zhLabel : label}
+          href={url}
+          target={download ? undefined : '_blank'}
+          rel={download ? undefined : 'noopener noreferrer'}
+          download={download || undefined}
+        >
+          <Icon className={styles.navIcon} icon={icon} />
+        </a>
+      ))}
+    </div>
+  );
+};

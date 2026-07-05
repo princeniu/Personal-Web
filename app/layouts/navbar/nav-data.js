@@ -51,6 +51,7 @@ export const socialLinks = [
   },
   {
     label: 'Resume (PDF)',
+    zhLabel: '简历（PDF）',
     url: '/resume.pdf',
     icon: 'resume',
     download: true,

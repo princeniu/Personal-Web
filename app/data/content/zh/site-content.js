@@ -279,6 +279,7 @@ export const usesContent = {
       ],
     },
   ],
+  systemHeading: '系统配置',
   system: [
     { label: '操作系统', value: 'macOS' },
     { label: '浏览器', value: 'Arc' },

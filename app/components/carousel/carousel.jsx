@@ -1,5 +1,8 @@
 import { animate, useReducedMotion } from 'framer-motion';
 import { useInViewport } from '~/hooks';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname } from '~/i18n/route';
+import { getUiStrings } from '~/i18n/ui';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Color,
@@ -52,6 +55,8 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
   const inViewport = useInViewport(canvas, true);
   const placeholderRef = useRef();
   const initSwipeX = useRef();
+  const location = useLocation();
+  const ui = getUiStrings(getLocaleFromPathname(location.pathname));
 
   const currentImageAlt = `Slide ${imageIndex + 1} of ${images.length}. ${
     images[imageIndex].alt
@@ -424,7 +429,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         <button
           className={styles.button}
           data-prev={true}
-          aria-label="Previous slide"
+          aria-label={ui.previousSlide}
           onClick={() => navigate({ direction: -1 })}
         >
           <ArrowLeft />
@@ -432,7 +437,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         <button
           className={styles.button}
           data-next={true}
-          aria-label="Next slide"
+          aria-label={ui.nextSlide}
           onClick={() => navigate({ direction: 1 })}
         >
           <ArrowRight />
@@ -442,9 +447,9 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
         {images.map((image, index) => (
           <button
             className={styles.navButton}
-            key={image.alt}
+            key={index}
             onClick={() => onNavClick(index)}
-            aria-label={`Jump to slide ${index + 1}`}
+            aria-label={ui.jumpToSlide(index + 1)}
             aria-pressed={index === imageIndex}
           />
         ))}

@@ -4,7 +4,8 @@ const strings = {
   en: {
     skipToMain: 'Skip to main content',
     menu: 'Menu',
-    toggleTheme: 'Toggle theme',
+    switchToLightTheme: 'Switch to light theme',
+    switchToDarkTheme: 'Switch to dark theme',
     pause: 'Pause',
     play: 'Play',
     previousSlide: 'Previous slide',
@@ -17,7 +18,8 @@ const strings = {
   zh: {
     skipToMain: '跳到主要内容',
     menu: '菜单',
-    toggleTheme: '切换主题',
+    switchToLightTheme: '切换到浅色主题',
+    switchToDarkTheme: '切换到深色主题',
     pause: '暂停',
     play: '播放',
     previousSlide: '上一张',

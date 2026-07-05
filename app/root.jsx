@@ -20,6 +20,7 @@ import { Progress } from '~/components/progress';
 import { getAlternateLinks } from '~/i18n/links';
 import { localeMeta } from '~/i18n/locales';
 import { getLocaleFromPathname, getPathnameWithoutTrailingSlash } from '~/i18n/route';
+import { getUiStrings } from '~/i18n/ui';
 import { getSessionSecrets } from '~/utils/session';
 import { personSchema, websiteSchema } from '~/utils/meta';
 import config from '~/config.json';
@@ -136,7 +137,7 @@ export default function App() {
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
           <Progress />
           <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
-            Skip to main content
+            {getUiStrings(locale).skipToMain}
           </VisuallyHidden>
           <Navbar />
           <main

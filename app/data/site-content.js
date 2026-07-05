@@ -239,15 +239,25 @@ export const usesContent = {
             'My daily driver for AI-assisted coding inside the terminal.',
         },
         {
+          label: 'n8n',
+          url: 'https://n8n.io/',
+          description:
+            'Visual workflow automation for wiring together APIs, triggers, and AI steps.',
+        },
+        {
+          label: 'Make (Integromat)',
+          url: 'https://www.make.com/',
+          description: 'Cross-app automation and integration orchestration.',
+        },
+        {
+          label: 'Hermes Agent',
+          description:
+            'My personal AI agent system for automation, workflows, and multi-agent orchestration.',
+        },
+        {
           label: 'RAG Systems',
           description:
             'How I ground LLM answers in private or domain-specific data when a product can’t rely on the model’s pre-training alone.',
-        },
-        {
-          label: 'Dify',
-          url: 'https://dify.ai/',
-          description:
-            'The platform I use to build agent workflows and chain LLM calls without writing all the orchestration glue from scratch.',
         },
         {
           label: 'AI Agent Workflows',
@@ -268,6 +278,7 @@ export const usesContent = {
       ],
     },
   ],
+  systemHeading: 'System',
   system: [
     { label: 'Operating system', value: 'macOS' },
     { label: 'Browser', value: 'Arc' },

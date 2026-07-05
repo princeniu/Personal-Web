@@ -1,11 +1,16 @@
 import { useId } from 'react';
 import { Button } from '~/components/button';
 import { useTheme } from '~/components/theme-provider';
+import { useLocation } from '@remix-run/react';
+import { getLocaleFromPathname } from '~/i18n/route';
+import { getUiStrings } from '~/i18n/ui';
 import styles from './theme-toggle.module.css';
 
 export const ThemeToggle = ({ isMobile, ...rest }) => {
   const id = useId();
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+  const ui = getUiStrings(getLocaleFromPathname(location.pathname));
   const maskId = `${id}theme-toggle-mask`;
 
   return (
@@ -13,7 +18,7 @@ export const ThemeToggle = ({ isMobile, ...rest }) => {
       iconOnly
       className={styles.toggle}
       data-mobile={isMobile}
-      aria-label="Toggle theme"
+      aria-label={theme === 'dark' ? ui.switchToLightTheme : ui.switchToDarkTheme}
       onClick={() => toggleTheme()}
       {...rest}
     >
