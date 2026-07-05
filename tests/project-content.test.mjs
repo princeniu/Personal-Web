@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
@@ -74,6 +75,8 @@ test('repository metadata points to the active GitHub repo', () => {
 });
 
 test('sitemap only publishes intended public project routes', () => {
+  // Regenerate so the assertions exercise the generator, not a stale artifact
+  execSync('node ./scripts/generate-sitemap.cjs', { stdio: 'pipe' });
   const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 
   assert.match(sitemap, /https:\/\/princeniu\.com\/projects\/all-work/);
