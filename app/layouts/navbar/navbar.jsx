@@ -153,7 +153,7 @@ export const Navbar = () => {
   return (
     <header className={styles.navbar} ref={headerRef}>
       <RouterLink
-        unstable_viewTransition
+        viewTransition
         prefetch="intent"
         to={basePathname === '/' ? localizePath('/#intro', locale) : localizePath('/', locale)}
         data-navbar-item
@@ -172,7 +172,7 @@ export const Navbar = () => {
 
             return (
               <RouterLink
-                unstable_viewTransition
+                viewTransition
                 prefetch="intent"
                 to={localizedPathname}
                 key={label}
@@ -204,7 +204,7 @@ export const Navbar = () => {
 
               return (
                 <RouterLink
-                  unstable_viewTransition
+                  viewTransition
                   prefetch="intent"
                   to={localizedPathname}
                   key={label}
@@ -247,7 +247,7 @@ const LanguageToggle = ({ className, currentLocale, pathname, onClick }) => {
 
   return (
     <RouterLink
-      unstable_viewTransition
+      viewTransition
       prefetch="intent"
       className={className}
       to={localizePath(pathname, targetLocale)}

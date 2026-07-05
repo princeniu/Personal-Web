@@ -172,6 +172,8 @@ const ImageElements = ({
             onLoadStart={onLoad}
             src={videoSrc}
             poster={poster}
+            width={width}
+            height={height}
             aria-label={alt}
             ref={videoRef}
             {...rest}
