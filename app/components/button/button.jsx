@@ -11,7 +11,9 @@ function isExternalLink(href) {
 }
 
 export const Button = forwardRef(({ href, ...rest }, ref) => {
-  if (isExternalLink(href) || !href) {
+  // Downloads and external URLs need a plain anchor; router links would
+  // route file paths like /resume.pdf through the SPA catch-all.
+  if (isExternalLink(href) || !href || rest.download) {
     return <ButtonContent href={href} ref={ref} {...rest} />;
   }
 

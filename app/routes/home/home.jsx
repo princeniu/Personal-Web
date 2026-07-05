@@ -42,7 +42,7 @@ export const links = () => {
 export const meta = () => {
   return baseMeta({
     title: 'Product Design · Human Factors · AI Products',
-    description: `Portfolio of Zhuo (Prince) Niu, a designer-builder working at the intersection of Human Factors, Product Design, and AI. Shipped UI/UX for complex systems including in-car interfaces, safety-critical outdoor devices, and native macOS AI tools.`,
+    description: `Portfolio of Zhuo (Prince) Niu — designer-builder working across product design, human factors, and AI, from in-car HMI to shipped macOS tools.`,
     path: '/',
   });
 };

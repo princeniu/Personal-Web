@@ -66,6 +66,16 @@ export const Profile = ({ id, visible, sectionRef }) => {
               >
                 {content.ctaLabel}
               </Button>
+              <Button
+                secondary
+                className={styles.button}
+                data-visible={visible}
+                href="/resume.pdf"
+                download
+                icon="resume"
+              >
+                {content.resumeLabel}
+              </Button>
             </div>
             <div className={styles.column}>
               <div className={styles.tag} aria-hidden>

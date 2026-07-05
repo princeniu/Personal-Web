@@ -85,13 +85,6 @@ export const allWorkProject = {
           tags: ['UX Design', 'Figma', 'Responsive'],
           href: '/zh/projects/little-lemon',
         },
-        {
-          title: 'Private & Client Work',
-          timeframe: '可按需介绍',
-          description:
-            '其他位于客户产品内部的 design system、原型和偏实现型工作。可按需进行 walkthrough。',
-          tags: ['Design Systems', 'Prototyping', 'Frontend'],
-        },
       ],
     },
     {

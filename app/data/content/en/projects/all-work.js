@@ -83,13 +83,6 @@ export const allWorkProject = {
             tags: ['UX Design', 'Figma', 'Responsive'],
             href: '/projects/little-lemon',
           },
-          {
-            title: 'Private & Client Work',
-            timeframe: 'Available on request',
-            description:
-              'Additional design-system, prototyping, and implementation-heavy work that lives inside client products. Walkthroughs available on request.',
-            tags: ['Design Systems', 'Prototyping', 'Frontend'],
-          },
         ],
       },
       {

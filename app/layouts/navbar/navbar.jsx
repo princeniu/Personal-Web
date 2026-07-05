@@ -30,6 +30,7 @@ export const Navbar = () => {
   const localizedCurrentPath = `${basePathname}${location.hash}`;
   const windowSize = useWindowSize();
   const headerRef = useRef();
+  const menuToggleRef = useRef();
   // Use width-only detection so a short desktop window (split-screen, devtools open)
   // doesn't get treated as mobile, which previously caused the theme toggle to vanish.
   const isMobile = windowSize.width <= media.mobile;
@@ -123,6 +124,39 @@ export const Navbar = () => {
     };
   }, [theme, windowSize, location.key]);
 
+  // Mobile menu focus management: move focus into the menu on open,
+  // close on Escape and hand focus back to the toggle button
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const focusFirstItem = () => {
+      document.getElementById('mobile-nav')?.querySelector('a, button')?.focus();
+    };
+
+    focusFirstItem();
+    // The menu mounts via Transition state, which can land a tick after this
+    // effect runs; retry once it has.
+    const timer = setTimeout(() => {
+      if (!document.getElementById('mobile-nav')?.contains(document.activeElement)) {
+        focusFirstItem();
+      }
+    }, 100);
+
+    const onKeyDown = event => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        menuToggleRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [menuOpen]);
+
   // Check if a nav item should be active
   const getCurrent = (url = '') => {
     const nonTrailing = current?.endsWith('/') ? current?.slice(0, -1) : current;
@@ -163,7 +197,11 @@ export const Navbar = () => {
       >
         <Monogram highlight />
       </RouterLink>
-      <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
+      <NavToggle
+        onClick={() => setMenuOpen(!menuOpen)}
+        menuOpen={menuOpen}
+        ref={menuToggleRef}
+      />
       <nav className={styles.nav}>
         <div className={styles.navList} data-locale={locale}>
           {navLinks.map(({ label, zhLabel, pathname }) => {
@@ -197,7 +235,12 @@ export const Navbar = () => {
       </nav>
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
         {({ visible, nodeRef }) => (
-          <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
+          <nav
+            id="mobile-nav"
+            className={styles.mobileNav}
+            data-visible={visible}
+            ref={nodeRef}
+          >
             {navLinks.map(({ label, zhLabel, pathname }, index) => {
               const localizedPathname = localizePath(pathname, locale);
               const navLabel = isZh ? zhLabel : label;

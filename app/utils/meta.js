@@ -38,15 +38,14 @@ export function baseMeta({
     { property: 'og:url', content: resolvedUrl },
     { property: 'og:locale', content: resolvedLocale.ogLocale },
     { property: 'og:description', content: description },
-    { property: 'twitter:card', content: 'summary_large_image' },
-    { property: 'twitter:description', content: description },
-    { property: 'twitter:title', content: titleText },
-    { property: 'twitter:site', content: url },
-    { property: 'twitter:image', content: ogImage },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:title', content: titleText },
+    { name: 'twitter:image', content: ogImage },
   ];
 
   if (twitter) {
-    meta.push({ property: 'twitter:creator', content: twitter });
+    meta.push({ name: 'twitter:creator', content: twitter });
   }
 
   return meta;
@@ -61,9 +60,10 @@ export function personSchema() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name,
+    alternateName: '牛拙Prince',
     url,
     image: `${url}/social-image.png`,
-    jobTitle: 'UI/UX Designer & AI Product Developer',
+    jobTitle: 'Designer-Builder — Product Design, Human Factors & AI Products',
     description:
       'Designer-builder working at the intersection of Human Factors, Product Design, and AI.',
     alumniOf: [
