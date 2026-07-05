@@ -59,9 +59,9 @@ export const etongueProject = {
       type: 'image',
       image: 'etongueIssfDashboard',
       heading: '平台概念：ISSF Dashboard',
-      alt: 'ISSF Dashboard 展示 E-Tongue + 半训练评审混合方法，并达到 94% 准确率',
+      alt: 'ISSF Dashboard 概念界面，展示 E-Tongue + 半训练评审混合方法与示意性的置信度状态栏',
       body: [
-        'ISSF Dashboard 给混合方法一个可工作的界面。状态栏展示证据模型 Semi-trained panel + E-Tongue + GC-O，并列出准确率（94%）、相关性（r=0.91）和样本量（n=127），让食品开发者在比较原型前先判断证据可信度。',
+        'ISSF Dashboard 给混合方法一个可工作的界面。状态栏展示这个概念所假设的证据模型 Semi-trained panel + E-Tongue + GC-O，并列出准确率、相关性和样本量。这些数字是用来推演「置信度应该如何呈现」的示意值，不是经过验证的结果——真正的设计问题是这些证据应该放在哪里，让食品开发者在比较原型前先判断可信度。',
         '每个样本卡片先呈现 hedonic score。CATA attributes、intensity ratings 和 emotional profiles 面板随后让团队检查分数背后的具体证据，而不是把数字当成黑箱结论。',
       ],
     },

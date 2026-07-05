@@ -82,13 +82,12 @@ test('sitemap only publishes intended public project routes', () => {
   assert.match(sitemap, /https:\/\/princeniu\.com\/zh\/uses/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/more-work/);
-  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/sayit/);
-  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/sayit/);
 
   for (const slug of [
     'porsche-digital-interface',
     'posture-checker',
     'trekassist',
+    'sayit',
     'etongue-sensory-platform',
     'little-lemon',
   ]) {

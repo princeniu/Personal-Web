@@ -15,8 +15,16 @@ export const contactContent = {
   rateLimitedMessage:
     '你刚刚发了一条消息，请稍等一分钟再发。',
   successTitle: '消息已发送',
-  successBody: '我会尽快回复，通常在一周内。感谢联系。',
+  successBody: '我会尽快回复，通常在 2–3 天内。感谢联系。',
   backLabel: '回到首页',
+  emailLabel: '你的邮箱',
+  messageLabel: '留言内容',
+  sendLabel: '发送消息',
+  sendingLabel: '发送中…',
+  errorEmailInvalid: '请输入有效的邮箱地址。',
+  errorMessageRequired: '请输入留言内容。',
+  errorEmailTooLong: '邮箱地址需短于 {max} 个字符。',
+  errorMessageTooLong: '留言内容需短于 {max} 个字符。',
   unconfiguredMessage:
     '联系表单尚未配置。暂时请通过 GitHub 联系。',
   failedMessage:

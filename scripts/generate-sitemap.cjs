@@ -12,7 +12,7 @@ const staticRoutes = [
 ];
 
 // Slugs intentionally excluded from the public sitemap.
-const SITEMAP_EXCLUDED_SLUGS = new Set(['sayit']);
+const SITEMAP_EXCLUDED_SLUGS = new Set();
 
 function readProjectSlugs() {
   const projectsDir = path.resolve(__dirname, '../app/data/content/en/projects');

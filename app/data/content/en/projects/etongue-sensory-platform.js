@@ -59,9 +59,9 @@ export const etongueProject = {
       type: 'image',
       image: 'etongueIssfDashboard',
       heading: 'Platform Concept: ISSF Dashboard',
-      alt: 'ISSF Dashboard showing mixed panel method with E-Tongue + semi-trained data achieving 94% accuracy',
+      alt: 'ISSF Dashboard concept showing mixed panel method with E-Tongue + semi-trained data and an illustrative confidence readout',
       body: [
-        'The ISSF Dashboard gives the mixed-method approach a working surface. The status line shows the evidence model, Semi-trained panel + E-Tongue + GC-O, along with accuracy (94%), correlation (r=0.91), and sample size (n=127), so developers can judge confidence before comparing prototypes.',
+        'The ISSF Dashboard gives the mixed-method approach a working surface. The status line shows the evidence model the concept assumes, Semi-trained panel + E-Tongue + GC-O, with accuracy, correlation, and sample-size figures. Those numbers are illustrative values used to prototype how confidence should be communicated, not validated results — the design question was where this evidence needs to sit so developers can judge it before comparing prototypes.',
         'Each sample card shows a hedonic score first. CATA attributes, intensity ratings, and emotional profiles then let the team inspect the evidence behind the score instead of treating the number as a black box.',
       ],
     },

@@ -130,6 +130,7 @@ export const sayitProject = {
         body: [
           'The codebase had to clear three bars to be installable by anyone but me: code signing with a valid Developer ID certificate, Apple notarization for Gatekeeper, and a clean release artifact distributed through GitHub Releases.',
           'Each step is small in isolation and painful in combination. Entitlements, hardened runtime, notary submission, stapling, and download-link plumbing all have to align before a stranger can double-click the app and have it just open. Getting that pipeline reliable is what made v1.0.5 shippable without manual work every time.',
+          'The result is public and installable today. Download the signed, notarized SayIt v1.0.5 DMG from GitHub Releases: https://github.com/princeniu/SayIt/releases',
         ],
       },
       {

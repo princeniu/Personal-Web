@@ -106,6 +106,7 @@ export const sayitProject = {
         body: [
           '要让除了我自己以外的人也能安装，代码库必须通过三道关卡：使用有效 Developer ID 证书进行代码签名、通过 Apple 公证以满足 Gatekeeper 要求，以及通过 GitHub Releases 分发的干净的发布产物。',
           '每一步单独来看都不大，组合起来却很折磨人。entitlements、hardened runtime、notary submission、stapling 和下载链接路径必须全部对齐，才能让一个陌生人双击应用就直接打开。把这条发布管线做可靠，是 v1.0.5 不需要每次手动处理的关键。',
+          '成品是公开的，今天就能安装。在 GitHub Releases 下载经过签名与公证的 SayIt v1.0.5 安装包：https://github.com/princeniu/SayIt/releases',
         ],
       },
       {

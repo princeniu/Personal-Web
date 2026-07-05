@@ -15,8 +15,16 @@ export const contactContent = {
   rateLimitedMessage:
     'You just sent a message. Please wait a minute before sending another one.',
   successTitle: 'Message Sent',
-  successBody: 'I’ll reply as soon as I can, usually within the week. Thanks for reaching out.',
+  successBody: 'I’ll reply as soon as I can, usually within 2–3 days. Thanks for reaching out.',
   backLabel: 'Back to homepage',
+  emailLabel: 'Your email',
+  messageLabel: 'Message',
+  sendLabel: 'Send message',
+  sendingLabel: 'Sending...',
+  errorEmailInvalid: 'Please enter a valid email address.',
+  errorMessageRequired: 'Please enter a message.',
+  errorEmailTooLong: 'Email address must be shorter than {max} characters.',
+  errorMessageTooLong: 'Message must be shorter than {max} characters.',
   unconfiguredMessage:
     'The contact form is not configured yet. Please reach out through GitHub for now.',
   failedMessage:

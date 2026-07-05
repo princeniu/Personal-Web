@@ -52,9 +52,15 @@ async function isRateLimited(env, request) {
 
 function getContentForRequest(request) {
   const referer = request.headers.get('referer') || '';
-  const locale = getLocaleFromPathname(
-    referer ? new URL(referer).pathname : '/'
-  );
+  let pathname = '/';
+  if (referer) {
+    try {
+      pathname = new URL(referer).pathname;
+    } catch {
+      // Malformed Referer headers (common from bots) fall back to the default locale
+    }
+  }
+  const locale = getLocaleFromPathname(pathname);
   return locale === 'zh' ? zhContact : enContact;
 }
 
@@ -80,23 +86,23 @@ export async function action({ context, request }) {
 
   // Handle input validation on the server
   if (!email || !EMAIL_PATTERN.test(email)) {
-    errors.email = 'Please enter a valid email address.';
+    errors.email = content.errorEmailInvalid;
   }
 
   if (!message) {
-    errors.message = 'Please enter a message.';
+    errors.message = content.errorMessageRequired;
   }
 
   if (email.length > MAX_EMAIL_LENGTH) {
-    errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
+    errors.email = content.errorEmailTooLong.replace('{max}', MAX_EMAIL_LENGTH);
   }
 
   if (message.length > MAX_MESSAGE_LENGTH) {
-    errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
+    errors.message = content.errorMessageTooLong.replace('{max}', MAX_MESSAGE_LENGTH);
   }
 
   if (Object.keys(errors).length > 0) {
-    return json({ errors });
+    return json({ errors }, { status: 400 });
   }
 
   const requiredEnvVars = [
@@ -145,7 +151,8 @@ export async function action({ context, request }) {
         ReplyToAddresses: [email],
       })
     );
-  } catch {
+  } catch (error) {
+    console.error('Contact form email send failed:', error);
     return json(
       {
         errors: {
@@ -212,7 +219,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay)}
               autoComplete="email"
-              label="Your email"
+              label={content.emailLabel}
               type="email"
               name="email"
               maxLength={MAX_EMAIL_LENGTH}
@@ -225,7 +232,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationS, initDelay)}
               autoComplete="off"
-              label="Message"
+              label={content.messageLabel}
               name="message"
               maxLength={MAX_MESSAGE_LENGTH}
               {...message}
@@ -268,11 +275,11 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationM, initDelay)}
               disabled={sending}
               loading={sending}
-              loadingText="Sending..."
+              loadingText={content.sendingLabel}
               icon="send"
               type="submit"
             >
-              Send message
+              {content.sendLabel}
             </Button>
             <p
               className={styles.privacyNote}
