@@ -19,7 +19,7 @@
     margin-bottom: 0.6em;
 
     ol &::marker {
-      color: var(--primary);
+      color: var(--primaryText);
       font-variant-numeric: ordinal;
       font-size: min(1.2em, 16px);
       font-weight: var(--fontWeightMedium);

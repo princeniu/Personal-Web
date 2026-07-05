@@ -1,7 +1,7 @@
 @layer components {
   .container {
     --inputFontSize: calc((16 / 16) * 1rem);
-    --inputFocusColor: var(--primary);
+    --inputFocusColor: var(--primaryText);
     --inputUnderlineColor: color-mix(in lab, var(--text) 20%, transparent);
 
     position: relative;

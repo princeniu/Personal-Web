@@ -140,7 +140,7 @@
   }
 
   .titleFlatline {
-    color: var(--primary);
+    color: var(--primaryText);
     display: flex;
     align-items: center;
     gap: var(--spaceM);

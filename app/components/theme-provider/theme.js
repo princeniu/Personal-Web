@@ -108,12 +108,17 @@ const tokensMobileSmall = {
   fontSizeH4: pxToRem(20),
 };
 
-// Theme color tokens. Opacity values tuned to meet WCAG AA contrast against
-// the corresponding background tokens; do not lower without re-checking.
+// Theme color tokens. Color and opacity values tuned to meet WCAG AA contrast
+// against the corresponding background tokens; do not lighten without
+// re-checking. `primary` is only AA-safe as a *background* in the light theme
+// (1.79:1 as text on near-white) — anything rendered as text or link color
+// must use `primaryText`/`accent` instead, which are darkened to >=4.5:1 in
+// the light theme.
 const dark = {
   background: 'oklch(17.76% 0 0)', // near-black background
   backgroundLight: 'oklch(21.78% 0 0)', // raised surface (cards, navbar overlays)
   primary: 'oklch(84.42% 0.19 50)', // brand yellow
+  primaryText: 'oklch(84.42% 0.19 50)', // brand yellow as text, 9.4:1 on dark bg
   accent: 'oklch(84.42% 0.19 50)', // brand yellow accent
   error: 'oklch(65.91% 0.249 13.76)', // error red, AA against dark bg
   text: 'var(--white)',
@@ -125,8 +130,9 @@ const dark = {
 const light = {
   background: 'oklch(96.12% 0 0)', // near-white background
   backgroundLight: 'var(--white)',
-  primary: 'oklch(84.42% 0.19 50)', // brand yellow
-  accent: 'oklch(64% 0.16 50)', // darker accent for AA contrast on white
+  primary: 'oklch(84.42% 0.19 50)', // brand yellow (backgrounds/decoration only)
+  primaryText: 'oklch(54% 0.15 50)', // deep amber for text, 4.78:1 on bg / 5.35:1 on white
+  accent: 'oklch(54% 0.15 50)', // deep amber accent, AA for body links
   error: 'oklch(54% 0.22 25)', // deeper red, AA against white
   text: 'var(--black)',
   textTitle: 'color-mix(in lab, var(--text) 92%, transparent)',

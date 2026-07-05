@@ -56,7 +56,7 @@
 
     &[data-secondary='true'] {
       --buttonSpace: 10px;
-      --buttonTextColor: var(--primary);
+      --buttonTextColor: var(--primaryText);
 
       background: none;
       padding-left: var(--buttonSpace);

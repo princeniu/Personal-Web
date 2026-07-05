@@ -103,7 +103,7 @@
 .tagText {
   font-size: var(--fontSizeBodyS);
   font-weight: var(--fontWeightMedium);
-  color: var(--primary);
+  color: var(--primaryText);
   opacity: 0;
   transition-property: opacity;
   transition-timing-function: var(--bezierFastoutSlowin);

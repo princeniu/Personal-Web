@@ -310,7 +310,7 @@
 
 .sayitStatus {
   gap: 8px;
-  color: var(--primary);
+  color: var(--primaryText);
   font-weight: var(--fontWeightMedium);
 }
 
@@ -545,7 +545,7 @@
 }
 
 .knowledgeStatus {
-  color: var(--primary);
+  color: var(--primaryText);
   font-weight: var(--fontWeightMedium);
 }
 
@@ -577,7 +577,7 @@
 }
 
 .knowledgeHeroText strong {
-  color: var(--primary);
+  color: var(--primaryText);
   font-weight: inherit;
 }
 
