@@ -74,7 +74,7 @@ export const porscheProject = {
           {
             title: 'Performance Optimization',
             description:
-              'Iterated with engineering on micro-interactions and asset weights, contributing to a 30% reduction in interface load time at hand-off.',
+              'Iterated with engineering on micro-interactions and asset weights so the handed-off surfaces stayed inside the platform\'s rendering budget.',
           },
         ],
       },
@@ -117,7 +117,7 @@ export const porscheProject = {
         type: 'text',
         heading: 'Optimizing for Load Time',
         body: [
-          'The 30% load-time reduction came out of a tight loop with engineering during and after hand-off. Component specs were rewritten to reuse shared primitives, animation durations and asset weights were tuned for the platform\'s rendering budget, and several redundant transition states collapsed into a single canonical path.',
+          'The load-time improvement came out of a tight loop with engineering during and after hand-off. Component specs were rewritten to reuse shared primitives, animation durations and asset weights were tuned for the platform\'s rendering budget, and several redundant transition states collapsed into a single canonical path.',
           'The lesson was that performance is not a downstream "engineering" concern. Hierarchy, transition complexity, and asset choice all affect how the interface feels under load. Treating hand-off as a continuation of design, not the end of it, is what made the win measurable.',
         ],
       },
@@ -129,14 +129,14 @@ export const porscheProject = {
         ],
         metrics: [
           { value: '30%', label: 'Reduction in interface load time' },
-          { value: '4', label: 'Multimodal flows shipped (touch · voice · AI · GUI)' },
+          { value: '4', label: 'Multimodal flows designed and handed off (touch · voice · AI · GUI)' },
           { value: '12+', label: 'High-fidelity component specs handed off' },
         ],
         evidence: [
           {
             label: 'Performance',
             value:
-              'Iterative tuning of micro-interactions and asset weights contributed to a 30% reduction in load time across the navigation, voice, and assistant surfaces.',
+              'Iterative tuning of micro-interactions and asset weights measurably cut load time across the navigation, voice, and assistant surfaces.',
           },
           {
             label: 'Cross-functional alignment',
