@@ -25,10 +25,16 @@ import { getSessionSecrets } from '~/utils/session';
 import { personSchema, websiteSchema } from '~/utils/meta';
 import config from '~/config.json';
 import styles from './root.module.css';
-import './reset.module.css';
-import './global.module.css';
+// Global stylesheets are linked via the `links` export (?url imports) instead
+// of side-effect imports: the Remix Vite plugin can attribute side-effect CSS
+// to an arbitrary route chunk, which dropped these globals from every page
+// except /contact after the 2.17 upgrade.
+import resetStylesHref from './reset.css?url';
+import globalStylesHref from './global.css?url';
 
 export const links = () => [
+  { rel: 'stylesheet', href: resetStylesHref },
+  { rel: 'stylesheet', href: globalStylesHref },
   {
     rel: 'preload',
     href: InterVariable,

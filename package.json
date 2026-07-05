@@ -4,7 +4,7 @@
   "description": "Portfolio site for Zhuo (Prince) Niu",
   "repository": "https://github.com/princeniu/Personal-Web.git",
   "author": "Zhuo (Prince) Niu",
-  "sideEffects": false,
+  "sideEffects": ["**/*.css"],
   "type": "module",
   "scripts": {
     "build": "node ./scripts/generate-sitemap.cjs && remix vite:build",
