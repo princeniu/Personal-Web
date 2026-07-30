@@ -7,9 +7,11 @@ import {
   knowledgeosProject,
   allWorkProject,
   sayitProject,
+  hermesIosCompanionProject,
 } from './content/en/index.js';
 
 export const featuredProjectSlugs = [
+  'hermes-ios-companion',
   'trekassist',
   'knowledgeos',
   'porsche-digital-interface',
@@ -22,6 +24,7 @@ export const legacyProjectSlugRedirects = {
 };
 
 export const portfolioProjects = [
+  hermesIosCompanionProject,
   etongueProject,
   porscheProject,
   postureProject,

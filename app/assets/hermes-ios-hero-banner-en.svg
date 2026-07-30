@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#050508"/><stop offset="1" stop-color="#0a0907"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#e8a838" stop-opacity=".10"/><stop offset="1" stop-color="#e8a838" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="800" cy="500" rx="560" ry="390" fill="url(#glow)"/>
+  <text x="800" y="405" text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="118" font-weight="650" letter-spacing="-5" fill="#f7f7f7">Hermes iOS <tspan fill="#e8a838">Companion</tspan></text>
+  <text x="800" y="485" text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="28" fill="#a1a1aa">A self-hosted mobile control surface for AI agents</text>
+  <text x="800" y="532" text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="20" fill="#71717a">Continue sessions, review execution, and approve high-risk actions away from the desk.</text>
+  <rect x="599" y="592" width="402" height="40" rx="20" fill="#e8a838" fill-opacity=".05" stroke="#e8a838" stroke-opacity=".18"/>
+  <text x="800" y="618" text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="13" font-weight="600" letter-spacing="2" fill="#e8a838">INDEPENDENTLY BUILT · PRIVATE BETA</text>
+  <text x="800" y="912" text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="13" letter-spacing="1.4" fill="#52525b">SWIFTUI · TAILSCALE · SSE · APNs · ACTIVITYKIT</text>
+</svg>

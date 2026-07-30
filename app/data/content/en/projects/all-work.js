@@ -28,6 +28,14 @@ export const allWorkProject = {
         ],
         items: [
           {
+            title: 'Hermes iOS Companion',
+            timeframe: '2026 · Private Beta',
+            description:
+              'Self-hosted iOS control surface for Hermes Agent with session continuity, tool execution, Face ID approvals, voice input, and system-level task status across Mac and VPS instances.',
+            tags: ['SwiftUI', 'AI Agent UX', 'SSE', 'APNs', 'Tailscale'],
+            href: '/projects/hermes-ios-companion',
+          },
+          {
             title: 'SayIt',
             timeframe: 'Apr 2026 · Shipped',
             description:

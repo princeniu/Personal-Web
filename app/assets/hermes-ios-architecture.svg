@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#050508"/><stop offset="1" stop-color="#0b0f11"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1e293b" stroke-width=".5"/></pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#22d3ee"/></marker>
+    <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#e8a838"/></marker>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/><rect width="1600" height="1000" fill="url(#grid)"/>
+  <text x="110" y="112" fill="#f7f7f7" font-family="Inter,-apple-system,sans-serif" font-size="42" font-weight="650">The phone is a control surface, not the runtime.</text>
+  <text x="110" y="154" fill="#94a3b8" font-family="Inter,-apple-system,sans-serif" font-size="18">One source of truth, several feedback paths, explicit trust boundaries.</text>
+
+  <path d="M430 475H675" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M930 435H1165" stroke="#34d399" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1165 545H930" stroke="#e8a838" stroke-width="3" marker-end="url(#arrowGold)"/>
+  <path d="M802 655V790" stroke="#e8a838" stroke-width="3" marker-end="url(#arrowGold)"/>
+
+  <rect x="110" y="278" width="320" height="420" rx="38" fill="#07131a" stroke="#22d3ee" stroke-width="2"/>
+  <rect x="137" y="335" width="266" height="306" rx="20" fill="#0f172a" stroke="#1e3a46"/>
+  <text x="270" y="390" text-anchor="middle" fill="#22d3ee" font-family="Inter,-apple-system,sans-serif" font-size="26" font-weight="650">iPhone</text>
+  <text x="270" y="440" text-anchor="middle" fill="#cbd5e1" font-family="Inter,-apple-system,sans-serif" font-size="17">Sessions · chat · voice</text>
+  <text x="270" y="478" text-anchor="middle" fill="#cbd5e1" font-family="Inter,-apple-system,sans-serif" font-size="17">Approvals · Inbox</text>
+  <text x="270" y="516" text-anchor="middle" fill="#cbd5e1" font-family="Inter,-apple-system,sans-serif" font-size="17">Share · Widget · Live Activity</text>
+  <rect x="166" y="566" width="208" height="48" rx="24" fill="#fb7185" fill-opacity=".12" stroke="#fb7185"/>
+  <text x="270" y="596" text-anchor="middle" fill="#fb7185" font-family="Inter,-apple-system,sans-serif" font-size="15">Face ID for high-risk actions</text>
+  <text x="270" y="744" text-anchor="middle" fill="#64748b" font-family="Inter,-apple-system,sans-serif" font-size="14">Mobile input + system integration</text>
+
+  <rect x="675" y="304" width="255" height="352" rx="18" fill="#11100c" stroke="#e8a838" stroke-width="2"/>
+  <text x="802" y="374" text-anchor="middle" fill="#e8a838" font-family="Inter,-apple-system,sans-serif" font-size="25" font-weight="650">Tailscale HTTPS</text>
+  <text x="802" y="420" text-anchor="middle" fill="#d4d4d8" font-family="Inter,-apple-system,sans-serif" font-size="16">Private network boundary</text>
+  <text x="802" y="468" text-anchor="middle" fill="#94a3b8" font-family="Inter,-apple-system,sans-serif" font-size="15">Per-instance identity</text>
+  <text x="802" y="502" text-anchor="middle" fill="#94a3b8" font-family="Inter,-apple-system,sans-serif" font-size="15">No public Gateway exposure</text>
+  <text x="802" y="536" text-anchor="middle" fill="#94a3b8" font-family="Inter,-apple-system,sans-serif" font-size="15">Mac and VPS remain isolated</text>
+  <text x="548" y="454" text-anchor="middle" fill="#22d3ee" font-family="ui-monospace,monospace" font-size="13">requests</text>
+
+  <rect x="1165" y="254" width="325" height="520" rx="22" fill="#071711" stroke="#34d399" stroke-width="2"/>
+  <text x="1328" y="320" text-anchor="middle" fill="#34d399" font-family="Inter,-apple-system,sans-serif" font-size="26" font-weight="650">Hermes Gateway</text>
+  <rect x="1203" y="366" width="249" height="102" rx="12" fill="#0f172a" stroke="#34d399" stroke-opacity=".45"/>
+  <text x="1328" y="409" text-anchor="middle" fill="#f1f5f9" font-family="Inter,-apple-system,sans-serif" font-size="19">Mac instance</text>
+  <text x="1328" y="441" text-anchor="middle" fill="#94a3b8" font-family="Inter,-apple-system,sans-serif" font-size="14">local agent runtime</text>
+  <rect x="1203" y="496" width="249" height="102" rx="12" fill="#0f172a" stroke="#34d399" stroke-opacity=".45"/>
+  <text x="1328" y="539" text-anchor="middle" fill="#f1f5f9" font-family="Inter,-apple-system,sans-serif" font-size="19">VPS instance</text>
+  <text x="1328" y="571" text-anchor="middle" fill="#94a3b8" font-family="Inter,-apple-system,sans-serif" font-size="14">independent agent runtime</text>
+  <text x="1048" y="415" text-anchor="middle" fill="#34d399" font-family="ui-monospace,monospace" font-size="13">HTTPS</text>
+  <text x="1048" y="527" text-anchor="middle" fill="#e8a838" font-family="ui-monospace,monospace" font-size="13">SSE</text>
+  <text x="1328" y="710" text-anchor="middle" fill="#64748b" font-family="Inter,-apple-system,sans-serif" font-size="14">Gateway remains the source of truth</text>
+
+  <rect x="606" y="790" width="392" height="112" rx="16" fill="#15110a" stroke="#e8a838" stroke-opacity=".8"/>
+  <text x="802" y="834" text-anchor="middle" fill="#e8a838" font-family="Inter,-apple-system,sans-serif" font-size="21" font-weight="650">Realtime feedback layer</text>
+  <text x="802" y="872" text-anchor="middle" fill="#cbd5e1" font-family="Inter,-apple-system,sans-serif" font-size="15">APNs · Widget · Live Activity · Dynamic Island</text>
+  <text x="802" y="758" text-anchor="middle" fill="#e8a838" font-family="ui-monospace,monospace" font-size="13">status events</text>
+</svg>

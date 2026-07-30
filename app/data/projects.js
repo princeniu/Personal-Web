@@ -93,6 +93,14 @@ import knowledgeosReflectionBg from '~/assets/knowledgeos-reflection-bg.webp';
 import knowledgeosHeroBannerZh from '~/assets/knowledgeos-hero-banner-zh.webp';
 import knowledgeosHeroBannerEn from '~/assets/knowledgeos-hero-banner-en.webp';
 
+import hermesIosHeroEn from '~/assets/hermes-ios-hero-banner-en.webp';
+import hermesIosHeroZh from '~/assets/hermes-ios-hero-banner-zh.webp';
+import hermesIosBackground from '~/assets/hermes-ios-background.webp';
+import hermesIosArchitecture from '~/assets/hermes-ios-architecture.webp';
+import hermesIosSecurityExecution from '~/assets/hermes-ios-security-execution.webp';
+import hermesIosApproval from '~/assets/hermes-ios-approval.webp';
+import hermesIosExecutionTrace from '~/assets/hermes-ios-execution-trace.webp';
+
 import etongueDeviceContext from '~/assets/etongue-device-context.webp';
 import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
 import etongueEarlyPrototype from '~/assets/etongue-early-prototype.mp4';
@@ -149,6 +157,30 @@ import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowst
 import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
 
 const imageAssets = {
+  hermesIosHeroEn: {
+    src: hermesIosHeroEn,
+    srcSet: `${hermesIosHeroEn} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  hermesIosHeroZh: {
+    src: hermesIosHeroZh,
+    srcSet: `${hermesIosHeroZh} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  hermesIosArchitecture: {
+    src: hermesIosArchitecture,
+    srcSet: `${hermesIosArchitecture} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  hermesIosSecurityExecution: {
+    src: hermesIosSecurityExecution,
+    srcSet: `${hermesIosSecurityExecution} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
   knowledgeosArchitecture: {
     src: knowledgeosArchitecture,
     srcSet: `${knowledgeosArchitecture} 1600w`,
@@ -524,6 +556,13 @@ const imageAssets = {
 };
 
 const backgrounds = {
+  'hermes-ios-companion': {
+    src: hermesIosBackground,
+    srcSet: `${hermesIosBackground} 1600w`,
+    width: 1600,
+    height: 1000,
+    placeholder: hermesIosBackground,
+  },
   'etongue-sensory-platform': {
     src: etongueDeviceContext,
     placeholder: etongueDeviceContextPlaceholder,
@@ -577,6 +616,18 @@ const backgrounds = {
 };
 
 const summaryTextures = {
+  'hermes-ios-companion': [
+    {
+      src: hermesIosApproval,
+      srcSet: `${hermesIosApproval} 1206w`,
+      placeholder: hermesIosApproval,
+    },
+    {
+      src: hermesIosExecutionTrace,
+      srcSet: `${hermesIosExecutionTrace} 1206w`,
+      placeholder: hermesIosExecutionTrace,
+    },
+  ],
   'etongue-sensory-platform': [
     {
       src: etongueEarlyPrototypePoster,

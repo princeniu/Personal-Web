@@ -30,6 +30,14 @@ export const allWorkProject = {
       ],
       items: [
         {
+          title: 'Hermes iOS Companion',
+          timeframe: '2026 · Private Beta',
+          description:
+            '自托管 Hermes Agent 的 iOS 移动控制端，支持会话连续性、工具执行、Face ID 审批、语音输入，以及 Mac 与 VPS 实例的系统级任务状态。',
+          tags: ['SwiftUI', 'AI Agent UX', 'SSE', 'APNs', 'Tailscale'],
+          href: '/zh/projects/hermes-ios-companion',
+        },
+        {
           title: 'SayIt',
           timeframe: '2026 年 4 月 · 已发布',
           description:

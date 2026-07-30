@@ -39,6 +39,7 @@ test('featured project slugs point at real projects in display order', () => {
   const availableSlugs = new Set(portfolioProjects.map(project => project.slug));
 
   assert.deepEqual(featuredProjectSlugs, [
+    'hermes-ios-companion',
     'trekassist',
     'knowledgeos',
     'porsche-digital-interface',
@@ -87,6 +88,7 @@ test('sitemap only publishes intended public project routes', () => {
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/more-work/);
 
   for (const slug of [
+    'hermes-ios-companion',
     'porsche-digital-interface',
     'posture-checker',
     'trekassist',
