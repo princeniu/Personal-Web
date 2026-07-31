@@ -97,12 +97,11 @@ import hermesIosHeroEn from '~/assets/hermes-ios-hero-banner-en.webp';
 import hermesIosHeroZh from '~/assets/hermes-ios-hero-banner-zh.webp';
 import hermesIosBackground from '~/assets/hermes-ios-background.webp';
 import hermesIosArchitecture from '~/assets/hermes-ios-architecture.webp';
-import hermesIosSecurityExecution from '~/assets/hermes-ios-security-execution.webp';
 import hermesIosCoreProductEn from '~/assets/hermes-ios-core-product-en.webp';
 import hermesIosCoreProductZh from '~/assets/hermes-ios-core-product-zh.webp';
 import hermesIosSystemSurfaces from '~/assets/hermes-ios-system-surfaces.webp';
-import hermesIosApproval from '~/assets/hermes-ios-approval.webp';
-import hermesIosExecutionTrace from '~/assets/hermes-ios-execution-trace.webp';
+import hermesIosChatCurrent from '~/assets/hermes-ios-chat-current.webp';
+import hermesIosInboxCurrent from '~/assets/hermes-ios-inbox-current.webp';
 
 import etongueDeviceContext from '~/assets/etongue-device-context.webp';
 import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
@@ -175,12 +174,6 @@ const imageAssets = {
   hermesIosArchitecture: {
     src: hermesIosArchitecture,
     srcSet: `${hermesIosArchitecture} 1600w`,
-    width: 1600,
-    height: 1000,
-  },
-  hermesIosSecurityExecution: {
-    src: hermesIosSecurityExecution,
-    srcSet: `${hermesIosSecurityExecution} 1600w`,
     width: 1600,
     height: 1000,
   },
@@ -639,14 +632,14 @@ const backgrounds = {
 const summaryTextures = {
   'hermes-ios-companion': [
     {
-      src: hermesIosApproval,
-      srcSet: `${hermesIosApproval} 1206w`,
-      placeholder: hermesIosApproval,
+      src: hermesIosInboxCurrent,
+      srcSet: `${hermesIosInboxCurrent} 1206w`,
+      placeholder: hermesIosInboxCurrent,
     },
     {
-      src: hermesIosExecutionTrace,
-      srcSet: `${hermesIosExecutionTrace} 1206w`,
-      placeholder: hermesIosExecutionTrace,
+      src: hermesIosChatCurrent,
+      srcSet: `${hermesIosChatCurrent} 1206w`,
+      placeholder: hermesIosChatCurrent,
     },
   ],
   'etongue-sensory-platform': [

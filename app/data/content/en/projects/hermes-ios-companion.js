@@ -122,13 +122,11 @@ export const hermesIosCompanionProject = {
       ],
     },
     {
-      type: 'image',
-      image: 'hermesIosSecurityExecution',
+      type: 'text',
       heading: 'Remote Control Must Stay Legible',
-      alt: 'Sanitized Hermes iOS Companion simulator screens showing command approval and a collapsible execution trace',
       body: [
         'Remote execution creates a human factors problem: the user needs enough context to make a decision without reading a desktop-sized trace on a phone. The approval flow exposes intent and authorization scope, then requires an additional confirmation for dangerous session grants. Separately, Face ID or device passcode protects app re-entry and destructive Gateway restart.',
-        'During execution, reasoning and tool calls collapse into a compact progress surface. Details remain available for inspection, but the final answer stays outside the trace so status, diagnostic detail, and outcome do not compete for attention. The screens shown here use safe simulator fixtures from the current main build.',
+        'During execution, reasoning and tool calls collapse into a compact progress surface. Details remain available for inspection, but the final answer stays outside the trace so status, diagnostic detail, and outcome do not compete for attention. The public screens in this case study use safe simulator fixtures from the current main build.',
       ],
     },
     {
