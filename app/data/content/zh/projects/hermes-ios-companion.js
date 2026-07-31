@@ -32,6 +32,16 @@ export const hermesIosCompanionProject = {
       ],
     },
     {
+      type: 'image',
+      image: 'hermesIosCoreProductZh',
+      heading: '移动控制端，而不是聊天框的缩小版',
+      alt: '当前 main 的脱敏 Hermes iOS Companion 界面，展示项目分组会话、聊天执行过程和安全审批',
+      body: [
+        '主要流程围绕 Agent 连续性组织，而不是围绕消息数量组织。会话按项目与实例分组，工具执行可检查但不会占据整个对话，审批请求则在用户决定前明确展示命令和授权范围。',
+        '这些界面来自当前 main 的 Simulator build，使用 fixture 会话、示例命令和隔离的实例名称，不包含生产 endpoint、凭证或私人会话。',
+      ],
+    },
+    {
       type: 'text',
       heading: '问题：离开电脑后，桌面 Agent 失去了交互入口',
       body: [
@@ -58,6 +68,16 @@ export const hermesIosCompanionProject = {
       ],
     },
     {
+      type: 'image',
+      image: 'hermesIosSystemSurfaces',
+      heading: '任务离开 App 后仍然可见',
+      alt: '脱敏 Simulator 素材，展示 Hermes Share Extension、Widget、Dynamic Island 和原生文字选择',
+      body: [
+        'Share Extension 可以把 URL、文字或图片转成 Agent 输入，无法立即发送时先进入 outbox。WidgetKit 展示实例级状态，ActivityKit 与 Dynamic Island 把实时任务状态带到系统界面，原生文字选择则让长篇 Agent 输出可以继续作为工作材料使用。',
+        '这些 Simulator 素材证明系统界面能够真实渲染。真机验收另外覆盖 APNs、Face ID 或密码 App 锁、Share outbox 交付，以及 Simulator 截图无法证明的生命周期行为。',
+      ],
+    },
+    {
       type: 'timeline',
       heading: '核心难点',
       body: [
@@ -75,9 +95,9 @@ export const hermesIosCompanionProject = {
             '将会话、凭证、草稿、通知和深链接绑定到明确实例，切换环境时不会把上下文带入另一个系统。',
         },
         {
-          title: 'Face ID 高风险审批',
+          title: '敏感控制的分层确认',
           description:
-            '高风险操作必须先选择授权范围，再通过本地 Face ID 或设备密码确认，通知点击本身不能代表授权。',
+            '先明确授权范围，危险的会话级授权还需要二次确认。Face ID 或设备密码用于保护 App 重新进入与破坏性 Gateway 重启，通知点击本身不会成为授权。',
         },
         {
           title: '离线 Share outbox',
@@ -107,7 +127,7 @@ export const hermesIosCompanionProject = {
       heading: '远程执行必须保持可理解和可控制',
       alt: '脱敏的 Hermes iOS Companion 模拟器界面，展示命令审批和可折叠执行过程',
       body: [
-        '远程执行首先是人因问题。用户需要足够上下文做判断，但不应该被迫在手机上阅读桌面尺寸的执行轨迹。审批流程先呈现意图与授权范围，高风险请求再通过 Face ID 或设备密码确认当前持有者身份。',
+        '远程执行首先是人因问题。用户需要足够上下文做判断，但不应该被迫在手机上阅读桌面尺寸的执行轨迹。审批流程先呈现意图与授权范围，危险的会话级授权还需要额外确认。Face ID 或设备密码则分别保护 App 重新进入与破坏性 Gateway 重启。',
         '执行期间，推理与工具调用被折叠为紧凑状态面板。细节仍可检查，但最终答案保持在执行轨迹之外，避免状态、诊断信息和结果互相争夺注意力。这里的界面来自当前 main 的安全模拟器 fixture。',
       ],
     },
@@ -127,7 +147,7 @@ export const hermesIosCompanionProject = {
         {
           label: 'iOS 系统能力',
           value:
-            '在真机验证 APNs、Face ID、Share Extension、Widget、Live Activity、Dynamic Island、语音输入和中英文行为。',
+            '在真机验证 APNs、Face ID 或密码 App 锁、Gateway 重启认证、Share Extension、Widget、Live Activity、Dynamic Island、语音输入和中英文行为。',
         },
         {
           label: '中断后的连续性',

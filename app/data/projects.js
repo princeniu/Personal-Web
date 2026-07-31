@@ -98,6 +98,9 @@ import hermesIosHeroZh from '~/assets/hermes-ios-hero-banner-zh.webp';
 import hermesIosBackground from '~/assets/hermes-ios-background.webp';
 import hermesIosArchitecture from '~/assets/hermes-ios-architecture.webp';
 import hermesIosSecurityExecution from '~/assets/hermes-ios-security-execution.webp';
+import hermesIosCoreProductEn from '~/assets/hermes-ios-core-product-en.webp';
+import hermesIosCoreProductZh from '~/assets/hermes-ios-core-product-zh.webp';
+import hermesIosSystemSurfaces from '~/assets/hermes-ios-system-surfaces.webp';
 import hermesIosApproval from '~/assets/hermes-ios-approval.webp';
 import hermesIosExecutionTrace from '~/assets/hermes-ios-execution-trace.webp';
 
@@ -178,6 +181,24 @@ const imageAssets = {
   hermesIosSecurityExecution: {
     src: hermesIosSecurityExecution,
     srcSet: `${hermesIosSecurityExecution} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  hermesIosCoreProductEn: {
+    src: hermesIosCoreProductEn,
+    srcSet: `${hermesIosCoreProductEn} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  hermesIosCoreProductZh: {
+    src: hermesIosCoreProductZh,
+    srcSet: `${hermesIosCoreProductZh} 1600w`,
+    width: 1600,
+    height: 1000,
+  },
+  hermesIosSystemSurfaces: {
+    src: hermesIosSystemSurfaces,
+    srcSet: `${hermesIosSystemSurfaces} 1600w`,
     width: 1600,
     height: 1000,
   },

@@ -32,6 +32,16 @@ export const hermesIosCompanionProject = {
       ],
     },
     {
+      type: 'image',
+      image: 'hermesIosCoreProductEn',
+      heading: 'A Mobile Control Surface, Not a Chat Wrapper',
+      alt: 'Sanitized current-main Hermes iOS Companion screens showing grouped sessions, chat execution, and security approvals',
+      body: [
+        'The primary workflows are organized around agent continuity rather than message volume. Sessions stay grouped by project and instance, tool execution remains inspectable without taking over the conversation, and approval requests surface the command and authorization scope before a decision.',
+        'These screens were captured from a current-main Simulator build using fixture sessions, example commands, and isolated instance names. No production endpoint, credential, or private conversation is present.',
+      ],
+    },
+    {
       type: 'text',
       heading: 'The Problem: Desktop Agents Lose Their Interface When You Walk Away',
       body: [
@@ -58,6 +68,16 @@ export const hermesIosCompanionProject = {
       ],
     },
     {
+      type: 'image',
+      image: 'hermesIosSystemSurfaces',
+      heading: 'The Work Continues Outside the App',
+      alt: 'Sanitized Simulator captures of Hermes Share Extension, Widget, Dynamic Island, and native text selection',
+      body: [
+        'Share Extension turns a URL, text, or image into agent input and preserves it in an outbox when immediate delivery is unavailable. WidgetKit exposes instance-aware status, while ActivityKit and Dynamic Island carry live task state into the system UI. Native text selection keeps long agent output useful as working material rather than a read-only transcript.',
+        'These Simulator captures prove the rendered Apple-platform surfaces. Physical-device acceptance separately covers APNs delivery, Face ID or passcode app lock, Share outbox delivery, and lifecycle behavior that Simulator screenshots cannot establish.',
+      ],
+    },
+    {
       type: 'timeline',
       heading: 'Core Challenges',
       body: [
@@ -75,9 +95,9 @@ export const hermesIosCompanionProject = {
             'Bound sessions, credentials, drafts, notifications, and deep links to explicit instance identities so switching environments does not leak context across systems.',
         },
         {
-          title: 'Face ID for high-risk approval',
+          title: 'Layered confirmation for sensitive control',
           description:
-            'Kept dangerous actions behind explicit authorization scopes and local biometric or passcode confirmation instead of treating a notification tap as approval.',
+            'Made authorization scope explicit and required a second confirmation for dangerous session grants. Face ID or device passcode protects app re-entry and destructive Gateway restart rather than turning a notification tap into authorization.',
         },
         {
           title: 'Offline Share outbox',
@@ -107,7 +127,7 @@ export const hermesIosCompanionProject = {
       heading: 'Remote Control Must Stay Legible',
       alt: 'Sanitized Hermes iOS Companion simulator screens showing command approval and a collapsible execution trace',
       body: [
-        'Remote execution creates a human factors problem: the user needs enough context to make a decision without reading a desktop-sized trace on a phone. The approval flow exposes intent and authorization scope before allowing the action. For high-risk requests, Face ID or device passcode confirms that the person holding the phone is the person granting access.',
+        'Remote execution creates a human factors problem: the user needs enough context to make a decision without reading a desktop-sized trace on a phone. The approval flow exposes intent and authorization scope, then requires an additional confirmation for dangerous session grants. Separately, Face ID or device passcode protects app re-entry and destructive Gateway restart.',
         'During execution, reasoning and tool calls collapse into a compact progress surface. Details remain available for inspection, but the final answer stays outside the trace so status, diagnostic detail, and outcome do not compete for attention. The screens shown here use safe simulator fixtures from the current main build.',
       ],
     },
@@ -127,7 +147,7 @@ export const hermesIosCompanionProject = {
         {
           label: 'Native iOS surfaces',
           value:
-            'Verified APNs, Face ID, Share Extension, Widget, Live Activity, Dynamic Island, voice input, and bilingual behavior on device.',
+            'Verified APNs, Face ID or passcode app lock, authenticated Gateway restart, Share Extension, Widget, Live Activity, Dynamic Island, voice input, and bilingual behavior on device.',
         },
         {
           label: 'Continuity under interruption',
