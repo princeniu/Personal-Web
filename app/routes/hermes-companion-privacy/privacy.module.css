@@ -1,0 +1,106 @@
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: var(--space5XL);
+  padding-bottom: var(--space5XL);
+}
+
+.article {
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.header {
+  padding-bottom: var(--space2XL);
+  border-bottom: 1px solid color-mix(in srgb, var(--textLight) 20%, transparent);
+}
+
+.eyebrow,
+.effective {
+  color: var(--textLight);
+  font-size: var(--fontSizeBodyS);
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  margin: 0 0 var(--spaceM);
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 18ch;
+  margin: 0 0 var(--spaceL);
+}
+
+.effective {
+  margin: 0 0 var(--spaceXL);
+}
+
+.intro {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--textBody);
+  font-size: var(--fontSizeBodyL);
+  line-height: 1.7;
+}
+
+.content {
+  padding-top: var(--spaceXL);
+}
+
+.section {
+  padding: var(--spaceXL) 0;
+}
+
+.section + .section {
+  border-top: 1px solid color-mix(in srgb, var(--textLight) 14%, transparent);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--spaceM);
+}
+
+.section p,
+.section li {
+  color: var(--textBody);
+  line-height: 1.75;
+}
+
+.section p {
+  margin: 0;
+}
+
+.section p + p,
+.section ul + p {
+  margin-top: var(--spaceM);
+}
+
+.section ul {
+  display: grid;
+  gap: var(--spaceS);
+  margin: var(--spaceM) 0 0;
+  padding-left: var(--spaceL);
+}
+
+.section a {
+  display: inline-block;
+  margin-top: var(--spaceM);
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+@media (--mediaMobile) {
+  .page {
+    padding-top: var(--space4XL);
+  }
+
+  .title {
+    max-width: none;
+  }
+}
