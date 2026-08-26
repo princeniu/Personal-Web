@@ -1,15 +1,15 @@
 export const hermesIosCompanionProject = {
   slug: 'hermes-ios-companion',
-  title: 'Hermes iOS Companion',
+  title: 'Helmline',
   description:
     '我独立设计和开发的自托管 iOS 移动控制端。它连接 Mac 与 VPS 上的 Hermes Agent，让用户在 iPhone 上继续会话、查看工具执行、确认高风险操作、使用语音输入，并接收系统级任务状态。',
   roles: ['产品设计', 'SwiftUI', 'iOS 系统集成', 'AI Agent UX', '安全', '可靠性'],
   summary: {
-    title: 'Hermes iOS Companion',
+    title: 'Helmline',
     description:
       '我独立设计和开发的自托管 iOS 移动控制端，用于继续 AI Agent 会话、查看工具执行、处理安全审批，并跟踪 Mac 与 VPS 私有实例中的任务状态。',
     modelType: 'phone',
-    modelAlt: 'Hermes iOS Companion 使用脱敏模拟器 fixture 展示审批与执行过程界面',
+    modelAlt: 'Helmline 使用脱敏模拟器 fixture 展示审批与执行过程界面',
     quickFacts: [
       { label: '角色', value: '独立产品设计与 iOS 开发' },
       { label: '技术', value: 'SwiftUI、SSE、APNs、ActivityKit、Tailscale' },
@@ -21,13 +21,13 @@ export const hermesIosCompanionProject = {
     {
       type: 'hero-image',
       image: 'hermesIosHeroZh',
-      alt: 'Hermes iOS Companion，自托管 AI Agent 的移动控制端',
+      alt: 'Helmline，自托管 AI Agent 的移动控制端',
     },
     {
       type: 'text',
       heading: '项目概览',
       body: [
-        'Hermes iOS Companion 是我为开源 Hermes Agent 独立设计和开发的移动控制端。离开运行 Agent 的电脑后，我仍可以继续会话、查看工具执行、处理安全审批、使用语音输入，并跟踪长时间任务。',
+        'Helmline 是我为开源 Hermes Agent 独立设计和开发的移动控制端。离开运行 Agent 的电脑后，我仍可以继续会话、查看工具执行、处理安全审批、使用语音输入，并跟踪长时间任务。',
         '它是已经部署在个人系统中的 private beta，不是普通聊天 App。我负责 iOS 客户端、交互模型、Gateway 协议集成、安全边界和 Apple 系统能力。它不是 Nous Research 官方产品。',
       ],
     },
@@ -35,7 +35,7 @@ export const hermesIosCompanionProject = {
       type: 'image',
       image: 'hermesIosCoreProductZh',
       heading: '移动控制端，而不是聊天框的缩小版',
-      alt: '当前 main 的脱敏 Hermes iOS Companion 界面，展示项目分组会话、聊天执行过程和安全审批',
+      alt: '当前 main 的脱敏 Helmline 界面，展示项目分组会话、聊天执行过程和安全审批',
       body: [
         '主要流程围绕 Agent 连续性组织，而不是围绕消息数量组织。会话按项目与实例分组，工具执行可检查但不会占据整个对话，审批请求则在用户决定前明确展示命令和授权范围。',
         '这些界面来自当前 main 的 Simulator build，使用 fixture 会话、示例命令和隔离的实例名称，不包含生产 endpoint、凭证或私人会话。',
@@ -163,7 +163,7 @@ export const hermesIosCompanionProject = {
       type: 'text',
       heading: '已知限制与发布边界',
       body: [
-        'Hermes iOS Companion 是 private beta 和已经部署的个人系统。它没有上架 App Store，也不是公开下载产品，更不是官方 Hermes App。当前配置仍假设用户拥有自托管 Hermes Gateway 与 Tailscale 网络，这适合目前的使用范围，但不是面向大众的 onboarding。',
+        'Helmline 是 private beta 和已经部署的个人系统。它没有上架 App Store，也不是公开下载产品，更不是官方 Hermes App。当前配置仍假设用户拥有自托管 Hermes Gateway 与 Tailscale 网络，这适合目前的使用范围，但不是面向大众的 onboarding。',
         '公开截图只使用 example data 与脱敏 fixture。真实 Gateway URL、API key、配对 payload、Tailscale 域名、设备 token、APNs 凭证和私人会话内容都不会出现在公开材料中。',
       ],
     },
@@ -173,7 +173,7 @@ export const hermesIosCompanionProject = {
       backgroundOverlayOpacity: 0.82,
       heading: '这个项目证明了什么',
       body: [
-        'Hermes iOS Companion 是我目前最完整的端到端案例。它把 AI 系统、UX 判断、原生 iOS 开发、后端协议、安全和真实部署组合成一个完整产品。',
+        'Helmline 是我目前最完整的端到端案例。它把 AI 系统、UX 判断、原生 iOS 开发、后端协议、安全和真实部署组合成一个完整产品。',
         '最重要的产品结论是：AI Companion 不应该模仿 Runtime，而应该把 Runtime 翻译成最少的一组移动交互，同时保留连续性、状态感知和信任。',
         'Built independently by Prince Niu，作为开源 Hermes Agent 的 companion 设计与开发。Not an official Nous Research product。',
       ],

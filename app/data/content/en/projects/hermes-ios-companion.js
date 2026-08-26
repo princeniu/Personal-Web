@@ -1,15 +1,15 @@
 export const hermesIosCompanionProject = {
   slug: 'hermes-ios-companion',
-  title: 'Hermes iOS Companion',
+  title: 'Helmline',
   description:
     'An independently built, self-hosted iOS control surface for Hermes Agent. It keeps conversations, execution status, security approvals, voice input, and iOS system surfaces connected across private Mac and VPS instances.',
   roles: ['Product Design', 'SwiftUI', 'iOS Systems', 'AI Agent UX', 'Security', 'Reliability'],
   summary: {
-    title: 'Hermes iOS Companion',
+    title: 'Helmline',
     description:
       'A self-hosted iOS companion I designed and built to continue AI agent sessions, inspect tool execution, approve sensitive actions, and receive task status from private Mac and VPS instances.',
     modelType: 'phone',
-    modelAlt: 'Hermes iOS Companion approval and execution trace screens running with sanitized simulator fixtures',
+    modelAlt: 'Helmline approval and execution trace screens running with sanitized simulator fixtures',
     quickFacts: [
       { label: 'Role', value: 'Solo designer and iOS engineer' },
       { label: 'Stack', value: 'SwiftUI, SSE, APNs, ActivityKit, Tailscale' },
@@ -21,13 +21,13 @@ export const hermesIosCompanionProject = {
     {
       type: 'hero-image',
       image: 'hermesIosHeroEn',
-      alt: 'Hermes iOS Companion, a self-hosted mobile control surface for AI agents',
+      alt: 'Helmline, a self-hosted mobile control surface for AI agents',
     },
     {
       type: 'text',
       heading: 'Overview',
       body: [
-        'Hermes iOS Companion is an independently built mobile control surface for the open-source Hermes Agent. It lets me continue conversations, inspect tool execution, handle security approvals, use voice input, and follow long-running tasks when I am away from the computer that hosts the agent.',
+        'Helmline is an independently built mobile control surface for the open-source Hermes Agent. It lets me continue conversations, inspect tool execution, handle security approvals, use voice input, and follow long-running tasks when I am away from the computer that hosts the agent.',
         'The project is a deployed personal system and private beta, not a general consumer chat app. I designed and built the iOS client, its interaction model, gateway protocol integration, security boundaries, and Apple platform surfaces. It is not an official Nous Research product.',
       ],
     },
@@ -35,7 +35,7 @@ export const hermesIosCompanionProject = {
       type: 'image',
       image: 'hermesIosCoreProductEn',
       heading: 'A Mobile Control Surface, Not a Chat Wrapper',
-      alt: 'Sanitized current-main Hermes iOS Companion screens showing grouped sessions, chat execution, and security approvals',
+      alt: 'Sanitized current-main Helmline screens showing grouped sessions, chat execution, and security approvals',
       body: [
         'The primary workflows are organized around agent continuity rather than message volume. Sessions stay grouped by project and instance, tool execution remains inspectable without taking over the conversation, and approval requests surface the command and authorization scope before a decision.',
         'These screens were captured from a current-main Simulator build using fixture sessions, example commands, and isolated instance names. No production endpoint, credential, or private conversation is present.',
@@ -163,7 +163,7 @@ export const hermesIosCompanionProject = {
       type: 'text',
       heading: 'Known Limits and Release Boundary',
       body: [
-        'Hermes iOS Companion is a private beta and deployed personal system. It is not on the App Store, is not publicly available, and is not presented as an official Hermes app. Setup still assumes a self-hosted Hermes Gateway and Tailscale access, which is appropriate for the current audience but not consumer onboarding.',
+        'Helmline is a private beta and deployed personal system. It is not on the App Store, is not publicly available, and is not presented as an official Hermes app. Setup still assumes a self-hosted Hermes Gateway and Tailscale access, which is appropriate for the current audience but not consumer onboarding.',
         'Public screenshots use example data and sanitized fixtures. Live Gateway URLs, API keys, pairing payloads, Tailscale domains, device tokens, APNs credentials, and private conversation content are intentionally excluded.',
       ],
     },
@@ -173,7 +173,7 @@ export const hermesIosCompanionProject = {
       backgroundOverlayOpacity: 0.82,
       heading: 'What This Project Demonstrates',
       body: [
-        'Hermes iOS Companion is my clearest end-to-end example of combining AI systems, UX judgment, native iOS engineering, backend protocol work, security, and real deployment into one coherent product.',
+        'Helmline is my clearest end-to-end example of combining AI systems, UX judgment, native iOS engineering, backend protocol work, security, and real deployment into one coherent product.',
         'The main lesson was that an AI companion should not imitate the runtime. It should translate the runtime into the smallest set of mobile interactions that preserve continuity, awareness, and trust.',
         'Built independently by Prince Niu as a companion for the open-source Hermes Agent. Not an official Nous Research product.',
       ],

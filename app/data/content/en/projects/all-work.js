@@ -28,7 +28,7 @@ export const allWorkProject = {
         ],
         items: [
           {
-            title: 'Hermes iOS Companion',
+            title: 'Helmline',
             timeframe: '2026 · Private Beta',
             description:
               'Self-hosted iOS control surface for Hermes Agent with session continuity, tool execution, Face ID approvals, voice input, and system-level task status across Mac and VPS instances.',
