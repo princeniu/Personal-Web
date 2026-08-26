@@ -7,15 +7,15 @@ import styles from './privacy.module.css';
 
 const policies = {
   en: {
-    title: 'Hermes iOS Companion Privacy Policy',
-    effective: 'Effective August 17, 2026',
+    title: 'Helmline Privacy Policy',
+    effective: 'Effective August 26, 2026',
     intro:
-      'Hermes iOS Companion is an independently developed, unofficial iPhone client for Hermes Agent. It is not developed, sponsored, or endorsed by Nous Research.',
+      'Helmline is an independently developed, unofficial iPhone client for Hermes Agent. It is not developed, sponsored, or endorsed by Nous Research.',
     sections: [
       {
         heading: 'Summary',
         paragraphs: [
-          'Hermes iOS Companion does not provide a developer-hosted account, analytics service, advertising system, or tracking service. You connect the app to a Hermes Gateway that you select and control. Apart from Apple platform services such as push notifications, the app sends content only to that Gateway as needed to perform actions you request.',
+          'Helmline does not provide a developer-hosted account, analytics service, advertising system, or tracking service. You connect the app to a Hermes Gateway that you select and control. Apart from Apple platform services such as push notifications, the app sends content only to that Gateway as needed to perform actions you request.',
         ],
       },
       {
@@ -117,15 +117,15 @@ const policies = {
     ],
   },
   zh: {
-    title: 'Hermes iOS Companion 隐私政策',
-    effective: '生效日期：2026 年 8 月 17 日',
+    title: 'Helmline 隐私政策',
+    effective: '生效日期：2026 年 8 月 26 日',
     intro:
-      'Hermes iOS Companion 是由独立开发者制作的非官方 Hermes Agent iPhone 客户端，并非由 Nous Research 开发、赞助或背书。',
+      'Helmline 是由独立开发者制作的非官方 Hermes Agent iPhone 客户端，并非由 Nous Research 开发、赞助或背书。',
     sections: [
       {
         heading: '概要',
         paragraphs: [
-          'Hermes iOS Companion 不提供由开发者托管的账号、分析服务、广告系统或追踪服务。你需要连接自己选择并控制的 Hermes Gateway。除 Apple 推送通知等系统服务外，App 只会在执行你发起的操作时，将所需内容发送到你选择的 Gateway。',
+          'Helmline 不提供由开发者托管的账号、分析服务、广告系统或追踪服务。你需要连接自己选择并控制的 Hermes Gateway。除 Apple 推送通知等系统服务外，App 只会在执行你发起的操作时，将所需内容发送到你选择的 Gateway。',
         ],
       },
       {
@@ -228,7 +228,7 @@ export function PrivacyPolicy() {
       <Section as="main" className={styles.page}>
         <article className={styles.article}>
           <header className={styles.header}>
-            <p className={styles.eyebrow}>Hermes iOS Companion</p>
+            <p className={styles.eyebrow}>Helmline</p>
             <Heading as="h1" level={2} className={styles.title}>
               {policy.title}
             </Heading>

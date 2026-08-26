@@ -3,8 +3,8 @@ import { baseMeta } from '~/utils/meta';
 
 export const meta = () =>
   baseMeta({
-    title: 'Hermes iOS Companion Privacy Policy',
-    description: 'Privacy policy for the unofficial Hermes iOS Companion app.',
+    title: 'Helmline Privacy Policy',
+    description: 'Privacy policy for the unofficial Helmline app.',
     path: '/hermes-companion/privacy',
   });
 
