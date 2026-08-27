@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Helmline system responsibility boundary</title>
+  <desc id="desc">An iPhone connects over authenticated HTTPS to a user-owned Hermes Gateway on a Mac or VPS, while tools, files, models, and automations remain on the host.</desc>
+  <rect width="1600" height="900" fill="#101010"/>
+  <rect x="80" y="80" width="1440" height="740" rx="32" fill="#151515" stroke="#2b2b2b"/>
+  <text x="140" y="164" fill="#f7f7f7" font-family="Inter, -apple-system, sans-serif" font-size="42" font-weight="650">A control surface, not a second runtime</text>
+  <text x="140" y="214" fill="#a7a7a7" font-family="Inter, -apple-system, sans-serif" font-size="22">Each layer has one clear responsibility.</text>
+  <g font-family="Inter, -apple-system, sans-serif">
+    <rect x="140" y="320" width="250" height="260" rx="24" fill="#1d1d1d" stroke="#3a3a3a"/>
+    <text x="175" y="385" fill="#e8a838" font-size="18" font-weight="700">CONTROL</text>
+    <text x="175" y="438" fill="#f7f7f7" font-size="32" font-weight="650">iPhone</text>
+    <text x="175" y="486" fill="#b8b8b8" font-size="19">Input, status,</text>
+    <text x="175" y="518" fill="#b8b8b8" font-size="19">approvals, capture</text>
+
+    <line x1="390" y1="450" x2="535" y2="450" stroke="#e8a838" stroke-width="3"/>
+    <path d="M520 438 L536 450 L520 462" fill="none" stroke="#e8a838" stroke-width="3"/>
+    <text x="414" y="420" fill="#a7a7a7" font-size="17">authenticated</text>
+    <text x="438" y="482" fill="#a7a7a7" font-size="17">HTTPS</text>
+
+    <rect x="550" y="320" width="300" height="260" rx="24" fill="#1d1d1d" stroke="#e8a838" stroke-width="2"/>
+    <text x="590" y="385" fill="#e8a838" font-size="18" font-weight="700">SOURCE OF TRUTH</text>
+    <text x="590" y="438" fill="#f7f7f7" font-size="30" font-weight="650">User-owned</text>
+    <text x="590" y="476" fill="#f7f7f7" font-size="30" font-weight="650">Hermes Gateway</text>
+    <text x="590" y="526" fill="#b8b8b8" font-size="19">Auth, sessions, runs</text>
+
+    <line x1="850" y1="450" x2="995" y2="450" stroke="#e8a838" stroke-width="3"/>
+    <path d="M980 438 L996 450 L980 462" fill="none" stroke="#e8a838" stroke-width="3"/>
+
+    <rect x="1010" y="320" width="450" height="260" rx="24" fill="#1d1d1d" stroke="#3a3a3a"/>
+    <text x="1050" y="385" fill="#e8a838" font-size="18" font-weight="700">HOST RUNTIME</text>
+    <text x="1050" y="438" fill="#f7f7f7" font-size="32" font-weight="650">Mac / VPS</text>
+    <text x="1050" y="490" fill="#b8b8b8" font-size="19">Tools · Files · Models</text>
+    <text x="1050" y="524" fill="#b8b8b8" font-size="19">Credentials · Automations</text>
+  </g>
+  <text x="140" y="700" fill="#f7f7f7" font-family="Inter, -apple-system, sans-serif" font-size="25" font-weight="600">Compute and private working context stay on infrastructure the user controls.</text>
+  <text x="140" y="748" fill="#8d8d8d" font-family="Inter, -apple-system, sans-serif" font-size="19">Gateway profiles remain separate across multiple Mac and VPS hosts.</text>
+</svg>

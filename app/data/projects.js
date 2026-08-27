@@ -93,15 +93,21 @@ import knowledgeosReflectionBg from '~/assets/knowledgeos-reflection-bg.webp';
 import knowledgeosHeroBannerZh from '~/assets/knowledgeos-hero-banner-zh.webp';
 import knowledgeosHeroBannerEn from '~/assets/knowledgeos-hero-banner-en.webp';
 
-import hermesIosHeroEn from '~/assets/hermes-ios-hero-banner-en.webp';
-import hermesIosHeroZh from '~/assets/hermes-ios-hero-banner-zh.webp';
-import hermesIosBackground from '~/assets/hermes-ios-background.webp';
-import hermesIosArchitecture from '~/assets/hermes-ios-architecture.webp';
-import hermesIosCoreProductEn from '~/assets/hermes-ios-core-product-en.webp';
-import hermesIosCoreProductZh from '~/assets/hermes-ios-core-product-zh.webp';
-import hermesIosSystemSurfaces from '~/assets/hermes-ios-system-surfaces.webp';
-import hermesIosChatCurrent from '~/assets/hermes-ios-chat-current.webp';
-import hermesIosInboxCurrent from '~/assets/hermes-ios-inbox-current.webp';
+import helmlineArchitectureEn from '~/assets/helmline-architecture-en.webp';
+import helmlineArchitectureZh from '~/assets/helmline-architecture-zh.webp';
+import helmlineBackground from '~/assets/helmline-background.webp';
+import helmlineFocusEn01 from '~/assets/helmline-focus-en-01-hero.webp';
+import helmlineFocusEn02 from '~/assets/helmline-focus-en-02-device-bottom.webp';
+import helmlineFocusEn03 from '~/assets/helmline-focus-en-03-device-top.webp';
+import helmlineFocusEn04 from '~/assets/helmline-focus-en-04-device-bottom.webp';
+import helmlineFocusEn05 from '~/assets/helmline-focus-en-05-device-top.webp';
+import helmlineFocusEn06 from '~/assets/helmline-focus-en-06-device-bottom.webp';
+import helmlineFocusZh01 from '~/assets/helmline-focus-zh-01-hero.webp';
+import helmlineFocusZh02 from '~/assets/helmline-focus-zh-02-device-bottom.webp';
+import helmlineFocusZh03 from '~/assets/helmline-focus-zh-03-device-top.webp';
+import helmlineFocusZh04 from '~/assets/helmline-focus-zh-04-device-bottom.webp';
+import helmlineFocusZh05 from '~/assets/helmline-focus-zh-05-device-top.webp';
+import helmlineFocusZh06 from '~/assets/helmline-focus-zh-06-device-bottom.webp';
 
 import etongueDeviceContext from '~/assets/etongue-device-context.webp';
 import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
@@ -159,41 +165,101 @@ import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowst
 import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
 
 const imageAssets = {
-  hermesIosHeroEn: {
-    src: hermesIosHeroEn,
-    srcSet: `${hermesIosHeroEn} 1600w`,
+  helmlineArchitectureEn: {
+    src: helmlineArchitectureEn,
+    srcSet: `${helmlineArchitectureEn} 1600w`,
     width: 1600,
-    height: 1000,
+    height: 900,
   },
-  hermesIosHeroZh: {
-    src: hermesIosHeroZh,
-    srcSet: `${hermesIosHeroZh} 1600w`,
+  helmlineArchitectureZh: {
+    src: helmlineArchitectureZh,
+    srcSet: `${helmlineArchitectureZh} 1600w`,
     width: 1600,
-    height: 1000,
+    height: 900,
   },
-  hermesIosArchitecture: {
-    src: hermesIosArchitecture,
-    srcSet: `${hermesIosArchitecture} 1600w`,
-    width: 1600,
-    height: 1000,
+  helmlineFocusEn01: {
+    src: helmlineFocusEn01,
+    srcSet: `${helmlineFocusEn01} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: 'Sessions: private self-hosted agent conversations grouped on iPhone',
   },
-  hermesIosCoreProductEn: {
-    src: hermesIosCoreProductEn,
-    srcSet: `${hermesIosCoreProductEn} 1600w`,
-    width: 1600,
-    height: 1000,
+  helmlineFocusEn02: {
+    src: helmlineFocusEn02,
+    srcSet: `${helmlineFocusEn02} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: 'Execution: real-time agent progress and completed launch checklist',
   },
-  hermesIosCoreProductZh: {
-    src: hermesIosCoreProductZh,
-    srcSet: `${hermesIosCoreProductZh} 1600w`,
-    width: 1600,
-    height: 1000,
+  helmlineFocusEn03: {
+    src: helmlineFocusEn03,
+    srcSet: `${helmlineFocusEn03} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: 'Approvals: sensitive action request with one-time, session, and deny choices',
   },
-  hermesIosSystemSurfaces: {
-    src: hermesIosSystemSurfaces,
-    srcSet: `${hermesIosSystemSurfaces} 1600w`,
-    width: 1600,
-    height: 1000,
+  helmlineFocusEn04: {
+    src: helmlineFocusEn04,
+    srcSet: `${helmlineFocusEn04} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: 'Capture: recording library for preserving voice input on iPhone',
+  },
+  helmlineFocusEn05: {
+    src: helmlineFocusEn05,
+    srcSet: `${helmlineFocusEn05} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: 'Multiple Gateways: isolated Studio Mac and VPS connections with local credentials',
+  },
+  helmlineFocusEn06: {
+    src: helmlineFocusEn06,
+    srcSet: `${helmlineFocusEn06} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: 'Native Status: Helmline Live Activity showing an active launch-preparation task',
+  },
+  helmlineFocusZh01: {
+    src: helmlineFocusZh01,
+    srcSet: `${helmlineFocusZh01} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: '会话：在 iPhone 上按上下文查看自托管智能体会话',
+  },
+  helmlineFocusZh02: {
+    src: helmlineFocusZh02,
+    srcSet: `${helmlineFocusZh02} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: '实时执行：查看智能体进度与已经完成的发布检查',
+  },
+  helmlineFocusZh03: {
+    src: helmlineFocusZh03,
+    srcSet: `${helmlineFocusZh03} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: '审批：敏感操作请求及允许一次、本会话允许和拒绝选项',
+  },
+  helmlineFocusZh04: {
+    src: helmlineFocusZh04,
+    srcSet: `${helmlineFocusZh04} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: '快速记录：保存在 iPhone 上的录音资料库',
+  },
+  helmlineFocusZh05: {
+    src: helmlineFocusZh05,
+    srcSet: `${helmlineFocusZh05} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: '多个 Gateway：相互隔离的工作室 Mac 与 VPS 连接',
+  },
+  helmlineFocusZh06: {
+    src: helmlineFocusZh06,
+    srcSet: `${helmlineFocusZh06} 1284w`,
+    width: 1284,
+    height: 2778,
+    alt: '系统状态：在 Live Activity 中查看正在运行的发布准备任务',
   },
   knowledgeosArchitecture: {
     src: knowledgeosArchitecture,
@@ -570,12 +636,13 @@ const imageAssets = {
 };
 
 const backgrounds = {
-  'hermes-ios-companion': {
-    src: hermesIosBackground,
-    srcSet: `${hermesIosBackground} 1600w`,
+  helmline: {
+    src: helmlineBackground,
+    srcSet: `${helmlineBackground} 1600w`,
     width: 1600,
     height: 1000,
-    placeholder: hermesIosBackground,
+    placeholder: helmlineBackground,
+    opacity: 0.55,
   },
   'etongue-sensory-platform': {
     src: etongueDeviceContext,
@@ -630,18 +697,32 @@ const backgrounds = {
 };
 
 const summaryTextures = {
-  'hermes-ios-companion': [
-    {
-      src: hermesIosInboxCurrent,
-      srcSet: `${hermesIosInboxCurrent} 1206w`,
-      placeholder: hermesIosInboxCurrent,
-    },
-    {
-      src: hermesIosChatCurrent,
-      srcSet: `${hermesIosChatCurrent} 1206w`,
-      placeholder: hermesIosChatCurrent,
-    },
-  ],
+  helmline: {
+    en: [
+      {
+        src: helmlineFocusEn01,
+        srcSet: `${helmlineFocusEn01} 1284w`,
+        placeholder: helmlineFocusEn01,
+      },
+      {
+        src: helmlineFocusEn03,
+        srcSet: `${helmlineFocusEn03} 1284w`,
+        placeholder: helmlineFocusEn03,
+      },
+    ],
+    zh: [
+      {
+        src: helmlineFocusZh01,
+        srcSet: `${helmlineFocusZh01} 1284w`,
+        placeholder: helmlineFocusZh01,
+      },
+      {
+        src: helmlineFocusZh03,
+        srcSet: `${helmlineFocusZh03} 1284w`,
+        placeholder: helmlineFocusZh03,
+      },
+    ],
+  },
   'etongue-sensory-platform': [
     {
       src: etongueEarlyPrototypePoster,
@@ -703,13 +784,15 @@ const summaryTextures = {
   ],
 };
 
-const withAssets = project => ({
+const withAssets = (project, locale = 'en') => ({
   ...project,
-  background: backgrounds[project.slug],
+  background: backgrounds[project.slug]?.[locale] || backgrounds[project.slug],
   path: getProjectPath(project.slug),
   summary: {
     ...project.summary,
-    textures: summaryTextures[project.slug] || [],
+    textures: Array.isArray(summaryTextures[project.slug])
+      ? summaryTextures[project.slug]
+      : summaryTextures[project.slug]?.[locale] || [],
   },
   sections: project.sections.map(section => ({
     ...section,
@@ -718,9 +801,9 @@ const withAssets = project => ({
   })),
 });
 
-export const projects = portfolioProjects.map(withAssets);
+export const projects = portfolioProjects.map(project => withAssets(project, 'en'));
 
-export const zhProjects = zhPortfolioProjects.map(withAssets);
+export const zhProjects = zhPortfolioProjects.map(project => withAssets(project, 'zh'));
 
 export const featuredProjects = featuredProjectSlugs.map(slug =>
   projects.find(project => project.slug === slug)

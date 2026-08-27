@@ -11,7 +11,7 @@ import {
   resolveProjectSlug,
 } from '~/data/project-content';
 
-const zhProjects = zhProjectsRaw.map(withAssets);
+const zhProjects = zhProjectsRaw.map(project => withAssets(project, 'zh'));
 const getZhProjectBySlug = slug => zhProjects.find(p => p.slug === slug);
 
 export const loader = async ({ params }) => {
@@ -46,7 +46,7 @@ export const meta = ({ params }) => {
     title: project.title,
     description: project.description,
     prefix: '项目',
-    path: `/zh/projects/${params.slug}`,
+    path: `/zh/projects/${project.slug}`,
     locale: 'zh',
   });
 };

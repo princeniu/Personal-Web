@@ -198,6 +198,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
           restDelta: 0.001,
           onUpdate: value => {
             uniforms.dispFactor.value = value;
+            renderer.current.render(scene.current, camera.current);
           },
           onComplete,
         });

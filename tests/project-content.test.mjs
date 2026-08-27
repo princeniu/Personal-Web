@@ -39,7 +39,7 @@ test('featured project slugs point at real projects in display order', () => {
   const availableSlugs = new Set(portfolioProjects.map(project => project.slug));
 
   assert.deepEqual(featuredProjectSlugs, [
-    'hermes-ios-companion',
+    'helmline',
     'trekassist',
     'knowledgeos',
     'porsche-digital-interface',
@@ -61,10 +61,15 @@ test('project paths use stable portfolio URLs', () => {
   assert.equal(getProjectPath('all-work'), '/projects/all-work');
 });
 
-test('all-work is a first-class project route, with legacy more-work redirect', () => {
+test('current project slugs are first-class routes, with legacy redirects', () => {
   assert.equal(resolveProjectSlug('all-work'), 'all-work');
+  assert.equal(resolveProjectSlug('helmline'), 'helmline');
   assert.equal(resolveProjectSlug('more-work'), 'all-work');
-  assert.deepEqual(legacyProjectSlugRedirects, { 'more-work': 'all-work' });
+  assert.equal(resolveProjectSlug('hermes-ios-companion'), 'helmline');
+  assert.deepEqual(legacyProjectSlugRedirects, {
+    'more-work': 'all-work',
+    'hermes-ios-companion': 'helmline',
+  });
 });
 
 test('repository metadata points to the active GitHub repo', () => {
@@ -86,9 +91,14 @@ test('sitemap only publishes intended public project routes', () => {
   assert.match(sitemap, /https:\/\/princeniu\.com\/zh\/uses/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/more-work/);
   assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/zh\/projects\/more-work/);
+  assert.doesNotMatch(sitemap, /https:\/\/princeniu\.com\/projects\/hermes-ios-companion/);
+  assert.doesNotMatch(
+    sitemap,
+    /https:\/\/princeniu\.com\/zh\/projects\/hermes-ios-companion/
+  );
 
   for (const slug of [
-    'hermes-ios-companion',
+    'helmline',
     'porsche-digital-interface',
     'posture-checker',
     'trekassist',

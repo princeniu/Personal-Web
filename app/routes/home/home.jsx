@@ -156,7 +156,7 @@ export const Home = () => {
         <ProjectSummary
           alternate={index % 2 === 1}
           buttonLink={localizePath(project.path, locale)}
-          buttonText={homeLabels.viewProject}
+          buttonText={project.summary.ctaLabel || homeLabels.viewProject}
           description={project.summary.description}
           id={`project-${index + 1}`}
           index={index + 1}

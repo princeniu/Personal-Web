@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Helmline 系统责任边界</title>
+  <desc id="desc">iPhone 通过经过身份认证的 HTTPS 连接用户自有 Hermes Gateway，Gateway 运行在 Mac 或 VPS 上，工具、文件、模型和自动化继续留在主机。</desc>
+  <rect width="1600" height="900" fill="#101010"/>
+  <rect x="80" y="80" width="1440" height="740" rx="32" fill="#151515" stroke="#2b2b2b"/>
+  <text x="140" y="164" fill="#f7f7f7" font-family="PingFang SC, Inter, sans-serif" font-size="42" font-weight="650">手机负责控制，不复制运行时</text>
+  <text x="140" y="214" fill="#a7a7a7" font-family="PingFang SC, Inter, sans-serif" font-size="22">每一层只承担一组明确责任。</text>
+  <g font-family="PingFang SC, Inter, sans-serif">
+    <rect x="140" y="320" width="250" height="260" rx="24" fill="#1d1d1d" stroke="#3a3a3a"/>
+    <text x="175" y="385" fill="#e8a838" font-size="18" font-weight="700">移动控制</text>
+    <text x="175" y="438" fill="#f7f7f7" font-size="32" font-weight="650">iPhone</text>
+    <text x="175" y="486" fill="#b8b8b8" font-size="19">输入、状态、审批</text>
+    <text x="175" y="518" fill="#b8b8b8" font-size="19">与快速采集</text>
+
+    <line x1="390" y1="450" x2="535" y2="450" stroke="#e8a838" stroke-width="3"/>
+    <path d="M520 438 L536 450 L520 462" fill="none" stroke="#e8a838" stroke-width="3"/>
+    <text x="418" y="420" fill="#a7a7a7" font-size="17">身份认证</text>
+    <text x="438" y="482" fill="#a7a7a7" font-size="17">HTTPS</text>
+
+    <rect x="550" y="320" width="300" height="260" rx="24" fill="#1d1d1d" stroke="#e8a838" stroke-width="2"/>
+    <text x="590" y="385" fill="#e8a838" font-size="18" font-weight="700">事实源</text>
+    <text x="590" y="438" fill="#f7f7f7" font-size="30" font-weight="650">用户自有</text>
+    <text x="590" y="476" fill="#f7f7f7" font-size="30" font-weight="650">Hermes Gateway</text>
+    <text x="590" y="526" fill="#b8b8b8" font-size="19">认证、会话与任务状态</text>
+
+    <line x1="850" y1="450" x2="995" y2="450" stroke="#e8a838" stroke-width="3"/>
+    <path d="M980 438 L996 450 L980 462" fill="none" stroke="#e8a838" stroke-width="3"/>
+
+    <rect x="1010" y="320" width="450" height="260" rx="24" fill="#1d1d1d" stroke="#3a3a3a"/>
+    <text x="1050" y="385" fill="#e8a838" font-size="18" font-weight="700">主机运行时</text>
+    <text x="1050" y="438" fill="#f7f7f7" font-size="32" font-weight="650">Mac / VPS</text>
+    <text x="1050" y="490" fill="#b8b8b8" font-size="19">工具 · 文件 · 模型</text>
+    <text x="1050" y="524" fill="#b8b8b8" font-size="19">凭据 · 自动化</text>
+  </g>
+  <text x="140" y="700" fill="#f7f7f7" font-family="PingFang SC, Inter, sans-serif" font-size="25" font-weight="600">计算与私有工作上下文始终留在用户控制的基础设施上。</text>
+  <text x="140" y="748" fill="#8d8d8d" font-family="PingFang SC, Inter, sans-serif" font-size="19">多个 Mac 与 VPS Gateway 使用相互独立的连接配置。</text>
+</svg>
