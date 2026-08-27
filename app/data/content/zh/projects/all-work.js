@@ -31,11 +31,11 @@ export const allWorkProject = {
       items: [
         {
           title: 'Helmline',
-          timeframe: '2026 · Private Beta',
+          timeframe: '2026 · App Store 审核中',
           description:
-            '自托管 Hermes Agent 的 iOS 移动控制端，支持会话连续性、工具执行、Face ID 审批、语音输入，以及 Mac 与 VPS 实例的系统级任务状态。',
-          tags: ['SwiftUI', 'AI Agent UX', 'SSE', 'APNs', 'Tailscale'],
-          href: '/zh/projects/hermes-ios-companion',
+            '面向自托管 AI 智能体的原生 iPhone 控制端，覆盖会话、流式执行、安全审批、采集、多 Gateway 与原生任务状态。',
+          tags: ['SwiftUI', '人因工程', 'AI Agent UX', 'BYOS', 'App Store 交付'],
+          href: '/zh/projects/helmline',
         },
         {
           title: 'SayIt',

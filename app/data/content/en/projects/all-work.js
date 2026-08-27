@@ -29,11 +29,11 @@ export const allWorkProject = {
         items: [
           {
             title: 'Helmline',
-            timeframe: '2026 · Private Beta',
+            timeframe: '2026 · App Review Pending',
             description:
-              'Self-hosted iOS control surface for Hermes Agent with session continuity, tool execution, Face ID approvals, voice input, and system-level task status across Mac and VPS instances.',
-            tags: ['SwiftUI', 'AI Agent UX', 'SSE', 'APNs', 'Tailscale'],
-            href: '/projects/hermes-ios-companion',
+              'Native iPhone control surface for self-hosted AI agents, with sessions, streamed execution, secure approvals, capture, multiple Gateways, and native task status.',
+            tags: ['SwiftUI', 'Human Factors', 'AI Agent UX', 'BYOS', 'App Store Delivery'],
+            href: '/projects/helmline',
           },
           {
             title: 'SayIt',

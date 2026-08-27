@@ -36,7 +36,7 @@ export const meta = ({ params }) => {
     title: project.title,
     description: project.description,
     prefix: 'Projects',
-    path: `/projects/${params.slug}`,
+    path: `/projects/${project.slug}`,
   });
 };
 

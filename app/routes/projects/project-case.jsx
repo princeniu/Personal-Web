@@ -90,7 +90,19 @@ const ProjectGallery = ({ section }) => {
     <ProjectSection light={section.light}>
       <ProjectSectionContent>
         <div className={isPortrait ? styles.portraitGallery : undefined}>
-          <Suspense>
+          <Suspense
+            fallback={
+              <Image
+                src={firstImage.src}
+                srcSet={firstImage.srcSet}
+                width={firstImage.width}
+                height={firstImage.height}
+                placeholder={firstImage.placeholder}
+                alt={firstImage.alt || section.alt || section.heading}
+                sizes={isPortrait ? portraitSizes : imageSizes}
+              />
+            }
+          >
             <Carousel
               placeholder={firstImage.placeholder}
               images={section.images.map(image => ({
