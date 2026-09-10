@@ -43,6 +43,8 @@ export default defineConfig({
           route('/zh', 'routes/zh-home.js');
           route('/zh/contact', 'routes/zh-contact.js');
           route('/zh/uses', 'routes/zh-uses.js');
+          route('/hermes-companion/privacy', 'routes/hermes-companion-privacy-en.jsx');
+          route('/zh/hermes-companion/privacy', 'routes/hermes-companion-privacy-zh.jsx');
           route('/zh/projects/:slug', 'routes/zh-projects-$slug.jsx');
         });
       },

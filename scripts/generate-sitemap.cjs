@@ -8,6 +8,7 @@ const today = new Date().toISOString().split('T')[0];
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'monthly' },
   { path: '/contact', priority: '0.7', changefreq: 'monthly' },
+  { path: '/hermes-companion/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/uses', priority: '0.5', changefreq: 'monthly' },
 ];
 

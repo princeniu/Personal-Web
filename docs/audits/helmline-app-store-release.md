@@ -1,6 +1,6 @@
 # Helmline App Store portfolio update
 
-Status: implemented and locally verified; NOT committed, pushed, or deployed. Production publication requires Prince's approval.
+Status: approved for production publication. Website change committed as 3b6097c. First deployment exposed a missing prior-production privacy route; restored verbatim from prior deployment source d63502a before final publication verification.
 Branch: feature/helmline-app-store-release, based on website 39e3c21.
 
 ## Evidence boundaries
