@@ -138,7 +138,7 @@ const ProjectImageTextSection = ({ section }) => (
   <ProjectSection padding="top" light={section.light}>
     <ProjectSectionContent className={styles.grid}>
       <div className={styles.gridImage}>
-        <div className={styles.gridBackground}>
+        <div className={`${styles.gridBackground} ${section.portrait ? styles.gridPortrait : ''}`}>
           {renderImage({
             image: section.image,
             alt: section.alt,
@@ -384,6 +384,7 @@ export const ProjectCase = ({ project }) => (
         />
       )}
       <ProjectHeader
+        className={project.slug === 'helmline' ? styles.storeHeader : undefined}
         title={project.title}
         description={project.description}
         roles={project.roles}
