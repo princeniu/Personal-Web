@@ -29,9 +29,9 @@ export const allWorkProject = {
         items: [
           {
             title: 'Helmline',
-            timeframe: '2026 · App Review Pending',
+            timeframe: '2026 · Available on the App Store',
             description:
-              'Native iPhone control surface for self-hosted AI agents, with sessions, streamed execution, secure approvals, capture, multiple Gateways, and native task status.',
+              'Independently designed, built, and released a native iPhone client for following self-hosted agent work and reviewing sensitive actions. Free; requires your own compatible Hermes Gateway.',
             tags: ['SwiftUI', 'Human Factors', 'AI Agent UX', 'BYOS', 'App Store Delivery'],
             href: '/projects/helmline',
           },

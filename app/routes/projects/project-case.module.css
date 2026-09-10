@@ -322,6 +322,10 @@
   }
 }
 
+.storeHeader a[href^="https://apps.apple.com/"] {
+  min-height: 44px;
+}
+
 .projectGridCta {
   margin-top: auto;
   padding-top: var(--spaceS);

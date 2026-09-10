@@ -31,9 +31,9 @@ export const allWorkProject = {
       items: [
         {
           title: 'Helmline',
-          timeframe: '2026 · App Store 审核中',
+          timeframe: '2026 · 已在 App Store 上架',
           description:
-            '面向自托管 AI 智能体的原生 iPhone 控制端，覆盖会话、流式执行、安全审批、采集、多 Gateway 与原生任务状态。',
+            '独立完成设计、开发与发布的原生 iPhone 客户端，用于跟进自托管智能体任务、确认敏感操作。免费，需自备兼容 Hermes Gateway。',
           tags: ['SwiftUI', '人因工程', 'AI Agent UX', 'BYOS', 'App Store 交付'],
           href: '/zh/projects/helmline',
         },

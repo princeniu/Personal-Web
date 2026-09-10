@@ -384,6 +384,7 @@ export const ProjectCase = ({ project }) => (
         />
       )}
       <ProjectHeader
+        className={project.slug === 'helmline' ? styles.storeHeader : undefined}
         title={project.title}
         description={project.description}
         roles={project.roles}

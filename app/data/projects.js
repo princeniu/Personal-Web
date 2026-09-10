@@ -96,18 +96,12 @@ import knowledgeosHeroBannerEn from '~/assets/knowledgeos-hero-banner-en.webp';
 import helmlineArchitectureEn from '~/assets/helmline-architecture-en.webp';
 import helmlineArchitectureZh from '~/assets/helmline-architecture-zh.webp';
 import helmlineBackground from '~/assets/helmline-background.webp';
-import helmlineFocusEn01 from '~/assets/helmline-focus-en-01-hero.webp';
-import helmlineFocusEn02 from '~/assets/helmline-focus-en-02-device-bottom.webp';
-import helmlineFocusEn03 from '~/assets/helmline-focus-en-03-device-top.webp';
-import helmlineFocusEn04 from '~/assets/helmline-focus-en-04-device-bottom.webp';
-import helmlineFocusEn05 from '~/assets/helmline-focus-en-05-device-top.webp';
-import helmlineFocusEn06 from '~/assets/helmline-focus-en-06-device-bottom.webp';
-import helmlineFocusZh01 from '~/assets/helmline-focus-zh-01-hero.webp';
-import helmlineFocusZh02 from '~/assets/helmline-focus-zh-02-device-bottom.webp';
-import helmlineFocusZh03 from '~/assets/helmline-focus-zh-03-device-top.webp';
-import helmlineFocusZh04 from '~/assets/helmline-focus-zh-04-device-bottom.webp';
-import helmlineFocusZh05 from '~/assets/helmline-focus-zh-05-device-top.webp';
-import helmlineFocusZh06 from '~/assets/helmline-focus-zh-06-device-bottom.webp';
+import helmlineScreenEn01 from '~/assets/helmline-screen-en-01.webp';
+import helmlineScreenEn02 from '~/assets/helmline-screen-en-02.webp';
+import helmlineScreenEn03 from '~/assets/helmline-screen-en-03.webp';
+import helmlineScreenZh01 from '~/assets/helmline-screen-zh-01.webp';
+import helmlineScreenZh02 from '~/assets/helmline-screen-zh-02.webp';
+import helmlineScreenZh03 from '~/assets/helmline-screen-zh-03.webp';
 
 import etongueDeviceContext from '~/assets/etongue-device-context.webp';
 import etongueDeviceContextPlaceholder from '~/assets/etongue-device-context-placeholder.jpg';
@@ -177,89 +171,47 @@ const imageAssets = {
     width: 1600,
     height: 900,
   },
-  helmlineFocusEn01: {
-    src: helmlineFocusEn01,
-    srcSet: `${helmlineFocusEn01} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: 'Sessions: private self-hosted agent conversations grouped on iPhone',
+  helmlineScreenEn01: {
+    src: helmlineScreenEn01,
+    srcSet: `${helmlineScreenEn01} 1320w`,
+    width: 1320,
+    height: 2868,
+    alt: 'Sessions grouped on iPhone, with fictional demonstration conversations',
   },
-  helmlineFocusEn02: {
-    src: helmlineFocusEn02,
-    srcSet: `${helmlineFocusEn02} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: 'Execution: real-time agent progress and completed launch checklist',
+  helmlineScreenEn02: {
+    src: helmlineScreenEn02,
+    srcSet: `${helmlineScreenEn02} 1320w`,
+    width: 1320,
+    height: 2868,
+    alt: 'Compact execution summary above a result, using demonstration content',
   },
-  helmlineFocusEn03: {
-    src: helmlineFocusEn03,
-    srcSet: `${helmlineFocusEn03} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: 'Approvals: sensitive action request with one-time, session, and deny choices',
+  helmlineScreenEn03: {
+    src: helmlineScreenEn03,
+    srcSet: `${helmlineScreenEn03} 1320w`,
+    width: 1320,
+    height: 2868,
+    alt: 'Approval choices: allow once, allow this session, or deny',
   },
-  helmlineFocusEn04: {
-    src: helmlineFocusEn04,
-    srcSet: `${helmlineFocusEn04} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: 'Capture: recording library for preserving voice input on iPhone',
+  helmlineScreenZh01: {
+    src: helmlineScreenZh01,
+    srcSet: `${helmlineScreenZh01} 1320w`,
+    width: 1320,
+    height: 2868,
+    alt: '按上下文展示的 iPhone 会话列表，使用虚构演示内容',
   },
-  helmlineFocusEn05: {
-    src: helmlineFocusEn05,
-    srcSet: `${helmlineFocusEn05} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: 'Multiple Gateways: isolated Studio Mac and VPS connections with local credentials',
+  helmlineScreenZh02: {
+    src: helmlineScreenZh02,
+    srcSet: `${helmlineScreenZh02} 1320w`,
+    width: 1320,
+    height: 2868,
+    alt: '结果上方的紧凑执行摘要，使用演示内容',
   },
-  helmlineFocusEn06: {
-    src: helmlineFocusEn06,
-    srcSet: `${helmlineFocusEn06} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: 'Native Status: Helmline Live Activity showing an active launch-preparation task',
-  },
-  helmlineFocusZh01: {
-    src: helmlineFocusZh01,
-    srcSet: `${helmlineFocusZh01} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: '会话：在 iPhone 上按上下文查看自托管智能体会话',
-  },
-  helmlineFocusZh02: {
-    src: helmlineFocusZh02,
-    srcSet: `${helmlineFocusZh02} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: '实时执行：查看智能体进度与已经完成的发布检查',
-  },
-  helmlineFocusZh03: {
-    src: helmlineFocusZh03,
-    srcSet: `${helmlineFocusZh03} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: '审批：敏感操作请求及允许一次、本会话允许和拒绝选项',
-  },
-  helmlineFocusZh04: {
-    src: helmlineFocusZh04,
-    srcSet: `${helmlineFocusZh04} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: '快速记录：保存在 iPhone 上的录音资料库',
-  },
-  helmlineFocusZh05: {
-    src: helmlineFocusZh05,
-    srcSet: `${helmlineFocusZh05} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: '多个 Gateway：相互隔离的工作室 Mac 与 VPS 连接',
-  },
-  helmlineFocusZh06: {
-    src: helmlineFocusZh06,
-    srcSet: `${helmlineFocusZh06} 1284w`,
-    width: 1284,
-    height: 2778,
-    alt: '系统状态：在 Live Activity 中查看正在运行的发布准备任务',
+  helmlineScreenZh03: {
+    src: helmlineScreenZh03,
+    srcSet: `${helmlineScreenZh03} 1320w`,
+    width: 1320,
+    height: 2868,
+    alt: '审批选项：允许一次、本会话允许或拒绝',
   },
   knowledgeosArchitecture: {
     src: knowledgeosArchitecture,
@@ -699,28 +651,12 @@ const backgrounds = {
 const summaryTextures = {
   helmline: {
     en: [
-      {
-        src: helmlineFocusEn01,
-        srcSet: `${helmlineFocusEn01} 1284w`,
-        placeholder: helmlineFocusEn01,
-      },
-      {
-        src: helmlineFocusEn03,
-        srcSet: `${helmlineFocusEn03} 1284w`,
-        placeholder: helmlineFocusEn03,
-      },
+      { src: helmlineScreenEn01, srcSet: `${helmlineScreenEn01} 1320w`, placeholder: helmlineScreenEn01 },
+      { src: helmlineScreenEn03, srcSet: `${helmlineScreenEn03} 1320w`, placeholder: helmlineScreenEn03 },
     ],
     zh: [
-      {
-        src: helmlineFocusZh01,
-        srcSet: `${helmlineFocusZh01} 1284w`,
-        placeholder: helmlineFocusZh01,
-      },
-      {
-        src: helmlineFocusZh03,
-        srcSet: `${helmlineFocusZh03} 1284w`,
-        placeholder: helmlineFocusZh03,
-      },
+      { src: helmlineScreenZh01, srcSet: `${helmlineScreenZh01} 1320w`, placeholder: helmlineScreenZh01 },
+      { src: helmlineScreenZh03, srcSet: `${helmlineScreenZh03} 1320w`, placeholder: helmlineScreenZh03 },
     ],
   },
   'etongue-sensory-platform': [
