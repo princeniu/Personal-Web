@@ -95,7 +95,27 @@ import knowledgeosHeroBannerEn from '~/assets/knowledgeos-hero-banner-en.webp';
 
 import helmlineArchitectureEn from '~/assets/helmline-architecture-en.webp';
 import helmlineArchitectureZh from '~/assets/helmline-architecture-zh.webp';
-import helmlineBackground from '~/assets/helmline-background.webp';
+import helmlineHistoryCoreEn from '~/assets/hermes-ios-core-product-en.webp';
+import helmlineHistoryCoreZh from '~/assets/hermes-ios-core-product-zh.webp';
+import helmlineHistorySecurity from '~/assets/hermes-ios-security-execution.webp';
+import helmlineHistorySystem from '~/assets/hermes-ios-system-surfaces.webp';
+import helmlineHistoryArchitecture from '~/assets/hermes-ios-architecture.webp';
+import helmlineHistoryChat from '~/assets/hermes-ios-chat-current.webp';
+import helmlineHistoryInbox from '~/assets/hermes-ios-inbox-current.webp';
+import helmlineHistoryTrace from '~/assets/hermes-ios-execution-trace.webp';
+import helmlineHistoryApproval from '~/assets/hermes-ios-approval.webp';
+import helmlineStoreEn01 from '~/assets/helmline-focus-en-01-hero.webp';
+import helmlineStoreEn02 from '~/assets/helmline-focus-en-02-device-bottom.webp';
+import helmlineStoreEn03 from '~/assets/helmline-focus-en-03-device-top.webp';
+import helmlineStoreEn04 from '~/assets/helmline-focus-en-04-device-bottom.webp';
+import helmlineStoreEn05 from '~/assets/helmline-focus-en-05-device-top.webp';
+import helmlineStoreEn06 from '~/assets/helmline-focus-en-06-device-bottom.webp';
+import helmlineStoreZh01 from '~/assets/helmline-focus-zh-01-hero.webp';
+import helmlineStoreZh02 from '~/assets/helmline-focus-zh-02-device-bottom.webp';
+import helmlineStoreZh03 from '~/assets/helmline-focus-zh-03-device-top.webp';
+import helmlineStoreZh04 from '~/assets/helmline-focus-zh-04-device-bottom.webp';
+import helmlineStoreZh05 from '~/assets/helmline-focus-zh-05-device-top.webp';
+import helmlineStoreZh06 from '~/assets/helmline-focus-zh-06-device-bottom.webp';
 import helmlineScreenEn01 from '~/assets/helmline-screen-en-01.webp';
 import helmlineScreenEn02 from '~/assets/helmline-screen-en-02.webp';
 import helmlineScreenEn03 from '~/assets/helmline-screen-en-03.webp';
@@ -159,6 +179,81 @@ import trekassistYellowstoneSignBgPlaceholder from '~/assets/trekassist-yellowst
 import trekassistYellowstoneSignBg from '~/assets/trekassist-yellowstone-sign-bg.jpg';
 
 const imageAssets = {
+  helmlineHistoryCoreEn: {
+    src: helmlineHistoryCoreEn, srcSet: `${helmlineHistoryCoreEn} 1600w`, width: 1600, height: 1000,
+  },
+  helmlineHistoryCoreZh: {
+    src: helmlineHistoryCoreZh, srcSet: `${helmlineHistoryCoreZh} 1600w`, width: 1600, height: 1000,
+  },
+  helmlineHistorySecurity: {
+    src: helmlineHistorySecurity, srcSet: `${helmlineHistorySecurity} 1600w`, width: 1600, height: 1000,
+  },
+  helmlineHistorySystem: {
+    src: helmlineHistorySystem, srcSet: `${helmlineHistorySystem} 1600w`, width: 1600, height: 1000,
+  },
+  helmlineHistoryArchitecture: {
+    src: helmlineHistoryArchitecture, srcSet: `${helmlineHistoryArchitecture} 1600w`, width: 1600, height: 1000,
+  },
+  helmlineHistoryChat: {
+    src: helmlineHistoryChat, srcSet: `${helmlineHistoryChat} 1206w`, width: 1206, height: 2622,
+  },
+  helmlineHistoryInbox: {
+    src: helmlineHistoryInbox, srcSet: `${helmlineHistoryInbox} 1206w`, width: 1206, height: 2622,
+  },
+  helmlineHistoryTrace: {
+    src: helmlineHistoryTrace, srcSet: `${helmlineHistoryTrace} 1206w`, width: 1206, height: 2622,
+  },
+  helmlineHistoryApproval: {
+    src: helmlineHistoryApproval, srcSet: `${helmlineHistoryApproval} 1206w`, width: 1206, height: 2622,
+  },
+  helmlineStoreEn01: {
+    src: helmlineStoreEn01, srcSet: `${helmlineStoreEn01} 1284w`, width: 1284, height: 2778,
+    alt: '1 / 6 · Sessions: run your agents from anywhere',
+  },
+  helmlineStoreEn02: {
+    src: helmlineStoreEn02, srcSet: `${helmlineStoreEn02} 1284w`, width: 1284, height: 2778,
+    alt: '2 / 6 · Execution: see every step in real time',
+  },
+  helmlineStoreEn03: {
+    src: helmlineStoreEn03, srcSet: `${helmlineStoreEn03} 1284w`, width: 1284, height: 2778,
+    alt: '3 / 6 · Approvals: approve sensitive actions safely',
+  },
+  helmlineStoreEn04: {
+    src: helmlineStoreEn04, srcSet: `${helmlineStoreEn04} 1284w`, width: 1284, height: 2778,
+    alt: '4 / 6 · Capture: catch ideas before they fade',
+  },
+  helmlineStoreEn05: {
+    src: helmlineStoreEn05, srcSet: `${helmlineStoreEn05} 1284w`, width: 1284, height: 2778,
+    alt: '5 / 6 · Multiple Gateways: switch gateways without friction',
+  },
+  helmlineStoreEn06: {
+    src: helmlineStoreEn06, srcSet: `${helmlineStoreEn06} 1284w`, width: 1284, height: 2778,
+    alt: '6 / 6 · Native status: keep every run in sight',
+  },
+  helmlineStoreZh01: {
+    src: helmlineStoreZh01, srcSet: `${helmlineStoreZh01} 1284w`, width: 1284, height: 2778,
+    alt: '1 / 6 · 会话：随时随地运行智能体',
+  },
+  helmlineStoreZh02: {
+    src: helmlineStoreZh02, srcSet: `${helmlineStoreZh02} 1284w`, width: 1284, height: 2778,
+    alt: '2 / 6 · 实时执行：实时掌握每一步进展',
+  },
+  helmlineStoreZh03: {
+    src: helmlineStoreZh03, srcSet: `${helmlineStoreZh03} 1284w`, width: 1284, height: 2778,
+    alt: '3 / 6 · 审批：敏感操作由你安全批准',
+  },
+  helmlineStoreZh04: {
+    src: helmlineStoreZh04, srcSet: `${helmlineStoreZh04} 1284w`, width: 1284, height: 2778,
+    alt: '4 / 6 · 快速记录：随手记录，留住每个想法',
+  },
+  helmlineStoreZh05: {
+    src: helmlineStoreZh05, srcSet: `${helmlineStoreZh05} 1284w`, width: 1284, height: 2778,
+    alt: '5 / 6 · 多个 Gateway：轻松切换多个 Gateway',
+  },
+  helmlineStoreZh06: {
+    src: helmlineStoreZh06, srcSet: `${helmlineStoreZh06} 1284w`, width: 1284, height: 2778,
+    alt: '6 / 6 · 系统状态：锁屏掌握每次运行',
+  },
   helmlineArchitectureEn: {
     src: helmlineArchitectureEn,
     srcSet: `${helmlineArchitectureEn} 1600w`,
@@ -589,12 +684,11 @@ const imageAssets = {
 
 const backgrounds = {
   helmline: {
-    src: helmlineBackground,
-    srcSet: `${helmlineBackground} 1600w`,
+    src: knowledgeosHeroBg,
+    srcSet: `${knowledgeosHeroBg} 1600w`,
     width: 1600,
     height: 1000,
-    placeholder: helmlineBackground,
-    opacity: 0.55,
+    opacity: 0.45,
   },
   'etongue-sensory-platform': {
     src: etongueDeviceContext,
@@ -733,7 +827,11 @@ const withAssets = (project, locale = 'en') => ({
   sections: project.sections.map(section => ({
     ...section,
     image: typeof section.image === 'string' ? imageAssets[section.image] : section.image,
-    images: section.images?.map(image => imageAssets[image]),
+    images: section.images?.map((image, index) => (
+      section.imageAlts?.[index]
+        ? { ...imageAssets[image], alt: section.imageAlts[index] }
+        : imageAssets[image]
+    )),
   })),
 });
 
