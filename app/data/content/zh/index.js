@@ -1,3 +1,4 @@
+import { clipmoriProject } from './projects/clipmori.js';
 // Chinese project translations
 import { sayitProject } from './projects/sayit.js';
 import { knowledgeosProject } from './projects/knowledgeos.js';
@@ -10,6 +11,7 @@ import { allWorkProject } from './projects/all-work.js';
 import { helmlineProject } from './projects/helmline.js';
 
 export {
+  clipmoriProject,
   sayitProject,
   knowledgeosProject,
   porscheProject,
@@ -22,6 +24,7 @@ export {
 };
 
 export const portfolioProjects = [
+  clipmoriProject,
   helmlineProject,
   etongueProject,
   porscheProject,

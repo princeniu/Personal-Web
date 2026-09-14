@@ -27,6 +27,19 @@ export const allWorkProject = {
           'A scannable view of recent and ongoing work. Featured case studies open into full project pages; the rest is summarized here.',
         ],
         items: [
+{
+  "title": "Clipmori",
+  "timeframe": "Sep 2026 · Early release",
+  "description": "A native macOS clipboard history app built around an everyday need: find something copied earlier, preview it, and paste it again.",
+  "tags": [
+    "macOS",
+    "SwiftUI",
+    "AppKit"
+  ],
+  "href": "/projects/clipmori",
+  "cover": "/projects/clipmori/cover-en.png",
+  "coverAlt": "Clipmori — clipboard history app"
+},
           {
             title: 'Helmline',
             timeframe: '2026 · Available on the App Store',

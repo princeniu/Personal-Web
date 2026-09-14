@@ -29,6 +29,19 @@ export const allWorkProject = {
         '近期和持续项目的可扫读视图。精选案例可以进入完整项目页，其余项目在这里做摘要展示。',
       ],
       items: [
+{
+  "title": "拾贴 · Clipmori",
+  "timeframe": "2026 年 9 月 · 早期版本",
+  "description": "从个人日常需求出发制作的原生 macOS 剪贴板历史工具。搜索、预览，再把需要的内容贴回应用。",
+  "tags": [
+    "macOS",
+    "SwiftUI",
+    "AppKit"
+  ],
+  "href": "/zh/projects/clipmori",
+  "cover": "/projects/clipmori/cover-zh.png",
+  "coverAlt": "拾贴 · Clipmori — 剪贴板历史工具"
+},
         {
           title: 'Helmline',
           timeframe: '2026 · 已在 App Store 上架',
