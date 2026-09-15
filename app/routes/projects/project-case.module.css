@@ -339,3 +339,27 @@
   color: var(--accent);
   font-weight: var(--fontWeightMedium);
 }
+
+.projectGridCover {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: var(--spaceM);
+}
+.videoFigure {
+  margin: 0;
+  & figcaption {
+    margin-top: var(--spaceM);
+    color: var(--textLight);
+    font-size: var(--fontSizeBodyS);
+    line-height: 1.6;
+  }
+}
+.projectVideo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  background: #faf6f0;
+}

@@ -212,6 +212,9 @@ const ProjectGrid = ({ section }) => {
           {section.items.map(item => {
             const inner = (
               <>
+                {item.cover && (
+                  <img className={styles.projectGridCover} src={item.cover} alt={item.coverAlt || item.title} width={1672} height={941} loading="lazy" />
+                )}
                 {item.timeframe && (
                   <span className={styles.projectGridTimeframe}>{item.timeframe}</span>
                 )}
@@ -322,6 +325,21 @@ const ProjectOutcome = ({ section }) => {
 
 const ProjectSectionRenderer = ({ section }) => {
   switch (section.type) {
+    case 'video':
+      return (
+        <ProjectSection>
+          <ProjectSectionContent>
+            {renderTextRow(section)}
+            <figure className={styles.videoFigure}>
+              <video className={styles.projectVideo} controls playsInline preload="none" poster={section.poster} aria-label={section.heading} aria-describedby={`video-${section.src.split('/').pop()}`}>
+                <source src={section.src} type="video/mp4" />
+                <a href={section.src}>{section.heading}</a>
+              </video>
+              <figcaption id={`video-${section.src.split('/').pop()}`}>{section.caption}</figcaption>
+            </figure>
+          </ProjectSectionContent>
+        </ProjectSection>
+      );
     case 'gallery':
       return <ProjectGallery section={section} />;
     case 'hero-image': {
