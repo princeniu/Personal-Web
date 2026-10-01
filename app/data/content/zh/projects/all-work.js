@@ -30,6 +30,19 @@ export const allWorkProject = {
       ],
       items: [
 {
+  "title": "声间",
+  "timeframe": "2026年9月 · 私人双用户产品",
+  "description": "一个私人双语听课与复习工具：实时中英字幕、带时间戳的原音回听，以及结构化学习笔记。",
+  "tags": [
+    "实时音频",
+    "双语阅读",
+    "恢复与归档"
+  ],
+  "href": "/zh/projects/shengjian",
+  "cover": "/projects/shengjian/cover-zh.webp",
+  "coverAlt": "声间双语听课与复习工具"
+},
+{
   "title": "拾贴 · Clipmori",
   "timeframe": "2026 年 9 月 · 早期版本",
   "description": "从个人日常需求出发制作的原生 macOS 剪贴板历史工具。搜索、预览，再把需要的内容贴回应用。",

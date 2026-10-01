@@ -1,4 +1,5 @@
 import {
+  shengjianProject,
   clipmoriProject,
   etongueProject,
   porscheProject,
@@ -26,6 +27,7 @@ export const legacyProjectSlugRedirects = {
 };
 
 export const portfolioProjects = [
+  shengjianProject,
   clipmoriProject,
   helmlineProject,
   etongueProject,
