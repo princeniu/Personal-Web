@@ -28,6 +28,19 @@ export const allWorkProject = {
         ],
         items: [
 {
+  "title": "Shengjian",
+  "timeframe": "Sep 2026 · Private two-user product",
+  "description": "A private listening and review tool that pairs live bilingual captions with timestamped audio replay and structured study notes.",
+  "tags": [
+    "Real-time Audio",
+    "Bilingual UX",
+    "Recovery & Archiving"
+  ],
+  "href": "/projects/shengjian",
+  "cover": "/projects/shengjian/cover-en.webp",
+  "coverAlt": "Shengjian bilingual listening and review"
+},
+{
   "title": "Clipmori",
   "timeframe": "Sep 2026 · Early release",
   "description": "A native macOS clipboard history app built around an everyday need: find something copied earlier, preview it, and paste it again.",
