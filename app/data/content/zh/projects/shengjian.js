@@ -78,11 +78,11 @@ export const shengjianProject = {
     },
     {
       "type": "video",
-      "heading": "40 秒界面演示",
+      "heading": "28 秒产品演示",
       "body": [],
-      "src": "/projects/shengjian/promo-with-sound.mp4",
-      "poster": "/projects/shengjian/poster.webp",
-      "caption": "实际界面的截图剪辑，带背景音乐和转场音效，无旁白。演示环境使用合成音频、人工脚本字幕与笔记；此视频不用于证明识别准确率或实时延迟。"
+      "src": "/projects/shengjian/promo-v2-zh.mp4",
+      "poster": "/projects/shengjian/poster-v2-zh.webp",
+      "caption": "现场双语、疑点标记、课堂图片与课后回听复习的界面演示，带背景音乐和音效，无旁白。使用虚构课堂内容与合成输入，不用于证明识别准确率或实时延迟。"
     },
     {
       "type": "text",

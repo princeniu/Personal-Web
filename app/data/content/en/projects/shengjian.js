@@ -78,11 +78,11 @@ export const shengjianProject = {
     },
     {
       "type": "video",
-      "heading": "A 40-second interface walkthrough",
+      "heading": "A 28-second product demo",
       "body": [],
-      "src": "/projects/shengjian/promo-with-sound.mp4",
-      "poster": "/projects/shengjian/poster.webp",
-      "caption": "An edited walkthrough of actual interface states, with background music and transition cues, without narration. The demonstration uses synthetic audio and scripted captions and notes; it does not measure recognition accuracy or live latency."
+      "src": "/projects/shengjian/promo-v2-en.mp4",
+      "poster": "/projects/shengjian/poster-v2-en.webp",
+      "caption": "An edited demo of bilingual reading, question markers, classroom photos, replay, and review, with English titles over the original interface. Fictional lesson content and synthetic input; not a test of recognition accuracy or live latency. Music and sound effects, without narration."
     },
     {
       "type": "text",
