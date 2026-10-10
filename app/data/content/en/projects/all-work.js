@@ -30,14 +30,14 @@ export const allWorkProject = {
 {
   "title": "Shengjian",
   "timeframe": "Sep 2026 · Private two-user product",
-  "description": "A private listening and review tool that pairs live bilingual captions with timestamped audio replay and structured study notes.",
+  "description": "A private classroom companion that connects bilingual captions, learning markers, and timestamped photos with replay, course organization, and study notes.",
   "tags": [
-    "Real-time Audio",
-    "Bilingual UX",
-    "Recovery & Archiving"
+    "Bilingual Classroom",
+    "Photos & Markers",
+    "Course Review"
   ],
   "href": "/projects/shengjian",
-  "cover": "/projects/shengjian/cover-en.webp",
+  "cover": "/projects/shengjian/cover-v2-en.webp",
   "coverAlt": "Shengjian bilingual listening and review"
 },
 {

@@ -1,7 +1,7 @@
 export const shengjianProject = {
-  slug: 'shengjian',
+  "slug": "shengjian",
   "title": "Shengjian",
-  "description": "A private listening and review tool that pairs live bilingual captions with timestamped audio replay and structured study notes.",
+  "description": "A private classroom companion that connects bilingual captions, learning markers, and timestamped photos with replay, course organization, and study notes.",
   "roles": [
     "Product & Interaction Design",
     "Full-stack Development",
@@ -11,7 +11,7 @@ export const shengjianProject = {
   "linkLabel": "Invite-only app",
   "summary": {
     "title": "Shengjian",
-    "description": "A private listening and review tool that pairs live bilingual captions with timestamped audio replay and structured study notes.",
+    "description": "Follow a bilingual lesson, keep questions and slides, then return to the right moment to review.",
     "modelType": "laptop",
     "modelAlt": "Shengjian",
     "quickFacts": [
@@ -37,17 +37,17 @@ export const shengjianProject = {
     {
       "type": "hero-image",
       "image": {
-        "src": "/projects/shengjian/cover-en.webp",
+        "src": "/projects/shengjian/cover-v2-en.webp",
         "width": 1600,
         "height": 1000
       },
-      "alt": "Shengjian cover showing bilingual paragraphs and audio replay"
+      "alt": "Shengjian cover with the current icon and an actual question-marker card over fictional lesson content"
     },
     {
       "type": "text",
       "heading": "The problem: understanding now, finding it later",
       "body": [
-        "In a bilingual lesson, listening, comparing languages, and deciding what to write compete for attention. A transcript helps with immediate understanding, but reviewing a difficult idea later also requires finding the original passage and hearing how it was said. I treated that transition from live listening to later review as the core product problem.",
+        "In a bilingual lesson, listening, comparing languages, and deciding what to write compete for attention. Captions help with immediate understanding, but reviewing a difficult idea later also means finding the question, the original audio, and the slide being discussed. I treated that transition from following a lesson to revisiting it as the core product problem.",
         "The starting point was my own learning workflow and a second pre-created account, rather than interviews with a wider learner population. I owned product scoping, interaction design, browser audio capture, AI-service integration, storage and recovery, and deployment."
       ]
     },
@@ -55,24 +55,28 @@ export const shengjianProject = {
       "type": "timeline",
       "heading": "Design around the learning task",
       "body": [
-        "I used four connected tasks to organize the product. They describe the implemented workflow, not findings from a formal task study."
+        "The workflow now spans preparation, live listening, and later review. These tasks describe the implemented product, not findings from a formal task study."
       ],
       "items": [
         {
+          "title": "Prepare",
+          "description": "Choose a course and language direction. Add recognition terms or explicitly reuse the course’s previous terms when useful."
+        },
+        {
           "title": "Follow",
-          "description": "Choose a fixed language direction, start recording, and read paired original and translated text."
+          "description": "Start recording and read paired original and translated text while keeping the lesson in view."
         },
         {
           "title": "Keep",
-          "description": "See which audio is saved while caption finalization and cloud archiving progress separately."
+          "description": "Mark a question or important point and save a classroom photo at its audio position."
         },
         {
           "title": "Return",
-          "description": "Find a recording, choose a timestamped paragraph, and replay the original passage."
+          "description": "Replay a paragraph or start ten seconds before a marker, with nearby bilingual text and the preceding photo."
         },
         {
           "title": "Review",
-          "description": "Read structured notes, check important details against the transcript and audio, and export material when needed."
+          "description": "Mark items as reviewed, revisit lessons by course, and check structured notes against the original material."
         }
       ]
     },
@@ -88,67 +92,110 @@ export const shengjianProject = {
       "type": "text",
       "heading": "Scope: a working Web product for a small, known audience",
       "body": [
-        "I chose a browser-based product for personal Mac and iPad use instead of starting with separate native apps. The scope includes recording-only and live bilingual modes, fixed English-to-Chinese or Chinese-to-English directions, a recording library, paragraph replay, and manually requested notes.",
-        "That choice carries an operational constraint: capture needs a foreground page and an awake screen. The product warns about that condition and reacts to an interrupted microphone instead of promising continuous background capture. Public signup, payment, and native-app distribution were deferred while the small invited workflow was made usable."
+        "I chose a browser-based product for personal Mac and iPad use. Recording-only and live bilingual modes share a recording library. The current workflow adds optional course selection, recognition-term reuse, classroom photos, question and important-point markers, and manual review status alongside paragraph replay and study notes.",
+        "Course names organize a person’s recordings. Term reuse is explicit and uses the most recent completed live recording for that course; it is not a shared glossary or a guarantee that specialist words will be recognized correctly.",
+        "Capture still needs a foreground page and an awake screen. The product warns about that condition and responds to an interrupted microphone. Public signup, payment, and native-app distribution remain deferred."
       ]
     },
     {
       "type": "image",
       "heading": "Live: keep attention on the conversation",
       "body": [
-        "A live session should not make the learner keep rechecking the setup controls. Once recording begins, inactive language and mode settings collapse into a compact summary while pause and finish remain available. This reserves more of the screen for the material being heard.",
-        "Original and translated text are paired in the same passage instead of requiring a switch between separate views. Focus mode and font controls change presentation without changing the recording state. I also distinguish elapsed session time from acknowledged audio duration, because a pause contributes to the former but not the latter."
+        "Once recording begins, inactive language and mode settings collapse while pause, finish, learning markers, and the camera remain reachable. This reserves more of the screen for the material being heard.",
+        "Original and translated text are paired in the same passage. Focus mode and font controls adjust reading without changing the recording state. Elapsed session time remains separate from saved audio duration, because a pause contributes to the former."
       ],
       "image": {
-        "src": "/projects/shengjian/live.webp",
-        "width": 1440,
-        "height": 1000
+        "src": "/projects/shengjian/live-v2.webp",
+        "width": 2880,
+        "height": 2000
       },
-      "alt": "Live bilingual workspace with scripted demonstration captions"
+      "alt": "Current live bilingual workspace with real question, important-point, and classroom-photo controls over scripted captions"
+    },
+    {
+      "type": "image",
+      "heading": "Keep the slide with the moment",
+      "body": [
+        "A classroom photo keeps its position in the recorded audio. It appears alongside the relevant bilingual passage, or as a separate image card when there is no matching text. The learner can enlarge it, replay that moment, or adjust its placement.",
+        "Photos save through their own device queue, so an image-upload failure does not stop microphone capture. Audio can be saved while a photo is still pending; the interface keeps that distinction visible and waits for accepted photos before completing the cloud archive."
+      ],
+      "image": {
+        "src": "/projects/shengjian/photos-v2.webp",
+        "width": 2532,
+        "height": 1200
+      },
+      "alt": "Actual bilingual passage with a timestamped fictional signal-detection slide"
     },
     {
       "type": "image",
       "heading": "Replay: return to the difficult passage",
       "body": [
-        "The replay interface connects a paragraph timestamp to its corresponding audio. It supports a learner who knows which sentence was confusing, rather than asking them to scrub through a long recording with no textual anchor. Playback speed and short skips remain available for repeated listening.",
-        "Automatic following helps during playback but can interrupt someone who has started reading elsewhere. Keyboard focus entering the text pauses following; a return-to-current-paragraph action restores it. I removed a click overlay so text can be selected while an unselected paragraph remains available for replay. The tradeoff is to let deliberate reading take priority over automatic movement."
+        "Paragraph timestamps remain a direct route back to the original audio. A learner can replay the sentence they want to check, change speed, and use short skips without searching through an entire lesson.",
+        "Following the current paragraph helps during playback, while keyboard focus entering the text pauses following for deliberate reading. Photos also have their own replay action, and enlarging an image does not trigger paragraph playback."
       ],
       "image": {
-        "src": "/projects/shengjian/playback.webp",
-        "width": 1440,
-        "height": 1000
+        "src": "/projects/shengjian/playback-v2.webp",
+        "width": 2880,
+        "height": 2240
       },
-      "alt": "Bilingual paragraphs with timestamps and audio controls"
+      "alt": "Current bilingual replay interface with a timestamped fictional classroom photo"
+    },
+    {
+      "type": "image",
+      "heading": "Mark now, return after class",
+      "body": [
+        "The live workspace offers two quick marks: a question and an important point. Each stores an audio position rather than a paragraph ID, so later transcript layout changes do not move the original moment.",
+        "After class, a marker can replay from ten seconds earlier and show nearby bilingual text plus the nearest preceding classroom photo. The learner explicitly marks it as reviewed, can filter pending or reviewed items, and can change it back. Reviewed records an action; it does not certify understanding or transcript accuracy."
+      ],
+      "image": {
+        "src": "/projects/shengjian/markers-v2.webp",
+        "width": 2546,
+        "height": 1776
+      },
+      "alt": "Actual question marker with ten-second rewind, nearby bilingual text, preceding classroom photo, and manual review control"
     },
     {
       "type": "image",
       "heading": "Review: check notes against the source",
       "body": [
-        "I moved the note format beyond a short recap: overview, themes with explanations and details, original examples, explicit tasks, and points needing confirmation. Empty tasks or uncertainties are omitted. The prompt asks the service to stay within the source rather than add outside knowledge or invent requirements.",
-        "Generation is a deliberate action, not an automatic paid request after every recording. Results are cached; replacement requires an explicit regeneration request. If a request fails or the response is incomplete, the previous note is retained. The current notes view favors continuous reading and copying, while timestamped listening remains in the bilingual transcript view.",
-        "The screenshot contains manually prepared sample notes. Model output still requires source checking; a structured response alone does not establish semantic accuracy."
+        "Study notes group an overview, topic explanations, details, source examples, explicit tasks, and points needing confirmation. Empty tasks or uncertainties are omitted, and the prompt asks the service to stay within the transcript.",
+        "Generation is a deliberate request. Results are cached and replacement requires explicit regeneration; a failed or incomplete request preserves the previous notes. Changing a course or review status does not trigger an AI request. Photos are not sent to the notes service.",
+        "The screenshot shows manually prepared notes for the same fictional lesson. Model output still requires checking against the bilingual transcript and original audio."
       ],
       "image": {
-        "src": "/projects/shengjian/notes.webp",
-        "width": 1440,
-        "height": 1000
+        "src": "/projects/shengjian/notes-v2.webp",
+        "width": 2880,
+        "height": 2400
       },
-      "alt": "Study notes interface with manually prepared demonstration content"
+      "alt": "Current study-notes interface with manually prepared fictional lesson notes"
+    },
+    {
+      "type": "image",
+      "heading": "Organize lessons for the next review",
+      "body": [
+        "Course labels and filters make the recording library useful across multiple lessons. Course filtering combines with name, date, and language search, while a pending-review filter helps a learner find recordings with questions still to revisit.",
+        "Course assignments and manual review status persist with the recording and its archive. The saved-audio state remains separate from review progress and cloud-backup status; completing one does not silently complete the others."
+      ],
+      "image": {
+        "src": "/projects/shengjian/library-v2.webp",
+        "width": 2880,
+        "height": 2000
+      },
+      "alt": "Actual recording library with fictional course labels and pending-review counts"
     },
     {
       "type": "image-text",
       "heading": "Reading across screen sizes",
       "body": [
-        "Narrow layouts keep the reading and playback controls reachable, but responsive width alone does not solve the interaction. The September interface review also checked short-screen behavior, large reading text, long titles, keyboard access, and the cost of expanding secondary controls.",
-        "Export details were moved into a separate popover so expansion does not reduce the reading area. Shared font preferences propagate across live captions, replay, and notes. The image uses a simulated 390-pixel viewport; physical iPad VoiceOver acceptance is a separate user-confirmed check."
+        "Narrow layouts keep the reading area and playback controls reachable. Learning markers scroll within their own list, while the player stays available; photos can be enlarged without accidentally starting playback.",
+        "The image is a fresh capture of actual components at a simulated 390-pixel viewport. Earlier interface checks covered short screens, large text, keyboard access, and reading-position retention. Physical-device acceptance of the combined photo, marker, and long-lesson workflow remains a separate check."
       ],
       "image": {
-        "src": "/projects/shengjian/phone.webp",
-        "width": 390,
-        "height": 844
+        "src": "/projects/shengjian/phone-v2.webp",
+        "width": 780,
+        "height": 1688
       },
       "portrait": true,
-      "alt": "Bilingual reading at a simulated 390-pixel viewport"
+      "alt": "Current bilingual replay interface at a simulated 390-pixel viewport"
     },
     {
       "type": "timeline",
@@ -179,11 +226,11 @@ export const shengjianProject = {
       "type": "image",
       "heading": "A completion message must say what actually completed",
       "body": [
-        "Ending microphone capture, finishing the transcript, and verifying the cloud archive are independent events. A single success label would hide a pending or failed stage. I give each stage its own feedback and keep audio capture separate from transcription failures.",
-        "This distinction also defines failure behavior. If the save queue exceeds 30 seconds, capture stops to protect saved content. If translation disconnects, the application reports that gap; it does not silently claim the missing interval was translated. A pending archive means the server copy exists but cloud backup is not yet confirmed."
+        "Ending microphone capture, finishing the transcript, and verifying the cloud archive remain independent events. Photos introduce another pending-save condition, so saved audio can coexist with an image still waiting to upload.",
+        "With durable device storage available, short upload failures can retry without immediately ending capture. The app stops when the pending queue approaches its capacity or saving can no longer continue safely, and keeps a recovery path. A recognition disconnect is reported separately; the missing interval is not automatically translated."
       ],
       "image": {
-        "src": "/projects/shengjian/states-en.svg",
+        "src": "/projects/shengjian/states-v2-en.svg",
         "width": 1600,
         "height": 1000
       },
@@ -193,11 +240,11 @@ export const shengjianProject = {
       "type": "image",
       "heading": "Architecture: separate the live path from the durable path",
       "body": [
-        "The browser sends PCM to the live transcription provider while packaging WAV segments for the server. Sequence numbers, sample offsets, and SHA-256 make segment validation explicit; durable audio and metadata writes are acknowledged before the UI increases saved duration. Cloud transfer is outside that acknowledgement path.",
-        "The archive is a separately queued job with bounded concurrency, incremental updates, retries, and per-file read-back verification. Audio, transcript, and notes travel together in the recording archive. That adds state-management work, but prevents slower cloud upload from becoming a dependency of live segment saving."
+        "The browser streams PCM to the transcription provider while packaging WAV segments for the server. Sequence numbers, sample offsets, and hashes validate saving. Classroom photos and learning markers use audio sample positions; photos have a separate persistent device queue.",
+        "Course settings, recognition terms, review state, photos, transcript, audio, and notes travel with the recording archive. Cloud transfer remains a separate job with read-back verification. Notes receive transcript text, while classroom photos stay out of both the transcription stream and notes request."
       ],
       "image": {
-        "src": "/projects/shengjian/architecture-en.svg",
+        "src": "/projects/shengjian/architecture-v2-en.svg",
         "width": 1600,
         "height": 1000
       },
@@ -207,16 +254,16 @@ export const shengjianProject = {
       "type": "text",
       "heading": "Recovery: check the recording, not just the download",
       "body": [
-        "Recovery must restore a usable recording with its ownership and supporting material. The isolated drill removes the synthetic local source, starts a separate recovery process, and checks audio hashes, transcript, version-two notes, title, and owner. Corrupt cloud objects, the wrong account, and requests to overwrite an existing recording are rejected.",
-        "A second check interrupts a restore and verifies that its persisted task can resume after restart. The readiness record also documents one real Supabase recording restored on Mac with matching audio, transcript, and note hashes. These checks cover recording recovery; replacing the entire production machine and changing DNS remain outside that result."
+        "Recovery must restore a usable recording with the correct ownership and supporting material. Earlier isolated drills checked audio hashes, transcript, notes, title, and owner, and rejected corrupt objects, wrong accounts, and attempts to overwrite an existing recording.",
+        "An October 9 synthetic drill against real private cloud storage also restored photos, course and term settings, manual review state, and merged recordings in independent empty directories. This is documented storage evidence, not a test of real classroom recognition, long iPad sessions, or full host and DNS failover."
       ]
     },
     {
       "type": "text",
       "heading": "Private access and deliberate resource use",
       "body": [
-        "Pre-created accounts and server-side recording ownership define the access boundary. A recording URL is not sufficient permission to read or mutate another account’s material. Audio goes to the transcription provider and is stored with text on the server and in private cloud storage; this is not end-to-end encryption or local-only processing.",
-        "Notes have per-account and service-wide concurrency limits, cached results, and explicit regeneration. The app also presents estimated AI usage and budget reminders, separating an estimate from a supplier bill. Private-beta request quotas reject new requests at the limit while preserving access to existing recordings."
+        "Pre-created accounts and server-side recording ownership define the access boundary. A recording URL is not sufficient permission to read another account’s material. Audio reaches the transcription provider; audio, text, photos, and study metadata are saved on the server and in private cloud storage. This is not end-to-end encryption or local-only processing.",
+        "Notes have per-account and service-wide concurrency limits, cached results, and explicit regeneration. The app distinguishes estimated AI use from a supplier bill. Private-beta quotas reject new requests at the limit while preserving access to existing recordings."
       ]
     },
     {
@@ -236,7 +283,7 @@ export const shengjianProject = {
         },
         {
           "value": "16",
-          "label": "Items in the interface review"
+          "label": "Items in the September 29 interface review"
         }
       ],
       "evidence": [
@@ -250,11 +297,11 @@ export const shengjianProject = {
         },
         {
           "label": "Isolated UI checks",
-          "value": "September 29 checks used actual components with synthetic data at short, narrow, and tablet viewports. They checked focus, text size, search, scroll retention, and layout."
+          "value": "September 29 checks covered focus, text size, search, scroll retention, and layout. October 9 synthetic component checks covered photos, marker replay, course filtering, and manual review persistence. Those checks do not establish real-device or learning-effectiveness results."
         },
         {
           "label": "Failure and recovery checks",
-          "value": "Independent-process synthetic drills check integrity and rejection paths; a separate single-recording real-cloud recovery is documented. Full host and DNS failover remain untested."
+          "value": "Independent-process drills check integrity and rejection paths. Documented real-cloud checks include an earlier single-recording recovery and an October 9 synthetic recording/photo/study-state drill. Full host and DNS failover remain untested."
         }
       ]
     },
@@ -262,8 +309,8 @@ export const shengjianProject = {
       "type": "outcome",
       "heading": "What I learned: make each promise explicit",
       "body": [
-        "The hardest design work was deciding what each status promises to the learner. A readable translation is not proof that audio is saved; saved audio is not proof that a recoverable cloud copy exists. Carrying those distinctions through the interface, task queues, and recovery checks made the product more honest about its own state.",
-        "The next useful evaluation is a task-based study with new invited users: start a bilingual session, find and replay a difficult sentence, explain save versus archive status, and return to notes. Completion, errors, and qualitative feedback would test the workflow directly. That is proposed work, not a study already conducted."
+        "The difficult design work was deciding what each state promises. A visible translation, saved audio, an uploaded photo, a reviewed question, and a verified cloud copy are different outcomes. Keeping those distinctions visible makes the classroom-to-review workflow easier to reason about.",
+        "The next evaluation should ask new invited learners to prepare a lesson, mark a difficult moment, capture a slide, replay it, and return to their pending questions. Task completion, errors, and whether questions are actually revisited would test the workflow. This is proposed work, not a completed participant study."
       ]
     }
   ]

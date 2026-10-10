@@ -32,14 +32,14 @@ export const allWorkProject = {
 {
   "title": "声间",
   "timeframe": "2026年9月 · 私人双用户产品",
-  "description": "一个私人双语听课与复习工具：实时中英字幕、带时间戳的原音回听，以及结构化学习笔记。",
+  "description": "面向双语学习的私有课堂工具，将实时双语、学习标记与课堂照片连接到原音回听、课程整理和课后笔记。",
   "tags": [
-    "实时音频",
-    "双语阅读",
-    "恢复与归档"
+    "双语课堂",
+    "照片与标记",
+    "课程复习"
   ],
   "href": "/zh/projects/shengjian",
-  "cover": "/projects/shengjian/cover-zh.webp",
+  "cover": "/projects/shengjian/cover-v2-zh.webp",
   "coverAlt": "声间双语听课与复习工具"
 },
 {
