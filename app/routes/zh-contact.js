@@ -1,8 +1,8 @@
-import { Contact, action } from './contact/contact';
+import { Contact } from './contact/contact';
 import { contactContent as zhContact } from '~/data/content/zh/site-content';
 import { baseMeta } from '~/utils/meta';
 
-export { action };
+export { action } from './contact/contact-action.server.js';
 
 export const meta = () => {
   return baseMeta({

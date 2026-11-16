@@ -1,3 +1,5 @@
+import { shengjianProject } from './projects/shengjian.js';
+import { clipmoriProject } from './projects/clipmori.js';
 // Chinese project translations
 import { sayitProject } from './projects/sayit.js';
 import { knowledgeosProject } from './projects/knowledgeos.js';
@@ -10,6 +12,8 @@ import { allWorkProject } from './projects/all-work.js';
 import { helmlineProject } from './projects/helmline.js';
 
 export {
+  shengjianProject,
+  clipmoriProject,
   sayitProject,
   knowledgeosProject,
   porscheProject,
@@ -22,6 +26,8 @@ export {
 };
 
 export const portfolioProjects = [
+  shengjianProject,
+  clipmoriProject,
   helmlineProject,
   etongueProject,
   porscheProject,

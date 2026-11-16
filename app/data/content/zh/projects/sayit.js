@@ -3,6 +3,20 @@ export const sayitProject = {
   title: 'SayIt',
   description:
     '一款原生 macOS 菜单栏语音转文字工具。按下全局快捷键就能说话转文字，支持本地 Whisper 转录，整个过程不需要离开当前窗口。',
+  url: 'https://github.com/princeniu/SayIt/releases/tag/v1.0.5',
+  linkLabel: '下载 SayIt v1.0.5',
+  caseFacts: [
+    { label: '时间', value: '2026 年 3–4 月' },
+    { label: '状态', value: '已签名、公证的 macOS 公开版本 · v1.0.5' },
+  ],
+  caseBrief: {
+    label: '案例概览',
+    items: [
+      { label: '问题', value: '让听写融入正在进行的写作，不必切换到一个完整 App。' },
+      { label: '设计决定', value: '全局快捷键录音、轻量 HUD，以及可选择的 Apple Speech 或本地 Whisper 转录。' },
+      { label: '结果与范围', value: 'v1.0.5 已通过 GitHub 公开发布；完全本地转录的保证限定于 Whisper 模式。' },
+    ],
+  },
   roles: ['产品设计', 'SwiftUI', 'macOS 开发', '交互设计', 'AI 集成'],
   summary: {
       title: 'SayIt',
@@ -76,10 +90,11 @@ export const sayitProject = {
       },
       {
         type: 'text',
-        heading: '始终端侧',
+        heading: 'Whisper 模式的本地转录',
         body: [
-          '选择 whisper.cpp 而非云端 API，首先是产品决策，其次才是技术决策。本地转录意味着应用离线也能工作，没有按请求计费，也给用户一个容易理解的隐私保证：语音数据留在本机。',
-          '代价是模型体积与冷启动成本。应用暴露了引擎和模型选择功能，让轻量机型的用户可以选更小的模型，而更关注准确率的用户可以选更大的模型。',
+          'Whisper 模式通过 whisper.cpp 在 Mac 上运行。模型下载到本机后，转录可以离线完成，没有按请求计费，音频处理也留在设备上。',
+          'SayIt 同时提供 Apple Speech。它的识别路径取决于 Apple 的系统和语言支持；v1.0.5 实现没有强制要求端侧识别。因此，完全本地的保证适用于 Whisper 模式，不覆盖所有可选引擎。',
+          'Whisper 的代价是模型体积与冷启动成本。用户可以选择较小的本地模型换取速度，或在更重视准确率时选择较大的模型。',
         ],
       },
       {
@@ -118,12 +133,12 @@ export const sayitProject = {
         metrics: [
           { value: 'v1.0.5', label: 'GitHub Releases 公开发布' },
           { value: '5', label: '迭代次数（麦克风、HUD、引导流程）' },
-          { value: '100%', label: '通过 whisper.cpp 端侧转录' },
+          { value: '本地', label: 'Whisper 模式通过 whisper.cpp 转录' },
           { value: '2', label: '处理的系统权限（麦克风 · 辅助功能）' },
         ],
         evidence: [
           { label: '独立产品交付', value: '独立设计并开发，覆盖产品界面、音频管线、转录引擎、权限体验以及签名、公证和分发。' },
-          { label: '默认隐私优先', value: '音频从不离开设备。whisper.cpp 本地运行，模型选择暴露给用户，让不同硬件可以自己权衡准确率和速度。' },
+          { label: '按引擎区分隐私范围', value: 'Whisper 模式在本机处理音频。Apple Speech 是独立可选引擎，其处理路径不属于本地 Whisper 的保证范围。' },
           { label: '适配真实生态', value: '处理输入设备变更，支持连续互通麦克风切换，在权限缺失或模型缺失时可预期地降级。' },
         ],
       },

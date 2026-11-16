@@ -477,7 +477,7 @@ A page passes when:
 
 ## 9. Important repository notes
 
-- Project root: `/Users/prince/Desktop/portfolio`
+- Project root: `/Users/prince/Desktop/个人项目/portfolio`
 - Node version: `.node-version` is `20.19.2`; use `nvm use 20.19.2` before verification.
 - Do not use `git add -A`; stage specific files only.
 - Deployment requires separate approval. Copy edits can be implemented locally, but do not deploy without review.

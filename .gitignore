@@ -21,3 +21,8 @@ public/Thumbnail.png
 
 # AI tooling artifacts
 repomix-output.md
+
+# Local worktrees and duplicate exploration exports
+.worktrees/
+docs/logo-exploration/
+docs/plans/* 2.md

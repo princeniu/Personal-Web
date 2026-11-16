@@ -155,6 +155,39 @@
   }
 }
 
+.directContact {
+  margin-top: var(--spaceXL);
+  color: var(--textBody);
+  font-size: var(--fontSizeBodyS);
+  line-height: 1.6;
+
+  & p {
+    margin: 0 0 var(--spaceXS);
+  }
+}
+
+.directContactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spaceS) var(--spaceL);
+
+  & a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+
+    &:hover {
+      color: var(--primaryText);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primaryText);
+      outline-offset: 4px;
+    }
+  }
+}
+
 .button {
   --buttonLoaderDelay: var(--durationL);
 

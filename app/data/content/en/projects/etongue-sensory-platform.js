@@ -13,14 +13,13 @@ export const etongueProject = {
   summary: {
     title: 'E-Tongue Sensory Platform',
     description:
-      'A Human Factor Product Design case study on turning machine taste data and human sensory feedback into clearer early product decisions.',
+      'Separate workflows for sensory panelists and food developers turn machine taste data and human feedback into traceable comparisons, exploring a path from complex evidence to product decisions.',
     modelType: 'laptop',
     modelAlt: 'E-Tongue sensory decision-support prototype shown on a laptop',
     quickFacts: [
-      { label: 'Role', value: 'UX Researcher + UI Designer' },
-      { label: 'Course', value: 'Human Factor Product Design' },
-      { label: 'Methods', value: 'Stakeholder research, task analysis, prototyping, usability testing' },
-      { label: 'Outcome', value: 'Early prototype for hybrid sensory evaluation and Go / Tweak / Stop decision support' },
+      { label: 'Focus', value: 'Multi-role workflows · Decision-support UX' },
+      { label: 'Stage', value: 'Team research prototype · Go / Tweak / Stop' },
+      { label: 'Evidence', value: '3 participants · Panelist questionnaire tasks' },
     ],
   },
   sections: [
@@ -155,6 +154,8 @@ export const etongueProject = {
       heading: 'Testing Snapshot',
       body: [
         'Our usability testing was formative. We wanted to find where terminology, scale design, and workflow expectations could break down before the system became more polished.',
+        'The observations set three priorities for the next design work: keep definitions in the questionnaire, standardize rating scales and emotional-response labels, and clarify start and progress states. They are findings and revision priorities, not measured before-and-after improvements.',
+        'The three-participant study covered panelist questionnaire tasks. This case does not report a retest of the revised prototype or validation of the developer recommendation logic, confidence scores, and estimated savings shown in the concept screens.',
       ],
       metrics: [
         { value: '3', label: 'Panelist participants tested' },

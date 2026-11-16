@@ -25,7 +25,7 @@ export const Image = ({
   const [loaded, setLoaded] = useState(false);
   const { theme } = useTheme();
   const containerRef = useRef();
-  const src = baseSrc || srcSet.split(' ')[0];
+  const src = baseSrc || srcSet?.split(' ')[0];
   const inViewport = useInViewport(containerRef, !getIsVideo(src));
 
   const onLoad = useCallback(() => {
@@ -75,20 +75,26 @@ const ImageElements = ({
   noPauseButton,
   cover,
   poster,
+  loading = 'lazy',
   ...rest
 }) => {
   const reduceMotion = useReducedMotion();
   const location = useLocation();
   const ui = getUiStrings(getLocaleFromPathname(location.pathname));
-  const [showPlaceholder, setShowPlaceholder] = useState(true);
-  const [playing, setPlaying] = useState(!reduceMotion);
+  const [showPlaceholder, setShowPlaceholder] = useState(!!placeholder);
+  const [playing, setPlaying] = useState(false);
   const [videoSrc, setVideoSrc] = useState();
   const [videoInteracted, setVideoInteracted] = useState(false);
   const placeholderRef = useRef();
   const videoRef = useRef();
+  const imageRef = useRef();
   const isVideo = getIsVideo(src);
-  const showFullRes = inViewport;
   const hasMounted = useHasMounted();
+
+  useEffect(() => {
+    // Images may finish loading between the server response and hydration.
+    if (imageRef.current?.complete && imageRef.current.naturalWidth > 0) onLoad();
+  }, [onLoad, src, srcSet]);
 
   // Defer video loading until the element is actually in the viewport so
   // offscreen videos never start downloading. Once resolved, the src sticks.
@@ -111,8 +117,7 @@ const ImageElements = ({
     if (!videoRef.current || !videoSrc) return;
 
     const playVideo = () => {
-      setPlaying(true);
-      videoRef.current.play();
+      videoRef.current.play()?.catch(() => setPlaying(false));
     };
 
     const pauseVideo = () => {
@@ -128,14 +133,21 @@ const ImageElements = ({
       }
     }
 
-    if (videoInteracted) return;
-
-    if (!inViewport) {
+    if (!inViewport || (reduceMotion && !videoInteracted)) {
       pauseVideo();
-    } else if (inViewport && !reduceMotion && play) {
+    } else if (!videoInteracted && !reduceMotion && play) {
       playVideo();
     }
   }, [inViewport, play, reduceMotion, restartOnPause, videoInteracted, videoSrc]);
+
+  useEffect(() => {
+    if (!isVideo) return;
+    const pauseWhenHidden = () => {
+      if (document.visibilityState === 'hidden') videoRef.current?.pause();
+    };
+    document.addEventListener('visibilitychange', pauseWhenHidden);
+    return () => document.removeEventListener('visibilitychange', pauseWhenHidden);
+  }, [isVideo]);
 
   const togglePlaying = event => {
     event.preventDefault();
@@ -143,8 +155,7 @@ const ImageElements = ({
     setVideoInteracted(true);
 
     if (videoRef.current.paused) {
-      setPlaying(true);
-      videoRef.current.play();
+      videoRef.current.play()?.catch(() => setPlaying(false));
     } else {
       setPlaying(false);
       videoRef.current.pause();
@@ -155,7 +166,7 @@ const ImageElements = ({
     <div
       className={styles.elementWrapper}
       data-reveal={reveal}
-      data-visible={inViewport || loaded}
+      data-visible={!isVideo || inViewport || loaded}
       style={cssProps({ delay: numToMs(delay + 1000) })}
     >
       {isVideo && hasMounted && (
@@ -170,6 +181,8 @@ const ImageElements = ({
             data-cover={cover}
             autoPlay={!reduceMotion}
             onLoadStart={onLoad}
+            onPlay={() => setPlaying(true)}
+            onPause={() => setPlaying(false)}
             src={videoSrc}
             poster={poster}
             width={width}
@@ -192,9 +205,11 @@ const ImageElements = ({
           data-loaded={loaded}
           data-cover={cover}
           onLoad={onLoad}
+          ref={imageRef}
           decoding="async"
-          src={showFullRes ? src : undefined}
-          srcSet={showFullRes ? srcSet : undefined}
+          loading={loading}
+          src={src}
+          srcSet={srcSet}
           width={width}
           height={height}
           alt={alt}
@@ -202,7 +217,7 @@ const ImageElements = ({
           {...rest}
         />
       )}
-      {showPlaceholder && (
+      {showPlaceholder && hasMounted && (
         <img
           aria-hidden
           className={styles.placeholder}

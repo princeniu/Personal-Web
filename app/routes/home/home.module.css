@@ -9,7 +9,7 @@
   align-items: center;
   gap: var(--spaceM);
   width: min(520px, calc(100% - var(--spaceOuter) * 2));
-  margin: calc(var(--space2XL) * -0.5) auto var(--space3XL);
+  margin: var(--spaceXL) auto var(--space3XL);
   padding: var(--spaceXL) var(--spaceL);
   border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
   border-radius: 28px;
@@ -44,12 +44,6 @@
 .allWorkButton {
   min-width: 190px;
   box-shadow: 0 16px 40px color-mix(in srgb, var(--primary) 18%, transparent);
-}
-
-@media (--mediaTablet) {
-  .allWorkCta {
-    margin: calc(var(--spaceXL) * -1) auto var(--space3XL);
-  }
 }
 
 @media (--mediaMobile) {

@@ -7,13 +7,12 @@ export const porscheProject = {
   summary: {
     title: 'Porsche Digital Interface',
     description:
-      'Porsche Communication Management 的车载 HMI 项目。我主要做导航和语音交互流程，把设计判断落到原型和工程可用的规范里。',
+      '围绕驾驶中的注意力限制，梳理导航与语音交互的确认、执行和恢复路径，并把多模态设计转为工程可用的组件规范。',
     modelType: 'laptop',
     modelAlt: 'Porsche Digital Interface 原型在笔记本上展示',
     quickFacts: [
-      { label: '角色', value: 'UX / UI Designer（Porsche Asia Pacific 实习）' },
-      { label: '方法', value: 'UX 研究、多模态流程设计、原型制作' },
-      { label: '工具', value: 'Figma' },
+      { label: '能力', value: '多模态 HMI · 设计与工程协作' },
+      { label: '场景', value: 'Porsche Asia Pacific UX/UI 实习' },
       { label: '成果', value: 'UI 优化迭代后界面加载时间降低 30%' },
     ],
   },

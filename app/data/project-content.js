@@ -1,4 +1,6 @@
 import {
+  shengjianProject,
+  clipmoriProject,
   etongueProject,
   porscheProject,
   postureProject,
@@ -13,9 +15,8 @@ import {
 export const featuredProjectSlugs = [
   'helmline',
   'trekassist',
-  'knowledgeos',
   'porsche-digital-interface',
-  'sayit',
+  'shengjian',
   'etongue-sensory-platform',
 ];
 
@@ -25,6 +26,8 @@ export const legacyProjectSlugRedirects = {
 };
 
 export const portfolioProjects = [
+  shengjianProject,
+  clipmoriProject,
   helmlineProject,
   etongueProject,
   porscheProject,

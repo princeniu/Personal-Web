@@ -1,104 +1,197 @@
 export const allWorkProject = {
-    slug: 'all-work',
-    title: 'All Work',
-    description:
-      'An index of shipped products, internships, prototypes, and exploratory builds across product design, mobile development, and AI tooling.',
-    roles: ['Product Design', 'UX Research', 'Mobile Development', 'AI Integration', 'Prototyping'],
-    summary: {
-      title: 'All Work',
-      description:
-        'Shipped products, internship work, prototypes, and smaller builds that sit behind the featured case studies.',
-      modelType: 'laptop',
-      modelAlt: 'Overview of additional portfolio work',
+  "slug": "all-work",
+  "title": "All Work",
+  "indexLayout": true,
+  "description": "Browse products, industry work, and research prototypes by project type, with design focus and evidence for each.",
+  "roles": [],
+  "summary": {
+    "title": "All Work",
+    "description": "Products, internship work, and research prototypes across UX, human factors, and software.",
+    "modelType": "laptop",
+    "modelAlt": "Overview of additional portfolio work"
+  },
+  "sections": [
+    {
+      "type": "project-grid",
+      "heading": "Projects",
+      "items": [
+        {
+          "slug": "shengjian",
+          "title": "Shengjian",
+          "category": "products",
+          "timeframe": "Sep 2026",
+          "context": "Personal product",
+          "status": "Deployed Web product · Invite-only",
+          "description": "Connect bilingual classroom captions, questions, and slide photos to the original audio and later review.",
+          "evidence": "Documents 51:56 of real audio, with isolated interface checks and archive-recovery records.",
+          "tags": [
+            "Task Flows",
+            "State & Recovery"
+          ],
+          "href": "/projects/shengjian"
+        },
+        {
+          "slug": "clipmori",
+          "title": "Clipmori",
+          "category": "products",
+          "timeframe": "Sep 2026",
+          "context": "Personal product",
+          "status": "Early macOS release",
+          "description": "Find previously copied content, search and preview it in full, then choose a format to paste back into an app.",
+          "evidence": "A signed, notarized macOS installer with isolated regression tests and device-validation records.",
+          "tags": [
+            "Content Retrieval",
+            "Interaction Design"
+          ],
+          "href": "/projects/clipmori"
+        },
+        {
+          "slug": "helmline",
+          "title": "Helmline",
+          "category": "products",
+          "timeframe": "2026",
+          "context": "Personal product",
+          "status": "Public App Store release · 1.0",
+          "description": "Follow self-hosted agent tasks and review sensitive actions from iPhone, using your own compatible Gateway.",
+          "evidence": "Released as App Store 1.0 with a native app, Share Extension, Widget, and Live Activity.",
+          "tags": [
+            "AI Interaction",
+            "Authorization Design"
+          ],
+          "href": "/projects/helmline"
+        },
+        {
+          "slug": "sayit",
+          "title": "SayIt",
+          "category": "products",
+          "timeframe": "Mar–Apr 2026",
+          "context": "Personal product",
+          "status": "Public macOS release · v1.0.5",
+          "description": "Bring dictation into the current writing window with hotkey recording, lightweight status feedback, and an optional local transcription engine.",
+          "evidence": "Signed, notarized, and publicly released as v1.0.5, with on-device audio processing in Whisper mode.",
+          "tags": [
+            "Lightweight Interaction",
+            "Permission Onboarding"
+          ],
+          "href": "/projects/sayit"
+        },
+        {
+          "slug": "knowledgeos",
+          "title": "KnowledgeOS",
+          "category": "products",
+          "timeframe": "May 2026–present",
+          "context": "Personal system",
+          "status": "Running system · Public Starter Vault",
+          "description": "Maintain long-term project context from scattered conversations through capture rules, review loops, and source-linked knowledge pages.",
+          "evidence": "A public Starter Vault with capture protocols, review templates, and knowledge-link checks.",
+          "tags": [
+            "Information Architecture",
+            "AI Workflows"
+          ],
+          "href": "/projects/knowledgeos"
+        },
+        {
+          "slug": "trekassist",
+          "title": "TrekAssist",
+          "category": "research",
+          "timeframe": "Sep–Dec 2025",
+          "context": "Tufts",
+          "status": "Outdoor-guide research prototype",
+          "description": "Design outdoor navigation, safety alerts, and power controls for a low-refresh-rate e-ink device.",
+          "evidence": "Prototype testing with 9 participants across 6 tasks identified Low Power Mode discoverability issues.",
+          "tags": [
+            "Human Factors Research",
+            "Usability Testing"
+          ],
+          "href": "/projects/trekassist"
+        },
+        {
+          "slug": "porsche-digital-interface",
+          "title": "Porsche Digital Interface",
+          "category": "industry",
+          "timeframe": "Jun–Sep 2024",
+          "context": "Porsche Asia Pacific internship",
+          "status": "Interface prototypes & engineering specifications",
+          "description": "Design interaction flows connecting touch, voice, and AI assistance around in-car navigation and voice tasks.",
+          "evidence": "Iterative UI tuning contributed to a 30% reduction in interface load time.",
+          "tags": [
+            "Multimodal Interaction",
+            "Engineering Collaboration"
+          ],
+          "href": "/projects/porsche-digital-interface"
+        },
+        {
+          "slug": "posture-checker",
+          "title": "Posture Checker",
+          "category": "research",
+          "timeframe": "Sep–Dec 2024",
+          "context": "Hardware–software project",
+          "status": "Implemented hardware–software prototype",
+          "description": "Connect a posture sensor to a phone for live status, historical trends, and corrective reminders based on sustained posture.",
+          "evidence": "Integrated iOS and Android clients with a BLE sensor, including pairing and reconnection handling.",
+          "tags": [
+            "Feedback Strategy",
+            "Hardware–Software Interaction"
+          ],
+          "href": "/projects/posture-checker"
+        },
+        {
+          "slug": "etongue-sensory-platform",
+          "title": "E-Tongue Sensory Platform",
+          "category": "research",
+          "timeframe": "2025",
+          "context": "Human Factor Product Design",
+          "status": "Early decision-support prototype",
+          "description": "Organize machine taste readings and sensory feedback for panelists and food developers to compare samples and consider next steps.",
+          "evidence": "Questionnaire task testing with 3 panelists identified scale and workflow-cue issues.",
+          "tags": [
+            "Role-Based Workflows",
+            "Evidence Interpretation"
+          ],
+          "href": "/projects/etongue-sensory-platform"
+        },
+        {
+          "slug": "little-lemon",
+          "title": "Little Lemon Restaurant",
+          "category": "research",
+          "timeframe": "2024",
+          "context": "Google UX Design Certificate capstone",
+          "status": "Responsive UX prototype",
+          "description": "Design menu browsing, restaurant booking, and ordering flows for mobile and desktop dining contexts.",
+          "evidence": "Usability testing across menu, booking, and order tasks informed revisions to navigation and confirmation states.",
+          "tags": [
+            "Usability Testing",
+            "Responsive Design"
+          ],
+          "href": "/projects/little-lemon"
+        }
+      ]
+    }
+  ],
+  "indexLabels": {
+    "filtersLabel": "Browse by project type",
+    "allLabel": "All",
+    "countTemplate": "{count} projects",
+    "featuredLabel": "Featured on the homepage",
+    "tagsLabel": "Design focus",
+    "evidenceLabel": "Evidence",
+    "ctaLabel": "View case study",
+    "contactHeading": "Want to dig deeper?",
+    "contactBody": "If a project is relevant to a role you are hiring for, get in touch to discuss the design process, key decisions, and tradeoffs.",
+    "contactLabel": "Get in touch"
+  },
+  "categories": [
+    {
+      "id": "products",
+      "label": "Products & Systems"
     },
-    sections: [
-      {
-        type: 'text',
-        heading: 'The Rest of the Work',
-        body: [
-          'The featured case studies on the homepage are the projects I most want to walk through in depth. This page holds the rest: shipped products, real internship work, course projects, and smaller builds that shaped how I think about design and engineering.',
-          'Most of this work sits in the same space: clearer interaction models, practical prototypes, and ideas pushed far enough that they can be tested or shipped.',
-        ],
-      },
-      {
-        type: 'project-grid',
-        heading: 'Selected Work',
-        body: [
-          'A scannable view of recent and ongoing work. Featured case studies open into full project pages; the rest is summarized here.',
-        ],
-        items: [
-          {
-            title: 'Helmline',
-            timeframe: '2026 · Available on the App Store',
-            description:
-              'Independently designed, built, and released a native iPhone client for following self-hosted agent work and reviewing sensitive actions. Free; requires your own compatible Hermes Gateway.',
-            tags: ['SwiftUI', 'Human Factors', 'AI Agent UX', 'BYOS', 'App Store Delivery'],
-            href: '/projects/helmline',
-          },
-          {
-            title: 'SayIt',
-            timeframe: 'Apr 2026 · Shipped',
-            description:
-              'Production macOS menu bar app for voice-to-text. Global hotkey, on-device Whisper, signed and notarized v1.0.5 release on GitHub Releases.',
-            tags: ['Swift', 'SwiftUI', 'whisper.cpp', 'AppKit'],
-            href: '/projects/sayit',
-          },
-          {
-            title: 'KnowledgeOS',
-            timeframe: 'May 2026 · Live System',
-            description:
-              'Personal knowledge system built on Markdown, Obsidian, Hermes Agent, cron workflows, and Git backup. It keeps useful project context from disappearing inside chat threads.',
-            tags: ['AI Systems', 'Knowledge Architecture', 'Markdown', 'Automation'],
-            href: '/projects/knowledgeos',
-          },
-          {
-            title: 'TrekAssist',
-            timeframe: 'Sep 2025 – Dec 2025 · Tufts',
-            description:
-              'Solar-powered e-ink national park guide. Usability tested with 9 participants across 6 outdoor scenarios; surfaced and addressed Low Power discoverability.',
-            tags: ['Human Factors', 'Figma', 'Usability Testing', 'E-Ink'],
-            href: '/projects/trekassist',
-          },
-          {
-            title: 'Porsche Digital Interface',
-            timeframe: 'Jun 2024 – Sep 2024 · Porsche Asia Pacific',
-            description:
-              'In-car interaction prototypes for Porsche Communication Management. Iterative UI tuning contributed to a 30% reduction in interface load time.',
-            tags: ['UX/UI', 'Multimodal', 'Figma', 'Automotive HMI'],
-            href: '/projects/porsche-digital-interface',
-          },
-          {
-            title: 'Posture Checker',
-            timeframe: 'Sep 2024 – Dec 2024',
-            description:
-              'React Native app paired with a custom BLE posture sensor. Live tracking, trends, and corrective push notifications.',
-            tags: ['React Native', 'BLE', 'Firebase', 'Hardware'],
-            href: '/projects/posture-checker',
-          },
-          {
-            title: 'E-Tongue Sensory Platform',
-            timeframe: '2025 · Human Factor Product Design',
-            description:
-              'Decision-support prototype that combines E-Tongue taste measurements with semi-trained panel feedback to help food teams compare samples and choose Go, Tweak, or Stop.',
-            tags: ['Human Factors', 'Decision-Support UX', 'Figma', 'Usability Testing'],
-            href: '/projects/etongue-sensory-platform',
-          },
-          {
-            title: 'Little Lemon Restaurant',
-            timeframe: '2024 · Google UX Capstone',
-            description:
-              'Responsive booking and ordering experience refined through user research and usability testing. Google UX Design Certificate capstone.',
-            tags: ['UX Design', 'Figma', 'Responsive'],
-            href: '/projects/little-lemon',
-          },
-        ],
-      },
-      {
-        type: 'outcome',
-        heading: 'Want to dig deeper?',
-        body: [
-          'If something on this page is relevant to a role you’re hiring for, get in touch. I’m happy to walk through process, decisions, and tradeoffs that don’t fit in a public case study.',
-        ],
-      },
-    ],
-  };
+    {
+      "id": "industry",
+      "label": "Industry Work"
+    },
+    {
+      "id": "research",
+      "label": "Research & Prototypes"
+    }
+  ]
+};

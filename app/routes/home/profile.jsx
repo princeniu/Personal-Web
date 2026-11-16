@@ -23,9 +23,11 @@ const ProfileText = ({ visible, titleId, heading, description }) => (
     <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
       <DecoderText text={heading} start={visible} delay={500} />
     </Heading>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      {description}
-    </Text>
+    {description.split(/\n\n+/).map(paragraph => (
+      <Text key={paragraph} className={styles.description} data-visible={visible} size="l" as="p">
+        {paragraph}
+      </Text>
+    ))}
   </Fragment>
 );
 

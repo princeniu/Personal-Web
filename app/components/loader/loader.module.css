@@ -4,7 +4,6 @@
     grid-template-columns: 100%;
     width: var(--width);
     height: var(--height);
-    background: color-mix(in lab, currentColor 20%, transparent);
 
     &[data-center='true'] {
       position: absolute;
@@ -15,7 +14,29 @@
   }
 
   .text {
+    display: none;
     color: inherit;
+  }
+
+  .track {
+    display: grid;
+    grid-area: 1 / 1;
+    background: color-mix(in lab, currentColor 20%, transparent);
+  }
+
+  @media (--mediaReduceMotion) {
+    .loader {
+      width: max-content;
+      height: auto;
+    }
+
+    .track {
+      display: none;
+    }
+
+    .text {
+      display: inline;
+    }
   }
 
   @keyframes loaderSpan {

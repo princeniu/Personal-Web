@@ -54,13 +54,13 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
   const reduceMotion = useReducedMotion();
   const inViewport = useInViewport(canvas, true);
   const placeholderRef = useRef();
-  const initSwipeX = useRef();
+  const pointerGesture = useRef();
   const location = useLocation();
   const ui = getUiStrings(getLocaleFromPathname(location.pathname));
 
-  const currentImageAlt = `Slide ${imageIndex + 1} of ${images.length}. ${
-    images[imageIndex].alt
-  }`;
+  const currentImageAlt = `${getLocaleFromPathname(location.pathname) === 'zh'
+    ? `第 ${imageIndex + 1} 张，共 ${images.length} 张。`
+    : `Slide ${imageIndex + 1} of ${images.length}.`} ${images[imageIndex].alt}`;
 
   useEffect(() => {
     if (dragging) {
@@ -346,40 +346,95 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
     }
   }, [canvasRect, imageIndex, navigate, webglFailed]);
 
-  const handlePointerMove = useCallback(
-    event => {
-      onSwipeMove(event.clientX - initSwipeX.current);
-    },
-    [onSwipeMove]
-  );
-
-  const handlePointerUp = useCallback(() => {
+  const cancelGesture = useCallback(() => {
+    const gesture = pointerGesture.current;
+    pointerGesture.current = undefined;
+    lastSwipePosition.current = 0;
     setDragging(false);
-    onSwipeEnd();
+    if (gesture?.element.hasPointerCapture?.(gesture.id)) {
+      gesture.element.releasePointerCapture(gesture.id);
+    }
+    if (gesture?.horizontal && material.current && textures && !animating.current) {
+      const { uniforms } = material.current;
+      uniforms.currentImage.value = textures[imageIndex];
+      uniforms.nextImage.value = textures[imageIndex];
+      uniforms.dispFactor.value = 0;
+      renderer.current.render(scene.current, camera.current);
+    }
+  }, [imageIndex, textures]);
 
-    document.removeEventListener('pointerup', handlePointerUp);
-    document.removeEventListener('pointermove', handlePointerMove);
-  }, [handlePointerMove, onSwipeEnd]);
+  const handlePointerMove = useCallback(event => {
+    const gesture = pointerGesture.current;
+    if (!gesture || gesture.id !== event.pointerId) return;
+    const x = event.clientX - gesture.x;
+    const y = event.clientY - gesture.y;
+    if (!gesture.horizontal) {
+      if (Math.abs(y) > 8 && Math.abs(y) > Math.abs(x)) {
+        cancelGesture();
+        return;
+      }
+      if (Math.abs(x) <= 8 || Math.abs(x) <= Math.abs(y)) return;
+      gesture.horizontal = true;
+      setDragging(true);
+    }
+    if (event.cancelable) event.preventDefault();
+    onSwipeMove(x);
+  }, [cancelGesture, onSwipeMove]);
+
+  const handlePointerUp = useCallback(event => {
+    const gesture = pointerGesture.current;
+    if (!gesture || gesture.id !== event.pointerId) return;
+    pointerGesture.current = undefined;
+    setDragging(false);
+    if (gesture.element.hasPointerCapture?.(gesture.id)) {
+      gesture.element.releasePointerCapture(gesture.id);
+    }
+    if (gesture.horizontal) onSwipeEnd();
+  }, [onSwipeEnd]);
+
+  const handlePointerCancel = useCallback(event => {
+    if (pointerGesture.current?.id === event.pointerId) cancelGesture();
+  }, [cancelGesture]);
 
   const handlePointerDown = useCallback(
     event => {
-      if (webglFailed) return;
+      if (webglFailed || !loaded || !textures || !canvasRect || animating.current ||
+        pointerGesture.current || !event.isPrimary || event.button !== 0) return;
 
-      initSwipeX.current = event.clientX;
-      setDragging(true);
-
-      document.addEventListener('pointermove', handlePointerMove);
-      document.addEventListener('pointerup', handlePointerUp);
+      pointerGesture.current = {
+        id: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+        element: event.currentTarget,
+        horizontal: false,
+      };
+      lastSwipePosition.current = 0;
+      event.currentTarget.setPointerCapture(event.pointerId);
     },
-    [handlePointerMove, handlePointerUp, webglFailed]
+    [canvasRect, loaded, textures, webglFailed]
   );
+
+  useEffect(() => {
+    window.addEventListener('blur', cancelGesture);
+    return () => {
+      window.removeEventListener('blur', cancelGesture);
+      const gesture = pointerGesture.current;
+      pointerGesture.current = undefined;
+      if (gesture?.element.hasPointerCapture?.(gesture.id)) {
+        gesture.element.releasePointerCapture(gesture.id);
+      }
+      cancelAnimationFrame(scheduledAnimationFrame.current);
+    };
+  }, [cancelGesture]);
 
   const handleKeyDown = event => {
     switch (event.key) {
       case 'ArrowRight':
+        event.preventDefault();
         navigate({ direction: 1 });
         break;
       case 'ArrowLeft':
+        event.preventDefault();
         navigate({ direction: -1 });
         break;
     }
@@ -393,6 +448,10 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
           className={styles.imageWrapper}
           data-dragging={dragging}
           onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerCancel}
+          onLostPointerCapture={handlePointerCancel}
           style={cssProps({ aspectRatio: `${width} / ${height}` })}
         >
           <div

@@ -5,19 +5,30 @@ export const helmlineProject = {
     'A native iPhone client for self-hosted AI agents. Independently designed, built, and released on the App Store. Requires your own compatible Hermes Gateway.',
   url: 'https://apps.apple.com/app/id6787791371',
   linkLabel: 'Download on the App Store',
+  caseFacts: [
+    { label: 'Period', value: '2026' },
+    { label: 'Status', value: 'Public App Store release · Version 1.0' },
+  ],
+  caseBrief: {
+    label: 'Case study at a glance',
+    items: [
+      { label: 'Problem', value: 'People running self-hosted agents need to inspect work and review sensitive actions away from their computer.' },
+      { label: 'Design decision', value: 'Separate execution summaries from detail, make approval scope explicit, and preserve each host’s identity.' },
+      { label: 'Result and scope', value: 'A native iPhone app released on the App Store. Requires the user’s compatible Gateway; release is not evidence of market adoption.' },
+    ],
+  },
   roles: ['Independent Product Design', 'Human Factors & UX', 'SwiftUI Engineering', 'App Store Release'],
   summary: {
     title: 'Helmline',
     description:
-      'Follow agent work and review sensitive actions from iPhone while execution stays on your own host. Independently designed, built, and released on the App Store. Requires a compatible self-hosted Gateway.',
+      'Bring self-hosted agent progress and sensitive approvals to iPhone. Make the current task, permission scope, and host identity clear before the user acts.',
     modelType: 'phone',
     modelAlt: 'Helmline sessions and approvals with fictional demonstration content',
     ctaLabel: 'View product case study',
     quickFacts: [
-      { label: 'Role', value: 'Independent designer and engineer' },
-      { label: 'Platform', value: 'Native iPhone app · SwiftUI' },
-      { label: 'Status', value: 'Available on the App Store' },
-      { label: 'Release', value: 'Version 1.0 · Free · iOS 17+' },
+      { label: 'Focus', value: 'Human–AI interaction · Permission design' },
+      { label: 'Build', value: 'Independent design and SwiftUI development' },
+      { label: 'Delivery', value: 'App Store 1.0 · Requires your own compatible Gateway' },
     ],
   },
   sections: [

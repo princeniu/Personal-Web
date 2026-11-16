@@ -135,7 +135,6 @@ export function Error({ error }) {
               <Image
                 reveal
                 cover
-                noPauseButton
                 delay={600}
                 className={styles.video}
                 src={flatlined ? flatlineVideo : notFoundVideo}

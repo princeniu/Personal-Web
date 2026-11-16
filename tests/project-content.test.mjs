@@ -25,7 +25,11 @@ test('portfolio projects have unique slugs and required fields', () => {
     assert.equal(typeof project.description, 'string');
     assert.ok(project.description.length > 0);
     assert.ok(Array.isArray(project.roles));
-    assert.ok(project.roles.length > 0);
+    if (!project.indexLayout) {
+      assert.ok(project.roles.length > 0, `${project.slug}: case studies need role labels`);
+    } else {
+      assert.equal(project.slug, 'all-work', 'only the portfolio index omits case-study roles');
+    }
     assert.ok(project.summary);
     assert.equal(typeof project.summary.title, 'string');
     assert.equal(typeof project.summary.description, 'string');
@@ -41,9 +45,8 @@ test('featured project slugs point at real projects in display order', () => {
   assert.deepEqual(featuredProjectSlugs, [
     'helmline',
     'trekassist',
-    'knowledgeos',
     'porsche-digital-interface',
-    'sayit',
+    'shengjian',
     'etongue-sensory-platform',
   ]);
 

@@ -9,7 +9,7 @@
 ## Current Architecture Snapshot
 
 - Stack: Remix 2 + Vite + React + Cloudflare Pages.
-- Portfolio path: `/Users/prince/Desktop/portfolio`.
+- Portfolio path: `/Users/prince/Desktop/个人项目/portfolio`.
 - Default site language is currently English.
 - `root.jsx` hardcodes `<html lang="en">` in normal and error boundaries.
 - SEO helper `app/utils/meta.js` hardcodes `og:locale = en_US` and JSON-LD `inLanguage = en-US`.

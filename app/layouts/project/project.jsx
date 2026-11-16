@@ -18,6 +18,7 @@ export function ProjectHeader({
   linkLabel = 'Visit website',
   url,
   roles,
+  facts,
   className,
 }) {
   return (
@@ -33,6 +34,11 @@ export function ProjectHeader({
           <Text className={styles.description} size="xl" as="p">
             {description}
           </Text>
+          {!!facts?.length && !!roles?.length && (
+            <ul className={styles.rolesInline}>
+              {roles.map(role => <li key={role}>{role}</li>)}
+            </ul>
+          )}
           {!!url && (
             <Button
               secondary
@@ -45,7 +51,17 @@ export function ProjectHeader({
             </Button>
           )}
         </div>
-        {!!roles?.length && (
+        {!!facts?.length && (
+          <dl className={styles.facts}>
+            {facts.map(fact => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+        {!facts?.length && !!roles?.length && (
           <ul className={styles.meta}>
             {roles?.map((role, index) => (
               <li

@@ -1,19 +1,16 @@
 import { Footer } from '~/components/footer';
 import { Button } from '~/components/button';
-import { featuredProjects, zhFeaturedProjects } from '~/data/projects';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { createRef, useEffect, useRef, useState } from 'react';
-import { useLocation } from '@remix-run/react';
+import { useLoaderData, useLocation } from '@remix-run/react';
 import { getLocaleFromPathname, localizePath } from '~/i18n/route';
 import config from '~/config.json';
-import profileImg from '~/assets/profile.webp';
 import styles from './home.module.css';
 
-// Prefetch draco decoder wasm + preload the About-section profile photo so
-// it's ready by the time the user scrolls past the intro hero.
+// Prefetch the Draco decoder for the lazily loaded project models.
 export const links = () => {
   return [
     {
@@ -30,12 +27,6 @@ export const links = () => {
       type: 'application/wasm',
       importance: 'low',
     },
-    {
-      rel: 'preload',
-      href: profileImg,
-      as: 'image',
-      fetchPriority: 'low',
-    },
   ];
 };
 
@@ -51,7 +42,7 @@ export const Home = () => {
   const location = useLocation();
   const locale = getLocaleFromPathname(location.pathname);
   const isZh = locale === 'zh';
-  const projects = isZh ? zhFeaturedProjects : featuredProjects;
+  const { projects } = useLoaderData();
   const homeLabels = isZh
     ? {
         name: '牛拙Prince',
@@ -60,13 +51,15 @@ export const Home = () => {
         viewProject: '查看项目',
         explorePortfolio: '查看完整作品集',
         viewAllWork: '查看全部作品',
-        scrollToProjects: '滚动到项目',
         listSeparator: '、',
         finalJoin: '和',
         pauseLabel: '暂停轮播领域标签',
         resumeLabel: '继续轮播领域标签',
         pauseTitle: '暂停',
         resumeTitle: '继续',
+        positioning: '面向人机交互与 AI 产品的产品设计师。在 Tufts 攻读人因工程硕士，也把设计做成可使用的产品。',
+        projectsLabel: '查看精选作品',
+        resumeLinkLabel: '下载简历',
       }
     : {
         name: config.name,
@@ -75,16 +68,17 @@ export const Home = () => {
         viewProject: 'View project',
         explorePortfolio: 'Explore the full portfolio',
         viewAllWork: 'View all work',
-        scrollToProjects: 'Scroll to projects',
         listSeparator: ', ',
         finalJoin: ', and ',
         pauseLabel: 'Pause rotating disciplines',
         resumeLabel: 'Resume rotating disciplines',
         pauseTitle: 'Pause',
         resumeTitle: 'Resume',
+        positioning: 'Product designer working on human–AI interaction. Studying Human Factors Engineering at Tufts and building products people can use.',
+        projectsLabel: 'Explore selected work',
+        resumeLinkLabel: 'Download resume',
       };
   const [visibleSections, setVisibleSections] = useState([]);
-  const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectRefs = useRef([]);
   const details = useRef();
@@ -113,22 +107,12 @@ export const Home = () => {
       { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
     );
 
-    const indicatorObserver = new IntersectionObserver(
-      ([entry]) => {
-        setScrollIndicatorHidden(!entry.isIntersecting);
-      },
-      { rootMargin: '-100% 0px 0px 0px' }
-    );
-
     sections.forEach(section => {
       sectionObserver.observe(section.current);
     });
 
-    indicatorObserver.observe(intro.current);
-
     return () => {
       sectionObserver.disconnect();
-      indicatorObserver.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -142,14 +126,15 @@ export const Home = () => {
         disciplines={homeLabels.disciplines}
         sectionRef={intro}
         scrollTo={localizePath('/#projects', locale)}
-        scrollLabel={homeLabels.scrollToProjects}
         listSeparator={homeLabels.listSeparator}
         finalJoin={homeLabels.finalJoin}
         pauseLabel={homeLabels.pauseLabel}
         resumeLabel={homeLabels.resumeLabel}
         pauseTitle={homeLabels.pauseTitle}
         resumeTitle={homeLabels.resumeTitle}
-        scrollIndicatorHidden={scrollIndicatorHidden}
+        positioning={homeLabels.positioning}
+        projectsLabel={homeLabels.projectsLabel}
+        resumeLinkLabel={homeLabels.resumeLinkLabel}
       />
       <div id="projects" />
       {projects.map((project, index) => (

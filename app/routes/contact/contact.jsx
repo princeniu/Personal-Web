@@ -12,14 +12,15 @@ import { Text } from '~/components/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
 import { useFormInput } from '~/hooks';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cssProps, msToNum, numToMs } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
-import { Form, useActionData, useNavigation } from '@remix-run/react';
+import { Form, useActionData } from '@remix-run/react';
 import { useLocation } from '@remix-run/react';
 import { getLocaleFromPathname, localizePath } from '~/i18n/route';
-import { json } from '@remix-run/cloudflare';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import config from '~/config.json';
+import { MAX_EMAIL_LENGTH, MAX_MESSAGE_LENGTH } from './contact-validation.js';
+
 import styles from './contact.module.css';
 
 export const meta = () => {
@@ -30,153 +31,52 @@ export const meta = () => {
   });
 };
 
-const MAX_EMAIL_LENGTH = 512;
-const MAX_MESSAGE_LENGTH = 4096;
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-// Per-IP rate limit on contact form submissions. Cloudflare KV TTL acts as
-// the cooldown window; if the KV binding is missing (local dev without the
-// namespace bound) we skip the check rather than hard-failing.
-const RATE_LIMIT_WINDOW_SECONDS = 60;
-
-async function isRateLimited(env, request) {
-  const kv = env.CONTACT_RATE_LIMIT;
-  if (!kv) return false;
-  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-  const key = `contact:${ip}`;
-  const recent = await kv.get(key);
-  if (recent) return true;
-  await kv.put(key, '1', { expirationTtl: RATE_LIMIT_WINDOW_SECONDS });
-  return false;
-}
-
-function getContentForRequest(request) {
-  const referer = request.headers.get('referer') || '';
-  let pathname = '/';
-  if (referer) {
-    try {
-      pathname = new URL(referer).pathname;
-    } catch {
-      // Malformed Referer headers (common from bots) fall back to the default locale
-    }
-  }
-  const locale = getLocaleFromPathname(pathname);
-  return locale === 'zh' ? zhContact : enContact;
-}
-
-export async function action({ context, request }) {
-  const env = context.cloudflare?.env || {};
-  const formData = await request.formData();
-  const isBot = String(formData.get('name'));
-  const email = String(formData.get('email'));
-  const message = String(formData.get('message'));
-  const errors = {};
-
-  // Return without sending if a bot trips the honeypot
-  if (isBot) return json({ success: true });
-
-  // Throttle real submissions before doing any expensive work
-  const content = getContentForRequest(request);
-  if (await isRateLimited(env, request)) {
-    return json(
-      { errors: { form: content.rateLimitedMessage } },
-      { status: 429 }
-    );
-  }
-
-  // Handle input validation on the server
-  if (!email || !EMAIL_PATTERN.test(email)) {
-    errors.email = content.errorEmailInvalid;
-  }
-
-  if (!message) {
-    errors.message = content.errorMessageRequired;
-  }
-
-  if (email.length > MAX_EMAIL_LENGTH) {
-    errors.email = content.errorEmailTooLong.replace('{max}', MAX_EMAIL_LENGTH);
-  }
-
-  if (message.length > MAX_MESSAGE_LENGTH) {
-    errors.message = content.errorMessageTooLong.replace('{max}', MAX_MESSAGE_LENGTH);
-  }
-
-  if (Object.keys(errors).length > 0) {
-    return json({ errors }, { status: 400 });
-  }
-
-  const requiredEnvVars = [
-    env.AWS_ACCESS_KEY_ID,
-    env.AWS_SECRET_ACCESS_KEY,
-    env.EMAIL,
-    env.FROM_EMAIL,
-  ];
-
-  if (requiredEnvVars.some(value => !value)) {
-    return json(
-      {
-        errors: {
-          form: content.unconfiguredMessage,
-        },
-      },
-      { status: 500 }
-    );
-  }
-
-  const ses = new SESClient({
-    region: 'us-east-1',
-    credentials: {
-      accessKeyId: env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
-
-  try {
-    await ses.send(
-      new SendEmailCommand({
-        Destination: {
-          ToAddresses: [env.EMAIL],
-        },
-        Message: {
-          Body: {
-            Text: {
-              Data: `From: ${email}\n\n${message}`,
-            },
-          },
-          Subject: {
-            Data: `Portfolio message from ${email}`,
-          },
-        },
-        Source: `Portfolio <${env.FROM_EMAIL}>`,
-        ReplyToAddresses: [email],
-      })
-    );
-  } catch (error) {
-    console.error('Contact form email send failed:', error);
-    return json(
-      {
-        errors: {
-          form: content.failedMessage,
-        },
-      },
-      { status: 500 }
-    );
-  }
-
-  return json({ success: true });
-}
-
 export const Contact = () => {
   const location = useLocation();
   const locale = getLocaleFromPathname(location.pathname);
   const content = locale === 'zh' ? zhContact : enContact;
   const errorRef = useRef();
-  const email = useFormInput('');
-  const message = useFormInput('');
+  const routeActionData = useActionData();
+  const [submissionResult, setSubmissionResult] = useState();
+  const [sending, setSending] = useState(false);
+  const submittingRef = useRef(false);
+  const activeRequestRef = useRef();
+  const actionData = submissionResult || routeActionData;
+  const email = useFormInput(routeActionData?.values?.email || '');
+  const message = useFormInput(routeActionData?.values?.message || '');
   const initDelay = tokens.base.durationS;
-  const actionData = useActionData();
-  const { state } = useNavigation();
-  const sending = state === 'submitting';
+
+  useEffect(() => () => activeRequestRef.current?.abort(), []);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (submittingRef.current) return;
+    submittingRef.current = true;
+    setSending(true);
+    setSubmissionResult(undefined);
+    const body = new FormData(event.currentTarget);
+    const controller = new AbortController();
+    activeRequestRef.current = controller;
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    try {
+      const response = await fetch(`/api/contact?locale=${locale}`, {
+        method: 'POST',
+        body,
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      });
+      const result = await response.json();
+      if (!response.ok && !result.errors) throw new Error('Unconfirmed delivery');
+      setSubmissionResult(result);
+    } catch {
+      setSubmissionResult({ errors: { form: content.failedMessage } });
+    } finally {
+      clearTimeout(timeout);
+      activeRequestRef.current = undefined;
+      submittingRef.current = false;
+      setSending(false);
+    }
+  }
 
   return (
     <Section className={styles.contact}>
@@ -186,6 +86,7 @@ export const Contact = () => {
             viewTransition
             className={styles.form}
             method="post"
+            onSubmit={handleSubmit}
             ref={nodeRef}
           >
             <Heading
@@ -224,6 +125,7 @@ export const Contact = () => {
               name="email"
               maxLength={MAX_EMAIL_LENGTH}
               {...email}
+              error={email.error || (email.value === actionData?.values?.email ? actionData?.errors?.email : undefined)}
             />
             <Input
               required
@@ -236,6 +138,7 @@ export const Contact = () => {
               name="message"
               maxLength={MAX_MESSAGE_LENGTH}
               {...message}
+              error={message.error || (message.value === actionData?.values?.message ? actionData?.errors?.message : undefined)}
             />
             <Transition
               unmount
@@ -288,6 +191,17 @@ export const Contact = () => {
             >
               {content.privacyNote}
             </p>
+            <div className={styles.directContact}>
+              <p>{content.directContactLabel}</p>
+              <div className={styles.directContactLinks}>
+                <a href={`mailto:${config.email}`}>
+                  {content.emailLinkLabel}: {config.email}
+                </a>
+                <a href={`https://www.linkedin.com/in/${config.linkedin}`} target="_blank" rel="noopener noreferrer">
+                  {content.linkedinLinkLabel}
+                </a>
+              </div>
+            </div>
           </Form>
         )}
       </Transition>

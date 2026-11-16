@@ -5,19 +5,30 @@ export const helmlineProject = {
     '离开电脑，也能跟进自托管 AI 智能体。我独立完成了这款原生 iPhone 客户端的设计、开发与发布。1.0 已在 App Store 上架，使用时需连接自己的兼容 Hermes Gateway。',
   url: 'https://apps.apple.com/app/id6787791371',
   linkLabel: '前往 App Store 下载',
+  caseFacts: [
+    { label: '时间', value: '2026 年' },
+    { label: '状态', value: 'App Store 公开发布 · 1.0 版本' },
+  ],
+  caseBrief: {
+    label: '案例概览',
+    items: [
+      { label: '问题', value: '运行自托管智能体的人离开电脑后，仍需检查任务并审批敏感操作。' },
+      { label: '设计决定', value: '分开展示执行摘要与详情，明确审批范围，并让每个入口保留所属主机身份。' },
+      { label: '结果与范围', value: '原生 iPhone App 已在 App Store 发布，需要用户自己的兼容 Gateway；发布不等于市场采用验证。' },
+    ],
+  },
   roles: ['独立产品设计', '人因与交互设计', 'SwiftUI 开发', 'App Store 发布'],
   summary: {
     title: 'Helmline',
     description:
-      '在 iPhone 上跟进智能体任务、确认敏感操作，执行仍留在自己的主机。我独立完成设计、开发与 App Store 发布。使用时需自备兼容 Gateway。',
+      '把自托管 AI 智能体的进展与敏感审批带到 iPhone，明确用户正在查看什么、将授权什么，以及操作属于哪台主机。',
     modelType: 'phone',
     modelAlt: 'Helmline 会话与审批界面，使用虚构演示内容',
     ctaLabel: '查看完整产品案例',
     quickFacts: [
-      { label: '角色', value: '独立产品设计与开发' },
-      { label: '平台', value: '原生 iPhone App · SwiftUI' },
-      { label: '状态', value: '已在 App Store 上架' },
-      { label: '版本', value: '1.0 · 免费 · iOS 17+' },
+      { label: '能力', value: '人机协作 · 权限交互' },
+      { label: '实现', value: '独立设计与 SwiftUI 开发' },
+      { label: '交付', value: 'App Store 1.0 · 需自备兼容 Gateway' },
     ],
   },
   sections: [

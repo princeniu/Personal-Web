@@ -46,6 +46,19 @@ Start the local development server:
 npm run dev
 ```
 
+Preview the production build without cloud bindings or email credentials:
+
+```bash
+npm run build
+npm run preview:local
+```
+
+This preview listens only on `http://127.0.0.1:7777`. It preserves contact drafts
+when the mail service is unavailable and cannot send real email. It does not
+validate Cloudflare cache rules, preview-host noindex headers, or the deployed
+contact rate limiter. See `workers/contact-rate-limiter/README.md` for that
+future release prerequisite.
+
 Run the data contract tests:
 
 ```bash

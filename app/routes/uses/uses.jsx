@@ -54,7 +54,8 @@ export const Uses = () => {
                   <List>
                     {section.items.map(item => (
                       <ListItem key={item.label}>
-                        <Link href={item.url}>{item.label}</Link> {item.description}
+                        {item.url ? <Link href={item.url}>{item.label}</Link> : <strong>{item.label}</strong>}{' '}
+                        {item.description}
                       </ListItem>
                     ))}
                   </List>

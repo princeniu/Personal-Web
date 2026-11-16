@@ -118,6 +118,7 @@ const dark = {
   background: 'oklch(17.76% 0 0)', // near-black background
   backgroundLight: 'oklch(21.78% 0 0)', // raised surface (cards, navbar overlays)
   primary: 'oklch(84.42% 0.19 50)', // brand yellow
+  onPrimary: 'oklch(17.76% 0 0)', // readable foreground on the brand action color
   primaryText: 'oklch(84.42% 0.19 50)', // brand yellow as text, 9.4:1 on dark bg
   accent: 'oklch(84.42% 0.19 50)', // brand yellow accent
   error: 'oklch(65.91% 0.249 13.76)', // error red, AA against dark bg
@@ -131,6 +132,7 @@ const light = {
   background: 'oklch(96.12% 0 0)', // near-white background
   backgroundLight: 'var(--white)',
   primary: 'oklch(84.42% 0.19 50)', // brand yellow (backgrounds/decoration only)
+  onPrimary: 'oklch(17.76% 0 0)',
   primaryText: 'oklch(54% 0.15 50)', // deep amber for text, 4.78:1 on bg / 5.35:1 on white
   accent: 'oklch(54% 0.15 50)', // deep amber accent, AA for body links
   error: 'oklch(54% 0.22 25)', // deeper red, AA against white

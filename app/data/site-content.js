@@ -2,34 +2,34 @@ export const profileContent = {
   eyebrow: 'About me',
   heading: 'Designing the seam between people and complex systems.',
   description:
-    'I’m Zhuo (Prince) Niu, a designer-builder working across UI/UX, AI products, and human factors. I’m currently studying Human Factors Engineering at Tufts, after finishing my Computer Engineering degree at Purdue.\n\nI like the part of product work where an idea stops being abstract. That usually means deciding which problem is worth solving, shaping the first usable flow, testing a rough version, and building enough of it for someone to actually use.\n\nMy work sits between human factors, product design, and engineering. I care about the details that decide whether a product feels clear or confusing: the prompt, the feedback, the recovery path, the first click that makes sense. I shipped UI work for Porsche Communication Management at Porsche Asia Pacific, built a BLE-paired posture-tracking app, and released SayIt, a macOS voice-to-text utility. I also designed and usability-tested TrekAssist, an outdoor e-ink safety device, and built KnowledgeOS, a personal AI system where agents maintain durable project context.\n\nI’m currently looking for product design, UX, and human factors roles around thoughtful products, refined UI/UX, and complex multimodal experiences.',
+    "I’m Zhuo (Prince) Niu, a designer-builder focused on product design, human–AI interaction, and human factors. I’m studying Human Factors Engineering at Tufts, after finishing my Computer Engineering degree at Purdue.\n\nI work on the details that make complex products understandable: clear prompts, timely feedback, deliberate permissions, and recoverable failures. I take an idea from its first usable flow through prototypes, testing, and enough implementation for someone to use it.\n\nI independently designed, built, and released Helmline, an iPhone client for self-hosted AI agents, and SayIt, a macOS voice-to-text utility. I shipped UI work for Porsche Communication Management at Porsche Asia Pacific, built a BLE-paired posture-tracking app, designed and usability-tested TrekAssist, and built KnowledgeOS for durable project context.\n\nI’m looking for product design, UX, and human factors roles, especially around AI products, refined UI/UX, and complex multimodal experiences.",
   ctaLabel: 'Send me a message',
   resumeLabel: 'Download resume (PDF)',
 };
 
 export const contactContent = {
-  title: 'Say hello',
-  metaDescription:
-    'Get in touch about product design, frontend development, mobile projects, or collaboration opportunities.',
-  privacyNote:
-    'Your email is only used to reply to this message and is never shared.',
-  rateLimitedMessage:
-    'You just sent a message. Please wait a minute before sending another one.',
-  successTitle: 'Message Sent',
-  successBody: 'I’ll reply as soon as I can, usually within 2–3 days. Thanks for reaching out.',
-  backLabel: 'Back to homepage',
-  emailLabel: 'Your email',
-  messageLabel: 'Message',
-  sendLabel: 'Send message',
-  sendingLabel: 'Sending...',
-  errorEmailInvalid: 'Please enter a valid email address.',
-  errorMessageRequired: 'Please enter a message.',
-  errorEmailTooLong: 'Email address must be shorter than {max} characters.',
-  errorMessageTooLong: 'Message must be shorter than {max} characters.',
-  unconfiguredMessage:
-    'The contact form is not configured yet. Please reach out through GitHub for now.',
-  failedMessage:
-    'The message could not be sent. Please try again later or reach out through GitHub.',
+  "title": "Say hello",
+  "metaDescription": "Get in touch about product design, frontend development, mobile projects, or collaboration opportunities.",
+  "privacyNote": "Your email and message are used to reply and delivered through an email service. They are never posted publicly.",
+  "rateLimitedMessage": "Please wait a minute before sending another message.",
+  "successTitle": "Message Sent",
+  "successBody": "I’ll reply as soon as I can, usually within 2–3 days. Thanks for reaching out.",
+  "backLabel": "Back to homepage",
+  "emailLabel": "Your email",
+  "messageLabel": "Message",
+  "sendLabel": "Send message",
+  "sendingLabel": "Sending...",
+  "errorEmailInvalid": "Please enter a valid email address.",
+  "errorMessageRequired": "Please enter a message.",
+  "errorEmailTooLong": "Email address must be shorter than {max} characters.",
+  "errorMessageTooLong": "Message must be shorter than {max} characters.",
+  "unconfiguredMessage": "The form is temporarily unavailable. Your message has not been sent; you can email me directly or use LinkedIn below.",
+  "failedMessage": "Delivery could not be confirmed. Your draft is still here. Try again later, email me directly, or use LinkedIn below.",
+  "malformedMessage": "Please enter your email and message, then try again.",
+  "tooLargeMessage": "This message is too large. Please shorten it or email me directly.",
+  "directContactLabel": "You can also contact me directly",
+  "emailLinkLabel": "Email",
+  "linkedinLinkLabel": "LinkedIn"
 };
 
 export const usesContent = {
