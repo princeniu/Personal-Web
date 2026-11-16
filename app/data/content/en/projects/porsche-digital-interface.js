@@ -7,13 +7,12 @@ export const porscheProject = {
   summary: {
       title: 'Porsche Digital Interface',
       description:
-        'Automotive HMI work for Porsche Communication Management. I worked on navigation and voice interaction flows, then translated design decisions into prototypes and specs the team could use.',
+      'Map navigation and voice flows around the driver’s limited attention, then translate confirmation, action, and recovery states into component specifications for engineering.',
       modelType: 'laptop',
       modelAlt: 'Porsche Digital Interface prototype shown on a laptop',
       quickFacts: [
-        { label: 'Role', value: 'UX / UI Designer (Porsche Asia Pacific internship)' },
-        { label: 'Methods', value: 'UX research, multimodal flow design, prototyping' },
-        { label: 'Tools', value: 'Figma' },
+      { label: 'Focus', value: 'Multimodal HMI · Engineering handoff' },
+      { label: 'Context', value: 'UX/UI internship · Porsche Asia Pacific' },
         { label: 'Outcome', value: '30% reduction in interface load time after iterative UI optimization' },
       ],
     },

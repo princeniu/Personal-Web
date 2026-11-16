@@ -12,6 +12,10 @@
     @media (--mediaMobile), (--mediaMobileLS) {
       display: flex;
     }
+
+    &[data-hidden='true'] {
+      display: none;
+    }
   }
 
   .inner {

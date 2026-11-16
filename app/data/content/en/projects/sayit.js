@@ -3,6 +3,20 @@ export const sayitProject = {
   title: 'SayIt',
   description:
     'A native macOS menu bar dictation app that turns speech into text from a global hotkey, supports local Whisper transcription, and stays out of the user’s way.',
+  url: 'https://github.com/princeniu/SayIt/releases/tag/v1.0.5',
+  linkLabel: 'Download SayIt v1.0.5',
+  caseFacts: [
+    { label: 'Period', value: 'March–April 2026' },
+    { label: 'Status', value: 'Signed, notarized macOS release · v1.0.5' },
+  ],
+  caseBrief: {
+    label: 'Case study at a glance',
+    items: [
+      { label: 'Problem', value: 'Dictation should fit into active writing without switching to a full app.' },
+      { label: 'Design decision', value: 'Global-hotkey capture, a compact HUD, and selectable Apple Speech or local Whisper transcription.' },
+      { label: 'Result and scope', value: 'Public v1.0.5 release on GitHub. Fully local transcription applies to Whisper mode.' },
+    ],
+  },
   roles: ['Product Design', 'SwiftUI', 'macOS Development', 'Interaction Design', 'AI Integration'],
   summary: {
       title: 'SayIt',
@@ -100,10 +114,11 @@ export const sayitProject = {
       },
       {
         type: 'text',
-        heading: 'On-Device, Always',
+        heading: 'Local Transcription with Whisper',
         body: [
-          'Choosing whisper.cpp over a cloud API was a product decision before it was a technical one. Local transcription means the app keeps working offline, avoids per-request cost, and gives users a privacy guarantee that is easy to understand: voice data stays on the device.',
-          'The trade-off is model size and cold-start cost. The app exposes engine and model selection so users on lighter machines can pick a smaller model, while users who care more about accuracy can opt into a larger one.',
+          'Whisper mode runs through whisper.cpp on the Mac. Once the model is available locally, transcription works offline, avoids per-request cost, and keeps the audio processing on the device.',
+          'SayIt also offers Apple Speech. Its recognition path depends on Apple’s system and language support; the v1.0.5 implementation does not require on-device recognition. The fully local guarantee therefore applies to Whisper mode, not every available engine.',
+          'The trade-off with Whisper is model size and cold-start cost. Users can choose a smaller local model for speed or a larger one when accuracy matters more.',
         ],
       },
       {
@@ -142,7 +157,7 @@ export const sayitProject = {
         metrics: [
           { value: 'v1.0.5', label: 'Public release on GitHub Releases' },
           { value: '5', label: 'Iterations refining microphone, HUD, and onboarding' },
-          { value: '100%', label: 'On-device transcription via whisper.cpp' },
+          { value: 'Local', label: 'Whisper-mode transcription via whisper.cpp' },
           { value: '2', label: 'System permissions surfaced (Microphone · Accessibility)' },
         ],
         evidence: [
@@ -152,9 +167,9 @@ export const sayitProject = {
               'Designed and built solo across product surface, audio pipeline, transcription engine, permissions UX, and signed/notarized distribution.',
           },
           {
-            label: 'Privacy-first by default',
+            label: 'Engine-specific privacy',
             value:
-              'Audio never leaves the device. whisper.cpp runs locally, with model selection exposed so users can trade accuracy for speed on their own hardware.',
+              'Whisper mode processes audio locally. Apple Speech is a separate selectable engine; its processing path is not covered by the local Whisper guarantee.',
           },
           {
             label: 'Resilient to real ecosystems',

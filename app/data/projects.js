@@ -743,6 +743,22 @@ const backgrounds = {
 };
 
 const summaryTextures = {
+  shengjian: {
+    en: [
+      {
+        src: '/projects/shengjian/cover-v2-en.webp',
+        srcSet: '/projects/shengjian/cover-v2-en.webp 1600w',
+        placeholder: '/projects/shengjian/cover-v2-en.webp',
+      },
+    ],
+    zh: [
+      {
+        src: '/projects/shengjian/cover-v2-zh.webp',
+        srcSet: '/projects/shengjian/cover-v2-zh.webp 1600w',
+        placeholder: '/projects/shengjian/cover-v2-zh.webp',
+      },
+    ],
+  },
   helmline: {
     en: [
       { src: helmlineScreenEn01, srcSet: `${helmlineScreenEn01} 1320w`, placeholder: helmlineScreenEn01 },

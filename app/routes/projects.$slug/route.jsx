@@ -1,6 +1,6 @@
 import { json, redirect } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
-import { getProjectBySlug } from '~/data/projects';
+import { getProjectPage } from '~/data/portfolio.server';
 import { legacyProjectSlugRedirects, resolveProjectSlug } from '~/data/project-content';
 import { baseMeta } from '~/utils/meta';
 import { ProjectCase } from '../projects/project-case';
@@ -12,17 +12,17 @@ export const loader = async ({ params }) => {
   }
 
   const resolvedSlug = resolveProjectSlug(params.slug);
-  const project = getProjectBySlug(resolvedSlug);
+  const page = getProjectPage(resolvedSlug, 'en');
 
-  if (!project) {
+  if (!page) {
     throw new Response(null, { status: 404, statusText: 'Project not found' });
   }
 
-  return json({ slug: project.slug });
+  return json(page);
 };
 
-export const meta = ({ params }) => {
-  const project = getProjectBySlug(resolveProjectSlug(params.slug));
+export const meta = ({ data, params }) => {
+  const project = data?.project;
 
   if (!project) {
     return baseMeta({
@@ -41,8 +41,7 @@ export const meta = ({ params }) => {
 };
 
 export default function ProjectRoute() {
-  const { slug } = useLoaderData();
-  const project = getProjectBySlug(slug);
+  const { project, nextProjects } = useLoaderData();
 
-  return <ProjectCase project={project} />;
+  return <ProjectCase project={project} nextProjects={nextProjects} locale="en" />;
 }

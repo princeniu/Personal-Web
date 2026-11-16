@@ -1,13 +1,14 @@
 import { DecoderText } from '~/components/decoder-text';
+import { Button } from '~/components/button';
 import { Heading } from '~/components/heading';
 import { Section } from '~/components/section';
 import { useTheme } from '~/components/theme-provider';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
 import { VisuallyHidden } from '~/components/visually-hidden';
-import { Link as RouterLink } from '@remix-run/react';
 import { useInterval, usePrevious, useScrollToHash } from '~/hooks';
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { cssProps } from '~/utils/style';
 import config from '~/config.json';
 import { useHydrated } from '~/hooks/useHydrated';
@@ -20,18 +21,19 @@ const DisplacementSphere = lazy(() =>
 export function Intro({
   id,
   sectionRef,
-  scrollIndicatorHidden,
   name = config.name,
   role = config.role,
   disciplines = config.disciplines,
   scrollTo = '/#projects',
-  scrollLabel = 'Scroll to projects',
   listSeparator = ', ',
   finalJoin = ', and ',
   pauseLabel = 'Pause rotating disciplines',
   resumeLabel = 'Resume rotating disciplines',
   pauseTitle = 'Pause',
   resumeTitle = 'Resume',
+  positioning,
+  projectsLabel = 'Explore selected work',
+  resumeLinkLabel = 'Download resume',
   ...rest
 }) {
   const { theme } = useTheme();
@@ -48,13 +50,14 @@ export function Intro({
   const titleId = `${id}-title`;
   const scrollToHash = useScrollToHash();
   const isHydrated = useHydrated();
+  const reduceMotion = useReducedMotion();
 
   useInterval(
     () => {
       const index = (disciplineIndex + 1) % disciplines.length;
       setDisciplineIndex(index);
     },
-    paused ? null : 5000,
+    paused || reduceMotion ? null : 5000,
     theme
   );
 
@@ -65,6 +68,7 @@ export function Intro({
   }, [theme, prevTheme]);
 
   const handleScrollClick = event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     scrollToHash(event.currentTarget.href);
   };
@@ -105,7 +109,7 @@ export function Intro({
                   </span>
                   <span className={styles.line} data-status={status} />
                 </span>
-                <div className={styles.row}>
+                <span className={styles.row}>
                   {disciplines.map(item => (
                     <Transition
                       unmount
@@ -145,45 +149,18 @@ export function Intro({
                       </svg>
                     )}
                   </button>
-                </div>
+                </span>
               </Heading>
+              <p className={styles.positioning}>{positioning}</p>
+              <div className={styles.actions}>
+                <Button href={scrollTo} onClick={handleScrollClick} iconEnd="arrow-right">
+                  {projectsLabel}
+                </Button>
+                <Button secondary href="/resume.pdf" download icon="resume">
+                  {resumeLinkLabel}
+                </Button>
+              </div>
             </header>
-            <RouterLink
-              to={scrollTo}
-              className={styles.scrollIndicator}
-              data-status={status}
-              data-hidden={scrollIndicatorHidden}
-              onClick={handleScrollClick}
-            >
-              <VisuallyHidden>{scrollLabel}</VisuallyHidden>
-              <svg
-                aria-hidden
-                stroke="currentColor"
-                width="28"
-                height="10"
-                viewBox="0 0 43 15"
-              >
-                <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
-              </svg>
-            </RouterLink>
-            <RouterLink
-              to={scrollTo}
-              className={styles.mobileScrollIndicator}
-              data-status={status}
-              data-hidden={scrollIndicatorHidden}
-              onClick={handleScrollClick}
-            >
-              <VisuallyHidden>{scrollLabel}</VisuallyHidden>
-              <svg
-                aria-hidden
-                stroke="currentColor"
-                width="43"
-                height="15"
-                viewBox="0 0 43 15"
-              >
-                <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
-              </svg>
-            </RouterLink>
           </>
         )}
       </Transition>

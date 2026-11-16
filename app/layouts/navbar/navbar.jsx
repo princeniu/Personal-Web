@@ -31,9 +31,8 @@ export const Navbar = () => {
   const windowSize = useWindowSize();
   const headerRef = useRef();
   const menuToggleRef = useRef();
-  // Use width-only detection so a short desktop window (split-screen, devtools open)
-  // doesn't get treated as mobile, which previously caused the theme toggle to vanish.
-  const isMobile = windowSize.width <= media.mobile;
+  // Keep this in sync with the width and short-window CSS navigation breakpoints.
+  const isMobile = windowSize.width <= media.mobile || windowSize.height <= media.mobile;
   const scrollToHash = useScrollToHash();
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export const Navbar = () => {
   useEffect(() => {
     if (!target || basePathname !== '/') return;
     setCurrent(`${basePathname}${target}`);
-    scrollToHash(target, () => setTarget(null));
+    return scrollToHash(target, () => setTarget(null));
   }, [basePathname, scrollToHash, target]);
 
   // Handle swapping the theme when intersecting with inverse themed elements
@@ -124,36 +123,91 @@ export const Navbar = () => {
     };
   }, [theme, windowSize, location.key]);
 
-  // Mobile menu focus management: move focus into the menu on open,
-  // close on Escape and hand focus back to the toggle button
+  const closeMenu = () => {
+    setMenuOpen(false);
+    requestAnimationFrame(() => menuToggleRef.current?.focus());
+  };
+
+  useEffect(() => {
+    if (menuOpen && !isMobile) setMenuOpen(false);
+  }, [isMobile, menuOpen]);
+
+  // Background content is inert while the full-screen menu is open.
   useEffect(() => {
     if (!menuOpen) return;
 
-    const focusFirstItem = () => {
-      document.getElementById('mobile-nav')?.querySelector('a, button')?.focus();
+    const menu = document.getElementById('mobile-nav');
+    if (!menu) return;
+    const background = [];
+    const hide = element => {
+      background.push({
+        element,
+        inert: element.getAttribute('inert'),
+        ariaHidden: element.getAttribute('aria-hidden'),
+      });
+      element.setAttribute('inert', '');
+      element.setAttribute('aria-hidden', 'true');
     };
-
-    focusFirstItem();
-    // The menu mounts via Transition state, which can land a tick after this
-    // effect runs; retry once it has.
-    const timer = setTimeout(() => {
-      if (!document.getElementById('mobile-nav')?.contains(document.activeElement)) {
-        focusFirstItem();
+    for (const child of headerRef.current.children) {
+      if (child !== menu) hide(child);
+    }
+    let branch = headerRef.current;
+    while (branch?.parentElement && branch !== document.body) {
+      for (const sibling of branch.parentElement.children) {
+        if (sibling !== branch) hide(sibling);
       }
-    }, 100);
+      branch = branch.parentElement;
+    }
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const focusableItems = () => Array.from(
+      menu.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')
+    ).filter(element => element.getClientRects().length > 0);
+    const focusFirstItem = () => {
+      (menu.querySelector('nav a') || focusableItems()[0] || menu).focus();
+    };
+    const frame = requestAnimationFrame(focusFirstItem);
 
     const onKeyDown = event => {
       if (event.key === 'Escape') {
+        event.preventDefault();
         setMenuOpen(false);
-        menuToggleRef.current?.focus();
+        requestAnimationFrame(() => menuToggleRef.current?.focus());
+      } else if (event.key === 'Tab') {
+        const items = focusableItems();
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!items.length) {
+          event.preventDefault();
+          menu.focus();
+        } else if (event.shiftKey && (document.activeElement === first || !menu.contains(document.activeElement))) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && (document.activeElement === last || !menu.contains(document.activeElement))) {
+          event.preventDefault();
+          first.focus();
+        }
       }
+    };
+    const onFocusIn = event => {
+      if (!menu.contains(event.target)) focusFirstItem();
     };
 
     document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('focusin', onFocusIn);
 
     return () => {
-      clearTimeout(timer);
+      cancelAnimationFrame(frame);
       document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('focusin', onFocusIn);
+      document.body.style.overflow = previousOverflow;
+      for (const { element, inert, ariaHidden } of background) {
+        if (inert === null) element.removeAttribute('inert');
+        else element.setAttribute('inert', inert);
+        if (ariaHidden === null) element.removeAttribute('aria-hidden');
+        else element.setAttribute('aria-hidden', ariaHidden);
+      }
     };
   }, [menuOpen]);
 
@@ -170,6 +224,7 @@ export const Navbar = () => {
 
   // Store the current hash to scroll to
   const handleNavItemClick = event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const hash = event.currentTarget.href.split('#')[1];
     setTarget(null);
 
@@ -200,6 +255,7 @@ export const Navbar = () => {
       <NavToggle
         onClick={() => setMenuOpen(!menuOpen)}
         menuOpen={menuOpen}
+        data-hidden={menuOpen}
         ref={menuToggleRef}
       />
       <nav className={styles.nav}>
@@ -235,48 +291,57 @@ export const Navbar = () => {
       </nav>
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
         {({ visible, nodeRef }) => (
-          <nav
+          <div
             id="mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label={getUiStrings(locale).menu}
+            aria-hidden={!visible || undefined}
+            inert={!visible ? '' : undefined}
+            tabIndex={-1}
             className={styles.mobileNav}
             data-visible={visible}
             ref={nodeRef}
           >
-            {navLinks.map(({ label, zhLabel, pathname }, index) => {
-              const localizedPathname = localizePath(pathname, locale);
-              const navLabel = isZh ? zhLabel : label;
+            <NavToggle menuOpen onClick={closeMenu} />
+            <nav className={styles.mobileNavContent} aria-label={getUiStrings(locale).menu}>
+              {navLinks.map(({ label, zhLabel, pathname }, index) => {
+                const localizedPathname = localizePath(pathname, locale);
+                const navLabel = isZh ? zhLabel : label;
 
-              return (
-                <RouterLink
-                  viewTransition
-                  prefetch="intent"
-                  to={localizedPathname}
-                  key={label}
-                  className={styles.mobileNavLink}
-                  data-visible={visible}
-                  aria-current={getCurrent(pathname)}
-                  onClick={handleMobileNavClick}
-                  style={cssProps({
-                    transitionDelay: numToMs(
-                      Number(msToNum(tokens.base.durationS)) + index * 50
-                    ),
-                  })}
-                >
-                  {navLabel}
-                </RouterLink>
-              );
-            })}
-            <div className={styles.mobileUtilityNav} data-visible={visible}>
-              <span className={styles.mobileUtilityLabel}>{isZh ? '语言' : 'Language'}</span>
-              <LanguageToggle
-                className={styles.mobileLanguageToggle}
-                currentLocale={locale}
-                pathname={localizedCurrentPath}
-                onClick={() => setMenuOpen(false)}
-              />
-            </div>
-            <NavbarIcons />
-            <ThemeToggle isMobile />
-          </nav>
+                return (
+                  <RouterLink
+                    viewTransition
+                    prefetch="intent"
+                    to={localizedPathname}
+                    key={label}
+                    className={styles.mobileNavLink}
+                    data-visible={visible}
+                    aria-current={getCurrent(pathname)}
+                    onClick={handleMobileNavClick}
+                    style={cssProps({
+                      transitionDelay: numToMs(
+                        Number(msToNum(tokens.base.durationS)) + index * 50
+                      ),
+                    })}
+                  >
+                    {navLabel}
+                  </RouterLink>
+                );
+              })}
+              <div className={styles.mobileUtilityNav} data-visible={visible}>
+                <span className={styles.mobileUtilityLabel}>{isZh ? '语言' : 'Language'}</span>
+                <LanguageToggle
+                  className={styles.mobileLanguageToggle}
+                  currentLocale={locale}
+                  pathname={localizedCurrentPath}
+                  onClick={() => setMenuOpen(false)}
+                />
+              </div>
+              <NavbarIcons />
+              <ThemeToggle isMobile />
+            </nav>
+          </div>
         )}
       </Transition>
       {!isMobile && <ThemeToggle data-navbar-item />}

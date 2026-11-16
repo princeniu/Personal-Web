@@ -1,6 +1,11 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { useLocation } from '@remix-run/react';
 import { Footer } from '~/components/footer';
+import { Button } from '~/components/button';
 import { Image } from '~/components/image';
+import { Section } from '~/components/section';
+import { useScrollToHash } from '~/hooks';
+import { localizePath } from '~/i18n/route';
 import { ThemeProvider } from '~/components/theme-provider';
 import {
   ProjectBackground,
@@ -16,6 +21,7 @@ import {
 } from '~/layouts/project';
 import { media } from '~/utils/style';
 import styles from './project-case.module.css';
+import { AllWorkIndex } from './all-work-index';
 
 const Carousel = lazy(() =>
   import('~/components/carousel').then(module => ({ default: module.Carousel }))
@@ -72,7 +78,9 @@ const renderImage = ({ image, alt, className, sizes = imageSizes, ...rest }) => 
 
 const renderTextRow = section => (
   <ProjectTextRow width={section.width}>
-    <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+    {section.heading && !section.suppressHeading && (
+      <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+    )}
     {renderBody(section.body)}
   </ProjectTextRow>
 );
@@ -202,10 +210,10 @@ const ProjectGrid = ({ section }) => {
   const ctaLabel = section.ctaLabel || 'View case study';
 
   return (
-    <ProjectSection light={section.light}>
-      <ProjectSectionContent>
-        <ProjectTextRow width="m">
-          <ProjectSectionHeading>{section.heading}</ProjectSectionHeading>
+    <ProjectSection light={section.light} className={styles.projectIndexSection}>
+      <ProjectSectionContent className={styles.projectGridContent}>
+        <ProjectTextRow width="l" stretch justify="start">
+          <ProjectSectionHeading className={styles.projectGridHeading}>{section.heading}</ProjectSectionHeading>
           {renderBody(section.body)}
         </ProjectTextRow>
         <ul className={styles.projectGrid} aria-label={section.heading}>
@@ -213,7 +221,7 @@ const ProjectGrid = ({ section }) => {
             const inner = (
               <>
                 {item.cover && (
-                  <img className={styles.projectGridCover} src={item.cover} alt={item.coverAlt || item.title} width={1672} height={941} loading="lazy" />
+                  <img className={styles.projectGridCover} src={item.cover} srcSet={item.coverSrcSet} sizes="(max-width: 1024px) calc(100vw - 48px), 480px" alt={item.coverAlt || item.title} width={1672} height={941} loading="lazy" />
                 )}
                 {item.timeframe && (
                   <span className={styles.projectGridTimeframe}>{item.timeframe}</span>
@@ -331,6 +339,8 @@ const ProjectSectionRenderer = ({ section }) => {
           <ProjectSectionContent>
             {renderTextRow(section)}
             <figure className={styles.videoFigure}>
+              {/* These product demos have no spoken dialogue; adjacent captions describe their content. */}
+              {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
               <video className={styles.projectVideo} controls playsInline preload="none" poster={section.poster} aria-label={section.heading} aria-describedby={`video-${section.src.split('/').pop()}`}>
                 <source src={section.src} type="video/mp4" />
                 <a href={section.src}>{section.heading}</a>
@@ -359,6 +369,8 @@ const ProjectSectionRenderer = ({ section }) => {
                 placeholder={section.image.placeholder}
                 alt={section.alt}
                 sizes={isPortrait ? portraitSizes : imageSizes}
+                loading="eager"
+                fetchpriority="high"
               />
             </div>
           </ProjectSectionContent>
@@ -388,9 +400,128 @@ const ProjectSectionRenderer = ({ section }) => {
   }
 };
 
-export const ProjectCase = ({ project }) => (
+const sectionId = (project, index) => `case-${project.slug}-${index + 1}`;
+
+const CaseOverview = ({ brief }) => (
+  <Section as="section" className={styles.overview} aria-labelledby="case-overview-title">
+    <div className={styles.overviewInner}>
+      <h2 id="case-overview-title">{brief.label}</h2>
+      <dl className={styles.briefList}>
+        {brief.items.map(item => (
+          <div key={item.label}>
+            <dt>{item.label}</dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </Section>
+);
+
+const CaseContents = ({ project, locale }) => {
+  const scrollToHash = useScrollToHash();
+  const navigateToSection = event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const href = event.currentTarget.href;
+    const target = document.getElementById(href.split('#')[1]);
+    // A deep link remains usable when its supporting evidence is collapsed.
+    if (target?.tagName === 'DETAILS') target.open = true;
+    scrollToHash(href);
+  };
+  return (
+    <Section as="div" className={styles.contentsSection}>
+      <details className={styles.contents}>
+        <summary>{locale === 'zh' ? '跳转到章节' : 'Jump to a section'}</summary>
+        <nav aria-label={locale === 'zh' ? '案例目录' : 'Case study contents'}>
+          <ol>
+            {project.sections.map((section, index) => section.heading && (
+              <li key={sectionId(project, index)}>
+                <a href={`#${sectionId(project, index)}`} onClick={navigateToSection}>
+                  {section.heading}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </details>
+    </Section>
+  );
+};
+
+const CaseSection = ({ project, section, index }) => {
+  const id = sectionId(project, index);
+  if (section.detail && section.heading) {
+    return (
+      <details id={id} className={`${styles.sectionAnchor} ${styles.detailSection}`}>
+        <summary><h2>{section.heading}</h2></summary>
+        <ProjectSectionRenderer section={{ ...section, suppressHeading: true }} />
+      </details>
+    );
+  }
+  return (
+    <div id={id} className={styles.sectionAnchor} tabIndex={-1}>
+      <ProjectSectionRenderer section={section} />
+    </div>
+  );
+};
+
+const ContinueReading = ({ project, nextProjects, locale }) => (
+  <Section as="section" className={styles.continueReading} aria-labelledby="continue-reading-title">
+    <div className={styles.overviewInner}>
+      <h2 id="continue-reading-title">
+        {locale === 'zh' ? '继续了解我的作品' : 'Explore more work'}
+      </h2>
+      {!!nextProjects.length && (
+        <ul className={styles.nextProjects}>
+          {nextProjects.map(item => (
+            <li key={item.slug}>
+              <a href={localizePath(item.path, locale)}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <span>{locale === 'zh' ? '查看案例' : 'View case study'}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+      <nav className={styles.caseEnd} aria-label={locale === 'zh' ? '作品集导航' : 'Portfolio navigation'}>
+        {project.slug !== 'all-work' && (
+          <Button secondary href={localizePath('/projects/all-work', locale)} icon="arrow-left">
+            {locale === 'zh' ? '查看全部作品' : 'View all work'}
+          </Button>
+        )}
+        <Button secondary href={localizePath('/contact', locale)} icon="send">
+          {locale === 'zh' ? '联系我' : 'Get in touch'}
+        </Button>
+      </nav>
+    </div>
+  </Section>
+);
+
+export const ProjectCase = ({ project, nextProjects = [], locale = 'en' }) => {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash.startsWith(`#case-${project.slug}-`)) return;
+    const target = document.getElementById(hash.slice(1));
+    if (target?.tagName === 'DETAILS' && !target.open) {
+      target.open = true;
+      target.scrollIntoView({ block: 'start' });
+    }
+  }, [hash, project.slug]);
+  if (project.indexLayout) {
+    return (
+      <>
+        <ProjectContainer className={styles.caseContainer}>
+          <AllWorkIndex project={project} locale={locale} />
+        </ProjectContainer>
+        <Footer />
+      </>
+    );
+  }
+  return (
   <>
-    <ProjectContainer>
+    <ProjectContainer className={styles.caseContainer}>
       {project.background && (
         <ProjectBackground
           src={project.background.src}
@@ -402,20 +533,22 @@ export const ProjectCase = ({ project }) => (
         />
       )}
       <ProjectHeader
-        className={project.slug === 'helmline' ? styles.storeHeader : undefined}
+        className={project.indexLayout ? styles.indexHeader : project.slug === 'helmline' ? styles.storeHeader : undefined}
         title={project.title}
         description={project.description}
         roles={project.roles}
+        facts={project.caseFacts}
         url={project.url}
         linkLabel={project.linkLabel}
       />
-      {project.sections.map(section => (
-        <ProjectSectionRenderer
-          key={`${project.slug}-${section.heading || section.type}`}
-          section={section}
-        />
+      {project.caseBrief && <CaseOverview brief={project.caseBrief} />}
+      {!project.indexLayout && <CaseContents project={project} locale={locale} />}
+      {project.sections.map((section, index) => (
+        <CaseSection key={sectionId(project, index)} project={project} section={section} index={index} />
       ))}
+      <ContinueReading project={project} nextProjects={nextProjects} locale={locale} />
     </ProjectContainer>
     <Footer />
   </>
-);
+  );
+};

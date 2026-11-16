@@ -1,18 +1,12 @@
 import { json, redirect } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import { baseMeta } from '~/utils/meta';
-import { withAssets } from '~/data/projects';
+import { getProjectPage } from '~/data/portfolio.server';
 import { ProjectCase } from './projects/project-case';
-import {
-  portfolioProjects as zhProjectsRaw,
-} from '~/data/content/zh';
 import {
   legacyProjectSlugRedirects,
   resolveProjectSlug,
 } from '~/data/project-content';
-
-const zhProjects = zhProjectsRaw.map(project => withAssets(project, 'zh'));
-const getZhProjectBySlug = slug => zhProjects.find(p => p.slug === slug);
 
 export const loader = async ({ params }) => {
   if (legacyProjectSlugRedirects[params.slug]) {
@@ -20,17 +14,17 @@ export const loader = async ({ params }) => {
   }
 
   const resolvedSlug = resolveProjectSlug(params.slug);
-  const project = getZhProjectBySlug(resolvedSlug);
+  const page = getProjectPage(resolvedSlug, 'zh');
 
-  if (!project) {
+  if (!page) {
     throw new Response(null, { status: 404, statusText: 'Project not found' });
   }
 
-  return json({ slug: project.slug });
+  return json(page);
 };
 
-export const meta = ({ params }) => {
-  const project = getZhProjectBySlug(resolveProjectSlug(params.slug));
+export const meta = ({ data, params }) => {
+  const project = data?.project;
 
   if (!project) {
     return baseMeta({
@@ -52,8 +46,7 @@ export const meta = ({ params }) => {
 };
 
 export default function ZhProjectRoute() {
-  const { slug } = useLoaderData();
-  const project = getZhProjectBySlug(slug);
+  const { project, nextProjects } = useLoaderData();
 
-  return <ProjectCase project={project} />;
+  return <ProjectCase project={project} nextProjects={nextProjects} locale="zh" />;
 }

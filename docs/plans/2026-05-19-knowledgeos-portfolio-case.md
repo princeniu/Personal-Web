@@ -49,11 +49,11 @@ Primary local sources:
 
 Portfolio implementation sources:
 
-- `/Users/prince/Desktop/portfolio/app/data/project-content.js`
-- `/Users/prince/Desktop/portfolio/app/data/projects.js`
-- `/Users/prince/Desktop/portfolio/app/routes/projects/project-case.jsx`
-- `/Users/prince/Desktop/portfolio/app/routes/home/home.jsx`
-- `/Users/prince/Desktop/portfolio/app/assets/`
+- `/Users/prince/Desktop/个人项目/portfolio/app/data/project-content.js`
+- `/Users/prince/Desktop/个人项目/portfolio/app/data/projects.js`
+- `/Users/prince/Desktop/个人项目/portfolio/app/routes/projects/project-case.jsx`
+- `/Users/prince/Desktop/个人项目/portfolio/app/routes/home/home.jsx`
+- `/Users/prince/Desktop/个人项目/portfolio/app/assets/`
 
 Current metrics from latest audit/context:
 

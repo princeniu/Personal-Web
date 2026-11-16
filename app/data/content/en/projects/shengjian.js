@@ -9,27 +9,35 @@ export const shengjianProject = {
   ],
   "url": "https://shengjian.princeniu.com",
   "linkLabel": "Invite-only app",
+  caseFacts: [
+    { label: 'Period', value: 'September 2026' },
+    { label: 'Status', value: 'Deployed Web product · Invite-only' },
+  ],
+  caseBrief: {
+    label: 'Case study at a glance',
+    items: [
+      { label: 'Problem', value: 'Bilingual learners need to follow a lesson and find the original passage during later review.' },
+      { label: 'Design decision', value: 'Pair source and translation, connect paragraph timestamps to replay, and separate saving, transcript completion, and archiving.' },
+      { label: 'Result and scope', value: 'An invite-only Web product with documented real use and isolated checks. A broader learner study remains proposed.' },
+    ],
+  },
   "summary": {
     "title": "Shengjian",
-    "description": "Follow a bilingual lesson, keep questions and slides, then return to the right moment to review.",
+    "description": "Connect bilingual captions, question markers, and classroom photos to original audio and later review. Show saving, transcription, and archiving as distinct stages.",
     "modelType": "laptop",
     "modelAlt": "Shengjian",
     "quickFacts": [
       {
-        "label": "Role",
-        "value": "Independent designer and developer"
+        "label": "Focus",
+        "value": "Learning workflows · State and recovery design"
       },
       {
-        "label": "Context",
-        "value": "Personal bilingual learning"
+        "label": "Build",
+        "value": "Independent design and full-stack Web development"
       },
       {
-        "label": "Platform",
-        "value": "Web · Mac and iPad"
-      },
-      {
-        "label": "Status",
-        "value": "Deployed · invite-only"
+        "label": "Scope",
+        "value": "Personal bilingual learning · Deployed, invite-only"
       }
     ]
   },
@@ -239,6 +247,7 @@ export const shengjianProject = {
     {
       "type": "image",
       "heading": "Architecture: separate the live path from the durable path",
+      detail: true,
       "body": [
         "The browser streams PCM to the transcription provider while packaging WAV segments for the server. Sequence numbers, sample offsets, and hashes validate saving. Classroom photos and learning markers use audio sample positions; photos have a separate persistent device queue.",
         "Course settings, recognition terms, review state, photos, transcript, audio, and notes travel with the recording archive. Cloud transfer remains a separate job with read-back verification. Notes receive transcript text, while classroom photos stay out of both the transcription stream and notes request."
@@ -253,6 +262,7 @@ export const shengjianProject = {
     {
       "type": "text",
       "heading": "Recovery: check the recording, not just the download",
+      detail: true,
       "body": [
         "Recovery must restore a usable recording with the correct ownership and supporting material. Earlier isolated drills checked audio hashes, transcript, notes, title, and owner, and rejected corrupt objects, wrong accounts, and attempts to overwrite an existing recording.",
         "An October 9 synthetic drill against real private cloud storage also restored photos, course and term settings, manual review state, and merged recordings in independent empty directories. This is documented storage evidence, not a test of real classroom recognition, long iPad sessions, or full host and DNS failover."
@@ -261,6 +271,7 @@ export const shengjianProject = {
     {
       "type": "text",
       "heading": "Private access and deliberate resource use",
+      detail: true,
       "body": [
         "Pre-created accounts and server-side recording ownership define the access boundary. A recording URL is not sufficient permission to read another account’s material. Audio reaches the transcription provider; audio, text, photos, and study metadata are saved on the server and in private cloud storage. This is not end-to-end encryption or local-only processing.",
         "Notes have per-account and service-wide concurrency limits, cached results, and explicit regeneration. The app distinguishes estimated AI use from a supplier bill. Private-beta quotas reject new requests at the limit while preserving access to existing recordings."

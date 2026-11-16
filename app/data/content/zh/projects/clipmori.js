@@ -9,6 +9,18 @@ export const clipmoriProject = {
   ],
   "url": "https://github.com/princeniu/LocalPaste/releases/latest",
   "linkLabel": "下载 macOS 版本",
+  caseFacts: [
+    { label: '时间', value: '2026 年 9 月' },
+    { label: '状态', value: 'macOS 早期版本 · 已签名、公证的安装包' },
+  ],
+  caseBrief: {
+    label: '案例概览',
+    items: [
+      { label: '问题', value: '找回之前复制的内容，确认后再次粘贴。' },
+      { label: '设计决定', value: '把横向历史卡片与搜索、完整内容预览、粘贴格式选择组合在一起。' },
+      { label: '结果与范围', value: '原生 macOS 早期版本。历史保存在本机但未加密，目前不提供自动更新。' },
+    ],
+  },
   "summary": {
     "title": "拾贴 · Clipmori",
     "description": "从个人日常需求出发制作的原生 macOS 剪贴板历史工具。搜索、预览，再把需要的内容贴回应用。",
@@ -19,7 +31,8 @@ export const clipmoriProject = {
     {
       "type": "hero-image",
       "image": {
-        "src": "/projects/clipmori/cover-zh.png",
+        "src": "/projects/clipmori/cover-zh.webp",
+        "srcSet": "/projects/clipmori/cover-zh-640.webp 640w, /projects/clipmori/cover-zh-1120.webp 1120w, /projects/clipmori/cover-zh.webp 1672w",
         "width": 1672,
         "height": 941
       },
@@ -37,7 +50,7 @@ export const clipmoriProject = {
       "heading": "看看它怎么用",
       "body": [],
       "src": "/projects/clipmori/demo-zh.mp4",
-      "poster": "/projects/clipmori/cover-zh.png",
+      "poster": "/projects/clipmori/cover-zh.webp",
       "caption": "20 秒无声功能导览，使用真实界面和示例数据剪辑，展示浏览、搜索、预览与收藏。应用当前界面以简体中文为主。"
     },
     {

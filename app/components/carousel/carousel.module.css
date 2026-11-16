@@ -14,7 +14,8 @@
     display: grid;
     grid-template-columns: 100%;
     cursor: grab;
-    touch-action: none;
+    touch-action: pan-y pinch-zoom;
+    user-select: none;
 
     &[data-dragging='true'] {
       cursor: grabbing;
@@ -129,6 +130,8 @@
     margin: 0;
     padding: var(--spaceM);
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
 
     &[aria-pressed='true'] {
       --buttonColor: var(--textBody);

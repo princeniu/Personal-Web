@@ -3,7 +3,6 @@ const path = require('path');
 const config = require('../app/config.json');
 
 const SITE_URL = config.url;
-const today = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'monthly' },
@@ -19,7 +18,7 @@ function readProjectSlugs() {
   const projectsDir = path.resolve(__dirname, '../app/data/content/en/projects');
   const slugs = [];
   const files = fs.readdirSync(projectsDir).filter(f => f.endsWith('.js'));
-  const re = /slug:\s*['"]([^'"]+)['"]/g;
+  const re = /['"]?\bslug\b['"]?\s*:\s*['"]([^'"]+)['"]/g;
 
   for (const file of files) {
     const content = fs.readFileSync(path.join(projectsDir, file), 'utf8');
@@ -61,7 +60,6 @@ ${allRoutes
     ({ path, priority, changefreq }) =>
       `  <url>
     <loc>${SITE_URL}${path}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`

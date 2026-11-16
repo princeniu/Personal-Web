@@ -1,132 +1,197 @@
 export const allWorkProject = {
-  slug: 'all-work',
-  title: '全部项目',
-  description:
-    '一个作品索引，覆盖已发布产品、实习项目、原型和探索性构建，横跨产品设计、移动开发与 AI 工具。',
-  roles: ['产品设计', 'UX 研究', '移动开发', 'AI 集成', '原型设计'],
-  summary: {
-    title: '全部项目',
-    description:
-      '主页精选案例之外的项目索引，包括已发布产品、实习工作、原型和小型构建。',
-    modelType: 'laptop',
-    modelAlt: '额外作品集项目概览',
+  "slug": "all-work",
+  "title": "全部项目",
+  "indexLayout": true,
+  "description": "按项目类型浏览产品、行业实践与研究原型，查看设计重点与证据。",
+  "roles": [],
+  "summary": {
+    "title": "全部项目",
+    "description": "覆盖 UX、人因工程与软件实现的产品、实习工作和研究原型。",
+    "modelType": "laptop",
+    "modelAlt": "额外作品集项目概览"
   },
-  sections: [
+  "sections": [
     {
-      type: 'text',
-      heading: '其他项目',
-      body: [
-        '主页上的精选案例是我最想展开讲过程的项目。这个页面收纳其余内容：已发布产品、真实实习项目、课程项目，以及一些影响我设计与工程思考的小型构建。',
-        '这些项目大多围绕同一个方向：把交互模型讲清楚，做出能验证的原型，并尽量把想法推进到可以测试或发布的状态。',
-      ],
+      "type": "project-grid",
+      "heading": "项目",
+      "items": [
+        {
+          "slug": "shengjian",
+          "title": "声间",
+          "category": "products",
+          "timeframe": "2026 年 9 月",
+          "context": "个人产品",
+          "status": "已部署 Web 产品 · 邀请制",
+          "description": "将双语课堂字幕、疑点和课件照片连接到原音回听与课后复习。",
+          "evidence": "记录了 51:56 真实音频，并保留隔离界面与归档恢复检查记录。",
+          "tags": [
+            "任务流程",
+            "状态与恢复"
+          ],
+          "href": "/zh/projects/shengjian"
+        },
+        {
+          "slug": "clipmori",
+          "title": "拾贴 · Clipmori",
+          "category": "products",
+          "timeframe": "2026 年 9 月",
+          "context": "个人产品",
+          "status": "macOS 早期版本",
+          "description": "找回之前复制的内容，经过搜索与完整预览，再选择需要的格式贴回应用。",
+          "evidence": "已交付签名、公证的 macOS 安装包，配有隔离回归测试与实机验证记录。",
+          "tags": [
+            "信息查找",
+            "交互设计"
+          ],
+          "href": "/zh/projects/clipmori"
+        },
+        {
+          "slug": "helmline",
+          "title": "Helmline",
+          "category": "products",
+          "timeframe": "2026 年",
+          "context": "个人产品",
+          "status": "App Store 公开版本 · 1.0",
+          "description": "在 iPhone 上跟进自托管智能体任务并审批敏感操作，使用时需自备兼容 Gateway。",
+          "evidence": "已发布 App Store 1.0，交付原生 App、分享扩展、Widget 与 Live Activity。",
+          "tags": [
+            "AI 交互",
+            "授权设计"
+          ],
+          "href": "/zh/projects/helmline"
+        },
+        {
+          "slug": "sayit",
+          "title": "SayIt",
+          "category": "products",
+          "timeframe": "2026 年 3–4 月",
+          "context": "个人产品",
+          "status": "macOS 公开版本 · v1.0.5",
+          "description": "让语音输入融入当前写作窗口，用快捷键录音、轻量状态反馈和可选本地转录完成听写。",
+          "evidence": "已签名、公证并公开发布 v1.0.5，Whisper 模式在本机处理音频。",
+          "tags": [
+            "轻量交互",
+            "权限引导"
+          ],
+          "href": "/zh/projects/sayit"
+        },
+        {
+          "slug": "knowledgeos",
+          "title": "KnowledgeOS",
+          "category": "products",
+          "timeframe": "2026 年 5 月至今",
+          "context": "个人系统",
+          "status": "运行中 · 公开 Starter Vault",
+          "description": "用采集规则、定期审查与可追溯知识页，维护散落在对话中的长期项目上下文。",
+          "evidence": "已公开 Starter Vault，包含采集协议、审查模板与知识链接检查。",
+          "tags": [
+            "信息架构",
+            "AI 工作流"
+          ],
+          "href": "/zh/projects/knowledgeos"
+        },
+        {
+          "slug": "trekassist",
+          "title": "TrekAssist",
+          "category": "research",
+          "timeframe": "2025 年 9–12 月",
+          "context": "Tufts",
+          "status": "户外导览研究原型",
+          "description": "为低刷新率电子墨水屏设备设计户外导航、安全提醒和省电操作。",
+          "evidence": "以 9 位参与者、6 个任务测试原型，识别低电量模式可发现性问题。",
+          "tags": [
+            "人因研究",
+            "可用性测试"
+          ],
+          "href": "/zh/projects/trekassist"
+        },
+        {
+          "slug": "porsche-digital-interface",
+          "title": "Porsche Digital Interface",
+          "category": "industry",
+          "timeframe": "2024 年 6–9 月",
+          "context": "Porsche Asia Pacific 实习",
+          "status": "界面原型与工程规范",
+          "description": "围绕车载导航和语音任务，设计触控、语音与 AI 辅助之间的交互流程。",
+          "evidence": "通过迭代式 UI 调整，帮助界面加载时间降低约 30%。",
+          "tags": [
+            "多模态交互",
+            "工程协作"
+          ],
+          "href": "/zh/projects/porsche-digital-interface"
+        },
+        {
+          "slug": "posture-checker",
+          "title": "Posture Checker",
+          "category": "research",
+          "timeframe": "2024 年 9–12 月",
+          "context": "软硬件项目",
+          "status": "已实现软硬件原型",
+          "description": "连接坐姿传感器与手机，提供实时状态、历史趋势和基于持续时长的纠正提醒。",
+          "evidence": "实现 iOS、Android 客户端与 BLE 传感器集成，包含配对和重连处理。",
+          "tags": [
+            "反馈策略",
+            "软硬件交互"
+          ],
+          "href": "/zh/projects/posture-checker"
+        },
+        {
+          "slug": "etongue-sensory-platform",
+          "title": "E-Tongue Sensory Platform",
+          "category": "research",
+          "timeframe": "2025 年",
+          "context": "Human Factor Product Design",
+          "status": "早期决策支持原型",
+          "description": "为评审员与食品开发者组织机器味觉数据和感官反馈，支持样本比较与下一步判断。",
+          "evidence": "3 位评审员参与问卷任务测试，发现量表与流程提示问题。",
+          "tags": [
+            "多角色流程",
+            "证据解释"
+          ],
+          "href": "/zh/projects/etongue-sensory-platform"
+        },
+        {
+          "slug": "little-lemon",
+          "title": "Little Lemon Restaurant",
+          "category": "research",
+          "timeframe": "2024 年",
+          "context": "Google UX Design Certificate capstone",
+          "status": "响应式 UX 原型",
+          "description": "为移动与桌面用餐场景设计菜单浏览、餐厅预约和点餐流程。",
+          "evidence": "围绕菜单、预约和订单任务开展可用性测试，并修订导航与确认状态。",
+          "tags": [
+            "可用性测试",
+            "响应式设计"
+          ],
+          "href": "/zh/projects/little-lemon"
+        }
+      ]
+    }
+  ],
+  "indexLabels": {
+    "filtersLabel": "按项目类型浏览",
+    "allLabel": "全部",
+    "countTemplate": "{count} 个项目",
+    "featuredLabel": "首页精选",
+    "tagsLabel": "设计重点",
+    "evidenceLabel": "证据",
+    "ctaLabel": "查看案例",
+    "contactHeading": "想进一步了解？",
+    "contactBody": "如果某个项目与你正在招聘的角色相关，欢迎联系我，进一步了解设计过程、关键决策和权衡。",
+    "contactLabel": "联系我"
+  },
+  "categories": [
+    {
+      "id": "products",
+      "label": "产品与系统"
     },
     {
-      type: 'project-grid',
-      heading: '精选工作',
-      tagsLabel: '工具与方法',
-      ctaLabel: '查看案例',
-      body: [
-        '近期和持续项目的可扫读视图。精选案例可以进入完整项目页，其余项目在这里做摘要展示。',
-      ],
-      items: [
-{
-  "title": "声间",
-  "timeframe": "2026年9月 · 私人双用户产品",
-  "description": "面向双语学习的私有课堂工具，将实时双语、学习标记与课堂照片连接到原音回听、课程整理和课后笔记。",
-  "tags": [
-    "双语课堂",
-    "照片与标记",
-    "课程复习"
-  ],
-  "href": "/zh/projects/shengjian",
-  "cover": "/projects/shengjian/cover-v2-zh.webp",
-  "coverAlt": "声间双语听课与复习工具"
-},
-{
-  "title": "拾贴 · Clipmori",
-  "timeframe": "2026 年 9 月 · 早期版本",
-  "description": "从个人日常需求出发制作的原生 macOS 剪贴板历史工具。搜索、预览，再把需要的内容贴回应用。",
-  "tags": [
-    "macOS",
-    "SwiftUI",
-    "AppKit"
-  ],
-  "href": "/zh/projects/clipmori",
-  "cover": "/projects/clipmori/cover-zh.png",
-  "coverAlt": "拾贴 · Clipmori — 剪贴板历史工具"
-},
-        {
-          title: 'Helmline',
-          timeframe: '2026 · 已在 App Store 上架',
-          description:
-            '独立完成设计、开发与发布的原生 iPhone 客户端，用于跟进自托管智能体任务、确认敏感操作。免费，需自备兼容 Hermes Gateway。',
-          tags: ['SwiftUI', '人因工程', 'AI Agent UX', 'BYOS', 'App Store 交付'],
-          href: '/zh/projects/helmline',
-        },
-        {
-          title: 'SayIt',
-          timeframe: '2026 年 4 月 · 已发布',
-          description:
-            '生产级 macOS 菜单栏语音转文字 App。支持全局快捷键、本地 Whisper、签名与公证，并在 GitHub Releases 发布 v1.0.5。',
-          tags: ['Swift', 'SwiftUI', 'whisper.cpp', 'AppKit'],
-          href: '/zh/projects/sayit',
-        },
-        {
-          title: 'KnowledgeOS',
-          timeframe: '2026 年 5 月 · 运行中的系统',
-          description:
-            '基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
-          tags: ['AI Systems', 'Knowledge Architecture', 'Markdown', 'Automation'],
-          href: '/zh/projects/knowledgeos',
-        },
-        {
-          title: 'TrekAssist',
-          timeframe: '2025 年 9 月 – 12 月 · Tufts',
-          description:
-            '太阳能电子墨水屏国家公园导览设备。通过 9 位参与者、6 个户外任务进行可用性测试，并发现和处理 Low Power 可发现性问题。',
-          tags: ['Human Factors', 'Figma', 'Usability Testing', 'E-Ink'],
-          href: '/zh/projects/trekassist',
-        },
-        {
-          title: 'Porsche Digital Interface',
-          timeframe: '2024 年 6 月 – 9 月 · Porsche Asia Pacific',
-          description:
-            '为 Porsche Communication Management 设计车载交互原型。通过迭代式 UI 调整，帮助界面加载时间降低约 30%。',
-          tags: ['UX/UI', 'Multimodal', 'Figma', 'Automotive HMI'],
-          href: '/zh/projects/porsche-digital-interface',
-        },
-        {
-          title: 'Posture Checker',
-          timeframe: '2024 年 9 月 – 12 月',
-          description:
-            '跨平台 React Native App，配合自制 BLE 姿势传感器使用。支持实时追踪、趋势查看和纠正性推送通知。',
-          tags: ['React Native', 'BLE', 'Firebase', 'Hardware'],
-          href: '/zh/projects/posture-checker',
-        },
-        {
-          title: 'E-Tongue Sensory Platform',
-          timeframe: '2025 · Human Factor Product Design',
-          description:
-            '结合 E-Tongue 机器味觉数据和半训练感官评审反馈的决策支持原型，帮助食品团队比较样本并判断下一步 Go、Tweak 还是 Stop。',
-          tags: ['Human Factors', 'Decision-Support UX', 'Figma', 'Usability Testing'],
-          href: '/zh/projects/etongue-sensory-platform',
-        },
-        {
-          title: 'Little Lemon Restaurant',
-          timeframe: '2024 · Google UX Capstone',
-          description:
-            '通过用户研究和可用性测试迭代的响应式餐厅预约与点餐体验。Google UX Design Certificate capstone。',
-          tags: ['UX Design', 'Figma', 'Responsive'],
-          href: '/zh/projects/little-lemon',
-        },
-      ],
+      "id": "industry",
+      "label": "行业实践"
     },
     {
-      type: 'outcome',
-      heading: '想进一步了解？',
-      body: [
-        '如果这个页面里的某个项目与你正在招聘的角色相关，欢迎联系我。我很乐意讲解那些不适合放进公开案例页的流程、决策和权衡。',
-      ],
-    },
-  ],
+      "id": "research",
+      "label": "研究与原型"
+    }
+  ]
 };

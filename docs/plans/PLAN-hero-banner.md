@@ -4,7 +4,7 @@
 Redesign the hero banner SVG for the KnowledgeOS project page on my portfolio site (https://github.com/princeniu/Personal-Web). This is a hero-image displayed prominently at the top of the project detail page.
 
 ## Deliverable
-A single `knowledgeos-hero-banner.svg` at `/Users/prince/Desktop/portfolio/app/assets/knowledgeos-hero-banner.svg`
+A single `knowledgeos-hero-banner.svg` at `/Users/prince/Desktop/个人项目/portfolio/app/assets/knowledgeos-hero-banner.svg`
 - 1600×1000 viewBox
 - Self-contained (no external fonts beyond system Inter fallback)
 - Dark theme matching the portfolio site
@@ -56,4 +56,4 @@ Key principles:
 - Gold: `#e8a838`, dark surfaces: `#131316`, `#14120d`, subtle borders: `#2a2a30`
 
 ## Reference
-Look at the existing portfolio assets in `/Users/prince/Desktop/portfolio/app/assets/` for style consistency (especially other `knowledgeos-*.svg` files), but make this distinctly different — it's a hero banner, not a technical diagram.
+Look at the existing portfolio assets in `/Users/prince/Desktop/个人项目/portfolio/app/assets/` for style consistency (especially other `knowledgeos-*.svg` files), but make this distinctly different — it's a hero banner, not a technical diagram.

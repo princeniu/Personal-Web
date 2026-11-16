@@ -2,34 +2,34 @@ export const profileContent = {
   eyebrow: '关于我',
   heading: '设计，在人与系统相遇的地方',
   description:
-    '我是牛拙Prince，做 UI/UX、AI 产品和人因工程交叉方向的 designer-builder。目前在 Tufts 读 Human Factors Engineering 硕士，本科是 Purdue 计算机工程。\n\n我喜欢产品从抽象想法变成真实东西的那个阶段：判断问题值不值得做，画出第一个能走通的流程，拿粗糙版本去测试，然后把它继续做成别人真的能用的东西。\n\n我的工作介于人因、产品设计和工程之间。我关注那些决定产品清不清楚的细节：提示出现的时机、反馈的方式、出错后的恢复路径，还有用户第一次点击时能不能马上理解。我交付过 Porsche Asia Pacific 的 PCM 车载界面工作，做过一个 BLE 姿势追踪 App，发布了 macOS 语音转文字工具 SayIt。我也设计并可用性测试了 TrekAssist，一款户外 e-ink 安全设备，也构建了 KnowledgeOS，一个让 agent 维护持久项目上下文的个人 AI 系统。\n\n我正在寻找产品设计、UX 和人因方向的机会，尤其关注打磨到位的产品、细致的 UI/UX 和复杂的多模态体验。',
+    "我是牛拙Prince，做产品设计、人与 AI 交互和人因工程交叉方向的 designer-builder。目前在 Tufts 读 Human Factors Engineering 硕士，本科是 Purdue 计算机工程。\n\n我关注让复杂产品更容易理解的细节：提示是否清楚、反馈是否及时、权限是否明确，以及出错后能否恢复。我把想法从第一个能走通的流程，推进到原型、测试和别人能够使用的实现。\n\n我独立设计、开发并发布了 Helmline，一款连接自托管 AI 智能体的 iPhone 客户端，以及 macOS 语音转文字工具 SayIt。我交付过 Porsche Asia Pacific 的 PCM 车载界面工作，做过一个 BLE 姿势追踪 App，也设计并可用性测试了 TrekAssist，构建了用于持久项目上下文的 KnowledgeOS。\n\n我正在寻找产品设计、UX 和人因方向的机会，尤其关注 AI 产品、细致的 UI/UX 和复杂的多模态体验。",
   ctaLabel: '联系我',
   resumeLabel: '下载简历（PDF）',
 };
 
 export const contactContent = {
-  title: '打个招呼',
-  metaDescription:
-    '关于产品设计、前端开发、移动项目或合作机会，欢迎联系。',
-  privacyNote:
-    '你的邮箱仅用于回复本条消息，不会被分享。',
-  rateLimitedMessage:
-    '你刚刚发了一条消息，请稍等一分钟再发。',
-  successTitle: '消息已发送',
-  successBody: '我会尽快回复，通常在 2–3 天内。感谢联系。',
-  backLabel: '回到首页',
-  emailLabel: '你的邮箱',
-  messageLabel: '留言内容',
-  sendLabel: '发送消息',
-  sendingLabel: '发送中…',
-  errorEmailInvalid: '请输入有效的邮箱地址。',
-  errorMessageRequired: '请输入留言内容。',
-  errorEmailTooLong: '邮箱地址需短于 {max} 个字符。',
-  errorMessageTooLong: '留言内容需短于 {max} 个字符。',
-  unconfiguredMessage:
-    '联系表单尚未配置。暂时请通过 GitHub 联系。',
-  failedMessage:
-    '消息发送失败。请稍后重试，或通过 GitHub 联系。',
+  "title": "打个招呼",
+  "metaDescription": "关于产品设计、前端开发、移动项目或合作机会，欢迎联系。",
+  "privacyNote": "邮箱与留言用于联系回复，通过邮件服务递送，不会公开展示。",
+  "rateLimitedMessage": "请稍等一分钟，再发送下一条消息。",
+  "successTitle": "消息已发送",
+  "successBody": "我会尽快回复，通常在 2–3 天内。感谢联系。",
+  "backLabel": "回到首页",
+  "emailLabel": "你的邮箱",
+  "messageLabel": "留言内容",
+  "sendLabel": "发送消息",
+  "sendingLabel": "发送中…",
+  "errorEmailInvalid": "请输入有效的邮箱地址。",
+  "errorMessageRequired": "请输入留言内容。",
+  "errorEmailTooLong": "邮箱地址需短于 {max} 个字符。",
+  "errorMessageTooLong": "留言内容需短于 {max} 个字符。",
+  "unconfiguredMessage": "表单暂时不可用，消息尚未发送。你可以通过下方邮箱或 LinkedIn 直接联系我。",
+  "failedMessage": "暂时无法确认消息是否送达，你的草稿仍在。请稍后重试，或通过下方邮箱或 LinkedIn 联系我。",
+  "malformedMessage": "请填写邮箱和留言，再试一次。",
+  "tooLargeMessage": "留言内容过长，请缩短后重试，或直接给我发邮件。",
+  "directContactLabel": "也可以直接联系我",
+  "emailLinkLabel": "邮箱",
+  "linkedinLinkLabel": "LinkedIn"
 };
 
 export const usesContent = {

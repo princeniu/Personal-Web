@@ -15,9 +15,8 @@ import {
 export const featuredProjectSlugs = [
   'helmline',
   'trekassist',
-  'knowledgeos',
   'porsche-digital-interface',
-  'sayit',
+  'shengjian',
   'etongue-sensory-platform',
 ];
 

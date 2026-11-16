@@ -1,5 +1,9 @@
 import { Home, links } from './home/home';
 import { baseMeta } from '~/utils/meta';
+import { json } from '@remix-run/cloudflare';
+import { getHomeProjects } from '~/data/portfolio.server';
+
+export const loader = () => json({ projects: getHomeProjects('zh') });
 
 export { links };
 

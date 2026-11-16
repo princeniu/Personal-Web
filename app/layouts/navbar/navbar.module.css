@@ -247,6 +247,10 @@
       --headerNavFontSize: calc((18 / 16) * 1rem);
     }
 
+    @media (max-height: 420px) {
+      padding-block: var(--spaceS);
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -276,6 +280,18 @@
       opacity: 1;
       transform: none;
     }
+  }
+
+  .mobileNavContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .mobileUtilityNav {

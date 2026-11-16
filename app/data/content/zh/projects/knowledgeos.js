@@ -3,10 +3,24 @@ export const knowledgeosProject = {
   title: 'KnowledgeOS',
   description:
     '一个由 AI agent 维护的本地优先个人知识系统。它把日常对话、项目更新、研究和决策里有用的信息写进 Markdown，之后可以搜索、回顾、审计和复用。',
+  url: 'https://github.com/princeniu/KnowledgeOS',
+  linkLabel: '查看 Starter Vault',
+  caseFacts: [
+    { label: '时间', value: '2026 年 5 月至今' },
+    { label: '状态', value: '个人运行系统 · 公开 Starter Vault 模板' },
+  ],
+  caseBrief: {
+    label: '案例概览',
+    items: [
+      { label: '问题', value: '有用的项目上下文散落在对话里，需要持续整理和维护。' },
+      { label: '设计决定', value: '用 Markdown 保存长期知识，以采集规则、定期审查和正式写入边界组织维护。' },
+      { label: '结果与范围', value: '运行中的个人系统与公开 Starter Vault；下文数量指标为 2026 年 5 月的案例快照。' },
+    ],
+  },
   roles: ['AI 系统设计', '知识架构', 'Agent 工作流设计', '本地优先工具', '自动化', '个人基础设施'],
   summary: {
       title: 'KnowledgeOS',
-      description: '一个基于 Markdown、Obsidian、Hermes Agent、cron 工作流和 Git 备份的个人知识系统，用来避免有用的项目上下文散落在聊天记录里。',
+      description: '一个带采集规则、定期审查和 Git 备份的 Markdown 知识系统。Codex 主维护正式知识，Hermes 辅助候选采集与既有后台工作流。',
       modelType: 'knowledgeSystem',
       modelAlt: 'KnowledgeOS 系统架构与 Markdown 知识库预览',
       preview: {
@@ -18,13 +32,13 @@ export const knowledgeosProject = {
           { title: '综合', detail: '当前判断 · 关联链接' },
           { title: '审计', detail: '结构 · 备份' },
         ],
-        footerItems: ['Markdown 知识库', 'Hermes Agent', 'Git 备份', '每周回顾'],
+        footerItems: ['Markdown 知识库', 'Codex + Hermes', 'Git 备份', '每周回顾'],
       },
       quickFacts: [
         { label: '角色', value: 'Designer-Builder / 系统架构师' },
         { label: '方法', value: '信息架构、agent 工作流设计、自动化、审查机制' },
-        { label: '技术栈', value: 'Markdown、Obsidian、Hermes Agent、Python、Cron、Git' },
-        { label: '成果', value: '运行中的系统，含自动采集、审查、审计与备份' },
+        { label: '技术栈', value: 'Markdown、Obsidian、Codex、Hermes Agent、Python、Git' },
+        { label: '成果', value: '运行中的个人系统，含审查、审计与备份工作流' },
       ],
   },
   sections: [
@@ -39,7 +53,15 @@ export const knowledgeosProject = {
         body: [
           'KnowledgeOS 是我为自己反复遇到的问题设计和构建的本地优先个人知识系统：每天通过 AI 对话、项目更新、研究和产品决策产生很多有用上下文，但大部分在会话结束后就消失了。',
           '我不是把知识库当成手动归档笔记的地方，而是把它设计成一个由 agent 维护的系统。人专注于思考、构建和决策；agent 处理维护层：分类有用信息、去重重复想法、更新项目记忆、综合每周模式、审计结构健康，并持续备份知识库。',
-          '系统在存储层刻意保持简单。Markdown 仍然是真相来源，可被 Obsidian、VS Code、Git 和 Hermes Agent 读取。其编译知识层有意借鉴了 LLM Wiki 和 GBrain 的理念：有源可查的概念页面、实体记忆、关系映射以及 agent 可跨会话复用的当前判断。',
+          '系统在存储层刻意保持简单。Markdown 仍然是真相来源，可被 Obsidian、VS Code、Git、Codex 和 Hermes Agent 读取。编译知识层借鉴了 LLM Wiki 和 GBrain 的理念：有源可查的概念页面、实体记忆、关系映射以及 agent 可跨会话复用的当前判断。',
+        ],
+      },
+      {
+        type: 'text',
+        heading: '维护职责：2026 年 9 月的交接',
+        body: [
+          '早期版本由 Hermes Agent 负责采集与维护。自 2026 年 9 月 30 日起，Codex 成为正式 KnowledgeOS 页面的主维护者；Hermes 提供候选，并支持既有备份与派生视图工作流，不再默认修改正式页。',
+          '正式更新通过串行提交过程执行。下文早期图示和 5 月规模数据保留原始系统的设计记录，当前维护职责则以上述交接边界为准。',
         ],
       },
       {
@@ -55,7 +77,7 @@ export const knowledgeosProject = {
         type: 'text',
         heading: '设计原则',
         body: [
-          '第一条原则是 agent 维护，而非用户维护。KnowledgeOS 不应要求我手动分类每一条有用的想法。Hermes Agent 遵循采集规则来决定某条信息应该被忽略、追加到已有笔记、写入项目记忆，还是保留为长期模式。',
+          '第一条原则是 agent 维护，而非用户维护。KnowledgeOS 不应要求我手动分类每一条有用的想法。采集规则决定信息应忽略、提交为候选、合并到已有页面，还是保存为项目记忆；Codex 负责正式更新，Hermes 辅助候选采集。',
           '第二条原则是 Markdown 作为真相来源。我避免了数据库、专有仪表盘和过早的向量基础设施，因为系统需要保持可检查、可移植和可恢复。每一份持久化的知识都存在于一个可被人类阅读、可被 agent 编辑的本地文件中。',
           '第三条原则是少存、维护好。KnowledgeOS 不保存原始对话转储。一条笔记必须能减少未来的重复解释、支持一个项目、改善一个决策、成为职业素材、捕获一个可复用工作流或阐明一个长期模式。系统保护注意力，而不是归档一切。',
           '最后一条原则是当前判断优于被动存档。核心页面维护当前综合判断、证据时间线以及相关链接。目标不仅是记住发生了什么，而是让最新的有用理解易于检索。',
@@ -69,7 +91,7 @@ export const knowledgeosProject = {
           { title: '知识审计', description: '识别了 AI 对话、项目、研究、职业素材和产品决策中反复出现的上下文丢失问题。' },
           { title: '信息架构', description: '为项目、AI 工作流、产品想法、UX/HFE、职业、交易、学习、研究和审查设计了一个稳定的知识库结构。' },
           { title: '采集协议', description: '定义哪些内容应保存、忽略、合并、匿名化或写入长期项目记忆。' },
-          { title: 'Agent 自动化', description: '将 Hermes Agent 连接到每日采集、每周综合、维护审计和备份工作流。' },
+          { title: 'Agent 自动化', description: '早期将 Hermes Agent 连接到采集、每周综合、维护审计和备份工作流；正式维护后来交接给 Codex。' },
           { title: '编译知识层', description: '添加了受 LLM Wiki / GBrain 启发的编译知识层：有源页面、实体关系、当前判断、证据时间线和研究综合页。' },
           { title: '运维加固', description: '添加 Git 备份、cron 验证、失效链接检查、审计检查清单，以及自动生成的每周 HTML 审查产物。' },
         ],
@@ -77,10 +99,10 @@ export const knowledgeosProject = {
       {
         type: 'image',
         image: 'knowledgeosArchitectureZh',
-        heading: '系统架构：本地真相来源，Agent 维护层',
-        alt: 'KnowledgeOS 系统架构图，含输入层、agent 维护层、Markdown 知识库和衍生输出',
+        heading: '早期架构：本地真相来源，Agent 维护层',
+        alt: 'KnowledgeOS 早期架构图，含输入层、原 agent 维护层、Markdown 知识库和衍生输出',
         body: [
-          'KnowledgeOS 将系统分为四层。输入来自真实工作：Hermes 对话、项目更新、研究来源、学习笔记、职业素材和产品想法。agent 维护层应用采集规则、隐私过滤、分类、去重、综合和审计。',
+          '早期图示将系统分为四层。输入来自对话、项目更新、研究来源、学习笔记、职业素材和产品想法；维护层应用采集规则、隐私过滤、分类、去重、综合和审计。图中的 Hermes 主维护职责属于历史状态，当前正式维护由 Codex 承担。',
           '知识层保持本地化和可读性：一个围绕项目、AI 工作流、产品想法、研究 wiki 页面和审查日志组织的 Markdown 知识库。Obsidian 视图、每周 HTML 产物、简历要点、作品集素材和 Git 备份都从这个真相来源生成，而不是变成新的知识孤岛。',
         ],
       },
@@ -116,18 +138,21 @@ export const knowledgeosProject = {
       },
       {
         type: 'metrics',
-        heading: '证据快照',
-        body: ['KnowledgeOS 是一个运行中的个人系统，所以最清晰的证据在运维层：知识库有结构、链接可解析、自动化工作流在运行，知识层也作为可恢复的本地资产被备份。'],
+        heading: '2026 年 5 月的实现快照',
+        body: [
+          '这些规模和链接检查数据来自 2026 年 5 月的案例记录，描述当时的实现快照，不代表当前审计或已经测量的效率提升。',
+          '工作流数量包含 3 个审查维护任务：每日采集、每周审查和维护审计，再加一个独立 Git 备份工作流。因此它比早期项目摘要里的 3 个维护 cron 任务采用更宽的计数口径。',
+        ],
         metrics: [
           { value: '100+', label: 'Markdown 知识文件' },
           { value: '450+', label: '内部 wikilink' },
-          { value: '0', label: '最近审计中的失效链接' },
-          { value: '4', label: '定时维护工作流' },
+          { value: '0', label: '当时记录的失效链接' },
+          { value: '4', label: '3 个维护任务 + 1 个备份工作流' },
           { value: 'Git 备份', label: '本地优先恢复层' },
         ],
         evidence: [
           { label: '知识质量', value: '采集规则筛选可复用知识、项目决策、职业素材、工作流和长期模式，而非保存原始对话转储。' },
-          { label: '运维可靠性', value: '每日采集、每周审查、维护审计、HTML 产物生成和 Git 备份通过定时自动化运行。' },
+          { label: '运维可靠性', value: '5 月的实现将采集、审查、审计、派生 HTML 产物和 Git 备份接入定时自动化；当前职责按前述 9 月交接边界执行。' },
           { label: '系统演进', value: '系统从简单采集演变为带有当前判断、证据时间线、关系映射和检索基准的有源知识层。' },
         ],
       },
@@ -137,7 +162,7 @@ export const knowledgeosProject = {
         body: [
           '我选择 Markdown 而非数据库，因为早期风险不是查询速度，而是所有权、可检查性和可维护性。Markdown 保持知识层可移植、人类可读，同时 agent 仍然可以方便地搜索、编辑和备份。',
           '我在自动化之前先设计规则，因为自动化一个模糊的系统只会制造结构化的混乱。采集协议定义了什么值得保留、什么应忽略、什么需要隐私过滤，以及何时新信息应更新已有页面而非创建另一条笔记。',
-          '我用 LLM Wiki 和 GBrain 作为参考项目，但把它们当作模式而非模板。从 LLM Wiki，我借鉴了有源编译页面的理念。从 GBrain，我借鉴了持久实体记忆和关系感知上下文的理念。KnowledgeOS 将这些理念与本地优先的 Markdown 工作流和 Hermes 维护循环结合在一起。',
+          '我用 LLM Wiki 和 GBrain 作为参考项目，但把它们当作模式而非模板。从 LLM Wiki，我借鉴了有源编译页面的理念。从 GBrain，我借鉴了持久实体记忆和关系感知上下文的理念。KnowledgeOS 将这些理念与本地优先的 Markdown 工作流和明确的 agent 维护职责结合在一起。',
           '我还优先选择了定期审查，而不是被动存档。文件夹树重要，但更有价值的是定期把零散更新整理成当前判断的流程。',
         ],
       },

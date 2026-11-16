@@ -13,14 +13,13 @@ export const etongueProject = {
   summary: {
     title: 'E-Tongue Sensory Platform',
     description:
-      '一个 Human Factor Product Design 案例，研究如何把机器味觉数据和人工感官反馈用于更清晰的早期产品判断。',
+      '为评审员和食品开发者设计不同工作流，把机器味觉数据与人工反馈组织成可回溯的比较依据，探索从复杂证据到产品判断的路径。',
     modelType: 'laptop',
     modelAlt: '笔记本电脑上展示的 E-Tongue 感官决策支持原型',
     quickFacts: [
-      { label: '角色', value: 'UX Researcher + UI Designer' },
-      { label: '课程', value: 'Human Factor Product Design' },
-      { label: '方法', value: '利益相关者研究、任务分析、原型设计、可用性测试' },
-      { label: '结果', value: '用于混合感官评估和 Go / Tweak / Stop 决策支持的早期原型' },
+      { label: '能力', value: '多角色工作流 · 决策支持 UX' },
+      { label: '阶段', value: '团队研究原型 · Go / Tweak / Stop' },
+      { label: '验证', value: '3 位参与者 · 评审员问卷任务测试' },
     ],
   },
   sections: [
@@ -155,6 +154,8 @@ export const etongueProject = {
       heading: '测试快照',
       body: [
         '我们的可用性测试是形成性的。目标是在系统进一步打磨前，找出术语、量表设计和工作流预期可能失效的地方。',
+        '观察结果确定了下一步设计的三个重点：在问卷里保留就地术语解释，统一评分量表与情绪反应标签，并明确起始和进度状态。这些是研究发现与修订重点，不是已经测量的前后改善。',
+        '3 位参与者的研究覆盖评审员问卷任务。本案例没有报告修改后原型的复测，也没有验证概念界面中开发者建议的逻辑、置信度分数或预计节省成本。',
       ],
       metrics: [
         { value: '3', label: '参与测试的评审员' },

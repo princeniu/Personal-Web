@@ -3,6 +3,20 @@ export const knowledgeosProject = {
   title: 'KnowledgeOS',
   description:
     'A local-first personal knowledge system maintained by AI agents. It turns conversations, project updates, research, and decisions into Markdown knowledge I can search, review, audit, and reuse.',
+  url: 'https://github.com/princeniu/KnowledgeOS',
+  linkLabel: 'View the Starter Vault',
+  caseFacts: [
+    { label: 'Period', value: 'May 2026–present' },
+    { label: 'Status', value: 'Personal system · Public Starter Vault template' },
+  ],
+  caseBrief: {
+    label: 'Case study at a glance',
+    items: [
+      { label: 'Problem', value: 'Useful project context gets scattered across conversations and needs continuing maintenance.' },
+      { label: 'Design decision', value: 'Keep durable knowledge in Markdown, with capture rules, review loops, and a clear boundary for formal writes.' },
+      { label: 'Result and scope', value: 'A running personal system and public Starter Vault. Inventory metrics below are a May 2026 snapshot.' },
+    ],
+  },
   roles: [
     'AI System Design',
     'Knowledge Architecture',
@@ -14,7 +28,7 @@ export const knowledgeosProject = {
   summary: {
       title: 'KnowledgeOS',
       description:
-        'A personal knowledge system built with Markdown, Obsidian, Hermes Agent, cron workflows, and Git backup. It keeps useful project context from disappearing inside chat threads.',
+        'A Markdown knowledge system with capture rules, review loops, and Git backup. Codex maintains formal knowledge; Hermes supports candidate collection and existing background workflows.',
       modelType: 'knowledgeSystem',
       modelAlt: 'KnowledgeOS system architecture and Markdown knowledge vault preview',
       preview: {
@@ -26,7 +40,7 @@ export const knowledgeosProject = {
           { title: 'Synthesize', detail: 'current judgment · links' },
           { title: 'Audit', detail: 'structure · backups' },
         ],
-        footerItems: ['Markdown vault', 'Hermes Agent', 'Git-backed', 'Weekly review'],
+        footerItems: ['Markdown vault', 'Codex + Hermes', 'Git-backed', 'Weekly review'],
       },
       quickFacts: [
         { label: 'Role', value: 'Designer-Builder / System Architect' },
@@ -34,10 +48,10 @@ export const knowledgeosProject = {
           label: 'Methods',
           value: 'Information architecture, agent workflow design, automation, audit loops',
         },
-        { label: 'Stack', value: 'Markdown, Obsidian, Hermes Agent, Python, Cron, Git' },
+        { label: 'Stack', value: 'Markdown, Obsidian, Codex, Hermes Agent, Python, Git' },
         {
           label: 'Outcome',
-          value: 'Live system with automated capture, review, audit, and backup',
+          value: 'Running personal system with review, audit, and backup workflows',
         },
       ],
   },
@@ -53,7 +67,15 @@ export const knowledgeosProject = {
         body: [
           'KnowledgeOS is a local-first personal knowledge system I designed and built for a problem I kept running into: useful context was created every day through AI conversations, project updates, research sessions, and product decisions, but most of it disappeared after the session ended.',
           'Instead of treating the knowledge base as a place where I manually file notes, I designed KnowledgeOS as an agent-maintained system. I focus on thinking, building, and deciding; the agent handles the maintenance layer: classifying useful information, deduplicating repeated ideas, updating project memory, synthesizing weekly patterns, auditing structure health, and backing up the vault over time.',
-          'The system is intentionally simple at the storage layer. Markdown remains the source of truth, readable by Obsidian, VS Code, Git, and Hermes Agent. Its compiled knowledge layer deliberately borrows from LLM Wiki and GBrain: source-backed concept pages, entity memory, relationship mapping, and current judgments that agents can reuse across sessions.',
+          'The system is intentionally simple at the storage layer. Markdown remains the source of truth, readable by Obsidian, VS Code, Git, Codex, and Hermes Agent. Its compiled knowledge layer borrows from LLM Wiki and GBrain: source-backed concept pages, entity memory, relationship mapping, and current judgments that agents can reuse across sessions.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Maintenance Ownership: September 2026',
+        body: [
+          'The first version used Hermes Agent for capture and maintenance. Since September 30, 2026, Codex is the primary maintainer of formal KnowledgeOS pages. Hermes provides candidates and supports existing backup and derived-view workflows; it no longer writes formal pages by default.',
+          'Formal updates follow a serialized submission process. The earlier diagrams and May inventory below describe the original system, while this ownership boundary describes the current maintenance model.',
         ],
       },
       {
@@ -69,7 +91,7 @@ export const knowledgeosProject = {
         type: 'text',
         heading: 'Design Principles',
         body: [
-          'The first principle was agent-maintained, not user-maintained. KnowledgeOS should not ask me to manually sort every useful thought. Hermes Agent follows capture rules to decide whether something should be ignored, appended to an existing note, turned into project memory, or preserved as a longer-term pattern.',
+          'The first principle was agent-maintained, not user-maintained. KnowledgeOS should not ask me to manually sort every useful thought. Capture rules decide whether information should be ignored, proposed as a candidate, merged into an existing page, or preserved as project memory. Codex owns formal updates; Hermes supports candidate collection.',
           'The second principle was Markdown as source of truth. I avoided databases, proprietary dashboards, and premature vector infrastructure because the system needed to stay inspectable, portable, and resilient. Every durable piece of knowledge lives in a local file that can be read by humans and edited by agents.',
           'The third principle was save less, maintain better. KnowledgeOS does not preserve raw transcript dumps. A note has to reduce future repeated explanation, support a project, improve a decision, become career material, capture a reusable workflow, or clarify a durable pattern. The system protects attention instead of archiving everything.',
           'The final principle was current judgment over passive archive. Core pages maintain a current synthesis, an evidence timeline, and related links. Remembering what happened matters less than keeping the latest useful understanding easy to retrieve.',
@@ -100,7 +122,7 @@ export const knowledgeosProject = {
           {
             title: 'Agent Automation',
             description:
-              'Connected Hermes Agent to daily capture, weekly synthesis, maintenance audit, and backup workflows.',
+              'Initially connected Hermes Agent to capture, weekly synthesis, maintenance audit, and backup workflows; formal maintenance later moved to Codex.',
           },
           {
             title: 'Compiled Knowledge Layer',
@@ -117,10 +139,10 @@ export const knowledgeosProject = {
       {
         type: 'image',
         image: 'knowledgeosArchitecture',
-        heading: 'System Architecture: Local Source of Truth, Agent Maintenance Layer',
-        alt: 'KnowledgeOS system architecture diagram with inputs, agent maintenance layer, Markdown vault, and derived outputs',
+        heading: 'Early Architecture: Local Source of Truth, Agent Maintenance Layer',
+        alt: 'Early KnowledgeOS architecture showing inputs, the original agent maintenance layer, Markdown vault, and derived outputs',
         body: [
-          'KnowledgeOS separates the system into four layers. Inputs come from real work: Hermes conversations, project updates, research sources, learning notes, career material, and product ideas. The agent maintenance layer applies capture rules, privacy filtering, classification, deduplication, synthesis, and audits.',
+          'The early diagram separates the system into four layers. Inputs come from conversations, project updates, research sources, learning notes, career material, and product ideas. The maintenance layer applies capture rules, privacy filtering, classification, deduplication, synthesis, and audits. Its original Hermes ownership is historical; formal maintenance now belongs to Codex.',
           'The knowledge layer remains local and legible: a Markdown vault organized around projects, AI workflows, product ideas, research wiki pages, and review logs. Obsidian views, weekly HTML artifacts, resume bullets, portfolio material, and Git backups are generated from that source of truth instead of becoming separate knowledge silos.',
         ],
       },
@@ -156,15 +178,16 @@ export const knowledgeosProject = {
       },
       {
         type: 'metrics',
-        heading: 'Evidence Snapshot',
+        heading: 'May 2026 Implementation Snapshot',
         body: [
-          'KnowledgeOS is a live personal system, so the clearest evidence is operational: the vault has structure, links resolve, automated workflows run, and the knowledge layer is backed up as a recoverable local asset.',
+          'These inventory and link-check counts were recorded in the May 2026 case-study notes. They describe that implementation snapshot, not a current audit or a measured productivity gain.',
+          'The workflow count includes three review and maintenance jobs—daily capture, weekly review, and maintenance audit—plus a separate Git backup workflow. It is a broader count than the three maintenance cron jobs listed in the earlier project summary.',
         ],
         metrics: [
           { value: '100+', label: 'Markdown knowledge files' },
           { value: '450+', label: 'Internal wikilinks' },
-          { value: '0', label: 'Broken links at latest audit' },
-          { value: '4', label: 'Scheduled maintenance workflows' },
+          { value: '0', label: 'Broken links in the recorded snapshot' },
+          { value: '4', label: '3 maintenance jobs + 1 backup workflow' },
           { value: 'Git-backed', label: 'Local-first recovery layer' },
         ],
         evidence: [
@@ -176,7 +199,7 @@ export const knowledgeosProject = {
           {
             label: 'Operational reliability',
             value:
-              'Daily capture, weekly review, maintenance audit, HTML artifact generation, and Git backup run through scheduled automation.',
+              'The May implementation connected capture, review, audit, derived HTML artifacts, and Git backup to scheduled automation. Current ownership follows the September handover described above.',
           },
           {
             label: 'System evolution',
@@ -191,7 +214,7 @@ export const knowledgeosProject = {
         body: [
           'I chose Markdown over a database because the early risk was not query speed; it was ownership, inspectability, and maintenance. Markdown keeps the knowledge layer portable and human-readable while still being easy for agents to search, edit, and back up.',
           'I designed rules before automation because automating an unclear system only creates structured mess. The capture protocol defines what deserves to persist, what should be ignored, what needs privacy filtering, and when new information should update an existing page instead of creating another note.',
-          'I used LLM Wiki and GBrain as reference projects, but treated them as patterns rather than templates. From LLM Wiki, I pulled the idea of source-backed compiled pages. From GBrain, I pulled the idea of persistent entity memory and relationship-aware context. KnowledgeOS combines those ideas with a local-first Markdown workflow and Hermes-driven maintenance loops.',
+          'I used LLM Wiki and GBrain as reference projects, but treated them as patterns rather than templates. From LLM Wiki, I pulled the idea of source-backed compiled pages. From GBrain, I pulled the idea of persistent entity memory and relationship-aware context. KnowledgeOS combines those ideas with a local-first Markdown workflow and explicit agent maintenance responsibilities.',
           'I also prioritized review loops over passive archive. The folder tree matters, but the recurring process matters more: it is what turns scattered updates into current judgment.',
         ],
       },

@@ -2,7 +2,7 @@ export const trekassistProject = {
   slug: 'trekassist',
   title: 'TrekAssist',
   description:
-    'A solar-powered e-ink guide for Yellowstone visitors, shaped through UX/HFE research to support outdoor navigation, emergency response, safety alerts, and low-power interaction.',
+    'A solar-powered e-ink guide concept for Yellowstone visitors, shaped through UX/HFE research to support outdoor navigation, emergency response, safety alerts, and low-power interaction.',
   roles: [
     'Human Factors',
     'Safety-Critical UX',
@@ -13,14 +13,13 @@ export const trekassistProject = {
   summary: {
     title: 'TrekAssist',
     description:
-      'A team UX/HFE case study for a solar-powered outdoor e-ink device, tested with 9 participants across 6 tasks covering navigation, emergency support, and low-power interaction.',
+      'Organize navigation and safety information for an outdoor guide with limited power and a low refresh rate. Team task testing exposed a hard-to-find Low Power Mode.',
     modelType: 'laptop',
     modelAlt: 'TrekAssist e-ink national park guide interface shown on a laptop',
     quickFacts: [
-      { label: 'Role', value: 'UX / Human Factors Designer (team)' },
-      { label: 'Methods', value: 'UI design, usability testing (n=9), task scenarios, flow mapping' },
-      { label: 'Tools', value: 'Figma, e-ink prototyping' },
-      { label: 'Outcome', value: 'Validated safety flows; identified Low Power discoverability issue' },
+      { label: 'Focus', value: 'Human factors research · Device constraints' },
+      { label: 'Limits', value: '800×600 e-ink display · Maximum 1 Hz refresh' },
+      { label: 'Evidence', value: '9 participants · 6 prototype tasks' },
     ],
   },
   sections: [
@@ -164,6 +163,7 @@ export const trekassistProject = {
         'Emergency, weather, destination, and guided-tour tasks were generally successful, which suggested that the large-button structure and persistent safety elements helped users recognize where to go.',
         'Low Power Mode was technically available before testing, but it depended on users finding the right settings path. After testing, the battery icon and settings relationship became a redesign priority, pointing toward contextual low-battery prompts and more visible power controls.',
         'Testing also showed that purely grayscale screens reduced visual appeal and made some information harder to distinguish. The final direction used color selectively for safety distinction, orientation, hierarchy, and warmth.',
+        'These findings connect to two design priorities: clearer battery and settings access for Low Power Mode, and selective color for alert differentiation. The revised screens show the design direction; this case does not report a participant retest after those changes. The task metrics above describe the tested prototype, not measured improvement in the final version.',
       ],
     },
     {

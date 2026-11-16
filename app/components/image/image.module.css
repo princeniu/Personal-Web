@@ -94,7 +94,7 @@
   }
 
   .element {
-    opacity: 0;
+    opacity: 1;
 
     &[data-loaded='true'] {
       opacity: 1;
@@ -117,6 +117,12 @@
     .elementWrapper:hover &,
     &:focus {
       opacity: 1;
+    }
+
+    @media (--mediaTouch) {
+      opacity: 1;
+      height: 44px;
+      padding-inline: var(--spaceS);
     }
   }
 }
