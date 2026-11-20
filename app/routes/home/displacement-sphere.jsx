@@ -121,8 +121,9 @@ export const DisplacementSphere = props => {
   useEffect(() => {
     if (!webglReady) return undefined;
 
-    const dirLight = new DirectionalLight(0xff9933, theme === 'light' ? 2.2 : 2.4);
-    const ambientLight = new AmbientLight(0xff9933, theme === 'light' ? 3.0 : 0.6);
+    const lightColor = theme === 'light' ? 0xff9933 : 0x95aac5;
+    const dirLight = new DirectionalLight(lightColor, theme === 'light' ? 2.2 : 2.4);
+    const ambientLight = new AmbientLight(lightColor, theme === 'light' ? 3.0 : 0.6);
 
     dirLight.position.z = 200;
     dirLight.position.x = 100;

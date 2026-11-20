@@ -9,6 +9,43 @@
   flex-direction: column;
 }
 
+:global([data-theme='dark']) .intro {
+  --ambient-blue: #6ba7ff;
+  --light-pool: 46% 24% at 54% 75%;
+  --sphere-window: 32% 34% at 67% 65%;
+  overflow: clip;
+  background: radial-gradient(
+    ellipse var(--light-pool),
+    color-mix(in srgb, var(--ambient-blue) 24%, transparent),
+    color-mix(in srgb, var(--ambient-blue) 10%, transparent) 55%,
+    transparent
+  ), var(--background);
+
+  @media (--mediaMobile) {
+    --light-pool: 48% 20% at 52% 79%;
+    --sphere-window: 37% 26% at 62% 73%;
+  }
+
+  & .sphere {
+    mask-image: radial-gradient(ellipse var(--sphere-window), #0009, #0004 54%, transparent);
+  }
+
+  & .word::after {
+    background: var(--textLight);
+  }
+
+  & .actions [data-secondary='true'] {
+    --buttonTextColor: var(--textBody);
+    --primary: var(--text);
+  }
+}
+
+.sphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .text {
   max-width: 1024px;
   width: 100%;

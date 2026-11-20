@@ -88,7 +88,9 @@ export function Intro({
           <>
             {isHydrated && (
               <Suspense>
-                <DisplacementSphere />
+                <div className={styles.sphere}>
+                  <DisplacementSphere />
+                </div>
               </Suspense>
             )}
             <header className={styles.text}>
